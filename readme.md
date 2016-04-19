@@ -27,7 +27,8 @@ Your app should have the following RESTful actions:
 
 1. Write 5 user stories for your app.
   * Keep it simple and think about what functionality your MVP needs.
-2. Write the app. (If you need more instructions, reference [tunr](https://github.com/ga-wdi-exercises/tunr_rails_features) or lesson plans on rails )
+2. Build ERD
+3. Write the app. (If you need more instructions, reference [tunr](https://github.com/ga-wdi-exercises/tunr_rails_features) or lesson plans on rails )
 
 ### Bonus
 

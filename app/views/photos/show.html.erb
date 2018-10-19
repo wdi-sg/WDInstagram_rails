@@ -1,0 +1,12 @@
+<%= image_tag @photo.photo_url, style:'height: 300px;' %>
+<p>
+  <strong>Author:</strong>
+  <%= @photo.author %>
+</p>
+
+<p>
+  <strong>Date taken:</strong>
+  <%= @photo.date_taken %>
+</p>
+
+<%= link_to 'Back', photos_path %>

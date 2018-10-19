@@ -36,8 +36,7 @@ Your app should have the following RESTful actions:
 
 1. Add a column for `caption` to your Entry, which is a text description of the shot. You'll need to generate a database migration for this and then update the rest of your app to be able to display these captions.
 2. Instead of using a string for a date, try using a ruby [DateTime Object](http://api.rubyonrails.org/classes/DateTime.html)
-3. Add a second "Comments" model to your app so that users may leave comments on each of your Entries.
-4. Give your Comments model full CRUD capability.
+
 
 ### Super bonus
 1. Create the ability to make a new entry using a random GIF from the [Giphy API](https://api.giphy.com/)

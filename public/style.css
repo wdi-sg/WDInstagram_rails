@@ -1,0 +1,15 @@
+.inline {
+    display: inline-block;
+    text-decoration: underline;
+}
+
+
+.headings {
+    margin: 20px auto;
+}
+
+.links {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}

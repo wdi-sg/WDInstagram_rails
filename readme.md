@@ -2,7 +2,7 @@
 
 In this repository, there is a brand new rails application. It has no code in it except for the things that are generated with `rails new`.
 
-!(https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif)[https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif]
+![https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif](https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif)
 
 ## Prompt
 Today you're going to make your own version of Instagram (or something very close to it!). Your photo feed app will have full CRUD capability and operate on a single Entry model.

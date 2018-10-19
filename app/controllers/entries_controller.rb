@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @entry = Entry.find(params[:id])
   end
 
   def create
@@ -21,9 +22,16 @@ class EntriesController < ApplicationController
   end
 
   def update
+    @entry = Entry.find(params[:id])
+    @entry.update(entry_params)
+    redirect_to @entry
   end
 
   def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+
+    redirect_to( entries_path )
   end
 
 private

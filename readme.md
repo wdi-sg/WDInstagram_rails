@@ -2,6 +2,8 @@
 
 In this repository, there is a brand new rails application. It has no code in it except for the things that are generated with `rails new`.
 
+!(https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif)[https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif]
+
 ## Prompt
 Today you're going to make your own version of Instagram (or something very close to it!). Your photo feed app will have full CRUD capability and operate on a single Entry model.
 
@@ -39,3 +41,4 @@ Your app should have the following RESTful actions:
 
 ### Super bonus
 1. Create the ability to make a new entry using a random GIF from the [Giphy API](https://api.giphy.com/)
+2. Try using the official giphy API gem: https://github.com/Giphy/giphy-ruby-client

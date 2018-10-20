@@ -1,0 +1,28 @@
+<div class = "container">
+    <nav class = "navbar navbar-light" style="background-color: #e3f2fd;">
+    <h1>Photos</h1>
+    <button class = "navbar-toggler"><%= link_to 'New photo', new_photo_path %></button>
+    </nav>
+    <% @photos.each do |photo| %>
+        <div class = "rows">
+            <div class = "col-sm-6 vert-offset-top">
+                <p>
+                <strong>Author:</strong>
+                <%= photo.author %>
+                </p>
+
+                <p>
+                <%= image_tag photo.photo_url %>
+                </p>
+
+                <p>
+                <strong>Caption:</strong>
+                <%= photo.caption %>
+                </p>
+                <button><%= link_to 'Show', photo_path(photo) %></button>
+                <button><%= link_to 'Edit', edit_photo_path(photo) %></button>
+                <button><%= link_to 'Delete', photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            </div>    
+        </div>    
+    <% end %>    
+</div>  

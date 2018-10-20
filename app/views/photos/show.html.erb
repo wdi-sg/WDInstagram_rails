@@ -1,0 +1,21 @@
+<div class = "container">
+    <p>
+    <strong>Author:</strong>
+    <%= @photo.author %>
+    </p>
+
+    <p>
+    <strong>Photo:</strong>
+    <%= image_tag @photo.photo_url %>
+    </p>
+
+    <p>
+    <strong>Caption:</strong>
+    <%= @photo.caption %>
+    </p>
+
+    <button><%= link_to 'Home', photos_path %></button>
+
+    <button><%= link_to 'Edit', edit_photo_path(@photo) %></button>
+    
+</div>    

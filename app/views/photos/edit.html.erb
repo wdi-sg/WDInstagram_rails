@@ -1,6 +1,6 @@
 <h1>Edit photo</h1>
 
-<%= form_with scope: :photo, url: @photo, local: true do |form| %>
+<%= form_with scope: :photo, url: photos_path, local: true do |form| %>
   <p>
     <%= form.label :author %><br>
     <%= form.text_field :author %>
@@ -19,7 +19,7 @@
   <p>
     <%= form.submit %>
   </p>
-  
+
 <% end %>
 
 <%= link_to 'Back', photos_path %>

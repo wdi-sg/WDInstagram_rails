@@ -1,28 +1,26 @@
-<h1>Listing posts</h1>
+<div class="container">
+		<h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Photo</th>
-    <th>Caption</th>
-    <th></th>
-  </tr>
+		<%= link_to 'My Posts', controller: 'posts' %>
+		<%= link_to 'New Post', new_post_path %>
 
-  <% @post.each do |post| %>
-    <tr>
-      <td><%= post.author %></td>
-      <td><%= cl_image_tag(post.photo_url) %></td>
-      <td><%= post.caption %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
+		<% @post.each do |post| %>
+				<div class="card-img-top">
+								<%= cl_image_tag(post.photo_url) %>
+
+						<div class="row">
+								<div class="col">
+										<strong>
+												<%= post.author %>
+										</strong>
+												<%= post.caption %>
+								</div>
+						</div>
+								<%= link_to 'Show', post_path(post) %>
+								<%= link_to 'Edit', edit_post_path(post) %>
+								<%= link_to 'Destroy', post_path(post),
         method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to 'My Posts', controller: 'posts' %>
-<%= link_to 'New Post', new_post_path %>
-
+        data: { confirm: 'Are you sure?' } %>
+				</div>
+				<% end %>
+</div>

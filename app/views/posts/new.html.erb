@@ -1,3 +1,6 @@
+<div class="container">
+	<h1>Create new post</h1>
+
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
 	<p>
 		<%= form.label :author %><br>
@@ -21,3 +24,4 @@
 <% end %>
 
 <%= link_to 'Back', posts_path %>
+</div>

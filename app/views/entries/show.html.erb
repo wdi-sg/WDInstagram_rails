@@ -11,7 +11,7 @@
 						<%= link_to 'Back', entries_path %>
 			</div>
 			<div class="card-footer">
-				<small class="text-muted"><%=@entry.created_at%></small>
+				<small class="text-muted"><%=@entry.created_at.localtime%></small>
 			</div>
 			</div>
 

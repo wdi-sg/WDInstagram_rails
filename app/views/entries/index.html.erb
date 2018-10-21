@@ -12,7 +12,7 @@
 		        data: { confirm: 'Are you sure?' } %>
 			</div>
 			<div class="card-footer">
-				<small class="text-muted"><%=entry.created_at%></small>
+				<small class="text-muted"><%=entry.created_at.localtime%></small>
 			</div>
 			</div>
 	<% end %>

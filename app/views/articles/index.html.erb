@@ -1,0 +1,28 @@
+<h1>Instagram Feed</h1>
+
+<table>
+	<tr>
+		<th>Author</th>
+		<th>Photo</th>
+		<th>Caption</th>
+		<th>Date Taken</th>
+	</tr>
+
+	<% @articles.each do |article| %>
+		<tr>
+			<td><%= article.author %></td>
+			<!-- <td><img src=@article.photo_url></td> -->
+			<td><%= article.photo_url %></td>
+			<td><%= article.caption %></td>
+			<td><%= article.date_taken %></td>
+			<td><%= link_to 'Show', article_path(article) %></td>
+			<td><%= link_to 'Edit', edit_article_path(article) %></td>
+			<td><%= link_to 'Delete', article_path(article),
+        method: :delete,
+        data: { confirm: 'Yo, you sure you want to delete this post?' } %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+<%= link_to 'New post', new_article_path %>

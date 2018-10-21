@@ -4,12 +4,12 @@
 </p>
 
 <p>
-  <strong>photo URL:</strong>
-  <%= @wdinstagram.photo_url %>
+  <strong>Photo URL:</strong>
 </p>
+<p><%=image_tag @wdinstagram.photo_url, width: "50%", height:"50%" %></p>
 
 <p>
-  <strong>photo URL:</strong>
+  <strong>Photo Taken:</strong>
   <%= @wdinstagram.date_taken %>
 </p>
 

@@ -1,6 +1,6 @@
 
-<h1>WDI Instagrams</h1>
-<%= link_to 'WDI Instagrams', controller: 'wdinstagrams' %>
+<h1><%= link_to 'WDI Instagrams', controller: 'wdinstagrams' %></h1>
+
 <%= link_to 'New Photo', new_wdinstagram_path %>
 
 <table>
@@ -13,7 +13,7 @@
   <% @wdinstagrams.each do |wdinstagram| %>
     <tr>
       <td><%= wdinstagram.author %></td>
-      <td><%= wdinstagram.photo_url %></td>
+      <td><%= image_tag wdinstagram.photo_url, width: "50", height:"50"%></td>
       <td><%= wdinstagram.date_taken %></td>
       <td><%= link_to 'Show', wdinstagram_path(wdinstagram) %></td>
       <td><%= link_to 'Edit', edit_wdinstagram_path(wdinstagram) %></td>

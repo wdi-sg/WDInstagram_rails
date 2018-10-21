@@ -1,0 +1,20 @@
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong>Photo URL:</strong>
+  <%= @post.photo_url %>
+</p>
+
+
+<p>
+  Date taken:
+  <%= @post.date_taken %>
+</p>
+
+<%= link_to 'Back', posts_path %>

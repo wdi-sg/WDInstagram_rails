@@ -1,6 +1,6 @@
 <p>
   <strong>Photo:</strong>
-  <%= @entry.photo_url %>
+	<%= image_tag(@entry.photo_url, :alt => "rss feed") %>
 </p>
 
 <p>
@@ -8,7 +8,5 @@
   <%= @entry.author %>
 </p>
 <%= link_to 'Edit', edit_entry_path(@entry) %>
-
-
 <%= link_to 'Back', entries_path %>
 

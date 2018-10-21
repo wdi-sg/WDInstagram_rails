@@ -5,9 +5,14 @@
 <div class="myPosts">
 <h3><%= element.title %></h3>
 
-<p><img src="https://imgur.com/a/J6v7JZT"> <%= element.url %></p>
+<figure>
+<%= image_tag "london.jpg", :class => "rounded float-left", :height => '400px' %>
+<figcaption><%= element.description %></figcaption>
+</figure>
+
+<p><%= element.url %></p>
 <p><%= element.created_at %></p>
-<p><%= element.description %></p>
+
 <%= link_to "Select post", post_path(element), :class => 'btn btn-default' %>
 </div>
 

@@ -10,7 +10,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @post.date %>
+  <%= @post.created_at.to_formatted_s(:short) %>
 </p>
 
 <p>

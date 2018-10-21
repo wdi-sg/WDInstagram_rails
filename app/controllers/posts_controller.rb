@@ -30,6 +30,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    uploaded_file = params[:post][:photo_url].path
+    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+    #render json: cloudnary_file
+
+    params[:post][:photo_url] = cloudnary_file['public_id']
 
     @post.update(post_params)
     redirect_to @post

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dsfjnc10g
+  api_key: '169884315513833'
+  api_secret: w0eiZmMsG8dvH599p0KdqHZbC4k
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dsfjnc10g
+  api_key: '169884315513833'
+  api_secret: w0eiZmMsG8dvH599p0KdqHZbC4k
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dsfjnc10g
+  api_key: '169884315513833'
+  api_secret: w0eiZmMsG8dvH599p0KdqHZbC4k
+  enhance_image_tag: true
+  static_image_support: false

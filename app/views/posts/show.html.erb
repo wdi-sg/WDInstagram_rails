@@ -1,0 +1,20 @@
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= cl_image_tag(@post.photo_url) %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @post.date %>
+</p>
+
+<p>
+	<%= link_to 'Back', posts_path %>
+	<%= link_to 'Edit', edit_post_path(@post) %>
+
+</p>

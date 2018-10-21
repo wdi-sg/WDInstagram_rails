@@ -1,0 +1,29 @@
+<h1>User Stories</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Date Taken</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Remove</th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.author %></td>
+      <td><img src=<%= entry.photo_url %> width="200px"></td>
+      <td><%= entry.date_taken %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+      <td><%= link_to 'Destroy', entry_path(entry),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'My Stories', controller: 'entries' %></p>
+
+<p><%= link_to 'New Story', new_entry_path %></p>

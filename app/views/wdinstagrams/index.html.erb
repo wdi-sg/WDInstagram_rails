@@ -1,0 +1,25 @@
+
+<h1>WDI Instagrams</h1>
+<%= link_to 'WDI Instagrams', controller: 'wdinstagrams' %>
+<%= link_to 'New Photo', new_wdinstagram_path %>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Photo URL</th>
+    <th>Date Taken</th>
+  </tr>
+
+  <% @wdinstagrams.each do |wdinstagram| %>
+    <tr>
+      <td><%= wdinstagram.author %></td>
+      <td><%= wdinstagram.photo_url %></td>
+      <td><%= wdinstagram.date_taken %></td>
+      <td><%= link_to 'Show', wdinstagram_path(wdinstagram) %></td>
+      <td><%= link_to 'Edit', edit_wdinstagram_path(wdinstagram) %></td>
+      <td><%= link_to 'Delete', wdinstagram_path(wdinstagram),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

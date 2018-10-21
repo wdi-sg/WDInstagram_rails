@@ -1,0 +1,22 @@
+<%= form_with scope: :wdinstagram, url: wdinstagrams_path, local: true do |form| %>
+	<p>
+		<%= form.label :author %><br>
+		<%= form.text_field :author %>
+	</p>
+
+	<p>
+		<%= form.label :photo_url %><br>
+		<%= form.text_area :photo_url %>
+	</p>
+
+	<p>
+		<%= form.label :date_taken %><br>
+		<%= form.text_area :date_taken %>
+	</p>
+
+	<p>
+		<%= form.submit 'submit photo' %>
+	</p>
+<% end %>
+
+<%= link_to 'Home', wdinstagrams_path %>

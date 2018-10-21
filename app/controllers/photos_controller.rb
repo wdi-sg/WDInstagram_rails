@@ -21,10 +21,10 @@ class PhotosController < ApplicationController
     end
   
     def update
-        @photo=Photo.find(params[:id])
+        @photo= Photo.find(params[:id])
 
         @photo.update(photo_params)
-        redirect_to @photo
+        redirect_to ("/photos")
     end
   
     def destroy

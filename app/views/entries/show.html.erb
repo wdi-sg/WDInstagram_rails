@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+	<div class="col-12 col-md-10 col-lg-8">
+		<img src="<%= @entry.photo_url %>" class="w-100">
+	</div>
+	<div class="col-12 col-md-10 col-lg-8">
+		<p><%= @entry.caption %>
+		<p>
+			<strong>Author:</strong>
+			<%= @entry.author %>
+		</p>
+		<p>
+			<strong>Date:</strong>
+			<%= @entry.date_taken %>
+		</p>
+		<%= link_to 'Edit', edit_entry_path(@entry) %>
+		<%= link_to 'Delete', entry_path(@entry),
+						method: :delete,
+						data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Back', entries_path %>
+	</div>
+</div>

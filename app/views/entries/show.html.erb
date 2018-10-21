@@ -3,7 +3,7 @@
 				<%= image_tag(@entry.photo_url, :alt => "entry", :class => "card-img-top") %>
 				<div class="card-body">
 				<h5 class="card-title"><%=@entry.author%></h5>
-				<p>Caption Placeholder</p>
+				<p><%= @entry.caption %></p>
 						<%= link_to 'Edit', edit_entry_path(@entry) %>
 						<%= link_to 'Delete', entry_path(@entry),
 		        method: :delete,
@@ -14,5 +14,4 @@
 				<small class="text-muted"><%=@entry.created_at.localtime%></small>
 			</div>
 			</div>
-
 </div>

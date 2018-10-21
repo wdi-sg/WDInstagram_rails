@@ -1,3 +1,24 @@
+api_instance = GiphyClient::DefaultApi.new
+
+api_key = ENV['GIPHY']
+ # String | Giphy API Key.
+
+$result = ''
+
+opts = { 
+  tag: "burrito", # String | Filters results by specified tag.
+  rating: "g", # String | Filters results by specified rating.
+  fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+}
+
+begin
+  #Random Endpoint
+  $result = api_instance.gifs_random_get(api_key, opts)
+  
+rescue GiphyClient::ApiError => e
+  puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
+end
+
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
@@ -8,6 +29,7 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @gif = $result.data.image_original_url
   end
 
   def edit

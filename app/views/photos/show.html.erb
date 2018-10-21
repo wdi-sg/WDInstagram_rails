@@ -1,0 +1,21 @@
+<p>
+  <strong>Author:</strong>
+  <%= @photo.author %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @photo.url %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @photo.date %>
+</p>
+
+<p>
+<%= link_to 'Back', photos_path %>
+</p>
+<p>
+<%= link_to 'Edit', edit_photo_path(@photo) %>
+</p>

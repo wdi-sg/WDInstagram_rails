@@ -1,0 +1,28 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @article.post %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @article.author %>
+</p>
+
+
+<p>
+  <strong>Photo:</strong>
+  <%= @article.photo_url %>
+</p>
+
+<p>
+  <strong>Date Taken:</strong>
+  <%= @article.date_taken %>
+</p>
+
+<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>

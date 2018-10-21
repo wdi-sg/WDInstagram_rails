@@ -1,0 +1,14 @@
+<p>
+  <strong>Photo:</strong>
+  <%= @entry.photo_url %>
+</p>
+
+<p>
+  <strong>Who:</strong>
+  <%= @entry.author %>
+</p>
+<%= link_to 'Edit', edit_entry_path(@entry) %>
+
+
+<%= link_to 'Back', entries_path %>
+

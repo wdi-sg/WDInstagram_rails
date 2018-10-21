@@ -1,1 +1,25 @@
-<h1>hello world</h1>
+<h1>Listing Entries</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.photo_url %></td>
+      <td><%= entry.author %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+			<td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+			<td><%= link_to 'Destroy', entry_path(entry),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+	<%= link_to 'New entry', new_entry_path %>
+	<%= link_to 'My Feed', controller: 'entries' %>
+
+</table>

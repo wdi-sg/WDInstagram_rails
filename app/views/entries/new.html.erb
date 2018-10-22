@@ -5,7 +5,7 @@
 		<%= form_with scope: :entry, url: entries_path, local: true do |form|  %>
 		  <p>
 		    <%= form.label :photo_url %><br>
-		    <%= form.text_field :photo_url, value: @gif %>
+		    <%= form.url_field :photo_url, value: @gif %>
 		  </p>
 
 		  <p>

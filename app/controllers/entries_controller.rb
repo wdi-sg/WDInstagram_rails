@@ -2,7 +2,7 @@
 
 class EntriesController < ApplicationController
   def index
-    @entries = Entry.all
+    @entries = Entry.order(id: :desc)
   end
 
   def show

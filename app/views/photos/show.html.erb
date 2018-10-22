@@ -1,11 +1,8 @@
+<%= image_tag @photo.url, style:'height: 300px;' %>
+
 <p>
   <strong>Author:</strong>
   <%= @photo.author %>
-</p>
-
-<p>
-  <strong>URL:</strong>
-  <%= @photo.url %>
 </p>
 
 <p>
@@ -14,8 +11,18 @@
 </p>
 
 <p>
+  <strong>Comments:</strong>
+  <%= @photo.comments %>
+</p>
+
+<p>
 <%= link_to 'Back', photos_path %>
 </p>
 <p>
 <%= link_to 'Edit', edit_photo_path(@photo) %>
+</p>
+<p>
+<%= link_to 'Destroy', photo_path(@photo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 </p>

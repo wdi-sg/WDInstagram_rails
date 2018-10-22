@@ -1,26 +1,11 @@
-<h1>Listing articles</h1>
+<h1>WDInstagram</h1>
 
-<%= link_to 'Insta', controller: 'photos' %>
-<%= link_to 'New photo', new_photo_path %>
-
-
+<%= link_to 'NEW', new_photo_path %>
 <table>
-  <tr>
-    <th>Author</th>
-    <th>URL</th>
-    <th>Date</th>
-  </tr>
-
-  <% @photos.each do |photo| %>
+  
     <tr>
-      <td><%= photo.author %></td>
-      <td><%= photo.url %></td>
-      <td><%= photo.date %></td>
-      <td><%= link_to 'Show', photo_path(photo) %></td>
-      <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-      <td><%= link_to 'Destroy', photo_path(photo),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+    <% @photos.each do |photo| %>
+      <td><%= link_to image_tag(photo.url, style: 'height: 30vh ; width: 45vw '), photo_path(photo) %></td>
     </tr>
   <% end %>
 </table>

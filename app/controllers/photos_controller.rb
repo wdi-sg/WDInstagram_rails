@@ -35,6 +35,6 @@ class PhotosController < ApplicationController
 
     private
     def photo_params
-        params.require(:photo).permit(:author, :url, :date)
+        params.require(:photo).permit(:author, :url, :date, :comments)
     end
   end

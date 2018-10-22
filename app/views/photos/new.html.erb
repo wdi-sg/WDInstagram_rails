@@ -9,11 +9,17 @@
     <%= form.text_field :url %>
   </p>
 
-  <p>
-    <%= form.label :date%><br>
-    <%= form.text_field :date %>
+   <p>
+    <%= form.label :date %><br>
+    <%= form.datetime_field :date %>
   </p>
 
+  <p>
+    <%= form.label :comments %><br>
+    <%= form.text_field :comments %>
+  </p>
+
+  
   <p>
     <%= form.submit %>
   </p>

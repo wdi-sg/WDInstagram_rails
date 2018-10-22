@@ -1,3 +1,4 @@
+<h1> Create Entry </h1>
 <%= form_with scope: :entry, url: entries_path, local: true do |form| %>
 	<p>
 		<%= form.label :author %><br>
@@ -7,6 +8,11 @@
 	<p>
 		<%= form.label :photo_url %><br>
 		<%= form.file_field :photo_url %>
+	</p>
+
+	<p>
+		<%= form.label :caption %><br>
+		<%= form.text_field :caption %>
 	</p>
 
 	<p>

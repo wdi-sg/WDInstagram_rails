@@ -15,6 +15,12 @@ class EntriesController < ApplicationController
   end
 
   def create
+    uploaded_file = params[:entry][:photo_url].path
+    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+    params[:entry][:photo_url] = cloudnary_file['public_id']
+
+
     @entry = Entry.new(entry_params)
 
     @entry.save

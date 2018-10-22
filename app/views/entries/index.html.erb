@@ -1,20 +1,20 @@
-<h1>All entries</h1>
+<h1>WDInstagrams_Rails</h1>
 <hr>
-
-<ul>
-  <% @entries.each do |entry| %>
-    <li>
-      <p><%= entry.id %></p>
-      <p><%= entry.author %></p>
-      <p><%= entry.photo_url %></p>
-      <p><%= entry.date_taken %></p>
-      <p>
-      	<%= link_to 'Show', entry_path(entry) %>
-	      <%= link_to 'Edit', edit_entry_path(entry) %>
-	      <%= link_to 'Destroy', entry_path(entry),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+	<ol>
+	  <% @entries.each do |entry| %>
+	    <li>
+	      <p><%= entry.author %></p>
+	      <p><%= entry.photo_url %></p>
+	      <p><%= entry.date_taken %></p>
+	      <p>
+	      	<%= link_to 'Show', entry_path(entry) %>
+		      <%= link_to 'Edit', edit_entry_path(entry) %>
+		      <%= link_to 'Destroy', entry_path(entry),
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %>
+	      </p>
+	    </li>
+	  <% end %>
+	</ol>
+</div>

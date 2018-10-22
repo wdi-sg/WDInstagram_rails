@@ -6,9 +6,8 @@ class EntriesController < ApplicationController
   end
 
   def show
-    key = params[:id]
-    @entry = Entry.find(key)
-    @comments = Comment.where("entry_id = '#{key}'")
+    @entry = Entry.find(params[:id])
+    @comments = Comment.where("entry_id=?", params[:id])
     puts @comments
   end
 

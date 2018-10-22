@@ -66,7 +66,9 @@
       <td><%= article.date_taken %></td>
      </tr>
      <tr>
-      <td><%= link_to 'Show', article_path(article) %>
+      <td>
+      	<%= link_to 'Comment', new_comment_path %>
+      	<%= link_to 'Show', article_path(article) %>
       <%= link_to 'Edit', edit_article_path(article) %>
       <%= link_to 'Delete', article_path(article),
         method: :delete,

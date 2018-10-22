@@ -29,6 +29,11 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
+    uploaded_file = params[:entry][:photo_url].path
+    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+    params[:entry][:photo_url] = cloudnary_file['public_id']
+
     @entry.update(entry_params)
     redirect_to @entry
   end

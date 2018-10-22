@@ -18,7 +18,7 @@
       <td><%= instagram.photo_url %></td>
        <td><%= instagram.date_taken %></td>
       <td><%= link_to 'Show', instagram_path(instagram) %></td>
-      <td><%= link_to 'Edit', edit_instagram_path(@instagram) %></td>
+      <td><%= link_to 'Edit', edit_instagram_path(instagram) %></td>
       <td><%= link_to 'Destroy', instagram_path(instagram),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>

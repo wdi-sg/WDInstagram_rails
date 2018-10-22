@@ -9,7 +9,7 @@
 			<img class="card-img-top" src="<%= entry.photo_url %>">
 			<p><%= entry.caption %></p>
 			<p>By: <%= entry.author %></p>
-			<p>Date: <%= (entry.date + 8.hours).to_date.to_s(:rfc822) %></p> 
+			<p>Date: <%= entry.date.localtime.to_date.to_s(:rfc822) %></p> 
 			<p>
 				<%= link_to 'Show', entry_path(entry) %>
 				<%= link_to 'Edit', edit_entry_path(entry) %>

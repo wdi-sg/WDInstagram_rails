@@ -15,7 +15,7 @@
 
 		<p>
 			<strong>Date:</strong>
-			<%= (@entry.date + 8.hours).to_date.to_s(:rfc822) %>
+			<%= @entry.date.localtime.to_date.to_s(:rfc822) %>
 		</p>
 
 		<%= link_to 'Edit', edit_entry_path(@entry) %>

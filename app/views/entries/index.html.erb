@@ -8,6 +8,7 @@
     <th>Show</th>
     <th>Edit</th>
     <th>Remove</th>
+    <th>Comment</th>
   </tr>
 
   <% @entries.each do |entry| %>
@@ -20,6 +21,7 @@
       <td><%= link_to 'Destroy', entry_path(entry),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
+      <td>hi</td>
     </tr>
   <% end %>
 </table>

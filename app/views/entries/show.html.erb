@@ -1,10 +1,11 @@
 <div class="row justify-content-center">
-
-	<div class="col-12 col-md-10 col-lg-8">
+	<div class="col-12 col-sm-10 col-md-8 col-lg-6">
 		<img src="<%= @entry.photo_url %>" class="w-100">
 	</div>
+</div>
 
-	<div class="col-12 col-md-10 col-lg-8">
+<div class="row justify-content-center">
+	<div class="col-12 col-sm-10 col-md-8 col-lg-6">
 		<p><%= @entry.caption %>
 
 
@@ -18,6 +19,37 @@
 			<%= @entry.date.localtime.to_date.to_s(:rfc822) %>
 		</p>
 
+		<p><strong>Comments:</strong></p>
+
+		<% @comments.each do |comment| %>
+			<p><strong><%= comment.author %> </strong><%= comment.message %><span class="small"> - <%= comment.created_at.localtime %></span></p>
+		<% end %>
+
+		<hr>
+
+		<p>New Comment:</p>
+
+		<%= form_with scope: :comment, url: entry_comments_path(@entry), local: true do |form| %>
+
+			<%= form.hidden_field :entry_id, value:@entry.id %>
+		
+			<p>
+				<%= form.label :author %><br>
+				<%= form.text_field :author %>
+			</p>
+
+			<p>
+				<%= form.label :message %><br>
+				<%= form.text_area :message %>
+			</p>
+
+			<p>
+				<%= form.submit %>
+			</p>
+		<% end %>
+
+		
+
 		<%= link_to 'Edit', edit_entry_path(@entry) %>
 		<%= link_to 'Delete', entry_path(@entry),
 						method: :delete,
@@ -25,3 +57,4 @@
 		<%= link_to 'Back', entries_path %>
 	</div>
 </div>
+

@@ -1,16 +1,14 @@
 
-<h1>InstaPosts</h1>
-
 <% @posts.each do |element| %>
 <div class="myPosts">
 <h3><%= element.title %></h3>
 
 <figure>
-<%= image_tag "london.jpg", :class => "rounded float-left", :height => '400px' %>
+<%= image_tag element.url, :height => '250px', :width => '250px' %>
 <figcaption><%= element.description %></figcaption>
 </figure>
 
-<p><%= element.url %></p>
+
 <p><%= element.created_at %></p>
 
 <%= link_to "Select post", post_path(element), :class => 'btn btn-default' %>

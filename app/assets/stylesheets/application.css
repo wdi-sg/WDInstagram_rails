@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.myPosts {
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.container {
+	text-align: center;
+	background-image: url("c10.gif");
+	background-size: cover;
+}
+
+.obj {
+	display: inline-block;
+}

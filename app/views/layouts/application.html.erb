@@ -11,7 +11,7 @@
 
   <body>
 
-  	<nav class="navbar navbar-default">
+  	<nav class="navbar navbar-inverse">
   	      <div class="container">
   	        <div class="navbar-header">
   	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,12 +23,15 @@
   	          <a class="navbar-brand" href="#">Instagram for poor</a>
   	        </div>
   	        <div id="navbar" class="collapse navbar-collapse">
-  	          <ul class="nav navbar-nav">
-  	            <li><%= link_to "Home", home_path %></li>
+  	          <ul class="nav nav-pills">
+  	            <li role="presentation"><%= link_to "Home", home_path %></li>
+  	            <li role="presentation"><%= link_to "About", home_path %></li>
+  	            <li role="presentation"><%= link_to "Policies", home_path %></li>
+  	            <ul class="nav nav-pills navbar-right">
+  	            <li role="presentation"><%= link_to "Create Post", new_post_path %></li>
   	          </ul>
-  	          <ul class="nav navbar-nav navbar-right">
-  	            <li><%= link_to "Create Post", new_post_path %></li>
   	          </ul>
+
   	        </div><!--/.nav-collapse -->
   	      </div>
   	    </nav>

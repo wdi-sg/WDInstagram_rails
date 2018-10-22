@@ -1,6 +1,12 @@
 <h1>Add Post</h1>
 
 <%= form_for :post, url: posts_path do |form| %>
+
+<% if @post.errors.full_messages.each do |msg| %>
+<div class="alert alert-danger"><%= msg %></div>
+<% end %>
+<% end %>
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field(:title, {:class => 'form-control'}) %>
@@ -9,11 +15,6 @@
   <p>
     <%= form.label :url %><br>
     <%= form.text_field(:url, {:class => 'form-control'}) %>
-  </p>
-
-  <p>
-    <%= form.label :date %><br>
-    <%= form.text_field(:date, {:class => 'form-control'}) %>
   </p>
 
   <p>

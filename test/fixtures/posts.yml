@@ -2,12 +2,16 @@
 
 one:
   title: MyString
+  string: MyString
   url: MyString
-  date: MyText
-  description: MyText
+  text: MyString
+  description: MyString
+  text: MyString
 
 two:
   title: MyString
+  string: MyString
   url: MyString
-  date: MyText
-  description: MyText
+  text: MyString
+  description: MyString
+  text: MyString

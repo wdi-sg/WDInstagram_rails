@@ -1,11 +1,39 @@
-<h2><%= @post.title %></h2>
+<h2> <%= @post.title %> </h2>
+<div class = "obj"><%= image_tag @post.url, :height => '450px', :width => '450px' %></div>
 
-<p> <%= @post.url %></p>
-<p><%= @post.created_at %></p>
-<p><%= @post.description %></p>
+<% @post.comments.each do |comms| %>
+
+<div class="obj">
+	<p><strong><%= comms.author %></strong> <%= comms.body %> </p>
+</div>
+<% end %>
+
+<p> <%= @post.description %> </p>
 
 <hr>
 <%= link_to "edit", edit_post_path(@post), :class => 'btn btn-default' %>
 
-<%= link_to "delete", post_path(@post), method: :delete, data: {confirm: 'Really?'}, :class => 'btn btn-default' %>
+<%= link_to "delete", post_path(@post), method: :delete, data: {confirm: 'Really?'}, :class => 'btn btn-danger' %>
 
+<hr>
+
+
+
+
+<h3>Add comment</h3>
+
+<%= form_for ([@post, @post.comments.build]) do |form| %>
+	<p>
+		<%= form.label :author %><br>
+		<%= form.text_field(:author, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= form.label :body %><br>
+		<%= form.text_field(:body, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= form.submit({:class => 'btn btn-primary'}) %>
+	</p>
+<% end %>

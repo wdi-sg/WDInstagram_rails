@@ -8,7 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+  <nav class = "navbar navbar-light" style="background-color: #e3f2fd;">
+    <h1><a href = '/'>Photos</a></h1>
+    <button class = "navbar-toggler"><%= link_to 'New photo', new_photo_path %></button>
+  </nav>
+  </header>
   <body>
     <%= yield %>
   </body>

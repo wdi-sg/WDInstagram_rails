@@ -1,10 +1,12 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
+    # @user = "ANGKIKI"
   end
 
   def show
     @photo = Photo.find(params[:id])
+    @comments = Comment.where(photo_id: params[:id])
   end
 
   def new

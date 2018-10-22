@@ -1,0 +1,21 @@
+<p>
+  <strong>Author:</strong>
+  <%= @entry.author %>
+</p>
+
+<p>
+  <strong>photo URL:</strong>
+  <%= @entry.photo_url %>
+</p>
+
+
+<p>
+	<%= link_to 'Back', entries_path %>
+</p>
+
+<p>
+	<%= link_to 'Edit', edit_entry_path(@entry) %>
+	<%= link_to 'Destroy', entry_path(@entry),
+		          method: :delete,
+		          data: { confirm: 'Are you sure?' } %>
+</p>

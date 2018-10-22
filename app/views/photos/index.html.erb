@@ -6,4 +6,5 @@
 
 <% @photos.each do |photo| %>
   <%= link_to image_tag(photo.photo_url, style: 'height: 100px'), photo_path(photo) %>
+	<%= @commentsCount[photo.id] %>
 <% end %>

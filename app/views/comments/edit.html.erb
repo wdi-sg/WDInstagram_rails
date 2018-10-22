@@ -1,0 +1,10 @@
+<h1>Edit Comment</h1>
+
+<%= form_with model: @comment, local: true do |form| %>
+  <p>
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </p>
+
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,17 @@
+<p>
+   <strong>Author:</strong>
+   <%= @wdinstagram.author %>
+ </p>
+
+ <p>
+   <strong>photo URL:</strong>
+   <%= @wdinstagram.photo_url %>
+ </p>
+
+ <p>
+   <strong>photo URL:</strong>
+   <%= @wdinstagram.date_taken %>
+ </p>
+
+ <%= link_to 'Back', wdinstagrams_path %>
+ <%= link_to 'Edit', edit_wdinstagram_path(@wdinstagram)%>

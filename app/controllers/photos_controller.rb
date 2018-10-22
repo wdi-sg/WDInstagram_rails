@@ -17,8 +17,9 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    @photo = Photo.find(params[:id])
 
-    render plain: "edit"
+    # render plain: "edit"
   end
 
   def create
@@ -30,6 +31,10 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @photo = Photo.find(params[:id])
+    @photo.update(photo_params)
+    redirect_to @photo
+    # redirect_to "http://www.google.com"
   end
 
   def destroy

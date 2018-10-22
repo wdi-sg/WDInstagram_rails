@@ -5,7 +5,41 @@
 	<p><%= @post.date_taken %></p>
 	<h3><%= @post.caption %></h3>
 
-	<%= link_to 'Edit', edit_post_path(@post) %>
-	<%= link_to 'Back', posts_path %>
-
 </div>
+
+<h1>Comments:</h1>
+
+<% if @comments.length > 0  %>
+
+	<% @comments.each do |comment| %>
+
+		<h3><li><%= comment.message %></li>
+			<%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+		</h3>
+
+	<% end %>
+
+<% else %>
+
+	<h3>NIL</h3>
+
+<% end %>
+
+<h1>New Comment:</h1>
+<%= form_with scope: :comment, url: post_comments_path(@post), local: true do |form| %>
+
+	<div>
+			<h3> Comment: </h3>
+			<%= form.text_area :message %>
+	</div>
+
+	<%= form.hidden_field :post_id, :value => @post.id %>
+
+	<div>
+		<%= form.submit %>
+	</div>
+
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Back', posts_path %>

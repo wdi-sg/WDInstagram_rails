@@ -1,0 +1,18 @@
+<p>
+  <strong>Author:</strong>
+  <%= @instagram.author %>
+</p>
+
+<p>
+  <strong>Photo URL:</strong>
+  <%= @instagram.photo_url %>
+</p>
+
+<p>
+  <strong>Date Taken:</strong>
+  <%= @instagram.date_taken %>
+</p>
+
+<%= link_to 'Back', instagrams_path %>
+<%= link_to 'Edit', edit_instagram_path(@instagram) %>
+

@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
   def create
+    @photo = Photo.find(comment_params['photo_id'])
     @comment = Comment.new(comment_params)
     @comment.save
-    redirect_to photos_path
+    redirect_to @photo
   end
 
   private

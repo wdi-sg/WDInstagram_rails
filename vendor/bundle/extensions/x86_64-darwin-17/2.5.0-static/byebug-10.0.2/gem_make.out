@@ -1,0 +1,19 @@
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/byebug-10.0.2/ext/byebug
+/Users/dsen/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20181022-76564-6r5dcr.rb extconf.rb
+creating Makefile
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20181022-76564-1pqjvkh/byebug

@@ -1,0 +1,11 @@
+<h1>Welcome to Instagram</h1>
+
+<ul>
+<% @photos.each do |photo|%>
+	<li><%= photo.name %>
+		<%= link_to 'Show', photo %></li>
+<%end%>
+
+</ul>
+
+<%= link_to 'New Post' , new_photo_path%>

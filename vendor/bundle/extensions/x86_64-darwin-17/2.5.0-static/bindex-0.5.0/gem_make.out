@@ -1,0 +1,15 @@
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/dsen/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20181022-76564-82ixad.rb extconf.rb
+creating Makefile
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/dsen/Desktop/wdi/19_Oct/home-assignment/WDInstagram_rails/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20181022-76564-5v12ih/bindex

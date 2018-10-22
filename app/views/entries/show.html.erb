@@ -7,8 +7,11 @@
 				<hr>
 				<h5 class="card-title">Comments</h5>
 				<% @comments.each do |comment|%>
-				<p> <%= comment.content%> </p>
-				<% end %>
+				<p> <%= comment.content%><%= link_to 'X', entry_comment_path(@entry, comment),
+			        method: :delete,
+			        data: { confirm: 'Are you sure?' } %>
+				<% end %> </p>
+
 				<%= link_to 'comment...', new_entry_comment_path(@entry) %>
 
 						<nav class='nav flex-column flex-sm-row justify-content-end'>

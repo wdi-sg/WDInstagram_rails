@@ -17,6 +17,13 @@ class CommentsController < ApplicationController
     redirect_to @entry
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @entry = Entry.find(params['entry_id'])
+    redirect_to @entry
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:content,:entry_id)

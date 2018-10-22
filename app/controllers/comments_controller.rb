@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   end
 
   def new
-    puts params
     @entry = Entry.find(params['entry_id'])
   end
 
@@ -13,6 +12,17 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.save!
     end
+    @entry = Entry.find(params['entry_id'])
+    redirect_to @entry
+  end
+
+  def edit
+   @entry = Entry.find(params['entry_id'])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
     @entry = Entry.find(params['entry_id'])
     redirect_to @entry
   end

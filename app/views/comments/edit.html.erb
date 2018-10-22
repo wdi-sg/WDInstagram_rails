@@ -1,0 +1,18 @@
+<div class="container-fluid">
+
+	<div class="container mx-auto text-center">
+		<h1>EDIT</h1>
+			<%= form_with scope: :comment,url:entry_comment_path, html: { method: :patch} ,local: true do |form|  %>
+		  <p>
+		    <%= form.label :content %><br>
+		    <%= form.text_area :content %>
+		  </p>
+			<%= form.hidden_field :entry_id, value: @entry.id  %>
+		  <p>
+		    <%= form.submit %>
+		  </p>
+		<% end %>
+
+		<%= link_to 'Back', entries_path %>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: jl1292
+  api_key: '466645667383538'
+  api_secret: rpJy1hgKI660w4vb-zhbHHL4Wps
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: jl1292
+  api_key: '466645667383538'
+  api_secret: rpJy1hgKI660w4vb-zhbHHL4Wps
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: jl1292
+  api_key: '466645667383538'
+  api_secret: rpJy1hgKI660w4vb-zhbHHL4Wps
+  enhance_image_tag: true
+  static_image_support: false

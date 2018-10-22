@@ -2,6 +2,8 @@
 
 <h3><%= @photo.name %></H3>
 
-<h3><%= @photo.photo_url %></H3>
+<a><%= @photo.photo_url %></H3>
+
+<%= image_tag @photo.photo_url %>
 
 <%= link_to 'Home', photos_path %>

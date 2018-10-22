@@ -3,7 +3,10 @@
 <ul>
 <% @photos.each do |photo|%>
 	<li><%= photo.name %>
-		<%= link_to 'Show', photo %></li>
+		<%= link_to 'Show', photo %>
+		<%= link_to 'Destroy', photo_path(photo),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }  %></li>
 <%end%>
 
 </ul>

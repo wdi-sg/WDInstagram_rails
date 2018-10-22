@@ -9,6 +9,7 @@
 				<% @comments.each do |comment|%>
 				<p> <%= comment.content%> </p>
 				<% end %>
+				<%= link_to 'comment...', new_entry_comment_path(@entry) %>
 
 						<nav class='nav flex-column flex-sm-row justify-content-end'>
 							<%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>

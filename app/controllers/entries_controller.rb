@@ -8,7 +8,6 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @comments = Comment.where("entry_id=?", params[:id])
-    puts @comments
   end
 
   def new

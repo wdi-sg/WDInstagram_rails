@@ -13,7 +13,12 @@
 										<strong>
 												<%= post.author %>
 										</strong>
-												<%= post.caption %>
+												<%= post.caption %><br>
+
+												<strong>Comments:
+												</strong>
+												 <%= post.comments.length %></p>
+
 								</div>
 						</div>
 								<%= link_to 'Show', post_path(post) %>

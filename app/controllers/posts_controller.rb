@@ -26,10 +26,14 @@ end
 class PostsController < ApplicationController
   def index
     @post = Post.all
+    @comment = Comment.all
   end
 
   def show
     @post= Post.find(params[:id])
+    @comment = Comment.where(post_id: params[:id])
+
+
   end
 
   def new

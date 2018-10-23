@@ -17,8 +17,44 @@
   <strong>Date:</strong>
   <%= @post.created_at.to_formatted_s(:short) %>
 </p>
+
+<p>
+  <strong>Comments:</strong>
+  <% @comment.each do |this| %>
+				<p>
+					<strong>
+					<%= this.name %>:
+				</strong>
+				<%= this.text %></p>
+						<%= link_to 'Edit', edit_post_comment_path(@comment) %>
+
+		<% end %>
+</p>
+
+
 </div>
 <p>
 
 </p>
+</div>
+<div class="container">
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, value: nil %>
+  </p>
+
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+
+	<%= form.hidden_field :post_id, value:@post.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 </div>

@@ -1,10 +1,12 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
+    @comment = Comment.all
   end
 
   def show
     @entry = Entry.find(params[:id])
+    @comment = Comment.where(entry_id: params[:id]) 
   end
 
   def new

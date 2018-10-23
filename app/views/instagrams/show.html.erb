@@ -5,7 +5,7 @@
 
 <p>
   <strong>Photo URL:</strong>
-  <%= @instagram.photo_url %>
+  <img src="<%=@instagram.photo_url %>" width="200" height="100"> 
 </p>
 
 <p>
@@ -15,4 +15,3 @@
 
 <%= link_to 'Back', instagrams_path %>
 <%= link_to 'Edit', edit_instagram_path(@instagram) %>
-

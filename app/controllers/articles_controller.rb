@@ -37,7 +37,7 @@ end
 
 private
   def article_params
-    params.require(:article).permit(:author, :photo_url, :caption, :date_taken )
+    params.require(:article).permit(:author, :photo_url, :caption, :date_taken)
   end
 
 
@@ -45,3 +45,27 @@ private
   # def new
 
   # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

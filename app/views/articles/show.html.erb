@@ -5,9 +5,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <img src="#{@article.photo_url}">
-  <!-- , width="500" , height="400"> -->
-  <%= @article.photo_url %>
+  <%= image_tag(@article.photo_url) %>
 </p>
 
 <p>
@@ -20,6 +18,10 @@
   <%= @article.date_taken %>
 </p>
 
+
+<td><%= link_to 'Comment', new_article_comment_path(@article) %></td>
+<%= link_to 'View Comments', article_comments_path(@article) %>
 <%= link_to 'Edit', edit_article_path(@article) %>
 <%= link_to 'Back', articles_path %>
+
 

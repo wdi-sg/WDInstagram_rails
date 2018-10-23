@@ -1,19 +1,22 @@
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
-
-<!-- Create a pre-populated select tag/ IS IT :AUTHOR?-->
-<%= form.collection_select :article_id, @articles, :id, :author %>
+<!-- WHAT THE HELL IS URL? -->
+<%= form_with scope: :comment, url: article_comments_path, local: true do |form| %>
 
 	<p>
+		<h3>New comment</h3>
+
 		<%= form.label :usercomment %><br>
 		<%= form.text_field :usercomment %>
 	</p>
 
-<!-- 	<p>
-		<%= form.label :description %><br>
-		<%= form.text_area :description %>
-	</p>
- -->
+		<!-- WTF IS THIS SHIT? -->
+		<%= form.hidden_field :article_id, value: @article.id  %>
+
 	<p>
+		<!-- HOW COME IT SAYS SAVE COMMENT? -->
 		<%= form.submit %>
 	</p>
+
 <% end %>
+
+<%= link_to 'Back', articles_path %>
+

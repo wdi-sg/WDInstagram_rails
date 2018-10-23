@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
   def index
-
     redirect_to root_path
-
   end
 
 
@@ -16,6 +14,7 @@ class CommentsController < ApplicationController
   end
 
    def edit
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
   end
 

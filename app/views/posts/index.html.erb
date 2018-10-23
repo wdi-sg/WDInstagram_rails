@@ -2,6 +2,7 @@
 		<h1>Listing posts</h1>
 		<%= link_to 'My Posts', controller: 'posts' %>
 				<%= link_to 'New Post', new_post_path %>
+				<%= link_to 'Tags', tags_path %>
 						<% @post.each do |post| %>
 								<div class="card-img-top">
 										<%= cl_image_tag(post.photo_url) %>

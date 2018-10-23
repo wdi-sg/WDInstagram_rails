@@ -33,17 +33,18 @@ class PostsController < ApplicationController
     @post= Post.find(params[:id])
     @comment = Comment.where(post_id: params[:id])
     @tags = @post.tags
-
+    @alltags = Tag.all
 
     # @new_comment = Comment.new
   end
 
   def new
-        @tags = Tag.all
+    @tags = Tag.all
 
   end
 
   def edit
+    @tags = Tag.all
     @post = Post.find(params[:id])
   end
 
@@ -69,18 +70,25 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if params[:post][:photo_url]
+
+
+  if params[:post][:tag_id]
+    @post.tags << Tag.find(params[:post][:tag_id])
+
+  elsif params[:post][:photo_url]
     uploaded_file = params[:post][:photo_url].path
     cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
     #render json: cloudnary_file
-
     params[:post][:photo_url] = cloudnary_file['public_id']
-  else
+
+  elsif params[:post][:photo_url] == ""
     params[:post][:photo_url] = $result.data.image_url
 
   end
 
     @post.update(post_params)
+
+
     redirect_to @post
   end
 

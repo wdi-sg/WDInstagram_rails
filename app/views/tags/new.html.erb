@@ -1,0 +1,12 @@
+<h1>Create a new #hashtag</h1>
+<%= form_with scope: :tag, url: tags_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :hashtag %><br>
+    <%= form.text_area :hashtag %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>s

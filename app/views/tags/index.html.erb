@@ -1,6 +1,8 @@
 <div class="container">
 	<h1>Tags</h1>
 	<%= link_to 'Posts', posts_path %>
+	<%= link_to 'New #', new_tag_path %>
+
 
 <ul>
 <% @tags.each do |tag| %>

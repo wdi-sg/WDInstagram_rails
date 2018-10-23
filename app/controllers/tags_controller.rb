@@ -6,13 +6,18 @@ class TagsController < ApplicationController
   def create
   @tag = Tag.new(tag_params)
   @tag.save
-
-  render plain: 'ok'
   end
 
   def show
     @tag = Tag.find(params[:id])
     @posts = @tag.posts
+  end
+
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+
+    redirect_to tag_path(@tag)
   end
 
 

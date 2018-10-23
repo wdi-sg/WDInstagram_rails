@@ -25,26 +25,31 @@
 					<strong>
 					<%= this.name %>:
 				</strong>
-				<%= this.text %></p>
+				<%= this.text %>
+			</p>
 				<%= link_to 'Edit', edit_post_comment_path(@post, this) %>
 
 		<% end %>
 </p>
 <p>
-	<ul>
 <% @tags.each do |tag| %>
-<li><%= tag.hashtag %></li>
-
+#<%= link_to tag.hashtag, tag_path(tag) %>
 <% end %>
+</p>
 
-</ul>
+<p>
+	Edit hashtags:
+	<%= form_with model: @post, local: true do |form| %>
 
+  <%= form.collection_check_boxes :tag_ids, @alltags, :id, :hashtag %>
+  <p>
+  <%= form.submit %>
+  </p>
+<% end %>
 </p>
 
 </div>
-<p>
 
-</p>
 </div>
 <div class="container">
 <%= form_with scope: :comment, url: comments_path, local: true do |form| %>

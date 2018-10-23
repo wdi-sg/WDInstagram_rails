@@ -8,11 +8,18 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # Comment.create(params[:content],params[:id])
     @comment = Comment.new(comment_params)
-    @comment.save
+    @comment.entry = Entry.find(params[:entry_id])
+    
+    if @comment.save
+      redirect_to @comment.entry
+    else
+      redirect_to root_path
+    end
     
     # @entry = Entry.find(params['entry_id'])
-    redirect_to @comment.entry
+    # redirect_to @comment.entry
   end
 
   def edit

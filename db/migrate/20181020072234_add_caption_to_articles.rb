@@ -3,3 +3,4 @@ class AddCaptionToArticles < ActiveRecord::Migration[5.2]
     add_column :articles, :caption, :string
   end
 end
+

@@ -1,0 +1,19 @@
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+
+<!-- Create a pre-populated select tag/ IS IT :AUTHOR?-->
+<%= form.collection_select :article_id, @articles, :id, :author %>
+
+	<p>
+		<%= form.label :usercomment %><br>
+		<%= form.text_field :usercomment %>
+	</p>
+
+<!-- 	<p>
+		<%= form.label :description %><br>
+		<%= form.text_area :description %>
+	</p>
+ -->
+	<p>
+		<%= form.submit %>
+	</p>
+<% end %>

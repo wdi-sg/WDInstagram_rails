@@ -6,7 +6,7 @@
 				<div class="card-body">
 				<h5 class="card-title"><%=entry.author%></h5>
 				<p><%= entry.caption %></p>
-				<p><%= entry.comment.size%> comments</p>
+				<p><%= entry.comments.size%> comments</p>
 						<nav class='nav flex-column flex-sm-row justify-content-end'>
 								<%= link_to 'View', entry_path(entry), :class=>'nav-item nav-link' %>
 							<%= link_to 'Edit', edit_entry_path(entry), :class=>'nav-item nav-link' %>

@@ -1,4 +1,4 @@
 class Entry < ActiveRecord::Base
-  has_many :comment
-  accepts_nested_attributes_for :comment
+  has_many :comments
+  accepts_nested_attributes_for :comments
 end

@@ -8,12 +8,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.transaction do
-    comment = Comment.new(comment_params)
-    comment.save!
-    end
-    @entry = Entry.find(params['entry_id'])
-    redirect_to @entry
+    @comment = Comment.new(comment_params)
+    @comment.save
+    
+    # @entry = Entry.find(params['entry_id'])
+    redirect_to (@comment.entry)
   end
 
   def edit

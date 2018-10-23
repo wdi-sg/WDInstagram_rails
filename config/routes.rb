@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
   resources :photos do
     resources :comments
+    resources :hashtags
   end
 
-  # resources :comments
+  resources :hashtags, only: [:show] do
+    resources :photos, only: [:index]
+  end
 
   root 'photos#index'
 end

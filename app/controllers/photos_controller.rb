@@ -1,10 +1,13 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
+    @all_hashtags = Hashtag.all
   end
 
   def show
     @photo = Photo.find(params[:id])
+    @hashtags = @photo.hashtags
+    @all_hashtags = Hashtag.all
   end
 
   def new
@@ -23,8 +26,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-
-    @photo.update(photo_params)
+      @photo.update(photo_params)
     redirect_to @photo
   end
 
@@ -37,6 +39,6 @@ class PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:author, :photo_url, :caption)
+    params.require(:photo).permit(:author, :photo_url, :caption, :hashtag_id => [])
   end
 end

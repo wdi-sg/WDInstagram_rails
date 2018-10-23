@@ -16,15 +16,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
     @post.save
+
     redirect_to @post
   end
 
   def update
     @post = Post.find(params[:id])
-
     @post.update(post_params)
+
     redirect_to @post
   end
 
@@ -37,8 +37,16 @@ class PostsController < ApplicationController
 
 
   private
+
   def post_params
     params.require(:post).permit(:author, :photo_url, :date_taken)
   end
 
 end
+
+
+
+
+
+
+

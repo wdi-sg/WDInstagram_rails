@@ -7,6 +7,10 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     # Create a comment instance on where the comment was made
     @comments = Comment.where(entry_id: params[:id])
+    #@new_comment = Comment.new (When you add this you can change the contents here
+    #<%= form_with scope: :comment, url: comments_path, local: true do |form| %> in show.html.erb to
+    # to <%= form_with model: @new_comment local: true do |form| %> but the route will be determined
+    # by rails)
   end
 
   def new

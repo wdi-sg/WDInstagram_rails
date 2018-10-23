@@ -17,10 +17,13 @@
 </p>
 
 
-<p>Comments: </p>
+<strong>Comments: </strong><br>
 <% @comments.each do |comment| %>
-        <p><%= comment.text %></p>
+        <tr><%= comment.text %></tr>
+        <%= link_to 'Edit', edit_comment_path(comment) %>
+        <%= link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'} %> <br>
 <% end %>
+
 
 <%= form_with scope: :comment, url: comments_path, local: true do |form| %>
   <%= form.hidden_field :entry_id, value: @entry.id %>

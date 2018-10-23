@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    @hashtags = @entry.hashtags
   end
 
   def new

@@ -1,7 +1,8 @@
+<div class="container-fluid">
 <h1> POST </h1>
  	<%= cl_image_tag(@entry.photo_url, :width => 300, :height => 300) %>
  	<br/>
- 	<sub><%= @entry.caption %></sub>
+ 	<sub>Caption: <%= @entry.caption %></sub>
 <p>
   <strong>Name:</strong>
   <%= @entry.author %>
@@ -11,9 +12,18 @@
   <strong>Photo URL:</strong>
   <%= @entry.photo_url %>
 </p>
+	<strong>List of hashtags</strong>
+	<ul>
+		<% @hashtags.each do |hashtag| %>
+				<li><%= hashtag.name %></li>
+		<% end %>
+	</ul>
+<p>
 
-<div class="container">
-	<h1> Create form</h1>
+</p>
+
+
+	<h1> Create Comments</h1>
 	<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
 	  <p>
 	    <%= form.label :comment %><br/>

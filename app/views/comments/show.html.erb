@@ -1,0 +1,43 @@
+<p>
+  <strong>Comments:</strong>
+</p>
+
+<p>
+    <img src= '<%= @comment.entry.photo_url %>'>
+</p>
+
+
+<p>
+  Created at:
+  <%= @comment.entry.created_at %>
+</p>
+
+<p>
+  Updated at:
+  <%= @comment.entry.updated_at %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @comment.name %>
+</p>
+
+<p>
+	<%= link_to 'Comment', comments_path %>
+</p>
+
+<p>
+	<%= link_to 'Back', entries_path %>
+</p>
+
+
+	
+<!--   TO DO  -->
+<!--	
+<p>
+	<%#= link_to 'Edit', edit_entry_path(@entry) %>
+	<%#= link_to 'Destroy', entry_path(@entry),
+		          method: :delete,
+		          data: { confirm: 'Are you sure?' } %>
+</p>
+-->

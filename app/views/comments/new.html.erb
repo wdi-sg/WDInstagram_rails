@@ -1,0 +1,15 @@
+<h1>New Comment</h1>
+
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+
+  <%= form.collection_select :entry_id, @entries, :id, :author %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

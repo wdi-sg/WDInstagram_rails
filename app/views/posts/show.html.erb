@@ -7,6 +7,35 @@
 
 </div>
 
+<h1>Tags</h1>
+
+<% if @tags.length > 0 %>
+
+	<% @tags.each do |tag| %>
+
+		<h3><li><%= tag.tag %></li></h3>
+
+	<% end %>
+
+<% else %>
+
+	<h3>No Tags</h3>
+
+<% end %>
+
+<%= form_with scope: :tag, url: post_tags_path(@post), local: true do |form| %>
+
+	<div>
+		<h3>Add Tag:</h3>
+		<%= form.text_area :tag %>
+	</div>
+
+	<%= form.hidden_field :post_id, :value => @post.id %>
+
+	<%= form.submit %>
+
+<% end %>
+
 <h1>Comments:</h1>
 
 <% if @comments.length > 0  %>
@@ -26,7 +55,7 @@
 <% end %>
 
 <h1>New Comment:</h1>
-<%= form_with scope: :comment, url: post_comments_path(@post), local: true do |form| %>
+<%= form_with scope: :comment, model: @post_comment, url: post_comments_path(@post), local: true do |form| %>
 
 	<div>
 			<h3> Comment: </h3>

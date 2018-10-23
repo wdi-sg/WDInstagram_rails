@@ -13,8 +13,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    @post = Post.find(params[:comment][:post_id])
 
     @comment.update(comment_params)
     redirect_to @post

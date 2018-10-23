@@ -16,7 +16,7 @@ If you don't already have it, alter your app to have a photo caption. In the con
 
 
 #### further
-Use some browser side javascript to prompt the user if they want to record their current location as being associated with the post. If they do, ask them to tag this location. Implement these location tags as a separate table of location tags the above many-to-many features. (posts have many locations, locations have many posts)
+Use some browser side javascript to prompt the user if they want to record their current location as being associated with the post. If they do, ask them to tag this location. Implement these location tags as a separate table of location tags the above many-to-many features. (posts have many locations, locations have many posts) (this also means you will be storing at least 3 items of data in the location tags table- location latitude, location longitude and location name)
 
 #### further
-When the browser javascript figures out where the user is, let them choose from a set of geolocation tags that are near them.
+When the user wants to create a post, (before they have clicked on a 'new post' button) get their location and send it in the request for the form. When you are rendering the form, only show the tag checkboxes that are nearby the user.

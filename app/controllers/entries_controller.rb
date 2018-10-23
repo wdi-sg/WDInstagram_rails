@@ -5,6 +5,8 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    # Create a comment instance on where the comment was made
+    @comments = Comment.where(entry_id: params[:id])
   end
 
   def new

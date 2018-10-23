@@ -1,12 +1,12 @@
 ## Part 3 - Many-to-Many Associations
 
 - create hashtags for your app
-  - after a user has created a photo they can associate hashtags with that photo
-  - a photo has many tags and a tag has many photos
-  - on the page for a single photo create a form that creates a hashtag for that photo
-  - the form should simply be a dropdown list of all possible hashtags
+  - after a user has created an entry they can associate hashtags with that entry
+  - an entry has many tags and a tag has many entries
+  - on the page for a single entry create a form that creates a hashtag for that entry
+  - the form should simply be a checkbox for each possible hashtags
 
-Hint: You won't need a model for this relationship. Only a Tag model and a Post model, and a join table between them. This join table should be called `posts_tags`.
+Hint: You won't need a model for this relationship. Only a Tag model and a Entry model, and a join table between them. This join table should be called `entries_tags`.
 
 #### further
 Create a page for the hashtags that, when you click on each tag, shows a list of each photo associated with that tag.

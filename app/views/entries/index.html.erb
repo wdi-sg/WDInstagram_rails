@@ -1,25 +1,22 @@
-
 <div class="container w-50">
-	<% @entries.each do |entry| %>
-			<div class="card mt-5">
-				<%= image_tag(entry.photo_url, :alt => "entry", :class => "card-img-top") %>
-				<div class="card-body">
-				<h5 class="card-title"><%=entry.author%></h5>
-				<p><%= entry.caption %></p>
-				<p><%= entry.comments.size%> comments</p>
-						<nav class='nav flex-column flex-sm-row justify-content-end'>
-								<%= link_to 'View', entry_path(entry), :class=>'nav-item nav-link' %>
-							<%= link_to 'Edit', edit_entry_path(entry), :class=>'nav-item nav-link' %>
-							<%= link_to 'Delete', entry_path(entry),
+  <% @entries.each do |entry| %>
+    <div class="card mt-5">
+      <%= image_tag(entry.photo_url, :alt => "entry", :class => "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title"><%=entry.author%></h5>
+        <p><%= entry.caption %></p>
+        <p><%= entry.comments.size%> comments</p>
+        <nav class='nav flex-column flex-sm-row justify-content-end'>
+          <%= link_to 'View', entry_path(entry), :class=>'nav-item nav-link' %>
+          <%= link_to 'Edit', edit_entry_path(entry), :class=>'nav-item nav-link' %>
+          <%= link_to 'Delete', entry_path(entry),
 			        method: :delete,
 			        data: { confirm: 'Are you sure?' },:class=>'nav-item nav-link' %>
-
-						</nav>
-			</div>
-			<div class="card-footer">
-				<small class="text-muted"><%=entry.created_at.localtime%></small>
-			</div>
-			</div>
-	<% end %>
-
+        </nav>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%=entry.created_at.localtime%></small>
+      </div>
+    </div>
+  <% end %>
 </div>

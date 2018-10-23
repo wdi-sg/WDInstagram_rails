@@ -14,23 +14,22 @@ class EntriesController < ApplicationController
 
   def new
     api_instance = GiphyClient::DefaultApi.new
-    api_key = ENV['GIPHY']
+    api_key = ENV["GIPHY"]
     # String | Giphy API Key.
 
-    opts = { 
+    opts = {
       tag: "burrito", # String | Filters results by specified tag.
       rating: "g", # String | Filters results by specified rating.
-      fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+      fmt: "json", # String | Used to indicate the expected response format. Default is Json.
     }
 
     begin
       #Random Endpoint
       result = api_instance.gifs_random_get(api_key, opts)
-      
     rescue GiphyClient::ApiError => e
       puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
     end
-    
+
     @gif = result.data.image_original_url
   end
 
@@ -58,11 +57,12 @@ class EntriesController < ApplicationController
   def destroy
     @entry = Entry.find(params[:id])
     @entry.destroy
-    
+
     redirect_to entries_path
   end
 
   private
+
   def entry_params
     params.require(:entry).permit(:photo_url, :author, :caption, :tag_ids => [])
   end

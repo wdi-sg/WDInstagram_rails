@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @photo = Photo.find(comment_params['photo_id'])
     @comment = Comment.new(comment_params)
+    @photo = @comment.photo
     @comment.save
     redirect_to @photo
   end
@@ -10,11 +10,18 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    @photo = @comment.photo
+    redirect_to @photo
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
-    @photo = Photo.find(@comment['photo_id'])
+    @photo = @comment.photo
     @comment.destroy
-    redirect_to photo_path(@photo)
+    redirect_to @photo
   end
 
   private

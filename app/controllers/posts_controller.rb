@@ -32,13 +32,15 @@ class PostsController < ApplicationController
   def show
     @post= Post.find(params[:id])
     @comment = Comment.where(post_id: params[:id])
-    @tags = Tag.all
+    @tags = @post.tags
 
 
     # @new_comment = Comment.new
   end
 
   def new
+        @tags = Tag.all
+
   end
 
   def edit

@@ -30,7 +30,16 @@
 
 		<% end %>
 </p>
+<p>
+	<ul>
+<% @tags.each do |tag| %>
+<li><%= tag.hashtag %></li>
 
+<% end %>
+
+</ul>
+
+</p>
 
 </div>
 <p>

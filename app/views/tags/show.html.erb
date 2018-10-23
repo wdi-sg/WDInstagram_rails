@@ -1,0 +1,11 @@
+<div class="container">
+<h1># <%= @tag.hashtag %></h1>
+	<%= link_to 'Back', tags_path %><br>
+
+  <strong>Posts:</strong>
+  <p>
+  <% @posts.each do |post| %>
+  		<%= link_to cl_image_tag(post.photo_url), post_path(post)%>
+</p>
+		<% end %>
+</div>

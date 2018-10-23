@@ -1,0 +1,13 @@
+<div class="container">
+	<h1>Tags</h1>
+	<%= link_to 'Posts', posts_path %>
+
+<ul>
+<% @tags.each do |tag| %>
+<li>
+<%= link_to tag.hashtag, tag_path(tag) %>
+</li>
+<% end %>
+
+</ul>
+</div>

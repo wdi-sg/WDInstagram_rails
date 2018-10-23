@@ -14,6 +14,11 @@
 				<% end %> </p>
 
 				<%= link_to 'comment...', new_entry_comment_path(@entry) %>
+				<hr>
+				<h5 class="card-title">Tags</h5>
+				<% @entry.tags.each do |tag| %>
+				<p><%=tag.name%><p>
+				<%end%>
 
 						<nav class='nav flex-column flex-sm-row justify-content-end'>
 							<%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>

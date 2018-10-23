@@ -17,6 +17,12 @@
   <%= @post.date_taken %>
 </p>
 
+<% @comments.each do |comment| %>
+	<p>
+		<strong><%= comment.author %> </strong><%= comment.content %><span> - <%= comment.created_at.localtime %></span>
+	</p>
+<% end %>
+
 <%= form_with scope: :comment, url: post_comments_path(@post), local: true do |form| %>
 	<p>
 		<%= form.label :author %><br>

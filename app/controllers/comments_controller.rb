@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  def index
+      @comments = Comment.all
+  end
+
   def new
       @entry = Entry.find(params[:entry_id])
   end
@@ -6,19 +10,22 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
-    @entry = Entry.find(params[:entry_id])
+    @entry = Entry.find(params[:comment][:entry_id])
     redirect_to @entry
   end
 
   def show
-    # deal with the case that we are trying to get a comment for a entry that doesn't exist
-​
-    @entry = Entry.find(params[:entry_id])
+    @comment = Comment.find(params[:id])
+  end
 
-​
-    # if params[:entry_id].to_i != @comment.entry.id
-    #   # do something
-    # end
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    redirect_to @comment
   end
 
   private

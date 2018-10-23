@@ -15,14 +15,16 @@
       <%= link_to 'comment...', new_entry_comment_path(@entry) %>
       <hr>
       <h5 class="card-title">Tags</h5>
-      <%= form_with model: @entry, local: true do |form|  %>
-        <div class='form-check'>
-          <%= form.collection_check_boxes :tag_ids, @alltags, :id, :name %>
-        </div>
-        <p>
-          <%= form.submit %>
-        </p>
-      <% end %>
+      <div class="form-group"><%= form_with model: @entry, local: true do |form|  %>
+          <%= form.collection_check_boxes :tag_ids, @alltags, :id, :name, :item_wrapper_class => 'form-check-input' do |cb| %>
+            <div class='form-check'>
+              <%= cb.check_box(class: "form-check-input") + cb.text %>
+            </div>
+          <%end%>
+          <p>
+            <%= form.submit(class: "btn btn-outline-primary", value: "Update Tags") %>
+          </p>
+        <% end %></div>
       <nav class='nav flex-column flex-sm-row justify-content-end'>
         <%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>
         <%= link_to 'Delete', entry_path(@entry),

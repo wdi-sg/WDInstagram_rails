@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)   
     @comment.save
 
-    redirect_to @comment
+    redirect_to posts_path
   end
 
   def new
@@ -30,7 +30,25 @@ class CommentsController < ApplicationController
       @posts = Post.all
     end
   end
+  
+  def destroy
+    @comment = Comment.find(params[:id])
 
+    @comment.destroy
+    redirect_to posts_path
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    @comment.update(comment_params)
+    redirect_to posts_path
+  end
+  
   private
   
   def comment_params

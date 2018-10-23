@@ -16,9 +16,15 @@
 				<%= link_to 'comment...', new_entry_comment_path(@entry) %>
 				<hr>
 				<h5 class="card-title">Tags</h5>
-				<% @entry.tags.each do |tag| %>
-				<p><%=tag.name%><p>
-				<%end%>
+				<%= form_with model: @entry, local: true do |form|  %>
+					<div class='form-check'>
+						<%= form.collection_check_boxes :tag_ids, @alltags, :id, :name %>
+					</div>
+
+		  <p>
+		    <%= form.submit %>
+		  </p>
+		<% end %>
 
 						<nav class='nav flex-column flex-sm-row justify-content-end'>
 							<%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>

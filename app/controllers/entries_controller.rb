@@ -8,6 +8,8 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @comments = Comment.where("entry_id=?", params[:id])
+    @tags = @entry.tags
+    @alltags = Tag.all
   end
 
   def new
@@ -38,7 +40,6 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-
     @entry.save
     redirect_to @entry
   end
@@ -46,7 +47,11 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
 
-    @entry.update(entry_params)
+    if params[:entry][:tag_id]
+      @entry.tags << Tag.find(params[:entry][:tag_id])
+    else
+      @entry.update(entry_params)
+    end
     redirect_to @entry
   end
 
@@ -59,6 +64,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:photo_url, :author, :caption)
+    params.require(:entry).permit(:photo_url, :author, :caption, :tag_ids => [])
   end
 end

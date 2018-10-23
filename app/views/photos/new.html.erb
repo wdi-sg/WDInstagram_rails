@@ -19,6 +19,8 @@
     <%= form.text_area :caption %>
   </p>
 
+	<%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+
   <p>
     <%= form.submit %>
   </p>

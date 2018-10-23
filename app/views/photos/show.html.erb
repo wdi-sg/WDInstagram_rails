@@ -13,6 +13,11 @@
   <%= @photo.date_taken %>
 </p>
 
+<strong>Tags</strong>
+<% @tags.each do |tag| %>
+	<p><%= tag.name%></p>
+<% end %>
+
 <%= link_to 'Edit', edit_photo_path %>
 <%= link_to 'Delete', photo_path,
     method: :delete,

@@ -7,9 +7,11 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @comments = Comment.where(photo_id: params[:id])
+    @tags = @photo.tags
   end
 
   def new
+    @tags = Tag.all
   end
 
   def edit
@@ -37,6 +39,6 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:author, :photo_url, :date_taken, :caption)
+    params.require(:photo).permit(:author, :photo_url, :date_taken, :caption, :tag_ids => [])
   end
 end

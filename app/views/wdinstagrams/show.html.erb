@@ -15,3 +15,29 @@
 
 <%= link_to 'Back', wdinstagrams_path %>
 <%= link_to 'Edit', edit_wdinstagram_path(@wdinstagram)%>
+<%= link_to 'Delete', wdinstagram_path,
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+<!-- form start -->
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+
+  <%= form.hidden_field :wdinstagram_id, :value => @wdinstagram.id %>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<!-- form ends -->
+<% @comments.each do |comment| %>
+   <p><%= comment.comment %></p>
+		<%= link_to 'Edit', edit_wdinstagram_comment_path(wdinstagram_id: @wdinstagram, id: comment) %>
+    <%= link_to 'Delete', comment_path(comment),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  <% end %>
+

@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_094830) do
+ActiveRecord::Schema.define(version: 2018_10_22_151856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "wdinstagram_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wdinstagram_id"], name: "index_comments_on_wdinstagram_id"
+  end
 
   create_table "wdinstagrams", force: :cascade do |t|
     t.string "author"
     t.string "photo_url"
     t.string "date_taken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

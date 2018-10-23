@@ -6,6 +6,7 @@ class WdinstagramsController < ApplicationController
 
   def show
     @wdinstagram = Wdinstagram.find(params[:id])
+    @comments = Comment.where(wdinstagram_id: params[:id])
   end
 
   def new
@@ -34,7 +35,7 @@ class WdinstagramsController < ApplicationController
     redirect_to wdinstagrams_path
   end
 
-  #private
+  private
   def wdinstagram_params
     params.require(:wdinstagram).permit(:author, :photo_url, :date_taken)
   end

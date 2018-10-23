@@ -4,7 +4,7 @@ class Wdinstagrams < ActiveRecord::Migration[5.2]
     t.string :author
     t.string :photo_url
     t.string :date_taken
-    #t.timestamps
+    t.timestamps
     end
   end
 end

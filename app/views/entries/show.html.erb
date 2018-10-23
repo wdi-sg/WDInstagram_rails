@@ -12,6 +12,14 @@
 			<strong>Date:</strong>
 			<%= @entry.created_at.to_formatted_s(:short) %>
 		</p>
+		<p>
+			<strong>Hashtags:</strong>
+			<%= @entry.tags.each do |this| %>
+			<p>
+			<%= this %>
+			</p>
+			<% end %>
+		</p>
 
 <p>
   <strong>Comments:</strong>

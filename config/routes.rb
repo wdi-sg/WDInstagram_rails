@@ -6,5 +6,13 @@ Rails.application.routes.draw do
 
     resources :comments
     
+    resources :entries do
+      resources :tags
+    end
+
+    resources :tags do
+      resources :entries
+    end
+
     root 'entries#index'
 end

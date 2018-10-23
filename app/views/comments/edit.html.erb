@@ -1,6 +1,6 @@
 <div class = "container">
     <h2>Edit Comment</h2>
-    <%= form_with scope: :comment, url: photo_comment_path, html: {method: :put}, local: true do |form| %>
+    <%= form_with model: @comment, url: photo_comment_path, local: true do |form| %>
 
     <p>
         <%= form.label :comment %><br>

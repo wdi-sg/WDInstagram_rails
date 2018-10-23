@@ -1,7 +1,10 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all
-    @commentsCount = Comment.group(:photo_id).count
+    if params.has_key?(:tag_id)
+      @photos = Tag.find(params[:tag_id]).photos
+    else
+      @photos = Photo.all
+    end
   end
 
   def show

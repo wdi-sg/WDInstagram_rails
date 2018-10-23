@@ -13,10 +13,12 @@
   <%= @photo.date_taken %>
 </p>
 
-<strong>Tags</strong>
-<% @tags.each do |tag| %>
-	<p><%= tag.name%></p>
-<% end %>
+<p>
+	<strong>Tags</strong>
+	<% @tags.each do |tag| %>
+		<%= link_to tag.name, tag_photos_path(tag) %>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_photo_path %>
 <%= link_to 'Delete', photo_path,

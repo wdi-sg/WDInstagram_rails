@@ -7,7 +7,11 @@
 <div class="row justify-content-center">
 	<div class="col-12 col-sm-10 col-md-8 col-lg-6">
 		
-		<p><%= @entry.caption %></p>
+		<p><%= @entry.caption %><strong>
+		<% @entry_hashtags.each do |hashtag| %>
+			<span><%= link_to '#' + hashtag.content, hashtag_path(hashtag) %> </span>
+		<% end %></strong>
+		</p>
 
 		<p>
 			<strong>Author:</strong>
@@ -26,6 +30,18 @@
 		<% end %>
 
 		<hr>
+
+		<p>Edit Hashtags:</p>
+
+		<%= form_with scope: :entry, model: @entry, local: true do |form| %>
+
+			<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :content %>
+			
+			<p>
+				<%= form.submit %>
+			</p>
+
+		<% end %>
 
 		<p>New Comment:</p>
 

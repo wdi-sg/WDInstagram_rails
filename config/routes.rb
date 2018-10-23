@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 		resources :comments, :hashtags
 	end
 
-	resources hashtags do
+	resources :hashtags do
 		resources :entries
 	end
 

@@ -1,0 +1,20 @@
+<h1>Hashtags</h1>
+
+<p><%= link_to 'New Hashtag', new_hashtag_path %> <%= link_to 'Entries', entries_path %></p>
+
+<div class="row">
+<% @hashtags.each do |hashtag| %>
+	<div class="col-12 col-md-4 col-lg-3">
+		<div class="card">
+			<p>#<%= hashtag.content %></p>
+			<p>
+				<%= link_to 'Show', hashtag_path(hashtag) %>
+				<%= link_to 'Edit', edit_hashtag_path(hashtag) %>
+				<%= link_to 'Delete', hashtag_path(hashtag),
+					method: :delete,
+					data: { confirm: 'Are you sure?' } %>
+			</p>
+		</div>
+	</div>
+<% end %>
+</div>

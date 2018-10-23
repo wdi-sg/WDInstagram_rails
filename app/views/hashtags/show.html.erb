@@ -1,6 +1,4 @@
-<h1>WDInstagram</h1>
-
-<p><%= link_to 'New Post', new_entry_path %> <%= link_to 'Hashtags', hashtags_path %></p>
+<h1>#<%= @hashtag.content %></h1>
 
 <div class="row">
 <% @entries.each do |entry| %>
@@ -22,3 +20,5 @@
 	</div>
 <% end %>
 </div>
+
+<%= link_to 'Back', hashtags_path %>

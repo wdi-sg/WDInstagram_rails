@@ -7,7 +7,8 @@ class EntriesController < ApplicationController
   def show
 		@entry = Entry.find(params[:id])
 		@comments = Comment.where(entry_id: params[:id])
-		@hashtags = @entry.hashtags
+		@entry_hashtags = @entry.hashtags
+		@hashtags = Hashtag.all
 	end
 
   def new
@@ -20,6 +21,17 @@ class EntriesController < ApplicationController
 	def create
 		# render plain: params[:entry].inspect
 		@entry = Entry.new(entry_params)
+
+		# split = entry_params.caption.split(' ')
+
+		# split.each do |x|
+		# 	if x[0] == '#'
+		# 		tag_text = x.slice(1..x.length)
+				
+
+		# 	end
+		# end
+
 
 		@entry.save
 		redirect_to @entry
@@ -41,7 +53,7 @@ class EntriesController < ApplicationController
 	
 	private
   def entry_params
-    params.require(:entry).permit(:photo_url, :author, :caption, :date)
+    params.require(:entry).permit(:photo_url, :author, :caption, :date, :hashtag_ids => [])
   end
 
 end

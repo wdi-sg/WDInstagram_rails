@@ -1,31 +1,40 @@
 <div class="container w-50">
-			<div class="card mt-5">
-				<%= image_tag(@entry.photo_url, :alt => "entry", :class => "card-img-top") %>
-				<div class="card-body">
-				<h5 class="card-title"><%=@entry.author%></h5>
-				<p><%= @entry.caption %></p>
-				<hr>
-				<h5 class="card-title">Comments</h5>
-				<% @comments.each do |comment|%>
-				<p> <%= comment.content%> <%= link_to 'X', entry_comment_path(@entry, comment),
+  <div class="card mt-5">
+    <%= image_tag(@entry.photo_url, :alt => "entry", :class => "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"><%=@entry.author%></h5>
+      <p><%= @entry.caption %></p>
+      <hr>
+      <h5 class="card-title">Comments</h5>
+      <% @comments.each do |comment|%>
+        <p> <%= comment.content%> <%= link_to 'X', entry_comment_path(@entry, comment),
 			        method: :delete,
 			        data: { confirm: 'Are you sure?' } %>
-								/ <%= link_to 'Edit', edit_entry_comment_path(@entry,comment) %>
-				<% end %> </p>
-
-				<%= link_to 'comment...', new_entry_comment_path(@entry) %>
-
-						<nav class='nav flex-column flex-sm-row justify-content-end'>
-							<%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>
-							<%= link_to 'Delete', entry_path(@entry),
+          / <%= link_to 'Edit', edit_entry_comment_path(@entry,comment) %>
+        <% end %> </p>
+      <%= link_to 'comment...', new_entry_comment_path(@entry) %>
+      <hr>
+      <h5 class="card-title">Tags</h5>
+      <div class="form-group"><%= form_with model: @entry, local: true do |form|  %>
+          <%= form.collection_check_boxes :tag_ids, @alltags, :id, :name, :item_wrapper_class => 'form-check-input' do |cb| %>
+            <div class='form-check'>
+              <%= cb.check_box(class: "form-check-input") + cb.text %>
+            </div>
+          <%end%>
+          <p>
+            <%= form.submit(class: "btn btn-outline-primary", value: "Update Tags") %>
+          </p>
+        <% end %></div>
+      <nav class='nav flex-column flex-sm-row justify-content-end'>
+        <%= link_to 'Edit', edit_entry_path(@entry), :class=>'nav-item nav-link' %>
+        <%= link_to 'Delete', entry_path(@entry),
 			        method: :delete,
 			        data: { confirm: 'Are you sure?' },:class=>'nav-item nav-link' %>
-							<%= link_to 'Back', entries_path, :class=>'nav-item nav-link' %>
-						</nav>
-			</div>
-
-			<div class="card-footer">
-				<small class="text-muted"><%=@entry.created_at.localtime%></small>
-			</div>
-			</div>
+        <%= link_to 'Back', entries_path, :class=>'nav-item nav-link' %>
+      </nav>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><%=@entry.created_at.localtime%></small>
+    </div>
+  </div>
 </div>

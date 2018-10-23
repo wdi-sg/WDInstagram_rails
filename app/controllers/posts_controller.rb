@@ -32,8 +32,10 @@ class PostsController < ApplicationController
   def show
     @post= Post.find(params[:id])
     @comment = Comment.where(post_id: params[:id])
+    @tags = Tag.all
 
 
+    # @new_comment = Comment.new
   end
 
   def new
@@ -58,7 +60,7 @@ class PostsController < ApplicationController
 
     @post = Post.new(post_params)
 
-     @post.save
+    @post.save
     redirect_to @post
 
   end
@@ -89,6 +91,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author, :photo_url, :created_by, :caption)
+    params.require(:post).permit(:author, :photo_url, :created_by, :caption, :tag_ids => [])
   end
 end

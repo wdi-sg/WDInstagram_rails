@@ -12,9 +12,8 @@
 	<p>
 		<%= form.label :text %><br>
 		<%= form.text_area :text %></p>
-
-
 	</p>
+		<%= form.hidden_field :post_id, value: :id %>
 	<p>
 		<%= form.submit %>
 	</p>

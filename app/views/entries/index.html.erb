@@ -1,24 +1,18 @@
-<h1>List Entries</h1>
+<h1>Photo Entries</h1>
 
 <table>
-  <tr>
-    <th>Author</th>
-    <th>Photo URL</th>
-    <th>Date Taken</th>
-  </tr>
-
   <% @entries.each do |entry| %>
     <tr>
       <td><%= entry.author %></td>
-      <td><%= entry.photo_url %></td>
+      <td><%= link_to image_tag(entry.photo_url, style: 'height: 150px'), entry_path(entry) %><td>
       <td><%= entry.date_taken %></td>
       <td><%= link_to 'Show', entry_path(entry) %></td>
       <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
       <td><%= link_to 'Destroy', entry_path(entry),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
-      <td>Comments:</strong>
-			<%= entry.comments.length %></p>
+      <td><strong>Comments:</strong></td>
+			<td><%= entry.comments.length %></td>
     </tr>
   <% end %>
 </table>

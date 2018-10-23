@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.save
     
     # @entry = Entry.find(params['entry_id'])
-    redirect_to (@comment.entry)
+    redirect_to @comment.entry
   end
 
   def edit

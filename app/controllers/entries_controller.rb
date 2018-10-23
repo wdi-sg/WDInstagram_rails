@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    @tags = @entry.tags
     @comment = Comment.where(entry_id: params[:id]) 
   end
 
@@ -38,6 +39,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:photo_url, :author, :caption, :date_taken)
+    params.require(:entry).permit(:photo_url, :author, :caption, :date_taken, :tag_ids => [])
   end
 end

@@ -14,11 +14,13 @@
 		</p>
 		<p>
 			<strong>Hashtags:</strong>
-			<%= @entry.tags.each do |this| %>
-			<p>
-			<%= this %>
-			</p>
+			<ul>
+			<%= @tags.each do |this| %>
+			<li>
+			<%= this.hashtag %>
+			</li>
 			<% end %>
+			</ul>
 		</p>
 
 <p>

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     redirect_to root_path
   end

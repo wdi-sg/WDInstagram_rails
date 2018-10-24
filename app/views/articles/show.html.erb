@@ -15,8 +15,7 @@
 
 
 <p>
-  <strong>Photo:</strong>
-  <%= @article.photo_url %>
+  <img src=<%= @article.photo_url %> style="max-width:300px" />
 </p>
 
 <p>
@@ -24,5 +23,16 @@
   <%= @article.date_taken %>
 </p>
 
+<%= form_with model: @article, local: true do |form| %>
+	<p>
+		<%= form.label :choose_your_hashtags %><br>
+		<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :text %>
+		<%= form.submit "Go" %>
+	</p>
+<% end %>
+
 <%= link_to 'Back', articles_path %>
 <%= link_to 'Edit', edit_article_path(@article) %>
+
+
+

@@ -3,10 +3,29 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @articles = Article.order('created_at DESC')
+
+    if params.has_key?(:article_id)
+
+      # get all the rangers for a specific park
+      @comments = Comment.where(article_id: params[:article_id])
+    else
+      # get all rangers
+      @comments = Comment.all
+
+
+    end
+
+
+
+    @hashtags = Hashtag.all
+
   end
 
   def show
     @article = Article.find(params[:id])
+
+    @hashtags = Hashtag.all
+
   end
 
   def new
@@ -43,7 +62,8 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :post, :author, :photo_url, :date_taken)
+    params.require(:article).permit(:title, :post, :author, :photo_url, :date_taken, :hashtag_ids => [] )
   end
+
 
 end

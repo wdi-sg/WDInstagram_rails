@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_085332) do
+ActiveRecord::Schema.define(version: 2018_10_23_081508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,27 @@ ActiveRecord::Schema.define(version: 2018_10_22_085332) do
     t.string "caption"
   end
 
+  create_table "articles_hashtags", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_articles_hashtags_on_article_id"
+    t.index ["hashtag_id"], name: "index_articles_hashtags_on_hashtag_id"
+  end
+
   create_table "comments", force: :cascade do |t|
-    t.string "name"
+    t.string "content"
     t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

@@ -4,10 +4,19 @@ Rails.application.routes.draw do
 
     root 'articles#index'
 
-    resources :photos do
+    resources :articles do
       resources :comments
     end
 
   resources :comments
+
+
+  resources :articles do
+    resources :hashtags
+  end
+
+  resources :hashtags do
+    resources :articles
+  end
 
 end

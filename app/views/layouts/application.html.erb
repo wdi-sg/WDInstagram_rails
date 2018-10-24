@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Instapost</title>
+    <title>PosterGram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,12 +11,10 @@
 
   <body>
 
-  <!-- 	to only allow user to access
-  	<% if @user %>
-  		<h1><%= user %></h1>
-  	<% else %>
-  		<h1>Please Login</h1>
-  	<% end %> -->
+  	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
 
     <%= yield %>
   </body>

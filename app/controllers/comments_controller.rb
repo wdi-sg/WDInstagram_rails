@@ -1,5 +1,6 @@
-
+# require 'byebug'
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
 
   def index
 
@@ -19,6 +20,10 @@ class CommentsController < ApplicationController
   def new
     @article = Article.find(params[:article_id])
 
+
+    # if @article.user_id != current_user
+    #   render 'new'
+    # end
   end
 
   def create
@@ -26,8 +31,8 @@ class CommentsController < ApplicationController
 
     @comment = Comment.new(comment_params)
     @comment.save
-
     redirect_to article_comment_path(@article, @comment)
+
   end
 
   def show

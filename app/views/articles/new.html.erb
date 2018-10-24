@@ -1,3 +1,5 @@
+<%= link_to 'log out', destroy_user_session_url, method: :delete %>
+
 <h1>How was your day?</h1>
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
 	<p>

@@ -1,5 +1,8 @@
+# require 'byebug'
 
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     @articles = Article.all
     @articles = Article.order('created_at DESC')
@@ -15,11 +18,10 @@ class ArticlesController < ApplicationController
 
     end
 
-
-
     @hashtags = Hashtag.all
 
   end
+
 
   def show
     @article = Article.find(params[:id])
@@ -28,8 +30,6 @@ class ArticlesController < ApplicationController
 
   end
 
-  def new
-  end
 
   def edit
     @article = Article.find(params[:id])
@@ -40,9 +40,18 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
 
     @article = Article.new(article_params)
+    @article.user = current_user
 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
+  end
+
+
+  def new
+
   end
 
   def update

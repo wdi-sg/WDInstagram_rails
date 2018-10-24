@@ -28,12 +28,21 @@ class EntriesController < ApplicationController
 				tag_text = x.slice(1..x.length)
 
 				all_tags = Hashtag.all
+
+				exists = false;
 				
 				all_tags.each do |x|
 					if x.content == tag_text
 						@entry.hashtags << x
+						exists = true;
 					end
 				end
+
+				if !exists 
+					new_tag = Hashtag.new(content: tag_text)
+					new_tag.save
+					@entry.hashtags << new_tag
+				end		
 			end
 		end
 

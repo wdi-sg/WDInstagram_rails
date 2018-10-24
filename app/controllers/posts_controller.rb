@@ -68,7 +68,6 @@ class PostsController < ApplicationController
       @tag.save
     end
 
-
     @post.save
     redirect_to @post
 

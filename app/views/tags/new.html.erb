@@ -1,4 +1,7 @@
+<div class="container">
 <h1>Create a new #hashtag</h1>
+	<%= link_to 'Back', tags_path %><br>
+
 <%= form_with scope: :tag, url: tags_path, local: true do |form| %>
 
   <p>
@@ -9,4 +12,5 @@
   <p>
     <%= form.submit %>
   </p>
-<% end %>s
+<% end %>
+</div>

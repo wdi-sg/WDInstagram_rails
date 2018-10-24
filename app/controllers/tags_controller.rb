@@ -6,6 +6,8 @@ class TagsController < ApplicationController
   def create
   @tag = Tag.new(tag_params)
   @tag.save
+
+  redirect_to tag_path(@tag)
   end
 
   def show

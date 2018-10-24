@@ -1,8 +1,13 @@
+
+<%= image_tag(@image_url) %>
+
+
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
 
 	<div>
 		<h3>Photo Url</h3>
 		<%= form.text_field :photo_url %>
+		<%= form.hidden_field :alt_url, :value => @image_url %>
 	</div>
 
 	<div>

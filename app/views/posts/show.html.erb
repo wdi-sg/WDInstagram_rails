@@ -1,6 +1,6 @@
 <div>
 
-	<%= image_tag ("#{@post.photo_url}") %>
+	<%= image_tag (@post.photo_url) %>
 	<p><%= @post.author %></p>
 	<p><%= @post.date_taken %></p>
 	<h3><%= @post.caption %></h3>

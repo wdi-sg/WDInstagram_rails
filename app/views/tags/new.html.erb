@@ -1,17 +1,12 @@
 <%= form_with scope: :tag, url: tags_path, local: true do |form| %>
 
+
   <%= form.collection_check_boxes :post_ids, @posts, :id, :author %>
 
   <p>
-    <%= form.label :username %><br>
-    <%= form.text_area :username %>
+    <%= form.label :tag %><br>
+    <%= form.text_area :tag %>
   </p>
-
-    <p>
-    <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
-  </p>
-
 
   <p>
     <%= form.submit %>

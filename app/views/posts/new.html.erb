@@ -4,7 +4,7 @@
         <h1 class="headings">Add Post</h1>
     </div>
     <div class="row">
-        <%= form_for :post, url: posts_path do |form| %>
+        <%= form_with model: @post do |form| %>
 
             <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag %>
             
@@ -22,6 +22,21 @@
                 <%= form.label :date_taken %><br>
                 <%= form.text_area :date_taken %>
             </div>
+
+            <%= form.fields_for :tags, Tag.new do |tag| %>
+                <%= tag.label :tag %><br>
+                <%= tag.text_field :tag, placeholder: "include hashtag" %><br>
+            <% end %>
+            
+            <%= form.fields_for :comments, Comment.new do |comment| %>
+                <%= comment.label :username %><br>
+                <%= comment.text_field :username, placeholder: "include username" %><br>
+
+                <%= comment.label :comment %><br>
+                <%= comment.text_field :comment, placeholder: "include comment" %><br>
+            <% end %>
+
+            <br>
 
             <p>
                 <%= form.submit %>

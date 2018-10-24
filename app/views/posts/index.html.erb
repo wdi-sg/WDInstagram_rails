@@ -28,7 +28,7 @@
                     <div class="card bg-light">
                         <h6 class="card-title"><%= comment.username %></h6>
                         <p class="card-text"><%= comment.comment %></p>
-                        <p class="card-text inline"><%= link_to 'Edit', edit_post_path(post) %></p>
+                        <p class="card-text inline"><%= link_to 'Edit', edit_comment_path(comment) %></p>
                         <p class="card-text inline"><%= link_to 'Destroy', post_comment_path(post, comment),
                         method: :delete,
                         data: { confirm: 'Are you sure?' } %></p>

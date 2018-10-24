@@ -24,6 +24,8 @@
             <%= form.submit %>
         </div>
 
+        <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag %>
+    
         <% end %>
         </div>
         <div class="row">

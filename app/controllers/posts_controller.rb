@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @tags = Tag.all
+    @post = Post.new
   end
 
   def create
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @tags = Tag.all
     @post = Post.find(params[:id])
   end
 
@@ -40,6 +42,6 @@ class PostsController < ApplicationController
   # this is tell ruby what is permited to be inputed into req.body => require(:post) which is the form_for :post
   private 
   def post_params
-    params.require(:post).permit(:author, :photo_url, :date_taken, :tag_ids => [])
+    params.require(:post).permit(:author, :photo_url, :date_taken, :tag_ids => [], tags_attributes: [:id, :tag], comments_attributes: [:id, :comment, :username])
   end
 end

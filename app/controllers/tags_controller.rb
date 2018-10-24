@@ -11,6 +11,13 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
   end
 
+  def create
+    @tag = Tag.new(tag_params)
+    @tag.save
+
+    redirect_to @tag
+  end
+
   private 
 
   def tag_params
@@ -18,3 +25,5 @@ class TagsController < ApplicationController
   end
 
 end
+
+

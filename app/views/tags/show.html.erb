@@ -1,7 +1,7 @@
 <h1>Listing Posts</h1>
 <h2><%= @tag.tag %></h2>
 
-<h3>parks</h3>
+<h3>Tags</h3>
 <ul>
   <% @tag.posts.each do |post| %>
     <li><<%= image_tag  src=post.photo_url %></li>

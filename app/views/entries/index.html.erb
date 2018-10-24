@@ -1,21 +1,28 @@
 <h1>WDInstagram</h1>
-<p><%= link_to 'New Post', new_entry_path %></p>
-<div class="row">
-<% @entries.each do |entry| %>
-	<div class="col-12 col-md-4 col-lg-3">
-		<div class="card">
-			<img class="card-img-top" src="<%= entry.photo_url %>">
-			<p><%= entry.caption %></p>
-			<p>By: <%= entry.author %></p>
-			<p>Date: <%= entry.created_at.to_formatted_s(:short) %></p>
-			<p>
-				<%= link_to 'Show', entry_path(entry) %>
-				<%= link_to 'Edit', edit_entry_path(entry) %>
-				<%= link_to 'Delete', entry_path(entry),
-					method: :delete,
-					data: { confirm: 'Are you sure?' } %>
-			</p>
-		</div>
-	</div>
+<% if user_signed_in? %>
+	<p><%= link_to 'New Post', new_entry_path %></p>
+	<p><%= link_to 'log out', destroy_user_session_url, method: :delete %></p>
+<% else %>
+	<p><%= link_to 'Log In', new_user_session_path %></p>
 <% end %>
+<div class="row">
+	<% @entries.each do |entry| %>
+		<div class="col-12 col-md-4 col-lg-3">
+			<div class="card">
+				<img class="card-img-top" src="<%= entry.photo_url %>">
+				<p><%= entry.caption %></p>
+				<p>By:
+					<%= entry.user %></p>
+				<p>Date:
+					<%= entry.created_at.to_formatted_s(:short) %></p>
+				<p>
+					<%= link_to 'Show', entry_path(entry) %>
+					<% if entry.user == current_user %>
+					<%= link_to 'Edit', edit_entry_path(entry) %>
+					<% end %>
+					<%= link_to 'Delete', entry_path(entry), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</p>
+			</div>
+		</div>
+	<% end %>
 </div>

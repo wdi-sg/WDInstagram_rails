@@ -14,8 +14,8 @@
 		</p>
 
 		<p>
-			<strong>Author:</strong>
-			<%= @entry.author %>
+			<strong>By:</strong>
+			<%= @entry.user.email %>
 		</p>
 
 		<p>
@@ -26,33 +26,31 @@
 		<p><strong>Comments:</strong></p>
 
 		<% @comments.each do |comment| %>
-			<p><strong><%= comment.author %> </strong><%= comment.message %><span class="small"> - <%= comment.created_at.localtime %></span></p>
+			<p><strong><%= comment.user.email %> </strong><%= comment.message %><span class="small"> - <%= comment.created_at.localtime %></span></p>
 		<% end %>
 
 		<hr>
 
-		<p>Edit Hashtags:</p>
+		<% if @entry.user == current_user %>
 
-		<%= form_with model: @entry, local: true do |form| %>
+			<p>Edit Hashtags:</p>
 
-			<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :content %>
-			
-			<p>
-				<%= form.submit %>
-			</p>
+			<%= form_with model: @entry, local: true do |form| %>
 
+				<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :content %>
+				
+				<p>
+					<%= form.submit %>
+				</p>
+
+			<% end %>
 		<% end %>
 
 		<p>New Comment:</p>
 
-		<%= form_with scope: @comment, url: entry_comments_path(@entry), local: true do |form| %>
+		<%= form_with scope: :comment, url: entry_comments_path(@entry), local: true do |form| %>
 
 			<%= form.hidden_field :entry_id, value:@entry.id %>
-		
-			<p>
-				<%= form.label :author %><br>
-				<%= form.text_field :author %>
-			</p>
 
 			<p>
 				<%= form.label :message %><br>
@@ -64,10 +62,12 @@
 			</p>
 		<% end %>
 
+		<% if @entry.user == current_user %>
 		<%= link_to 'Edit', edit_entry_path(@entry) %>
 		<%= link_to 'Delete', entry_path(@entry),
 						method: :delete,
 						data: { confirm: 'Are you sure?' } %>
+		<% end %>
 		<%= link_to 'Back', entries_path %>
 	</div>
 </div>

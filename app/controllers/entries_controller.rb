@@ -1,4 +1,7 @@
 class EntriesController < ApplicationController
+
+	before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
 		@entries = Entry.all
 		@comments = Comment.all
@@ -20,6 +23,8 @@ class EntriesController < ApplicationController
 
 	def create
 		@entry = Entry.new(entry_params)
+
+		@entry.user = current_user
 
 		split = @entry.caption.split(' ')
 
@@ -59,7 +64,7 @@ class EntriesController < ApplicationController
 	def destroy
 		@entry = Entry.find(params[:id])
 		@entry.destroy
-	
+
 		redirect_to entries_path
 	end
 	

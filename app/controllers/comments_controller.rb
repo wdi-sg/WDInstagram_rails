@@ -1,11 +1,17 @@
 class CommentsController < ApplicationController
-
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
-    @comment.save
+    @comment.user = current_user
+
+    if @comment.save
+      @comment.save
+    end
+
     redirect_to @post
+
   end
 
   def edit
@@ -18,9 +24,6 @@ class CommentsController < ApplicationController
 
     @comment.update(comment_params)
     redirect_to @post
-  end
-
-  def destroy
   end
 
   private

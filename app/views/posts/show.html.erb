@@ -23,16 +23,20 @@
 
 <% end %>
 
-<%= form_with scope: :tag, url: post_tags_path(@post), local: true do |form| %>
+<% if user_signed_in? %>
 
-	<div>
-		<h3>Add Tag:</h3>
-		<%= form.text_area :tag %>
-	</div>
+	<%= form_with scope: :tag, url: post_tags_path(@post), local: true do |form| %>
 
-	<%= form.hidden_field :post_id, :value => @post.id %>
+		<div>
+			<h3>Add Tag:</h3>
+			<%= form.text_area :tag %>
+		</div>
 
-	<%= form.submit %>
+		<%= form.hidden_field :post_id, :value => @post.id %>
+
+		<%= form.submit %>
+
+	<% end %>
 
 <% end %>
 
@@ -43,7 +47,9 @@
 	<% @comments.each do |comment| %>
 
 		<h3><li><%= comment.message %></li>
-			<%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+			<% if user_signed_in? %>
+				<%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+			<% end %>
 		</h3>
 
 	<% end %>
@@ -54,21 +60,24 @@
 
 <% end %>
 
+<% if user_signed_in? %>
+
 <h1>New Comment:</h1>
-<%= form_with scope: :comment, model: @post_comment, url: post_comments_path(@post), local: true do |form| %>
+	<%= form_with scope: :comment, model: @post_comment, url: post_comments_path(@post), local: true do |form| %>
 
-	<div>
-			<h3> Comment: </h3>
-			<%= form.text_area :message %>
-	</div>
+		<div>
+				<h3> Comment: </h3>
+				<%= form.text_area :message %>
+		</div>
 
-	<%= form.hidden_field :post_id, :value => @post.id %>
+		<%= form.hidden_field :post_id, :value => @post.id %>
 
-	<div>
-		<%= form.submit %>
-	</div>
+		<div>
+			<%= form.submit %>
+		</div>
 
+	<% end %>
+
+	<%= link_to 'Edit', edit_post_path(@post) %>
 <% end %>
-
-<%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Back', posts_path %>

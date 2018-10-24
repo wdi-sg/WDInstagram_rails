@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
 
   def index
     @posts = Post.all
@@ -16,8 +17,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to @post
+    @post.user = current_user
+    if @post.save
+      @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
+
   end
 
   def edit
@@ -33,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to 'index'
   end
 
   private

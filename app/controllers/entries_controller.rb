@@ -1,6 +1,12 @@
 class EntriesController < ApplicationController
   def index
-    @entries = Entry.all
+
+    # if params.has_key?(:hashtags_id)
+    #   @entries = Hashtag.find(params[:hashtag_id]).entries
+    # else
+      @entries = Entry.all
+    # end
+
   end
 
   def show
@@ -11,9 +17,15 @@ class EntriesController < ApplicationController
     #<%= form_with scope: :comment, url: comments_path, local: true do |form| %> in show.html.erb to
     # to <%= form_with model: @new_comment local: true do |form| %> but the route will be determined
     # by rails)
+    
+    @hashtags = @entry.hashtags
+
+    #@hashtags = Hashtag.all
+
   end
 
   def new
+    @hashtags = Hashtag.all
   end
 
   def edit

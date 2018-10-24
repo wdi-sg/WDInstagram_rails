@@ -4,7 +4,7 @@
   <% @entries.each do |entry| %>
     <tr>
       <td><%= entry.author %></td>
-      <td><%= link_to image_tag(entry.photo_url, style: 'height: 150px'), entry_path(entry) %><td>
+      <td><%= link_to image_tag(entry.photo_url, style: 'width: 150px'), entry_path(entry) %><td>
       <td><%= entry.date_taken %></td>
       <td><%= link_to 'Show', entry_path(entry) %></td>
       <td><%= link_to 'Edit', edit_entry_path(entry) %></td>

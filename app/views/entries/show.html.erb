@@ -16,6 +16,14 @@
   <%= @entry.date_taken %>
 </p>
 
+<p>
+  <strong>Hashtags:</strong>
+  <% @hashtags.each do |hashtag| %>
+    <tr><%= hashtag.text %></tr>
+  <% end %>
+</p>
+
+
 
 <strong>Comments:</strong><br>
 <% @comments.each do |comment| %>
@@ -25,9 +33,9 @@
 <% end %>
 
 
+
 <%= form_with scope: :comment, url: comments_path, local: true do |form| %>
   <%= form.hidden_field :entry_id, value: @entry.id %>
-
   <p>
     <%= form.label :comments %><br>
     <%= form.text_area :text %>

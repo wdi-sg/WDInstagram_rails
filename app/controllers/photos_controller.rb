@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     if params.has_key?(:tag_id)
       @photos = Tag.find(params[:tag_id]).photos
@@ -23,6 +25,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = current_user
     @photo.save
     redirect_to @photo
   end

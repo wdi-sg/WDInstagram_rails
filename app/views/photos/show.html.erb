@@ -1,3 +1,7 @@
+<p>
+	<%= link_to 'Back', photos_path %>
+</p>
+
 <%= image_tag @photo.photo_url, style:'height: 300px;' %>
 <p>
   <%= @photo.caption %>
@@ -20,26 +24,32 @@
 	<% end %>
 </p>
 
-<%= link_to 'Edit', edit_photo_path %>
-<%= link_to 'Delete', photo_path,
-    method: :delete,
-    data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Back', photos_path %>
+<% if @photo.user == current_user %>
+	<%= link_to 'Edit', edit_photo_path %>
+	<%= link_to 'Delete', photo_path,
+			method: :delete,
+			data: {confirm: 'Are you sure?'} %>
+<% end %>
 
-<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
-	<%= form.hidden_field :photo_id, :value => @photo.id %>
-	<p>
-		<%= form.label :text %>
-		<%= form.text_area :text %>
-	</p>
+<% if user_signed_in? %>
+	<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+		<%= form.hidden_field :photo_id, :value => @photo.id %>
+		<p>
+			<%= form.label :text %>
+			<%= form.text_area :text %>
+		</p>
 
-	<p>
-		<%= form.submit %>
-	</p>
+		<p>
+			<%= form.submit %>
+		</p>
+	<% end %>
 <% end %>
 
 <% @comments.each do |comment| %>
+	<p><%= comment.user.email %></p>
 	<p><%= comment.text %></p>
-	<%= link_to 'Edit', edit_comment_path(comment) %>
-	<%= link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'} %>
+	<% if comment.user == current_user %>
+		<%= link_to 'Edit', edit_comment_path(comment) %>
+		<%= link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'} %>
+	<% end %>
 <% end %>

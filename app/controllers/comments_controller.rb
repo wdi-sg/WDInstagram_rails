@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = current_user
     @photo = @comment.photo
     @comment.save
     redirect_to @photo

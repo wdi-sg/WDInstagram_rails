@@ -7,7 +7,7 @@
       <hr>
       <h5 class="card-title">Comments</h5>
       <% @comments.each do |comment|%>
-        <p> <%= comment.content%> <%= link_to 'X', entry_comment_path(@entry, comment),
+        <p> <strong><%=comment.user.email%></strong>: <%= comment.content%> <%= link_to 'X', entry_comment_path(@entry, comment),
 			        method: :delete,
 			        data: { confirm: 'Are you sure?' } %>
           / <%= link_to 'Edit', edit_entry_comment_path(@entry,comment) %>
@@ -22,7 +22,9 @@
             </div>
           <%end%>
           <p>
+						<% if current_user == @entry.user %>
             <%= form.submit(class: "btn btn-outline-primary", value: "Update Tags") %>
+						<%end%>
           </p>
         <% end %></div>
       <nav class='nav flex-column flex-sm-row justify-content-end'>

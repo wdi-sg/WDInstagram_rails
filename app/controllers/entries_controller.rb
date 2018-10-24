@@ -53,8 +53,9 @@ class EntriesController < ApplicationController
     # if params[:entry][:tag_id]
     #   @entry.tags << Tag.find(params[:entry][:tag_id])
     # else
-    @entry.update(entry_params)
-    #
+    if @entry.user = current_user
+      @entry.update(entry_params)
+    end
     redirect_to @entry
   end
 

@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     # Comment.create(params[:content],params[:id])
     @comment = Comment.new(comment_params)
     @comment.entry = Entry.find(params[:entry_id])
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @comment.entry
@@ -26,6 +27,9 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    if @comment.user != current_user
+      redirect_to @comment.entry
+    end
   end
 
   def update
@@ -37,7 +41,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    if @comment.user == current_user
+      @comment.destroy
+    end
     @entry = Entry.find(params["entry_id"])
     redirect_to @entry
   end

@@ -1,0 +1,13 @@
+<div class="container-fluid mt-3">
+	<h1> Create Hashtag </h1>
+	<%= form_with scope: :hashtag, url: hashtags_path, local: true do |form| %>
+		<p>
+			<%= form.label :name %><br>
+			<%= form.text_field :name %>
+		</p>
+
+		<p>
+			<%= form.submit %>
+		</p>
+	<% end %>
+</div>

@@ -1,2 +1,10 @@
-<h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+<h1>Listing Posts</h1>
+<h2><%= @tag.tag %></h2>
+
+<h3>parks</h3>
+<ul>
+  <% @tag.posts.each do |post| %>
+    <li><<%= image_tag  src=post.photo_url %></li>
+    <li><%= post.author %></li>
+  <% end %>
+</ul>

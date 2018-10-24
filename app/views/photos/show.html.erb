@@ -11,9 +11,15 @@
 </p>
 
 <p>
-  <strong>Comments:</strong>
-  <%= @photo.comments %>
+  <Strong>Comments:</strong>
+  <% @comments.each do |comment|  %>
+  <h4><%=comment.comment %></h4>
+  <%= link_to 'Delete Comment', photo_comment_path(@photo, comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+  <% end %>
 </p>
+
 
 <p>
 <%= link_to 'Back', photos_path %>
@@ -26,3 +32,27 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 </p>
+
+
+
+<%= form_with scope: :comment, url: photo_comments_path(@photo), local: true do |form| %>
+
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment%>
+  </p>
+
+  <%= form.hidden_field :photo_id, :value => @photo.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <% end %>
+  
+
+
+
+
+
+
+

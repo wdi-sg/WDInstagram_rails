@@ -7,3 +7,5 @@ class Photos < ActiveRecord::Migration[5.2]
     end
   end
 end
+
+rails g model ranger name park:references

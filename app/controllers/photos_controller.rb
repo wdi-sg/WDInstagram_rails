@@ -1,10 +1,12 @@
 class PhotosController < ApplicationController
     def index
         @photos = Photo.all
+        
     end
   
     def show
         @photo = Photo.find(params[:id])
+        @comments = @photo.comment
     end
   
     def new
@@ -24,6 +26,7 @@ class PhotosController < ApplicationController
         @photo= Photo.find(params[:id])
         @photo.update(photo_params)
         redirect_to @photo
+
     end
   
     def destroy
@@ -35,6 +38,7 @@ class PhotosController < ApplicationController
 
     private
     def photo_params
-        params.require(:photo).permit(:author, :url, :date, :comments)
+        params.require(:photo).permit(:author, :url, :date, :comment)
     end
   end
+

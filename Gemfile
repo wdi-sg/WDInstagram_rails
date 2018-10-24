@@ -65,6 +65,8 @@ gem 'cloudinary'
 
 gem 'GiphyClient'
 
+gem 'ffaker'
+
 gem 'bootstrap', '~> 4.1.3'
 
 gem 'jquery-rails'

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <h1 class="headings">Add Hashtag</h1>
+    </div>
+    <div class="row">
+        <%= form_with model:@hashtag, local: true do |f| %>
+        <div class="form-group">
+            <%= f.label :hashtag %><br>
+            <%= f.text_field :title %>
+        </div>
+
+				<%= f.collection_check_boxes :post_ids, @posts, :id, :author %>
+
+        <p>
+            <%= f.submit({:class => 'btn btn-primary'}) %>
+        </p>
+        <% end %>
+    </div>
+
+    <div class="row">
+        <%= link_to 'Back', posts_path %>
+    </div>
+
+</div>

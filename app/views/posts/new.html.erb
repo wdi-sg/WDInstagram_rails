@@ -3,7 +3,7 @@
         <h1 class="headings">Add Post</h1>
     </div>
     <div class="row">
-        <%= form_for :post, url: posts_path do |f| %>
+        <%= form_with model:@post, local: true do |f| %>
         <div class="form-group">
             <%= f.label :author %><br>
             <%= f.text_field :author %>
@@ -18,6 +18,8 @@
             <%= f.label :date_taken %><br>
             <%= f.datetime_field :date_taken %>
         </div>
+
+        <%= f.collection_check_boxes :hashtag_ids, @hashtags, :id, :title %>
 
         <p>
             <%= f.submit({:class => 'btn btn-primary'}) %>

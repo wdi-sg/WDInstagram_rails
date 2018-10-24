@@ -1,0 +1,23 @@
+<div class='container'>
+
+	<div class='row'>
+
+		<h1 class='headings'>Hashtags</h1>
+
+	</div>
+
+	<div class='row'>
+		<div class='list-group'>
+			<ul class='list-group list-group-flush'>
+				<% @hashtags.each do |hashtag| %>
+					<li class='list-group-item'><%= link_to hashtag.title, hashtag_path(hashtag) %><%= link_to '[X]', hashtag_path(hashtag),
+																						method: :delete,
+																						data: { confirm: 'Are you sure?' } %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+    <div class="row">
+        <%= link_to 'Back', posts_path %>
+    </div>
+</div>

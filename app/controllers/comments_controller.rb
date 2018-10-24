@@ -5,12 +5,20 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = Comment.all
+
+  end
+
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
+    puts request.referrer
 
-    redirect_to post_path(@post)
+    redirect_to request.referrer
+
   end
 
   private def comment_params

@@ -3,6 +3,13 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    resources :hashtags
+  end
+
+  resources :hashtags do
+    resources :posts do
+      resources :comments
+    end
   end
 
   root 'posts#index'

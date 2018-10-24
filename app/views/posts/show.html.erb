@@ -9,16 +9,25 @@
         <div class="card-body">
             <h5 class="card-title"><%= @post.author %></h5>
             <p class="card-text">Date taken: <%= @post.date_taken %></p>
+            <p class="card-text inline"><%= link_to 'Comments', post_comments_path(@post) %></p>
             <p class="card-text inline"><%= link_to 'Edit', edit_post_path(@post) %></p>
             <p class="card-text inline"><%= link_to 'Destroy', post_path(@post),
                 method: :delete,
                 data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></p>
+
+             <%= @post.hashtags.each do |hashtag| %>
+	            <p class="card-text inline"><%= hashtag.title %><%= link_to '[X]', post_hashtag_path(post, hashtag),
+																		method: :delete,
+																		data: { confirm: 'Are you sure?' } %></p></p>
+
+	           <% end %>
+
             <p class="card-text inline"><%= link_to 'Back', posts_path %></p>
         </div>
     </div>
 </div>
 
-
+<%= render 'hashtags/hashtags' %>
 
 <%= render 'comments/comments' %>
 

@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @entry = Entry.find(params["entry_id"])
+    @comment = Comment.find(params[:id])
   end
 
   def update

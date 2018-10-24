@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container mx-auto text-center">
     <h1>EDIT</h1>
-    <%= form_with scope: :entry, model: @entry, local: true do |form|  %>
+    <%= form_with model: @entry, local: true do |form|  %>
       <p>
         <%= form.label :photo_url %><br>
         <%= form.url_field :photo_url %>

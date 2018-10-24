@@ -67,3 +67,4 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'GiphyClient'
 gem 'ffaker'
 gem 'soundcloud'
+gem 'pry-rails', :group => :development

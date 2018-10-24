@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container mx-auto text-center">
     <h1>EDIT</h1>
-    <%= form_with scope: :comment,url:entry_comment_path, html: { method: :patch} ,local: true do |form|  %>
+    <%= form_with model: @comment, url: entry_comment_path, local: true do |form|  %>
       <p>
         <%= form.label :content %><br>
         <%= form.text_area :content %>

@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @comment = Comment.where(photo_id: params[:id])
 
     # render plain: params[:id].inspect
   end

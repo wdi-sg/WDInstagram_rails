@@ -12,16 +12,26 @@
   <strong>Photo Taken:</strong>
   <%= @wdinstagram.date_taken %>
 </p>
-
 <%= link_to 'Back', wdinstagrams_path %>
 <%= link_to 'Edit', edit_wdinstagram_path(@wdinstagram)%>
 <%= link_to 'Delete', wdinstagram_path,
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
+<!--list tag -->
+<p>Tags</p>
+<% @tags.each do |hashtag| %>
+<ul>
+	<li><%=hashtag.tag%></li>
+</ul>
+<!--list tag -->
+<% end %>
+
+
 <!-- form start -->
 <%= form_with scope: :comment, url: comments_path, local: true do |form| %>
 
   <%= form.hidden_field :wdinstagram_id, :value => @wdinstagram.id %>
+
 
   <p>
     <%= form.label :comment %><br>
@@ -33,6 +43,10 @@
   </p>
 <% end %>
 <!-- form ends -->
+
+<!-- form ends -->
+
+<%= link_to 'Home', wdinstagrams_path %>
 <% @comments.each do |comment| %>
    <p><%= comment.comment %></p>
 		<%= link_to 'Edit', edit_wdinstagram_comment_path(wdinstagram_id: @wdinstagram, id: comment) %>

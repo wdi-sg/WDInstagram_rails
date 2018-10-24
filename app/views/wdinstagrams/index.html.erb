@@ -3,23 +3,18 @@
 
 <%= link_to 'New Photo', new_wdinstagram_path %>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Photo URL</th>
-    <th>Date Taken</th>
-  </tr>
-
   <% @wdinstagrams.each do |wdinstagram| %>
-    <tr>
-      <td><%= wdinstagram.author %></td>
-      <td><%= image_tag wdinstagram.photo_url, width: "50"%></td>
-      <td><%= wdinstagram.date_taken %></td>
-      <td><%= link_to 'Show', wdinstagram_path(wdinstagram) %></td>
-      <td><%= link_to 'Edit', edit_wdinstagram_path(wdinstagram) %></td>
-      <td><%= link_to 'Delete', wdinstagram_path(wdinstagram),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+
+      <h3><%= wdinstagram.author %></h3>
+      <div><%= image_tag wdinstagram.photo_url, width: "200"%></div>
+      <p><%= wdinstagram.date_taken %></p>
+  <table>
+      <tr>
+      	<td><%= link_to 'Show', wdinstagram_path(wdinstagram) %></td>
+      	<td><%= link_to 'Edit', edit_wdinstagram_path(wdinstagram) %></td>
+      	<td><%= link_to 'Delete', wdinstagram_path(wdinstagram),
+        	method: :delete,
+        	data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </table>
   <% end %>
-</table>

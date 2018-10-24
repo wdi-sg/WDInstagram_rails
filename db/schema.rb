@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_151856) do
+ActiveRecord::Schema.define(version: 2018_10_23_131646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 2018_10_22_151856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["wdinstagram_id"], name: "index_comments_on_wdinstagram_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags_wdinstagrams", force: :cascade do |t|
+    t.bigint "wdinstagram_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tags_wdinstagrams_on_tag_id"
+    t.index ["wdinstagram_id"], name: "index_tags_wdinstagrams_on_wdinstagram_id"
   end
 
   create_table "wdinstagrams", force: :cascade do |t|

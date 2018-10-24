@@ -1,13 +1,13 @@
-
-
 class EntriesController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
+
   def index
     @entries = Entry.order(id: :desc)
   end
 
   def show
     @entry = Entry.find(params[:id])
-    @comments = Comment.where("entry_id=?", params[:id])
+    @comments = @entry.comments
     #@tags = @entry.tags
     @alltags = Tag.all
   end

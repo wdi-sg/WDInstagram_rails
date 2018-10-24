@@ -19,19 +19,23 @@ class EntriesController < ApplicationController
   end
 
 	def create
-		# render plain: params[:entry].inspect
 		@entry = Entry.new(entry_params)
 
-		# split = entry_params.caption.split(' ')
+		split = @entry.caption.split(' ')
 
-		# split.each do |x|
-		# 	if x[0] == '#'
-		# 		tag_text = x.slice(1..x.length)
+		split.each do |x|
+			if x[0] == '#'
+				tag_text = x.slice(1..x.length)
+
+				all_tags = Hashtag.all
 				
-
-		# 	end
-		# end
-
+				all_tags.each do |x|
+					if x.content == tag_text
+						@entry.hashtags << x
+					end
+				end
+			end
+		end
 
 		@entry.save
 		redirect_to @entry

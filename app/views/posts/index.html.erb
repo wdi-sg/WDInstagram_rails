@@ -1,0 +1,50 @@
+
+<div class = "container">
+
+    <div class="row">
+        <h1 class="headings"> WDInstagram </h1>
+    </div>
+
+    <div class="row">
+        <span class="links"><%= link_to 'My Posts', controller: 'posts' %></span> &nbsp;&nbsp;
+        <span class="links"><%= link_to 'New Post', new_post_path %></span>
+    </div>
+
+    <div class="row">
+    <% if user_signed_in? %>
+        <% @posts.each do |post| %>
+        <div class="card col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <br/>
+            <img class ="card-img-top" src=<%= post.photo_url %> width="362" height="200" alt="Card image cap"/>
+            <div class="card-body">
+                <h5 class="card-title"><%= post.author %></h5>
+                <p class="card-text">Date taken: <%= post.date_taken %></p>
+                <p class="card-text inline"><%= link_to 'Show', post_path(post) %></p>
+                <p class="card-text inline"><%= link_to 'Edit', edit_post_path(post) %></p>
+                <p class="card-text inline"><%= link_to 'Destroy', post_path(post),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></p>
+                    <h5 class="card-title">Comments</h5>
+                <% post.comments.each do |comment| %>
+                    <div class="card bg-light">
+                        <h6 class="card-title"><%= comment.username %></h6>
+                        <p class="card-text"><%= comment.comment %></p>
+                        <p class="card-text inline"><%= link_to 'Edit', edit_comment_path(comment) %></p>
+                        <p class="card-text inline"><%= link_to 'Destroy', post_comment_path(post, comment),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></p>
+                    </div>
+                <% end %>
+                <br />
+                <p class="card-text inline"><%= link_to 'New', new_post_comment_path(post) %></p>
+                <p class="card-text inline"><%= link_to 'Show', post_comments_path(post) %></p>
+            </div>
+        </div>
+        <% end %>
+        <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+        <% else %>
+         <%= link_to 'log in', new_user_session_url %>
+        <% end %>
+    </div>
+
+</div>

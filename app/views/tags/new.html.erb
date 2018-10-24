@@ -1,0 +1,14 @@
+<%= form_with scope: :tag, url: tags_path, local: true do |form| %>
+
+
+  <%= form.collection_check_boxes :post_ids, @posts, :id, :author %>
+
+  <p>
+    <%= form.label :tag %><br>
+    <%= form.text_area :tag %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

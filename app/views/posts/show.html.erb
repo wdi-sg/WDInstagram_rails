@@ -1,0 +1,25 @@
+
+
+<div class="container">
+<div class="row">
+    <h1>Show</h1>
+</div>
+<div class="row">
+    <div class="card">
+        <br/>
+        <img class ="card-img-top" src=<%= @post.photo_url %> width="362" height="200" alt="Card image cap"/>
+        <div class="card-body">
+            <h5 class="card-title"><%= @post.author %></h5>
+            <p class="card-text">Date taken: <%= @post.date_taken %></p>
+            <% @post.tags.each do |tag| %>
+                <p><%= tag.tag %></p>
+            <% end %>
+            <p class="card-text inline"><%= link_to 'Edit', edit_post_path(@post) %></p>
+            <p class="card-text inline"><%= link_to 'Destroy', post_path(@post),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></p>
+            <p class="card-text inline"><%= link_to 'Back', posts_path %></p>
+        </div>
+    </div>
+</div>
+</div>

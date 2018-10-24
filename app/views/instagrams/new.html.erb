@@ -1,0 +1,32 @@
+<%= form_with scope: :instagram, url: instagrams_path, local: true do |form| %>
+	<p>
+		<%= form.label :username %><br>
+		<%= form.text_field :username %>
+	</p>
+
+	<p>
+		<%= form.label :image_url %><br>
+		<%= form.text_area :image_url %>
+	</p>
+
+	<p>
+		<%= form.label :caption %><br>
+		<%= form.text_area :caption %>
+	</p>
+
+	<p>
+		<%= form.label :date_taken %><br>
+		<%= form.text_area :date_taken %>
+	</p>
+
+	<p>
+		Tags
+		<%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', instagrams_path %>

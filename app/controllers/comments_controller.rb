@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+
   def index
     @comments = Comment.where("entry_id=?", params[:id])
   end

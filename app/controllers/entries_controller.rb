@@ -35,6 +35,9 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find(params[:id])
+    if @entry.user != current_user
+      redirect_to entries_path
+    end
   end
 
   def create
@@ -57,8 +60,9 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry = Entry.find(params[:id])
-    @entry.destroy
-
+    if @entry.user == current_user
+      @entry.destroy
+    end
     redirect_to entries_path
   end
 

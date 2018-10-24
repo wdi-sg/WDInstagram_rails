@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @comments = Comment.where("entry_id=?", params[:id])
-    @tags = @entry.tags
+    #@tags = @entry.tags
     @alltags = Tag.all
   end
 
@@ -46,11 +46,11 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
 
-    if params[:entry][:tag_id]
-      @entry.tags << Tag.find(params[:entry][:tag_id])
-    else
-      @entry.update(entry_params)
-    end
+    # if params[:entry][:tag_id]
+    #   @entry.tags << Tag.find(params[:entry][:tag_id])
+    # else
+    @entry.update(entry_params)
+    #
     redirect_to @entry
   end
 

@@ -39,6 +39,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
+    @entry.user = current_user
     @entry.save
     redirect_to @entry
   end

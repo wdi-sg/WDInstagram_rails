@@ -3,7 +3,7 @@
         <h1 class="headings">Add Post</h1>
     </div>
     <div class="row">
-        <%= form_with model:@post, local: true do |f| %>
+        <%= form_for :post, url: posts_path do |f| %>
         <div class="form-group">
             <%= f.label :author %><br>
             <%= f.text_field :author %>

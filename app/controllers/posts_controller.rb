@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
     @hashtags = Hashtag.all
   end
 
@@ -16,15 +15,11 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
     @post.save
 
-    if(@post.save)
-      redirect_to @post
-    else
-      render 'new'
-    end
+    redirect_to @post
+
   end
 
   def update

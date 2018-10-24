@@ -16,7 +16,7 @@
                 data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></p>
 
              <%= @post.hashtags.each do |hashtag| %>
-	            <p class="card-text inline"><%= hashtag.title %><%= link_to '[X]', post_hashtag_path(post, hashtag),
+	            <p class="card-text inline"><%= hashtag.title %><%= link_to '[X]', hashtag_post_path(hashtag, @post),
 																		method: :delete,
 																		data: { confirm: 'Are you sure?' } %></p></p>
 
@@ -26,8 +26,6 @@
         </div>
     </div>
 </div>
-
-<%= render 'hashtags/hashtags' %>
 
 <%= render 'comments/comments' %>
 

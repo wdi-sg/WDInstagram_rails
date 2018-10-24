@@ -12,8 +12,6 @@ class HashtagsController < ApplicationController
 
   def create
     @hashtag = Hashtag.new(hashtag_params)
-    puts "helloHELLO"
-    puts @hashtag
     @hashtag.save
     redirect_to root_path
   end

@@ -3,7 +3,7 @@
         <h1 class="headings">Add Hashtag</h1>
     </div>
     <div class="row">
-        <%= form_with model:@hashtag, local: true do |f| %>
+        <%= form_with scope: :hashtag, url: hashtags_path, local: true do |f| %>
         <div class="form-group">
             <%= f.label :hashtag %><br>
             <%= f.text_field :title %>

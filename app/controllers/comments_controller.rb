@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     @photo = Photo.find(params[:comment][:photo_id])
     redirect_to @photo
-
+    #render plain: params[:comment].inspect
   end
 
 

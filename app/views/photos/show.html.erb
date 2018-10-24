@@ -9,11 +9,14 @@
 
 <h3>Comments</h3>
 
-<%= @comment.name %>
+<% @comment.each do |comment|%>
+	<li><%= comment.name %>:
+			<%= comment.comment %>
+	</li>
+<%end%>
 
 <h3>Add comment</h3>
-
-<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+<%= form_with scope: :comment, url: photo_comments_path(@photo), local: true do |form| %>
 
 
   <p>
@@ -25,6 +28,8 @@
     <%= form.label :comment %><br>
     <%= form.text_area :comment %>
   </p>
+
+  <%= form.hidden_field :photo_id, :value => @photo.id %>
 
   <p>
     <%= form.submit %>

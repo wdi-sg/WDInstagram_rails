@@ -80,10 +80,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
 
-  if params[:post][:tag_id]
-    @post.tags << Tag.find(params[:post][:tag_id])
+  #if params[:post][:tag_id]
+   # @post.tags << Tag.find(params[:post][:tag_id])
 
-  elsif params[:post][:photo_url]
+  if params[:post][:photo_url]
     uploaded_file = params[:post][:photo_url].path
     cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
     #render json: cloudnary_file

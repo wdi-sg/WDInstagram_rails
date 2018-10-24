@@ -1,21 +1,5 @@
 class CommentsController < ApplicationController
 
-  # def index
-  #   # test to see if we are at /parks/:id/rangers or /rangers
-  #   if params.has_key?(:article_id)
-  #     # get all the comments for a specific post
-  #     @comments = Comment.where(article_id: params[:article_id] )
-  #   else
-  #     # get all comments
-  #     @comments = Comment.all
-  #   end
-  # end
-
-  def index
-    # UNDERSTAND THE FUCKING SYNTAX
-    @comments = Comment.where("article_id=?", params[:id])
-  end
-
 
   def new
     # WHAT IS THIS?
@@ -23,18 +7,7 @@ class CommentsController < ApplicationController
     # comment = Comment.new(comment_params)
   end
 
-
-  # def show
-  #   # deal with the case that we are trying to get a comment for an article that doesn't exist
-
-  #   @comment = Comment.find(params[:id])
-
-  #   if params[:id].to_i == @comment.article.id
-  #     @comments = Comment.where("article_id=?", params[:id])
-  #   end
-  # end
-
-
+# No need to go back to comment, so you dont use @comment
   def create
     comment = Comment.new(comment_params)
     comment.save
@@ -43,6 +16,35 @@ class CommentsController < ApplicationController
     redirect_to @article
 
   end
+
+  def edit
+      # WHY did we use article_id?
+      @article = Article.find(params[:article_id])
+      @comment = Comment.find(params[:id])
+      # WHY CANNOT @COMMENT, AND WHY ARTICLE_ID?
+      # @comment = Article.find(params[:id])
+    end
+
+    # @comments = Comment.where("article_id=?", params[:id])
+
+  def update
+      # @article = Article.find(params[:id])
+      @comment = Comment.find(params[:id])
+      @article = @comment.article
+      @comment.update(comment_params)
+      redirect_to @article
+  end
+
+  def destroy
+      # @article = Article.find(params[:id])
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+
+      @article = @comment.article
+
+      redirect_to @article
+    end
+
 
 private
   def comment_params

@@ -1,0 +1,21 @@
+<h1>Edit comment</h1>
+
+<!-- DOES MODEL NAME HAVE TO CORRESPOND WITH FILE NAME OR? -->
+<%= form_with model: @comment, html: {method: :patch}, local: true do |form| %>
+
+	<p>
+		<h3>Edit comment</h3>
+
+		<%= form.label :usercomment %><br>
+		<!-- display old data -->
+		<%= form.text_field :usercomment %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+<% end %>
+
+<%= link_to 'Back', article_path(@article) %>
+

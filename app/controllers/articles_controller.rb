@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    # WHY IS THIS PLURAL?
+    @comments = Comment.where("article_id=?", params[:id])
   end
 
   def index

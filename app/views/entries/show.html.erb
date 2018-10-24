@@ -33,7 +33,7 @@
 
 		<p>Edit Hashtags:</p>
 
-		<%= form_with scope: :entry, model: @entry, local: true do |form| %>
+		<%= form_with model: @entry, local: true do |form| %>
 
 			<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :content %>
 			
@@ -45,7 +45,7 @@
 
 		<p>New Comment:</p>
 
-		<%= form_with scope: :comment, url: entry_comments_path(@entry), local: true do |form| %>
+		<%= form_with scope: @comment, url: entry_comments_path(@entry), local: true do |form| %>
 
 			<%= form.hidden_field :entry_id, value:@entry.id %>
 		

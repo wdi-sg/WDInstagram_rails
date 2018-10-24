@@ -10,7 +10,7 @@
 			<p><%= entry.caption %></p>
 			<p>By: <%= entry.author %></p>
 			<p>Date: <%= entry.date.localtime.to_date.to_s(:rfc822) %></p>
-			<p>Comments: <%= entry.comment.length %></p> 
+			<p>Comments: <%= entry.comments.length %></p> 
 			<p>
 				<%= link_to 'Show', entry_path(entry) %>
 				<%= link_to 'Edit', edit_entry_path(entry) %>

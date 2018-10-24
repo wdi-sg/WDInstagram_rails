@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
 
   def show
 		@entry = Entry.find(params[:id])
-		@comments = Comment.where(entry_id: params[:id])
+		@comments = @entry.comments
 		@entry_hashtags = @entry.hashtags
 		@hashtags = Hashtag.all
 	end
@@ -28,7 +28,6 @@ class EntriesController < ApplicationController
 				tag_text = x.slice(1..x.length)
 
 				all_tags = Hashtag.all
-
 				exists = false;
 				
 				all_tags.each do |x|

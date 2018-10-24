@@ -1,0 +1,9 @@
+<h3>Hashtags</h3>
+<% @post.hashtags.each do |hashtag| %>
+	<div class="card card-body bg-light">
+		<p><strong><%= hashtag.title %></strong> -
+		<%= link_to '[X]', [hashtag.post, hashtag],
+									method: :delete,
+									data: { confirm: 'Are you sure?' } %></p>
+	</div>
+<% end %>

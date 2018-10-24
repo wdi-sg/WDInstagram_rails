@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-      @entry = Entry.find(params[:entry_id])
+    @entry = Entry.find(params[:entry_id])
   end
 
   def create

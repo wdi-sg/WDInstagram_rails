@@ -1,24 +1,26 @@
-<h1>Edit entry</h1>
+<div class="container-fluid mt-3">
+	<h1>Edit entry</h1>
 
-<%= form_with scope: :entry, model: @entry, local: true do |form| %>
+	<%= form_with scope: :entry, model: @entry, local: true do |form| %>
 
-	<p>
-		<%= form.label :author %><br>
-		<%= form.text_field :author %>
-	</p>
+		<p>
+			<%= form.label :author %><br>
+			<%= form.text_field :author %>
+		</p>
 
-	<p>
-		<%= form.label :photo_url %><br>
-		<%= form.file_field :photo_url %>
-	</p>
+		<p>
+			<%= form.label :photo_url %><br>
+			<%= form.file_field :photo_url %>
+		</p>
 
-	<p>
-		<%= form.label :date_taken %><br>
-		<%= form.date_field :date_taken %>
-	</p>
+		<p>
+			<%= form.label :date_taken %><br>
+			<%= form.date_field :date_taken %>
+		</p>
 
-	<p>
-		<%= form.submit %>
-	</p>
+		<p>
+			<%= form.submit %>
+		</p>
 
-<% end %>
+	<% end %>
+</div>

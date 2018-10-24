@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
+    #byebug
     @posts = Post.all
   end
 
@@ -15,9 +18,13 @@ class PostsController < ApplicationController
   def create
     # render plain: params[:post].inspect
     @post = Post.new(post_params)
+    @post.user = current_user
 
-    @post.save
-    redirect_to @post
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
   def edit

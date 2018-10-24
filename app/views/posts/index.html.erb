@@ -11,6 +11,7 @@
     </div>
 
     <div class="row">
+    <% if user_signed_in? %>
         <% @posts.each do |post| %>
         <div class="card col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <br/>
@@ -39,6 +40,10 @@
                 <p class="card-text inline"><%= link_to 'Show', post_comments_path(post) %></p>
             </div>
         </div>
+        <% end %>
+        <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+        <% else %>
+         <%= link_to 'log in', new_user_session_url %>
         <% end %>
     </div>
 

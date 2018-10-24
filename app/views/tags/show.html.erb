@@ -1,0 +1,29 @@
+
+<h3>Posts tagged with: #<%= @tag.content %></h3>
+
+<table>
+	<% @posts.each do |post| %>
+		<tr>
+
+			<p>
+			  <strong>Author:</strong>
+			  <%= post.author %>
+			</p>
+
+			<p>
+			  Photo URL:
+			  <%= post.photo_url %>
+			</p>
+
+
+			<p>
+			  Date taken:
+			  <%= post.date_taken %>
+			</p>
+
+		</tr>
+	<% end -%>
+</table>
+
+
+<%= link_to 'Back', tags_path %>

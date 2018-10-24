@@ -20,6 +20,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @wdinstagrams = @tag.wdinstagrams
     #@wdinstagrams = @tag.id
 
   end

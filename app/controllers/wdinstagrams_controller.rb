@@ -1,14 +1,19 @@
 class WdinstagramsController < ApplicationController
 
   def index
-    @wdinstagrams = Wdinstagram.all
-
+      if params.has_key?(:wdinstagram_id)
+    # get all the rangers for a specific park
+        @tags = Tag.where(wdinstagram_id: params[:wdinstagram_id] )
+      else
+        @wdinstagrams = Wdinstagram.all
+      end
   end
 
   def show
     @wdinstagram = Wdinstagram.find(params[:id])
     @comments = Comment.where(wdinstagram_id: params[:id])
     @tags = @wdinstagram.tags
+    @tags = Tag.all
    # @commentTotal = Comment.group(wdinstagram_id: params[:id])
   end
 

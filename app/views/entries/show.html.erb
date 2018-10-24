@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+	<div class="col-12 col-md-10 col-lg-8">
+		<img src="<%= @entry.photo_url %>" class="w-100">
+	</div>
+	<div class="col-12 col-md-10 col-lg-8">
+		<p><%= @entry.caption %>
+		<p>
+			<strong>Author:</strong>
+			<%= @entry.author %>
+		</p>
+		<p>
+			<strong>Date:</strong>
+			<%= @entry.created_at.to_formatted_s(:short) %>
+		</p>
+		<p>
+			<strong>Hashtags:</strong>
+			<ul>
+			<%= @tags.each do |this| %>
+			<li>
+			<%= this.hashtag %>
+			</li>
+			<% end %>
+			</ul>
+		</p>
+
+<p>
+  <strong>Comments:</strong>
+  <% @comment.each do |this| %>
+				<p>
+				<%= this.description %></p>
+						<%= link_to 'Edit', edit_comment_path(this) %>
+
+		<% end %>
+</p>
+
+		
+		<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+
+  <p>
+	 <%= form.label :text %><br>
+    <%= form.text_area :description %>
+  </p>
+	<%= form.hidden_field :entry_id, value:@entry.id %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+		<%= link_to 'Edit', edit_entry_path(@entry) %>
+		<%= link_to 'Delete', entry_path(@entry),
+						method: :delete,
+						data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Back', entries_path %>
+	</div>
+</div>

@@ -1,14 +1,14 @@
-
-
 class EntriesController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
+
   def index
     @entries = Entry.order(id: :desc)
   end
 
   def show
     @entry = Entry.find(params[:id])
-    @comments = Comment.where("entry_id=?", params[:id])
-    @tags = @entry.tags
+    @comments = @entry.comments
+    #@tags = @entry.tags
     @alltags = Tag.all
   end
 
@@ -35,10 +35,14 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find(params[:id])
+    if @entry.user != current_user
+      redirect_to entries_path
+    end
   end
 
   def create
     @entry = Entry.new(entry_params)
+    @entry.user = current_user
     @entry.save
     redirect_to @entry
   end
@@ -46,9 +50,10 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
 
-    if params[:entry][:tag_id]
-      @entry.tags << Tag.find(params[:entry][:tag_id])
-    else
+    # if params[:entry][:tag_id]
+    #   @entry.tags << Tag.find(params[:entry][:tag_id])
+    # else
+    if @entry.user = current_user
       @entry.update(entry_params)
     end
     redirect_to @entry
@@ -56,8 +61,9 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry = Entry.find(params[:id])
-    @entry.destroy
-
+    if @entry.user == current_user
+      @entry.destroy
+    end
     redirect_to entries_path
   end
 

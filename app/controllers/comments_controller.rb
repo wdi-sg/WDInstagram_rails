@@ -12,29 +12,32 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    # @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
   end
 
   def create
     @comment = Comment.new(comment_params)
     @comment.save
 
-    @post = Post.find(params[:post_id]) # Question: why is this :post_id and not :id??
+    @post = Post.find(params[:post_id])
     redirect_to @post
   end
 
   def update
-    # @comment = Comment.find(params[:id])
-    # @comment.update(comment_params)
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
 
-    # redirect_to
+    @post = Post.find(params[:post_id])
+    redirect_to @post
   end
 
   def destroy
-    # @comment = Comment.find(params[:id])
-    # @comment.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
 
-    # redirect_to posts_path
+    @post = Post.find(params[:post_id])
+    redirect_to @post
   end
 
 

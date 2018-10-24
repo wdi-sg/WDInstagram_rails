@@ -33,6 +33,7 @@
         data: { confirm: 'Are you sure?' } %>
 		<% end %>
 </p>
+
 <p>
 <% @tags.each do |tag| %>
 #<%= link_to tag.hashtag, tag_path(tag) %>
@@ -45,7 +46,7 @@
 
   <%= form.collection_check_boxes :tag_ids, @alltags, :id, :hashtag %>
   <p>
-  <%= form.submit %>
+  <%= form.submit value: 'update #'%>
   </p>
 <% end %>
 </p>

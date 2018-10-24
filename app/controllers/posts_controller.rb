@@ -62,13 +62,16 @@ class PostsController < ApplicationController
   end
 
     @post = Post.new(post_params)
+    @post.save
+
     splitCaption = params[:post][:caption].split(" ")
     splitCaption.each do |x|
       @tag = Tag.new(hashtag: x)
       @tag.save
+      @post.tags << @tag
+
     end
 
-    @post.save
     redirect_to @post
 
   end

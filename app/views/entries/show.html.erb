@@ -17,7 +17,7 @@
 </p>
 
 
-<strong>Comments: </strong><br>
+<strong>Comments:</strong><br>
 <% @comments.each do |comment| %>
         <tr><%= comment.text %></tr>
         <%= link_to 'Edit', edit_comment_path(comment) %>

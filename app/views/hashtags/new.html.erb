@@ -1,0 +1,11 @@
+<%= link_to 'Back', entries_path %>
+<%= form_with scope: :hashtag, url: hashtags_path, local: true do |form| %>
+  <p>
+    <%= form.label :hashtag %><br>
+    <%= form.text_field :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

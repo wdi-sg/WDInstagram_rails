@@ -22,7 +22,6 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-
     @entry.save
     redirect_to @entry
     # this renders the entry params into the browser window w/o saving it into db
@@ -45,6 +44,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:author, :photo_url, :date_taken)
+    params.require(:entry).permit(:author, :photo_url, :date_taken, :hashtag_ids => [])
   end
 end

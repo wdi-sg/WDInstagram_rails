@@ -28,6 +28,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    @comment = Comment.where(entry_id: params[:id])
     @hashtags = @entry.hashtags
   end
 

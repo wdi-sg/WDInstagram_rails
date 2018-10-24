@@ -5,7 +5,26 @@
 
 <p>
   <strong>photo URL:</strong>
-  <%= @entry.photo_url %>
+  <img src= '<%= @entry.photo_url %>'>
+</p>
+
+<p>
+  Created at:
+  <%= @entry.created_at %>
+<br />
+  Updated at:
+  <%= @entry.updated_at %>
+</p>
+
+<p>
+	<%#= @array.inspect %>
+	
+	<% @array.each do |item| %>
+	<p><%= item['name'] %>
+	<br />
+	Created at:
+	<%= item['created_at'] %></p>
+	<% end %>
 </p>
 
 
@@ -14,6 +33,11 @@
 </p>
 
 <p>
+	<%= link_to 'Comment', new_comment_path %>
+</p>
+
+<p>
+	<%= link_to 'My comments', controller: 'comments' %>
 	<%= link_to 'Edit', edit_entry_path(@entry) %>
 	<%= link_to 'Destroy', entry_path(@entry),
 		          method: :delete,

@@ -1,10 +1,26 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
+    
   end
 
   def show
     @entry = Entry.find(params[:id])
+    #@comments = Entry.find(params[:id])
+
+    #@array = Entry.first.comments.name 
+    #@array = Entry.comments;
+    
+    if params.has_key?(:id)
+      #@array = Comment.where(entry_id: params[:id] )
+      #byebug
+     # @array = Entry.find_by(params[:id])
+      @array = @entry.comments
+    else
+        # get all commemts
+      @array = "Sorry no comments yet!"
+    end
+    
   end
 
   def new

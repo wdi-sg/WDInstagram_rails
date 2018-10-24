@@ -5,7 +5,7 @@
 <table>
 	<tr>
 		<th>Title</th>
-		<th>Text</th>
+		<th>Photo</th>
 		<!-- ><th></th> -->
 	</tr>
 	<tr>
@@ -16,6 +16,7 @@
     <tr>
       <td><%= entry.author %></td>
       <td><%= entry.photo_url %></td>
+	  <td><%= entry.created_at %></td>
       <td><%= link_to 'Show', entry_path(entry) %></td>
 	  <td><%= link_to 'Edit', entry_path(entry) %></td>
 	  <td><%= link_to 'Destroy', entry_path(entry),

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
   end
 
   def create
@@ -39,6 +40,6 @@ class PostsController < ApplicationController
   # this is tell ruby what is permited to be inputed into req.body => require(:post) which is the form_for :post
   private 
   def post_params
-    params.require(:post).permit(:author, :photo_url, :date_taken)
+    params.require(:post).permit(:author, :photo_url, :date_taken, :tag_ids => [])
   end
 end

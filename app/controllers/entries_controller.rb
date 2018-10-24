@@ -22,6 +22,7 @@ rescue GiphyClient::ApiError => e
 end
 
 class EntriesController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
   def index
     @entries = Entry.all
   end

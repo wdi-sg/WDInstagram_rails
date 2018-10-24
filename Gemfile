@@ -68,3 +68,5 @@ gem 'jquery-rails'
 gem 'cloudinary'
 
 gem 'GiphyClient'
+
+gem 'devise'

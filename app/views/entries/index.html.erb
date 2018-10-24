@@ -1,6 +1,7 @@
 <div class="container-fluid mt-3">
 	<h1 class="text-write">All entries</h1>
 	<p><a href="/hashtags/new">Add HashTags</a></p>
+
 	<ol>
 	  <% @entries.each do |entry| %>
 	    <li>
@@ -8,14 +9,21 @@
 	      <p><%= entry.photo_url %></p>
 	      <p><%= entry.date_taken %></p>
 	      <p>
-	      	<%= link_to 'Show', entry_path(entry) %>
-		      <%= link_to 'Edit', edit_entry_path(entry) %>
-		      <%= link_to 'Destroy', entry_path(entry),
-
-	        method: :delete,
-	        data: { confirm: 'Are you sure?' } %>
+	      	<% if user_signed_in? %>
+	      		<%= link_to 'New',	new_entry_path(entry) %>
+		      	<%= link_to 'Show', entry_path(entry) %>
+			      <%= link_to 'Edit', edit_entry_path(entry) %>
+			      <%= link_to 'Destroy', entry_path(entry),
+							method: :delete,
+							data: { confirm: 'Are you sure?' } %>
+					<% else %>
+						<p><%= link_to 'Login', new_user_session_url %></p>
+					<% end %>
 	      </p>
 	    </li>
+	  <% end %>
+	  <% if user_signed_in? %>
+	  	<%= link_to 'log out', destroy_user_session_url, method: :delete %>
 	  <% end %>
 	</ol>
 </div>

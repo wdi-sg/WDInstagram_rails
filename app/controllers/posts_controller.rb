@@ -24,6 +24,8 @@ end
 
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     @post = Post.all
     @comment = Comment.all
@@ -62,6 +64,7 @@ class PostsController < ApplicationController
   end
 
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.save
 
     splitCaption = params[:post][:caption].split(" ")
@@ -69,12 +72,11 @@ class PostsController < ApplicationController
       @tag = Tag.new(hashtag: x)
       @tag.save
       @post.tags << @tag
-
     end
 
     redirect_to @post
-
   end
+
 
   def update
     @post = Post.find(params[:id])

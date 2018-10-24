@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-      @comments = Comment.all
+      redirect_to root_path
   end
 
   def new
@@ -26,6 +26,14 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     redirect_to @comment
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @entry = @comment.entry
+
+    redirect_to( @entry )
   end
 
   private

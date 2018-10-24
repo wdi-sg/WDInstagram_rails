@@ -28,7 +28,9 @@
 				<%= this.text %>
 			</p>
 				<%= link_to 'Edit', edit_post_comment_path(@post, this) %>
-
+				<%= link_to 'Delete', comment_path(this),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
 		<% end %>
 </p>
 <p>

@@ -1,0 +1,23 @@
+<h1>All Posts</h1>
+
+
+<% if user_signed_in? %>
+	<%= link_to 'New Post', new_post_path %>
+<% end %>
+
+<div>
+	<% @posts.each do |post| %>
+		<div>
+			<%= image_tag ("#{post.photo_url}") %>
+			<p><%= post.caption %></p>
+			<p>Date: <%= post.date_taken %></p>
+			<p>Author: <%= post.author %></p>
+			<p><%= link_to 'Show Post', post_path(post) %></p>
+			<% if user_signed_in? %>
+				<p><%= link_to 'Delete Post', post_path(post),
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %></p>
+	    <% end %>
+		</div>
+	<% end %>
+</div>

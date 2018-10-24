@@ -6,7 +6,17 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :articles, :comments
+  resources :articles do
+    resources :hashtags
+  end
+
+  resources :hashtags do
+    resources :resources
+  end
+
+  resources :articles, :comments, :hashtags
+
+
 
 end
 

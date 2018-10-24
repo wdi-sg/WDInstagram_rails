@@ -17,8 +17,15 @@
   <strong>Date taken:</strong>
 </p>
 
-<strong>Comments</strong>
 
+<%= form_with model: @article, local: true do |form|  %>
+	<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :name %>
+	<br>
+	<%= form.submit(value:"Add hashtags") %>
+<% end %>
+
+<br>
+<strong>Comments</strong>
 <p>
 <!-- WHAT DOES THIS @COMMENTS REFER TO? -->
 <% @comments.each do |comments| %>

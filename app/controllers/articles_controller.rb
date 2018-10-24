@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # WHY IS THIS PLURAL?
     @comments = Comment.where("article_id=?", params[:id])
+    @hashtags = Hashtag.all
+
   end
 
   def index
@@ -35,18 +37,12 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-end
-
-private
+  private
   def article_params
-    params.require(:article).permit(:author, :photo_url, :caption, :date_taken)
+    params.require(:article).permit(:author, :photo_url, :caption, :date_taken, :hashtag_ids => [])
   end
 
-
-# No need for new?
-  # def new
-
-  # end
+end
 
 
 

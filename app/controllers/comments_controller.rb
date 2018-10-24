@@ -3,16 +3,20 @@ class CommentsController < ApplicationController
 
   def new
     # WHAT IS THIS?
+    # when you put an @ before something, its accessible in your form
     @article = Article.find(params['article_id'])
-    # comment = Comment.new(comment_params)
+    @comment = Comment.new
   end
 
 # No need to go back to comment, so you dont use @comment
   def create
-    comment = Comment.new(comment_params)
-    comment.save
-
+    @comment = Comment.new(comment_params)
     @article = Article.find(params['article_id'])
+    @comment.article = @article
+    @comment.save
+
+    # puts @comment.errors.full_messages
+
     redirect_to @article
 
   end

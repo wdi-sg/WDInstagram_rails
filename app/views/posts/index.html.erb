@@ -23,7 +23,7 @@
                             <div class="card-body">
                                 <h6 class="card-title"><%= comment.username %></h6>
                                 <p class="card-text"><%= comment.comment %></p>
-                                <% if current_user == post.user %>
+                                <% if current_user == comment.user %>
                                 <p class="card-text inline"><%= link_to 'Edit', edit_comment_path(comment) %></p>
                                 <p class="card-text inline"><%= link_to 'Destroy', post_comment_path(post, comment),
                                 method: :delete,

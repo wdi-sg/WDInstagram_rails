@@ -14,7 +14,7 @@
     </p>
     <div>
     <strong>Hashtags:</strong>
-     <%= form_with scope: :hashtag, url: @photo_hashtags_path, local: true do |form| %>
+     <%= form_with model: @photo, url:photo_hashtag_path(@photo), local: true do |form| %>
         <%= form.collection_check_boxes :hashtag_ids, @all_hashtags, :id, :hashtag do |b|%>
             <p>
             <%= b.check_box %>

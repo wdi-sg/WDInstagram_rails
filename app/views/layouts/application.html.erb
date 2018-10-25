@@ -4,7 +4,7 @@
     <title>WDInstagramRails</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,9 +12,13 @@
   <nav class = "navbar navbar-light" style="background-color: #e3f2fd;">
     <h1><a href = '/'>Photos</a></h1>
     <button class = "navbar-toggler"><%= link_to 'New photo', new_photo_path %></button>
+    <button class = "navbar-toggler"><%= link_to 'log in', new_user_session_url %></button>
+    <button class = "navbar-toggler"><%= link_to 'log out', destroy_user_session_url, method: :delete %></button>
   </nav>
   </header>
   <body>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
 
     @comment.save
     @photo = Photo.find(params[:photo_id])
+    # @photo = @comment.post
     redirect_to @photo
   end
 
@@ -26,8 +27,8 @@ class CommentsController < ApplicationController
 
     @comment.update(comment_params)
 
-    # @photo = Photo.find(params[:photo_id])
-    @photo = @comment.post
+    @photo = Photo.find(params[:photo_id])
+    # @photo = @comment.post
     redirect_to @photo
   end
 

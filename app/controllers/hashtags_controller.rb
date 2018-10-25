@@ -1,31 +1,33 @@
 class HashtagsController < ApplicationController
-  
   def show
     @photo = Photo.find(params[:photo_id])
-    @hashtags = @photo.hashtags
   end 
 
   def new
     @photo = Photo.find(params[:photo_id])
-    @all_hashtags = Hashtag.all
+
+    # @all_hashtags = Hashtag.all
   end
 
   def create
     @hashtag = Hashtag.new(hashtag_params)
-
     @hashtag.save
-    # @photo = Photo.find(params[:hashtag][:photo_id])
+    @photo = Photo.find(params[:photo_id])
     redirect_to @photo
   end
 
   def update
-    if params[:photo][:hashtag_id]
-      @photo.hashtags << Hashtag.find(params[:photo][:hashtag_id])
-    end
+    @photo = Photo.find(params[:photo_id])
+
+    # if params[:id]
+      @photo.hashtags << Hashtag.find(params[:id])
+    # end
+    @photo.save
     redirect_to @photo
   end
+  
   private
   def hashtag_params
-    params.require(:hashtag).permit(:hashtag, :photo_id => [])
+    params.require(:hashtag).permit(:hashtag, :photo_ids => [])
   end
 end

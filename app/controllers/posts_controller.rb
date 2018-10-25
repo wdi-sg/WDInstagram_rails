@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     @posts = Post.all
   end
@@ -27,12 +30,12 @@ class PostsController < ApplicationController
       newtags = @post.caption.split(" ")
       newtags.each do |tagcontent|
 
-        if Tag.where(content: tagcontent).empty?  # Tag does not exist yet
+        if Tag.where(content: tagcontent).empty?  # Tag does not exist yet, will create
           newtag = Tag.new(content: tagcontent)
           newtag.save
           @post.tags << newtag
 
-        else  # Found existing tag
+        else  # Found existing tag, will use existing
           @post.tags << Tag.where(content: tagcontent)[0]
 
         end

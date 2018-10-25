@@ -1,0 +1,17 @@
+<div class = "container">
+    <h2>New Comment</h2>    
+    <%= form_with scope: :comment, url: photo_comments_path, local: true do |form| %>
+
+    <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+    <%= form.hidden_field :photo_id, value:@photo.id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+    <% end %>
+    <button><%= link_to 'Back', photo_comments_path %></button>
+
+</div>    

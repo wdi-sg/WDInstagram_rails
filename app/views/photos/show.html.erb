@@ -1,0 +1,52 @@
+<div class = "container">
+    <p>
+    <strong>Author:</strong>
+    <%= @photo.author %>
+    </p>
+
+    <p>
+    <%= image_tag @photo.photo_url %>
+    </p>
+
+    <p>
+    <strong>Caption:</strong>
+    <%= @photo.caption %>
+    </p>
+    <div>
+    <strong>Hashtags:</strong>
+     <%= form_with model: @photo, url:photo_hashtag_path(@photo), local: true do |form| %>
+        <%= form.collection_check_boxes :hashtag_ids, @all_hashtags, :id, :hashtag do |b|%>
+            <p>
+            <%= b.check_box %>
+            <%= b.label %>
+
+            </p>
+        <% end %>
+
+            <p>
+                <%= form.submit %>
+            </p>
+    <% end %>    
+    </div>
+    <p>
+    <strong>Comments:</strong>
+    </p>
+    
+    <% @photo.comments.last(3).each do |comment| %> 
+    <p>
+    <%= comment.comment %>
+    <button><%= link_to 'Edit Comment', edit_photo_comment_path(photo_id: @photo, id: comment) %></button>
+    <button><%= link_to 'Delete Comment', photo_comment_path(@photo, comment), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </p>
+    <% end %>
+
+    <p>
+    <button><%= link_to 'Edit Photo', edit_photo_path(@photo) %></button>
+    <button><%= link_to 'Delete Photo', photo_path(@photo), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </p>
+
+    <p>
+    <button><%= link_to 'New Comment', new_photo_comment_path(@photo) %></button>
+    </p>
+
+</div>    

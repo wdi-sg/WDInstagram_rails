@@ -1,0 +1,16 @@
+<div class = "container">
+    <h2>New Hashtag</h2>    
+    <%= form_with scope: :hashtag, url: photo_hashtags_path, local: true do |form| %>
+
+    <p>
+    <%= form.label :hashtag %><br>
+    <%= form.text_area :hashtag %>
+    <%= form.hidden_field :photo_id, value:@photo.id %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+    <% end %>
+
+</div>    

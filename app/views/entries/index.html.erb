@@ -1,3 +1,10 @@
+<h3>Greetings, </h3>
+<% if user_signed_in? %>
+  <%= current_user.email %>
+  <%= link_to 'New Entry', new_entry_path %>
+  <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+<% end %>
+
 <h1>Photo Entries</h1>
 
 <table>
@@ -7,10 +14,14 @@
       <td><%= link_to image_tag(entry.photo_url, style: 'width: 150px'), entry_path(entry) %><td>
       <td><%= entry.date_taken %></td>
       <td><%= link_to 'Show', entry_path(entry) %></td>
-      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-      <td><%= link_to 'Destroy', entry_path(entry),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
+
+      <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+          <td><%= link_to 'Destroy', entry_path(entry),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+
       <td><strong>Comments:</strong></td>
 			<td><%= entry.comments.length %></td>
     </tr>
@@ -19,5 +30,5 @@
 
 <%= link_to 'New Hashtag', new_hashtag_path %>
 <%= link_to 'Show Hashtags', hashtags_path %>
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'Log In', new_user_session_url %>
 <%= link_to 'My Blog', controller: 'entries' %>

@@ -1,11 +1,7 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
   def index
-
-    # if params.has_key?(:hashtags_id)
-    #   @entries = Hashtag.find(params[:hashtag_id]).entries
-    # else
       @entries = Entry.all
-    # end
 
   end
 
@@ -17,7 +13,7 @@ class EntriesController < ApplicationController
     #<%= form_with scope: :comment, url: comments_path, local: true do |form| %> in show.html.erb to
     # to <%= form_with model: @new_comment local: true do |form| %> but the route will be determined
     # by rails)
-    
+
     @hashtags = @entry.hashtags
 
     #@hashtags = Hashtag.all
@@ -35,7 +31,13 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.save
-    redirect_to @entry
+    #redirect_to @entry
+    @entry.user = current_user
+    if @entry.save
+      redirect_to @entry
+    else
+      render 'new'
+    end
     # this renders the entry params into the browser window w/o saving it into db
     #render plain: params[:entry].inspect
   end

@@ -1,0 +1,23 @@
+<%= link_to 'Back', entries_path %>
+<%= form_with scope: :entry, url: entries_path, local: true do |form| %>
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.url_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :date_taken %><br>
+    <%= form.date_field :date_taken %>
+  </p>
+
+  <p><%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :text %></p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

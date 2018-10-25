@@ -1,0 +1,11 @@
+<%= link_to 'Back', entries_path %>
+<table>
+  <th><strong>Hashtags:</strong></th>
+
+  <% @hashtags.each do |hashtag| %>
+  <tr>
+          <td><%= link_to hashtag.text, hashtag_path(hashtag) %></td>
+  </tr>
+  <% end %>
+
+</table>

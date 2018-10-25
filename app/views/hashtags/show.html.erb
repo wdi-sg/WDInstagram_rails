@@ -1,0 +1,10 @@
+<%= link_to 'Back', entries_path %>
+
+<strong><%= @hashtag.text %></strong><br>
+<strong>Entries:</strong><br>
+
+<table>
+  <% @entries.each do |entry| %>
+  <p><%= link_to image_tag(entry.photo_url, style: 'width: 150px'), entry_path(entry) %></p>
+  <% end %>
+</table>

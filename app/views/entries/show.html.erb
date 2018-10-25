@@ -4,8 +4,8 @@
 </p>
 
 <p>
-	<strong>Text:</strong>
-	<%= @entry.photo_url %>
+	<strong>Photo:</strong>
+	<%= image_tag(@entry.photo_url, width: "200") %>
 </p>
 
 <p>
@@ -19,6 +19,13 @@
 <li><%= comment.user_comment %> | <%= link_to 'Edit', edit_comment_path(comment) %> | <%= link_to 'Destroy', comment_path(comment),
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
+<% end %>
+</ul>
+
+<strong>Hash Tag:</strong>
+<ul>
+<% @entry.tags.each do |tag| %>
+<li><%= tag.hash_tag %>
 <% end %>
 </ul>
 

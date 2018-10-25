@@ -14,7 +14,7 @@
 		<%= form.text_field :date_taken %>
 	</p>
 
-	<%= form.collection_check_boxes :entry_ids, @tags, :id, :hash_tag %>
+	<%= form.collection_check_boxes :tag_ids, @tags, :id, :hash_tag %>
 
 	<p>
 		<%= form.submit %>

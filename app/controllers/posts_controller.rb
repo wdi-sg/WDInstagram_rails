@@ -67,12 +67,33 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save
 
-    splitCaption = params[:post][:caption].split(" ")
+    #splitCaption = params[:post][:caption].split(" ")
+    splitCaption = @post.caption.split(" ")
     splitCaption.each do |x|
-      @tag = Tag.new(hashtag: x)
-      @tag.save
-      @post.tags << @tag
+      if x[0] == '#' # if its a hashtag
+
+        # remove #
+        text = x.slice(1..x.length)
+
+        # check if it exists
+        alltags = Tag.all
+        exists = false
+
+        alltags.each do |y|
+          if text == y.hashtag
+            @post.tags << y
+            exists = true
+          end
+        end
+
+        if !exists
+          new_tag = Tag.new(hashtag: text)
+          new_tag.save
+          @post.tags << new_tag
+        end
+      end
     end
+
 
     redirect_to @post
   end

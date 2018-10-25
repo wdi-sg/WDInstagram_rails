@@ -13,47 +13,51 @@
   <%= @wdinstagram.date_taken %>
 </p>
 <%= link_to 'Back', wdinstagrams_path %>
-<%= link_to 'Edit', edit_wdinstagram_path(@wdinstagram)%>
-<%= link_to 'Delete', wdinstagram_path,
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-<!--list tag -->
 
-<%= form_with model: @wdinstagram, local: true do |form| %>
-<%= form.collection_check_boxes :tag_ids, @tags, :id, :tag do |cb| %>
-<%= link_to cb.label,tag_path(id: cb.value) %>
-<%= cb.check_box %>
-<%end%>
-<%= form.submit %>
-<% end %>
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_wdinstagram_path(@wdinstagram)%>
+	<%= link_to 'Delete', wdinstagram_path,
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %>
+	<!--list tag -->
+
+	<%= form_with model: @wdinstagram, local: true do |form| %>
+	<%= form.collection_check_boxes :tag_ids, @tags, :id, :tag do |cb| %>
+	<%= link_to cb.label,tag_path(id: cb.value) %>
+	<%= cb.check_box %>
+	<%end%>
+	<%= form.submit %>
+	<% end %>
 
 
 
 <!-- form start -->
-<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+	<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
 
-  <%= form.hidden_field :wdinstagram_id, :value => @wdinstagram.id %>
+	  <%= form.hidden_field :wdinstagram_id, :value => @wdinstagram.id %>
 
 
-  <p>
-    <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
-  </p>
+	  <p>
+	    <%= form.label :comment %><br>
+	    <%= form.text_area :comment %>
+	  </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+	  <p>
+	    <%= form.submit %>
+	  </p>
+	<% end %>
+<!-- form ends -->
 <% end %>
 <!-- form ends -->
 
-<!-- form ends -->
-
 <%= link_to 'Home', wdinstagrams_path %>
-<% @comments.each do |comment| %>
-   <p><%= comment.comment %></p>
-		<%= link_to 'Edit', edit_wdinstagram_comment_path(wdinstagram_id: @wdinstagram, id: comment) %>
-    <%= link_to 'Delete', comment_path(comment),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-  <% end %>
+	<% @comments.each do |comment| %>
+	   <p><%= comment.comment %></p>
+<% if user_signed_in? %>
+			<%= link_to 'Edit', edit_wdinstagram_comment_path(wdinstagram_id: @wdinstagram, id: comment) %>
+	    <%= link_to 'Delete', comment_path(comment),
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %>
+<% end %>
+	  <% end %>
 

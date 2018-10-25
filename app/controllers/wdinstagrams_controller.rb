@@ -1,5 +1,5 @@
 class WdinstagramsController < ApplicationController
-
+  before_action :authenticate_user!, :except => [ :show, :index ]
   def index
       if params.has_key?(:wdinstagram_id)
     # get all the rangers for a specific park
@@ -29,19 +29,19 @@ class WdinstagramsController < ApplicationController
 
     #render plain: params[:wdinstagram].inspect
     @wdinstagram = Wdinstagram.new(wdinstagram_params)
-    @wdinstagram.save
+    @wdinstagram.user = current_user
 
-    redirect_to @wdinstagram
+      if @wdinstagram.save
+        redirect_to @wdinstagram
+      else
+        render 'new'
+      end
   end
 
   def update
     @wdinstagram = Wdinstagram.find(params[:id])
     @wdinstagram.update(wdinstagram_params)
-    #wdinstagram.tags.clear #delete and add again
-    #@tag.map do |tag|
-      #tag = tag.find_or_create_by(name:tag.downcase('#'))
-      #post.tags << tag
-      #end
+
     redirect_to @wdinstagram
   end
 

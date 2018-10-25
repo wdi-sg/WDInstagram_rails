@@ -1,7 +1,11 @@
 
 <h1><%= link_to 'WDI Instagrams', controller: 'wdinstagrams' %></h1>
+<%= link_to 'log out', destroy_user_session_url, method: :delete %>
+<%= link_to 'log in', new_user_session_url %>
 
+<% if user_signed_in? %>
 <%= link_to 'New Photo', new_wdinstagram_path %>
+<% end %>
 
   <% @wdinstagrams.each do |wdinstagram| %>
 
@@ -11,10 +15,12 @@
   <table>
       <tr>
       	<td><%= link_to 'Show', wdinstagram_path(wdinstagram) %></td>
+<% if user_signed_in? %>
       	<td><%= link_to 'Edit', edit_wdinstagram_path(wdinstagram) %></td>
       	<td><%= link_to 'Delete', wdinstagram_path(wdinstagram),
         	method: :delete,
         	data: { confirm: 'Are you sure?' } %></td>
+<%end%>
       </tr>
   </table>
   <% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  devise_for :users
   resources :wdinstagrams do
     resources :comments
 end

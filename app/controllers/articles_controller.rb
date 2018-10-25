@@ -1,40 +1,56 @@
 class ArticlesController < ApplicationController
 
-  def show
-    @article = Article.find(params[:id])
-    # WHY IS THIS PLURAL?
-    @comments = Comment.where("article_id=?", params[:id])
-    @hashtags = Hashtag.all
-
-  end
+  before_action :authenticate_user!, :except => [ :show, :index ]
 
   def index
     @articles = Article.all
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
 
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
+    if @article.save
+      @article.save
+      redirect_to @article
+    else render 'new'
+    end
+  end
 
-    @article.save
-    redirect_to @article
+
+  def show
+    @article = Article.find(params[:id])
+    @comments = Comment.where("article_id=?", params[:id])
+    @hashtags = Hashtag.all
+  end
+
+
+  def edit
+    @article = Article.find(params[:id])
+    if @article.user != current_user
+      redirect_to articles_path
+    end
   end
 
   def update
     @article = Article.find(params[:id])
-
     @article.update(article_params)
+
+    if @article.user != current_user
+      redirect_to @article
+    end
+
     redirect_to @article
   end
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
-
-    redirect_to articles_path
+    if @article.user != current_user
+      redirect_to articles_path
+    elsif @article.user == current_user
+      @article.destroy
+      redirect_to articles_path
+    end
   end
 
   private
@@ -43,27 +59,3 @@ class ArticlesController < ApplicationController
   end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

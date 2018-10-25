@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!, :except => [ :show, :index ]
 
   def new
     # WHAT IS THIS?
@@ -13,20 +14,25 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @article = Article.find(params['article_id'])
     @comment.article = @article
-    @comment.save
+    @comment.user = current_user
 
+    if @comment.save
+      redirect_to @comment.article
+    else
+      redirect_to root_path
+    end
     # puts @comment.errors.full_messages
-
-    redirect_to @article
-
   end
 
   def edit
       # WHY did we use article_id?
       @article = Article.find(params[:article_id])
       @comment = Comment.find(params[:id])
-      # WHY CANNOT @COMMENT, AND WHY ARTICLE_ID?
+      # WHY ARTICLE_ID?
       # @comment = Article.find(params[:id])
+      if @comment.user != current_user
+        redirect_to @article
+      end
     end
 
     # @comments = Comment.where("article_id=?", params[:id])
@@ -42,10 +48,12 @@ class CommentsController < ApplicationController
   def destroy
       # @article = Article.find(params[:id])
       @comment = Comment.find(params[:id])
-      @comment.destroy
+      # @article = @comment.article
 
-      @article = @comment.article
-
+      if @comment.user == current_user
+        @comment.destroy
+      end
+      @article = Article.find(params["article_id"])
       redirect_to @article
     end
 

@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WDInstagramRails</title>
+    <title>Instagram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+<div class="WTF">
+  	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">INSTAGRAM THIRD ATTEMPT</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  	<nav class="navbar navbar-inverse">
-  	      <div class="container">
-  	        <div class="navbar-header">
-  	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-  	            <span class="sr-only">Toggle navigation</span>
-  	            <span class="icon-bar"></span>
-  	            <span class="icon-bar"></span>
-  	            <span class="icon-bar"></span>
-  	          </button>
-  	          <a class="navbar-brand" href="#">Instagram for poor</a>
-  	        </div>
-  	        <div id="navbar" class="collapse navbar-collapse">
-  	          <ul class="nav nav-pills">
-  	            <li role="presentation"><%= link_to "Home", home_path %></li>
-  	            <li role="presentation"><%= link_to "About", home_path %></li>
-  	            <li role="presentation"><%= link_to "Policies", home_path %></li>
-  	            <ul class="nav nav-pills navbar-right">
-  	            <li role="presentation"><%= link_to "Create Post", new_post_path %></li>
-  	          </ul>
-  	          </ul>
 
-  	        </div><!--/.nav-collapse -->
-  	      </div>
-  	    </nav>
 
-  	<div class="container">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="posts/new">Create Post <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/posts">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/sign_in">LOGIN</a>
+          </li>
+          <li class="nav-item"><a class="HL"><%= link_to 'LOGOUT', destroy_user_session_url, method: :delete %></a></li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+<div class="flex-container">
     <%= yield %>
   </div>
+
+
 
   </body>
 </html>

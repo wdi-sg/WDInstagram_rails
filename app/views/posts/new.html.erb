@@ -1,7 +1,6 @@
-<h1>Add Post</h1>
+<h1>Add post</h1>
 
-<%= form_for :post, url: posts_path do |form| %>
-
+<%= form_with scope: :post, url: posts_path do |form| %>
 <% if @post.errors.full_messages.each do |msg| %>
 <div class="alert alert-danger"><%= msg %></div>
 <% end %>
@@ -21,6 +20,14 @@
     <%= form.label :description %><br>
     <%= form.text_area(:description, {:class => 'form-control'}) %>
   </p>
+
+  <p>Choose hashtags</p>
+    <%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :name do |cb| %>
+      <div>
+        <%= cb.label %><%= cb.check_box %>
+      </div>
+    <% end %>
+
 
   <p>
     <%= form.submit({:class => 'btn btn-primary'}) %>

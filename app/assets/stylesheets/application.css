@@ -13,18 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.flex-container {
+	display: flex;
+	align-content: flex-end
 
-.myPosts {
-	display: inline-block;
-	margin-right: 40px;
+  justify-content: center;
+
 }
 
-.container {
-	text-align: center;
-	background-image: url("c10.gif");
-	background-size: cover;
-}
-
-.obj {
-	display: inline-block;
+.WTF {
+	margin-bottom: 70px;
 }

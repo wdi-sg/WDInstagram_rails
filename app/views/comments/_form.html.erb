@@ -1,0 +1,18 @@
+<h3>Add comment</h3>
+
+
+<%= form_with scope: :comment, url: post_comments_path(@post), method: :post do |form| %>
+	<p>
+		<%= form.label :author %><br>
+		<%= form.text_field(:author, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= form.label :body %><br>
+		<%= form.text_field(:body, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= form.submit({:class => 'btn btn-primary'}) %>
+	</p>
+<% end %>

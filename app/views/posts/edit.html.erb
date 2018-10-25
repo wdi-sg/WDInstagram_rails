@@ -1,6 +1,6 @@
 <h1>Edit Post</h1>
 
-<%= form_for :post, url: post_path(@post), method: :patch do |form| %>
+<%= form_with scope: :post, url: post_path(@post), method: :patch do |form| %>
 	<p>
 		<%= form.label :title %><br>
 		<%= form.text_field(:title, {:class => 'form-control'}) %>
@@ -15,6 +15,13 @@
 		<%= form.label :description %><br>
 		<%= form.text_area(:description, {:class => 'form-control'}) %>
 	</p>
+
+	<p>Choose hashtags</p>
+	  <%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :name do |cb| %>
+	    <div>
+	      <%= cb.label %><%= cb.check_box %>
+	    </div>
+	  <% end %>
 
 	<p>
 		<%= form.submit({:class => 'btn btn-primary'}) %>

@@ -11,22 +11,26 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if params[:post_id].to_i != @comment.post_id
-
+      #do something
     end
   end
 
   def create
-    @comment = Comment.new(comment_params)   
-    @comment.save
+    @comment = Comment.new(comment_params)  
+    @comment.user = current_user
 
-    redirect_to posts_path
+    if @comment.save 
+      redirect_to posts_path
+    else
+      render 'new'
+    end
   end
 
   def new
     if params.has_key?(:post_id)
       @posts = Post.where(id: params[:post_id] )
+      @username = current_user.email.split('@')[0]
     else
-      # get all rangers
       @posts = Post.all
     end
   end
@@ -45,8 +49,12 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
 
-    @comment.update(comment_params)
-    redirect_to posts_path
+    if @comment.user == current_user
+      @comment.update(comment_params)
+      redirect_to posts_path
+    else
+      render 'edit'
+    end
   end
   
   private

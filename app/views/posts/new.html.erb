@@ -1,51 +1,44 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="headings">Add Post</h1>
+        <h1>Add Post</h1>
     </div>
     <div class="row">
         <%= form_with model: @post do |form| %>
 
-            <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag %>
-            
-            <div class="form-group">ghit
+            <div>
                 <%= form.label :author %><br>
-                <%= form.text_field :author %>
+                <%= form.text_field :author, {class: 'form-control'}%>
             </div>
 
-            <div class="form-group">
+            <div>
                 <%= form.label :photo_url %><br>
-                <%= form.text_area :photo_url %>
+                <%= form.text_area :photo_url, {class: 'form-control'} %>
             </div>
 
-            <div class="form-group">
-                <%= form.label :date_taken %><br>
-                <%= form.text_area :date_taken %>
+            <div>
+                <%= form.label :Hashtags %><br>
+                <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag do |b| %>
+                    <%= b.label class:"label-checkbox" do%>
+                    <%=b.check_box + " " + b.text%>
+                    <%end%>
+                <% end %>
             </div>
 
-            <%= form.fields_for :tags, Tag.new do |tag| %>
-                <%= tag.label :tag %><br>
-                <%= tag.text_field :tag, placeholder: "include hashtag" %><br>
-            <% end %>
-            
-            <%= form.fields_for :comments, Comment.new do |comment| %>
-                <%= comment.label :username %><br>
-                <%= comment.text_field :username, placeholder: "include username" %><br>
-
-                <%= comment.label :comment %><br>
-                <%= comment.text_field :comment, placeholder: "include comment" %><br>
-            <% end %>
-
+            <div>
+                <%= form.fields_for :tags, Tag.new do |tag| %>
+                    <%= tag.text_field :tag, class: 'form-control', placeholder: "insert new #" %>
+                <% end %>
+            </div>
             <br>
-
             <p>
-                <%= form.submit %>
+                <%= form.submit class: 'btn btn-primary'%>
             </p>
         <% end %>
     </div>
 
     <div class="row">
-        <%= link_to 'Back', posts_path %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-primary' %>
     </div>
 
 </div>

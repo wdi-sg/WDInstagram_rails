@@ -1,35 +1,38 @@
 <div class="container">
+
     <div class="row">
-        <h1 class="headings">Edit Post</h1>
+        <h1>Edit Post</h1>
     </div>
+
     <div class="row">
         <%= form_with scope: :post, model: @post, local: true do |form| %>
+            <div>
+                <%= form.label :author %><br>
+                <%= form.text_field :author, class:"form-control" %>
+            </div>
 
-        <div class="form-group">
-            <%= form.label :author %><br>
-            <%= form.text_field :author %>
-        </div>
+            <div>
+                <%= form.label :photo_url %><br>
+                <%= form.text_area :photo_url, class:"form-control" %>
+            </div>
 
-        <div class="form-group">
-            <%= form.label :photo_url %><br>
-            <%= form.text_area :photo_url %>
-        </div>
+            <div>
+                <%= form.label :Hashtags %><br>
+                <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag do |b| %>
+                    <%= b.label class:"label-checkbox" do%>
+                    <%=b.check_box + " " + b.text%>
+                    <%end%>
+                <% end %>
+            </div> 
 
-        <div class="form-group">
-            <%= form.label :date_taken %><br>
-            <%= form.text_area :date_taken %>
-        </div>
-
-        <div class="form-group">
-            <%= form.submit %>
-        </div>
-
-        <%= form.collection_check_boxes :tag_ids, @tags, :id, :tag %>
-    
+            <div>
+                <%= form.submit class:'btn btn-primary'%>
+            </div>
         <% end %>
-        </div>
-        <div class="row">
-            <%= link_to 'Back', posts_path %>
-        </div>
     </div>
+    <br>
+    <div class="row">
+        <%= link_to 'Back', posts_path, class:'btn btn-primary' %>
+    </div>
+
 </div>

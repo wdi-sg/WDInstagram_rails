@@ -1,14 +1,22 @@
-<%= form_with scope: :tag, url: tags_path, local: true do |form| %>
 
+<div class="row">
+  <%= form_with scope: :tag, url: tags_path, local: true do |form| %>
+    <div>
+      <%= form.label :posts %><br>
+      <%= form.collection_check_boxes :post_ids, @posts, :id, :author do |b| %>
+          <%= b.label class:"label-checkbox" do%>
+          <%=b.check_box + " " + b.text%>
+          <%end%>
+      <% end %>
+    </div>  
 
-  <%= form.collection_check_boxes :post_ids, @posts, :id, :author %>
-
-  <p>
-    <%= form.label :tag %><br>
-    <%= form.text_area :tag %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+    <div>
+      <%= form.label :tag %><br>
+      <%= form.text_area :tag, {class: 'form-control'} %>
+    </div>
+    <br>
+    <p>
+      <%= form.submit class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+</div>

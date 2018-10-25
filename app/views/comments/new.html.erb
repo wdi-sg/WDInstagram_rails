@@ -4,14 +4,18 @@
 
   <p>
     <%= form.label :username %><br>
-    <%= form.text_area :username %>
+    <%= form.text_area :username, value: @username %>
+  </p>
+    
+  <p>
+    <%= form.label :userid %><br>
+    <input name="userid" value=<%= current_user.id %>>
   </p>
 
-    <p>
+  <p>
     <%= form.label :comment %><br>
     <%= form.text_area :comment %>
   </p>
-
 
   <p>
     <%= form.submit %>

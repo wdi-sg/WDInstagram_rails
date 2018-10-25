@@ -9,6 +9,9 @@
     <tr>
     <td><%= tag.tag %></td>
     <td><%= link_to 'Show', tag_path(tag) %></td>
+    <td><%= link_to '[X]', tag_path(tag),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

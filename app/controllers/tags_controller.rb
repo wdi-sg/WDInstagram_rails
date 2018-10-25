@@ -18,6 +18,14 @@ class TagsController < ApplicationController
     redirect_to @tag
   end
 
+  def destroy
+    @tag = Tag.find(params[:id])
+
+    @tag.destroy
+    #redirect back to page where we left off
+    redirect_to request.referer
+  end
+
   private 
 
   def tag_params

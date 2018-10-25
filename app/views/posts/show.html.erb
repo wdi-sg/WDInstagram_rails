@@ -1,0 +1,16 @@
+<h2> <%= @post.title %> </h2>
+<div class = "obj"><%= image_tag @post.url, :height => '450px', :width => '450px' %></div>
+
+<p> <%= @post.description %> </p>
+
+<hr>
+<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+
+<%= link_to "Delete", post_path(@post),
+method: :delete,
+data: {confirm: "really?"},
+ :class => 'btn btn-danger' %>
+
+
+<%= render 'comments/comments' %>
+<%= render 'comments/form' %>

@@ -1,0 +1,10 @@
+<h3>Comments</h3>
+<% @post.comments.each do |comms| %>
+
+<div class="obj">
+	<p><strong><%= comms.author %></strong> <%= comms.body %>
+		<%= link_to '[delete]', [comms.post, comms],
+		method: :delete,
+		date: { confirm: 'Really?' } %> </p>
+</div>
+<% end %>

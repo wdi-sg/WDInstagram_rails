@@ -1,0 +1,13 @@
+<h1>Edit comment</h1>
+
+<%= form_with scope: :comment, model: @comment, local: true do |form| %>
+   <%= form.hidden_field :wdinstagram_id, :value => @wdinstagram.id %>
+	<p>
+		<%= form.label :comment %><br>
+		<%= form.text_field :comment %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_with scope: :tag, url: tags_path, local: true do |form| %>
+<h3>Add Tag</h3>
+	<p>
+		<%= form.label :tag %><br>
+		<%= form.text_field :tag %>
+	</p>
+
+	<p>
+		<%= form.submit 'submit tag' %>
+	</p>
+<% end %>

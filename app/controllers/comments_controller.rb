@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+
   end
 
   def create
@@ -25,7 +26,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
 
-    @comment.update(entry_params)
+    @comment.update(comment_params)
     redirect_to @comment
   end
 

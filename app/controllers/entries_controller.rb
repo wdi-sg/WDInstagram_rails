@@ -8,6 +8,9 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @entries = Entry.all
+
+    @tags = Tag.all
   end
 
   def edit

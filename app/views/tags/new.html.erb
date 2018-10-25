@@ -1,0 +1,9 @@
+<%= form_with scope: :tag, url: tags_path, local: true do |form| %>
+<p>
+		<%= form.label :hash_tag %><br>
+		<%= form.text_field :hash_tag %>
+</p>
+<p>
+		<%= form.submit %>
+</p>
+<% end %>

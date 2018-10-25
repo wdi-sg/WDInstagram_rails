@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :tags
+
   root 'entries#index'
 end

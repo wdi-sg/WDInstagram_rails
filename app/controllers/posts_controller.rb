@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def create
 
     @post = Post.new(post_params)
-    @post.save
+    @post.user = current_user
 
     if @post.caption
 
@@ -42,7 +42,11 @@ class PostsController < ApplicationController
       end
     end
 
-    redirect_to @post
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
 

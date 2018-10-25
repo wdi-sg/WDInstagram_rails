@@ -1,0 +1,35 @@
+<div class="container">
+
+<h1>Edit article</h1>
+
+<%= form_with scope: :post, model: @post, local: true do |form| %>
+
+	<p>
+		<%= form.label :author %><br>
+		<%= form.text_field :author %>
+	</p>
+
+	<p>
+		<%= form.label :photo_url %><br>
+		<%= form.file_field :photo_url %></p>
+		<p>
+		If no image is selected, a random gif will be posted instead.
+	</p>
+
+	</p>
+
+	<p>
+		<%= form.label :caption %><br>
+		<%= form.text_area :caption %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+<% end %>
+
+<%= link_to 'Back', post_path %> |
+<%= link_to 'Log Out', destroy_user_session_url, method: :delete %>
+
+</div>

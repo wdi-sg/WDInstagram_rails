@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
+
+10.times do
+ Post.create!(author: FFaker::Name.name, photo_url: FFaker::Image.url, caption: FFaker::Lorem.paragraph);
+end

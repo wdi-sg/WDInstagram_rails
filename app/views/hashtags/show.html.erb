@@ -1,0 +1,5 @@
+<h3>List of pictures with <%= @hashtag.name %> hashtag</h3>
+
+	<% @article.each do |article| %>
+			<li><%= image_tag(article.photo_url, size: '150') %></li>
+	<% end %>

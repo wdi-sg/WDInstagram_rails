@@ -1,0 +1,8 @@
+<h1>List of hashtags</h1>
+
+	<% @hashtags.each do |h| %>
+			<li><%= link_to h.name, hashtag_path(h) %></li>
+	<% end %>
+
+
+

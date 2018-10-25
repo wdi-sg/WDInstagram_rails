@@ -1,0 +1,50 @@
+<p>
+  <strong>Author:</strong>
+  <%= @article.author %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag(@article.photo_url, size: '150') %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @article.caption %>
+</p>
+
+<p>
+  <strong>Date taken:</strong>
+</p>
+
+
+<%= form_with model: @article, local: true do |form|  %>
+	<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :name %>
+	<br>
+	<%= form.submit(value:"Add hashtags") %>
+<% end %>
+
+<br>
+<strong>Comments</strong>
+<p>
+<!-- WHAT DOES THIS @COMMENTS REFER TO? -->
+<% @comments.each do |comments| %>
+		<tr>
+			<td><%= comments.usercomment %></td>
+			<!-- WHY BOTH PATHS WRONG? @ARTICLES,COMMENTS? -->
+			<td><%= link_to 'Edit', edit_article_comment_path(@article, comments) %></td>
+			<td><%= link_to 'Delete', article_comment_path(@article, comments),
+        method: :delete,
+        data: { confirm: 'Yo, you sure you want to delete this post?' } %>
+     </td><br>
+    </tr>
+	<% end %>
+</p>
+
+
+<td><%= link_to 'Comment', new_article_comment_path(@article) %></td>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Back', articles_path %>
+<%= link_to 'Logout', destroy_user_session_url, method: :delete %>
+
+

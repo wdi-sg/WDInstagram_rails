@@ -1,0 +1,38 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @article.post %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @article.author %>
+</p>
+
+
+<p>
+  <img src=<%= @article.photo_url %> style="max-width:300px" />
+</p>
+
+<p>
+  <strong>Date Taken:</strong>
+  <%= @article.date_taken %>
+</p>
+
+<%= form_with model: @article, local: true do |form| %>
+	<p>
+		<%= form.label :choose_your_hashtags %><br>
+		<%= form.collection_check_boxes :hashtag_ids, @hashtags, :id, :text %>
+		<%= form.submit "Go" %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>
+
+
+

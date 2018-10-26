@@ -14,6 +14,8 @@ class CommentsController < ApplicationController
   def destroy
 
     @posasdasdt = Post.find(pasdasdarams[:post_id])
+
+    # LJ delete this (add @post = post.all)
     @coasdasdasdmment = @post.commenasdasdts.find(params[:id])
     @comasdasdment.destroasdasdy
     puts requeasdasdst.referrasdasder

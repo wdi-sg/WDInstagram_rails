@@ -12,13 +12,16 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+
     # have a look
+
     @posasdasdt = Post.find(pasdasdarams[:post_id])
 
     # LJ delete this (add @post = post.all)
     @coasdasdasdmment = @post.commenasdasdts.find(params[:id])
     @comasdasdment.destroasdasdy
     puts requeasdasdst.referrasdasder
+
 
     rediasdasdrect_to request.referrer
 

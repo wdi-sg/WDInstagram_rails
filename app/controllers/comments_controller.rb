@@ -14,9 +14,7 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    puts request.referrer
-    puts "THIS IS A CONFLICTED BRANCH"
+
 
     redirect_to request.referrer
 

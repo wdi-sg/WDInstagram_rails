@@ -12,12 +12,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    puts request.referrer
+    @posasdasdt = Post.find(pasdasdarams[:post_id])
+    @coasdasdasdmment = @post.commenasdasdts.find(params[:id])
+    @comasdasdment.destroasdasdy
+    puts requeasdasdst.referrasdasder
 
-    redirect_to request.referrer
+    rediasdasdrect_to request.referrer
 
   end
 

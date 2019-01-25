@@ -5,9 +5,9 @@ In this repository, there is a brand new rails application. It has no code in it
 ![https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif](https://media.giphy.com/media/iccmKvtzsmEc8/giphy.gif)
 
 ## Prompt
-Today you're going to make your own version of Instagram (or something very close to it!). Your photo feed app will have full CRUD capability and operate on a single Post model.
+Today you're going to make your own version of Instagram (or something very close to it!). Your photo feed app will have full CRUD capability and operate on a single *Post* model.
 
-A Post has the following:
+A **Post** has the following:
 
 * `author_name`
 * `photo_url`

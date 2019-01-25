@@ -28,7 +28,7 @@ Your app should have the following RESTful actions:
 Add a column for `caption` to your post, which is a text description of the shot. You'll need to generate a database migration for this and then update the rest of your app to be able to display these captions.
 
 #### Further
-Instead of using a string for a date, use rails timestamp.
+Add a rails timestamp to your table.
 
 #### Further
 Sort your feed by date, ascending or descending, depending on what the user wants. (this will have to be a request parameter that you lok for, and sort according to it's value) - e.g. (?sort=date&order=dec)

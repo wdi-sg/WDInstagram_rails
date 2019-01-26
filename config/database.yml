@@ -29,10 +29,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: WDInstagram_rails
+  username: postgres
 
   # The password associated with the postgres role (username).
-  #password:
+  password: postgres
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -58,7 +58,8 @@ development:
 test:
   <<: *default
   database: WDInstagram_rails_test
-
+  username: postgres
+  password: postgres
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -81,5 +82,7 @@ test:
 production:
   <<: *default
   database: WDInstagram_rails_production
-  username: WDInstagram_rails
-  password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>
+  # username: WDInstagram_rails
+  # password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: postgres

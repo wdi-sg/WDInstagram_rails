@@ -1,0 +1,26 @@
+<h1>Listing all posts</h1>
+
+<table>
+  <tr>
+    <th>Post ID</th>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @instagram.order("id ASC").each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.author_name %></td>
+      <td><img src="<%= post.photo_url %>" width="180px" height="180px"></td>
+      <td><%= post.caption %></td>
+      <td><%= link_to 'Show', post_path(post) %>
+    	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+			<td><%= link_to 'Delete', post_path(post),
+        method: :delete,
+	      data: { confirm: 'Are you sure? Click OK to proceed with the deletion or cancel to abort and close the menu' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New post', new_post_path %>

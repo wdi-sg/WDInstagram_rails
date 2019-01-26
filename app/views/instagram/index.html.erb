@@ -1,4 +1,4 @@
-<h1>Listing all posts</h1>
+<h1>Listing all instagram posts</h1>
 
 <table>
   <tr>
@@ -9,7 +9,22 @@
     <th></th>
   </tr>
 
-  <% @instagram.order("id ASC").each do |post| %>
+<%= form_tag("/", method: "get") do %>
+	<%= select_tag(:post, options_for_select([['Name Ascending', 1], ['ID Ascending', 2], ['Most recent created date', 3],['Most recent updated date', 4]])) %>
+	<%= submit_tag("Search") %>
+<% end %>
+<!--
+<form action="/" method="get">
+  <select name="post">
+		<option value="1">Name Ascending</option>
+		<option value="2">ID Ascending</option>
+		<option value="3">Date Created Ascending</option>
+		<option value="4">Date Updated Ascending</option>
+		<input type="submit" value="Sort" />
+	</select>
+</form> -->
+
+  <% @instagram.each do |post| %>
     <tr>
       <td><%= post.id %></td>
       <td><%= post.author_name %></td>

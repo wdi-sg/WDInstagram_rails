@@ -1,6 +1,15 @@
 class InstagramController < ApplicationController
   def index
     @instagram = Post.all
+    if params[:post] == '1'
+      @instagram = Post.all.order("author_name asc")
+    elsif params[:post] == '2'
+      @instagram = Post.all.order("id asc")
+    elsif params[:post] == '3'
+      @instagram = Post.all.order("created_at desc")
+    elsif params[:post] == '4'
+      @instagram = Post.all.order("updated_at desc")
+    end
   end
 
   def show

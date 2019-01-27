@@ -24,14 +24,17 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Article.find(params[:id])
+    @post = Post.find(params[:id])
 
     @post.update(post_params)
     redirect_to @post
   end
 
   def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
 
+  redirect_to action:"index"
   end
 
   private

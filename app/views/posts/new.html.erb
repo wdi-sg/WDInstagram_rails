@@ -1,0 +1,19 @@
+<div>
+	<%= link_to 'Back', posts_path %>
+</div>
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

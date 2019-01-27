@@ -11,6 +11,7 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    @photo = Photo.find(params[:id])
   end
 
   def create
@@ -21,10 +22,17 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @photo = Photo.find(params[:id])
+
+    @photo.update(photo_params)
+    redirect_to @photo
   end
 
   def destroy
-  end
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to root_path
+    end
 
   private
   def photo_params

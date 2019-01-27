@@ -1,12 +1,12 @@
-<%= form_with scope: :insta, url: post_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+<%= form_with scope: :post, url: post_path, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :title, for: 'newtitle', value: 'Title' %>
+    <%= form.text_field :title, id: 'newtitle', class: 'form-control' %>
+  </div>
 
   <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
   </p>
 
   <p>

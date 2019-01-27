@@ -6,7 +6,8 @@
 
   <p>
     <%= form.label :photo_url %><br>
-    <%= form.text_area :photo_url %>
+    <%= form.label :randomly_generated_by_Giphy %><br>
+    <%= form.text_area :photo_url, :value => @img, :readonly => true %>
   </p>
 
   <p>

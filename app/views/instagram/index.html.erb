@@ -1,5 +1,8 @@
 <h1>Listing all instagram posts</h1>
 
+<h3>Random GIF for testing purposes</h3>
+<%= image_tag @img, :height => '180px', :width => '180px'%>
+
 <table>
   <tr>
     <th>Post ID</th>
@@ -8,10 +11,10 @@
     <th>Caption</th>
     <th></th>
   </tr>
-
+<br>
 <%= form_tag("/", method: "get") do %>
 	<%= select_tag(:post, options_for_select([['Name Ascending', 1], ['ID Ascending', 2], ['Most recent created date', 3],['Most recent updated date', 4]])) %>
-	<%= submit_tag("Search") %>
+	<%= submit_tag("Sort") %>
 <% end %>
 <!--
 <form action="/" method="get">
@@ -28,7 +31,7 @@
     <tr>
       <td><%= post.id %></td>
       <td><%= post.author_name %></td>
-      <td><img src="<%= post.photo_url %>" width="180px" height="180px"></td>
+      <td><%= image_tag post.photo_url, :height => '180px', :width => '180px' %></td>
       <td><%= post.caption %></td>
       <td><%= link_to 'Show', post_path(post) %>
     	<td><%= link_to 'Edit', edit_post_path(post) %></td>

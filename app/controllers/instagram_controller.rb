@@ -1,5 +1,12 @@
 class InstagramController < ApplicationController
   def index
+    require 'net/http'
+    require 'json'
+    url = "http://api.giphy.com/v1/gifs/random?&api_key=7yGWoRXy0edZPb0CdtZd0ZdriO15R0yI&limit=1"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    buffer = resp.body
+    result = JSON.parse(buffer)
+    @img = result['data']['image_url']
     @instagram = Post.all
     if params[:post] == '1'
       @instagram = Post.all.order("author_name asc")
@@ -18,6 +25,13 @@ class InstagramController < ApplicationController
   end
 
   def new
+    require 'net/http'
+    require 'json'
+    url = "http://api.giphy.com/v1/gifs/random?&api_key=7yGWoRXy0edZPb0CdtZd0ZdriO15R0yI&limit=1"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    buffer = resp.body
+    result = JSON.parse(buffer)
+    @img = result['data']['image_url']
   end
 
   def edit

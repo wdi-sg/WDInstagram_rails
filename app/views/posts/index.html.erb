@@ -1,0 +1,30 @@
+<h1>Listing WDI-Instagram Posts</h1>
+<%= link_to 'New post', new_post_path %>
+<table>
+  <tr>
+    <th>Author Name</th>
+    <th>Photo</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.author_name %></td>
+
+      <td><%= post.caption %></td>
+      <td><%= image_tag post.photo_url, :height => '120px', :width => '120px' %></td>
+      <td><%= link_to 'Show', post_path(post) %></td><br />
+      <td><%= link_to 'Edit', edit_post_path(post) %></td><br />
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'This will delete the post. Are you sure?' } %></td><br />
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'My Blog', controller: 'posts' %>
+
+
+<!-- This page displays all the posts created in the database
+ -->

@@ -1,0 +1,22 @@
+<p>
+  <strong>Author:</strong>
+  <%= @post.author_name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @post.photo_url, :height => '120px', :width => '120px' %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+
+<%= link_to 'Back', root_path %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+
+
+<!-- This page displays the single post in the database -->

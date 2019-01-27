@@ -1,0 +1,19 @@
+<p>
+  <img src=<%= @post.photo_url %>>
+  
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author_name %>
+</p>
+
+<p>
+  <%= @post.caption %>
+</p>
+  
+<p>
+    Created at: <%= @post.created_at %>
+</p>
+
+<%= link_to 'Back', root_path %>

@@ -1,6 +1,6 @@
 class InstaController < ApplicationController
   def index
-
+    @posts = Insta.all
   end
 
   def show
@@ -12,26 +12,30 @@ class InstaController < ApplicationController
   end
 
   def edit
-
+    @post = Insta.find(params[:id])
   end
 
   def create
     @post = Insta.new(insta_params)
     @post.save
-    redirect_to @post
+    redirect_to root_path
   end
 
   def update
-
+    @post = Insta.find(params[:id])
+    @post.update(insta_params)
+    redirect_to @post
   end
 
   def destroy
-
+    @post = Insta.find(params[:id])
+    @post.destroy
+    redirect_to root_path
   end
 
   private
     def insta_params
-      params.require(:post).permit(:title, :caption)
+      params.require(:insta).permit(:title, :caption)
     end
 
 end

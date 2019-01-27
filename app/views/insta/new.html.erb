@@ -1,15 +1,14 @@
 <%= form_with scope: :post, url: post_path, local: true do |form| %>
   <div class="form-group">
-    <%= form.label :title, for: 'newtitle', value: 'Title' %>
-    <%= form.text_field :title, id: 'newtitle', class: 'form-control' %>
+  <label for="newtitle">Title:</label>
+    <%# <%= form.label :title, for: 'newtitle', value: 'Title' %>
+    <%= form.text_field :title, id: 'newtitle', class: 'form-control', placeholder: 'Your title' %>
   </div>
 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p>
+  <div class="form-group">
+    <%= form.label :caption %>
+    <%= form.text_area :caption, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.submit "Create post", class: 'btn btn-primary' %>
 <% end %>

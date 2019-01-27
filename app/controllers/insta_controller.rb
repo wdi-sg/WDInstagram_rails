@@ -4,7 +4,7 @@ class InstaController < ApplicationController
   end
 
   def show
-
+    @post = Insta.find(params[:id])
   end
 
   def new
@@ -16,7 +16,9 @@ class InstaController < ApplicationController
   end
 
   def create
-    render plain: params[:insta].inspect
+    @post = Insta.new(insta_params)
+    @post.save
+    redirect_to @post
   end
 
   def update
@@ -26,5 +28,10 @@ class InstaController < ApplicationController
   def destroy
 
   end
+
+  private
+    def insta_params
+      params.require(:post).permit(:title, :caption)
+    end
 
 end

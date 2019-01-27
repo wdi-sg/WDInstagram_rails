@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_085940) do
+ActiveRecord::Schema.define(version: 2019_01_26_115350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
+    t.string "author_name"
+    t.text "photo_url"
+    t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

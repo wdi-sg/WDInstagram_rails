@@ -3,13 +3,18 @@
 <%= form_with scope: :post, model: @post, local: true do |form| %>
 
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
   </p>
 
   <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+    <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
   </p>
 
   <p>

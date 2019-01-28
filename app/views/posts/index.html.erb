@@ -2,14 +2,13 @@
 
 <div>
 <%= link_to 'New Post', new_post_path %>
-<%= link_to 'Back', root_path %>
 </div>
 <br>
 <% @posts.each do |post| %>
     <div>
         <strong><%= post.author_name %></strong>
     </div>
-        <%= image_tag post.photo_url %>
+        <img src=<%= post.photo_url %> width="280" height="280" />
     </div>
     <div>
         <%= post.caption %>
@@ -21,7 +20,3 @@
             data: { confirm: 'Are you sure?' } %>
     </div>
 <% end %>
-
-
-
-

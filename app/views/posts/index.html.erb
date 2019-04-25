@@ -3,12 +3,16 @@
 <%= link_to 'Sort By Date (Ascending)', "#{root_path}?sort=date&order=asc" %>
 <%= link_to 'Sort By Date (Descending)', "#{root_path}?sort=date&order=desc" %>
 
+<br/>
+<br/>
+
 <table>
   <tr>
     <th>Author Name</th>
     <th>Photo Url</th>
     <th>Title</th>
     <th>Caption</th>
+    <th>Funny Gif</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,6 +24,7 @@
       <td><%= post.photo_url %></td>
       <td><%= post.title %></td>
       <td><%= post.caption %></td>
+      <td><%= image_tag(post.gif_url) %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td>
@@ -30,5 +35,7 @@
     </tr>
   <% end %>
 </table>
+
+<br/>
 
 <%= link_to 'New post', new_post_path %>

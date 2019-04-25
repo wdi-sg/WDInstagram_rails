@@ -12,14 +12,19 @@
     <%= form.text_field :photo_url %>
   </p>
 
-   <p>
+  <p>
     <%= form.label :title, 'Title' %><br>
     <%= form.text_field :title %>
   </p>
 
-   <p>
+  <p>
     <%= form.label :caption, 'Caption' %><br>
     <%= form.text_field :caption %>
+  </p>
+
+  <p>
+    <%= form.label :gif_url, 'Gif Url' %><br>
+    <%= form.text_field :gif_url %>
   </p>
 
   <p>
@@ -27,5 +32,6 @@
   </p>
 
 <% end %>
+
 
 <%= link_to 'Back', root_path %>

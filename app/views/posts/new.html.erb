@@ -20,8 +20,18 @@
   </p>
 
   <p>
+    <%= form.label :gif_url, 'Random GIF' %><br>
+    <%= form.hidden_field :gif_url, :value => @result %>
+    <%= image_tag(@result) %>
+  </p>
+
+  <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+
+
+<br/>
 
 <%= link_to 'Back', root_path %>

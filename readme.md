@@ -57,3 +57,5 @@ Intermix them with the photos, sorted by date.
 #### Further
 Alter the show routes for each post type. (`/post/:id`, `/video/:id`, `/text/:id`)
 Using the ruby twitter [gem](https://github.com/sferik/twitter) to get a list of tweets for each post that are associated with the title.
+
+(use the API to do a search and display the resulting tweets of that search)

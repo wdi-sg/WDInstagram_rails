@@ -42,7 +42,7 @@ Sort your feed by date, ascending or descending, depending on what the user want
 #### Further
 Add a second kind of post - a you tube video.
 
-The thing you store in the DB will be an embedded youtube link. [https://www.w3schools.com/html/html_youtube.asp](https://www.w3schools.com/html/html_youtube.asp)
+The thing you store in the DB will be an embedded youtube link. [https://www.w3schools.com/html/html_youtube.asp](https://www.w3schools.com/html/html_youtube.asp), [https://gorails.com/forum/embed-youtube-video-in-rails-app](https://gorails.com/forum/embed-youtube-video-in-rails-app)
 
 Create the CRUD routes for this kind of post.
 

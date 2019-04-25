@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+  <!-- Renders navigation file located at app/views/layouts/_navigation.html.erb -->
+    <%= render "layouts/navigation" %>
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
   </body>
 </html>

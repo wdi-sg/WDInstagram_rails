@@ -11,6 +11,8 @@ A **Post** has the following:
 
 * `author_name`
 * `photo_url`
+* `title`
+
 
 Your app should have the following RESTful actions:
 
@@ -33,6 +35,25 @@ Add a rails timestamp to your table.
 #### Further
 Sort your feed by date, ascending or descending, depending on what the user wants. (this will have to be a request parameter that you lok for, and sort according to it's value) - e.g. (?sort=date&order=dec)
 
-#### Furtherer
+#### Further
 1. Create the ability to make a new post using a random GIF from the [Giphy API](https://api.giphy.com/)
 2. Try using the official giphy API gem: https://github.com/Giphy/giphy-ruby-client
+
+#### Further
+Add a second kind of post - a you tube video. Create the CRUD routes for this kind of post.
+
+#### Further
+Add all of the videos to the root route index page. 
+
+#### Further
+Intermix them with the photos, sorted by date.
+
+#### Further
+Add a third kind of post - a text only post. (`text`)
+
+#### Further
+Intermix them with the photos, sorted by date.
+
+#### Further
+Alter the show routes for each post type. (`/post/:id`, `/video/:id`, `/text/:id`)
+Using the ruby twitter [gem](https://github.com/sferik/twitter) to get a list of tweets for each post that are associated with the title.

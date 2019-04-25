@@ -1,0 +1,33 @@
+<h1>Welcome to the Catstagram!!</h1>
+
+<h1>Cutest cats in the world!</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Author</th>
+    <th>Photo</th>
+    <th>Caption</th>
+    <th>Date Taken</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+    	<td><%= entry.id %></td>
+      <td><%= entry.author %></td>
+      <td><%= entry.photo_url %></td>
+      <td><%= entry.captions %></td>
+      <td><%= entry.date_taken %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+      <td><%= link_to 'Delete', entry_path(entry),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New entry', new_entry_path %>

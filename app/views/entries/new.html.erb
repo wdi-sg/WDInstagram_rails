@@ -1,0 +1,27 @@
+<%= form_with scope: :entry, url: entries_path, local: true do |form| %>
+	<p>
+		<%= form.label :author %><br>
+		<%= form.text_field :author %>
+	</p>
+
+	<p>
+		<%= form.label :photo_url %><br>
+		<%= form.text_field :photo_url %>
+	</p>
+
+	<p>
+		<%= form.label :captions %><br>
+		<%= form.date_field :captions %>
+	</p>
+
+	<p>
+		<%= form.label :date_taken %><br>
+		<%= form.date_field :date_taken %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

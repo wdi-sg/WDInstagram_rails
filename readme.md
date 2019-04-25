@@ -40,7 +40,11 @@ Sort your feed by date, ascending or descending, depending on what the user want
 2. Try using the official giphy API gem: https://github.com/Giphy/giphy-ruby-client
 
 #### Further
-Add a second kind of post - a you tube video. Create the CRUD routes for this kind of post.
+Add a second kind of post - a you tube video.
+
+The thing you store in the DB will be an embedded youtube link. [https://www.w3schools.com/html/html_youtube.asp](https://www.w3schools.com/html/html_youtube.asp)
+
+Create the CRUD routes for this kind of post.
 
 #### Further
 Add all of the videos to the root route index page. 

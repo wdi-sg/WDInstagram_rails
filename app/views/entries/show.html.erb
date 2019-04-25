@@ -18,5 +18,15 @@
   <%= @entry.date_taken%>
 </p>
 
+<p>
+  <strong>Date Created:</strong>
+  <%= @entry.created_at%>
+</p>
+
+<p>
+  <strong>Date Updated:</strong>
+  <%= @entry.updated_at%>
+</p>
+
 <%= link_to 'Edit', edit_entry_path(@entry) %>
 <%= link_to 'Back', root_path %>

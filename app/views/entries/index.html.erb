@@ -9,6 +9,8 @@
     <th>Photo</th>
     <th>Caption</th>
     <th>Date Taken</th>
+    <th>Created At</th>
+    <th>Updated At</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +23,9 @@
       <td><%= entry.photo_url %></td>
       <td><%= entry.captions %></td>
       <td><%= entry.date_taken %></td>
+			<td><%= entry.created_at %></td>
+			<td><%= entry.updated_at %></td>
+
       <td><%= link_to 'Show', entry_path(entry) %></td>
       <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
       <td><%= link_to 'Delete', entry_path(entry),

@@ -1,2 +1,13 @@
 <h1>WDInstagram</h1>
 <p>For all your FOMO needs</p>
+
+<div>
+  <% @posts.each do |post| %>
+    <div>
+      <div><img src=<%= post.photo_url %> size=50x50></div>
+      <h4><%= post.title %></h4>
+      <div><%= post.caption %></div>
+      <%= link_to 'View Post', show_post_path(post) %>
+    </div>
+  <% end %>
+</div>

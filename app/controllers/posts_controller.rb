@@ -2,15 +2,22 @@
 require 'GiphyClient'
 require 'byebug'
 
-
 class PostsController < ApplicationController
   def index
+    @results = [];
+
+    Video.all.each do |video|
+      @results.push(video)
+    end
+
+    Post.all.each do |post|
+      @results.push(post)
+    end
+
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
-      @posts = Post.order(created_at: :desc)
-      @videos = Video.all
+      @results = @results.sort_by { |result| result[:created_at] }.reverse
     else
-      @videos = Video.all
-      @posts = Post.all
+      @results = @results.sort_by { |result| result[:created_at] }
     end
   end
 
@@ -35,7 +42,6 @@ class PostsController < ApplicationController
     rescue GiphyClient::ApiError => e
       puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
     end
-
   end
 
   def create
@@ -65,7 +71,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:author_name, :photo_url, :title, :caption)
+    params.require(:post).permit(:author_name, :photo_url, :title, :caption, :created_at)
   end
 
 end

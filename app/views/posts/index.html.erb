@@ -8,46 +8,60 @@
 
 <table>
   <tr>
-    <th>Author Name</th>
-    <th>Photo</th>
+    <th>Author</th>
     <th>Title</th>
     <th>Caption</th>
+    <th>Media</th>
+    <th>Created At</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 	<tbody>
-    <% @posts.each do |post| %>
+    <% @results.each do |result| %>
       <tr>
-        <td><%= post.author_name %></td>
-        <td><%= image_tag(post.photo_url) %></td>
-        <td><%= post.title %></td>
-        <td><%= post.caption %></td>
-        <td><%= link_to 'Show', post_path(post) %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td>
-          <%= link_to 'Destroy', post_path(post),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+        	<%= result.author_name %>
         </td>
-      </tr>
-    <% end %>
 
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.author_name %></td>
-        <td><iframe width="560" height="315" src="https://www.youtube.com/embed/1FbCt_4vuak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-        <td><%= video.title %></td>
-        <td><%= video.caption %></td>
-        <td></td>
-        <td><%= link_to 'Show', video_path(video) %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
         <td>
-          <%= link_to 'Destroy', video_path(video),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+        	<%= result.title %>
         </td>
+
+        <td>
+        	<%= result.caption %>
+        </td>
+
+        <td>
+        		<% if result.class.name == "Post" %>
+        				<%= image_tag(result.photo_url) %>
+        		<% elsif result.class.name == "Video" %>
+        				<iframe width="450" height="250" src=<%= result.video_url%> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        		<% end %>
+        </td>
+
+        <td>
+        	<%= result.created_at %>
+        </td>
+
+        <% if result.class.name == "Post" %>
+        		<td><%= link_to 'Show', post_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_post_path(result) %></td>
+        		<td>
+          			<%= link_to 'Destroy', post_path(result),
+            			method: :delete,
+            			data: { confirm: 'Are you sure photo post?' } %>
+        		</td>
+        <% elsif result.class.name == "Video" %>
+        		<td><%= link_to 'Show', video_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_video_path(result) %></td>
+        		<td>
+           			<%= link_to 'Destroy', video_path(result),
+             			method: :delete,
+             			data: { confirm: 'Are you sure video post?' } %>
+         		</td>
+        <% end %>
       </tr>
     <% end %>
 	</tbody>

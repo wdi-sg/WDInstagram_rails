@@ -4,8 +4,9 @@
 </p>
 
 <p>
-  <strong>Photo Url:</strong>
-  <%= @post.photo_url %>
+  <strong>Photo:</strong>
+  <br>
+  <%= image_tag(@post.photo_url) %>
 </p>
 
 <p>
@@ -17,13 +18,6 @@
   <strong>Caption:</strong>
   <%= @post.caption %>
 </p>
-
-<p>
-  <strong>Funny Gif:</strong>
-  <%= @post.gif_url %><br>
-  <%= image_tag(@post.gif_url) %>
-</p>
-
 
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Back', root_path %>

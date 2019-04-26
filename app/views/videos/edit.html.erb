@@ -1,14 +1,15 @@
-<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+<h1>Edit post</h1>
+
+<%= form_with scope: :video, model: @video, local: true do |form| %>
+
   <p>
     <%= form.label :author_name, 'Author Name' %><br>
     <%= form.text_field :author_name %>
   </p>
 
   <p>
-    <%= form.label :photo_url, 'Photo' %><br>
-    <%= form.hidden_field :photo_url, :value => @result %>
-    <%= image_tag(@result) %>
-    <!--@result.data.image_url-->
+    <%= form.label :video_url, 'Video Url' %><br>
+    <%= form.text_field :video_url %>
   </p>
 
   <p>
@@ -24,10 +25,8 @@
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>
 
-
-
-<br/>
 
 <%= link_to 'Back', root_path %>

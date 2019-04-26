@@ -1,25 +1,17 @@
-# load the gem
+# load gem
 require 'GiphyClient'
 require 'byebug'
 
 
 class PostsController < ApplicationController
-  @@api_instance = GiphyClient::DefaultApi.new
-  @@api_key = "IZZ1hxiEr4OSORVd7eQEfpb2SczKlS26" # String | Giphy API Key.
-
-  @@opts = {
-    tag: "Attack on Titan", # String | Filters results by specified tag.
-    rating: "g", # String | Filters results by specified rating.
-    fmt: "json" # String | Used to indicate the expected response format. Default is Json.
-  }
-
   def index
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
       @posts = Post.order(created_at: :desc)
+      @videos = Video.all
     else
+      @videos = Video.all
       @posts = Post.all
     end
-
   end
 
   def show
@@ -28,8 +20,16 @@ class PostsController < ApplicationController
 
   def new
     begin
-      #Random Endpoint
-      # @result = @@api_instance.gifs_random_get(@@api_key, @@opts)
+      api_instance = GiphyClient::DefaultApi.new
+      api_key = "IZZ1hxiEr4OSORVd7eQEfpb2SczKlS26" # String | Giphy API Key.
+
+      opts = {
+        tag: "Attack on Titan", # String | Filters results by specified tag.
+        rating: "g", # String | Filters results by specified rating.
+        fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+      }
+
+      # @result = api_instance.gifs_random_get(api_key, opts)
       @result = "https://media2.giphy.com/media/uiMTiXW94z280/giphy.gif"
 
     rescue GiphyClient::ApiError => e
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:author_name, :photo_url, :title, :caption, :gif_url)
+    params.require(:post).permit(:author_name, :photo_url, :title, :caption)
   end
 
 end

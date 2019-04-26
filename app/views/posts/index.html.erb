@@ -9,33 +9,51 @@
 <table>
   <tr>
     <th>Author Name</th>
-    <th>Photo Url</th>
+    <th>Photo</th>
     <th>Title</th>
     <th>Caption</th>
-    <th>Funny Gif</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.author_name %></td>
-      <td><%= post.photo_url %></td>
-      <td><%= post.title %></td>
-      <td><%= post.caption %></td>
-      <td><%= image_tag(post.gif_url) %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td>
-      	<%= link_to 'Destroy', post_path(post),
-        	method: :delete,
-        	data: { confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
-  <% end %>
+	<tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.author_name %></td>
+        <td><%= image_tag(post.photo_url) %></td>
+        <td><%= post.title %></td>
+        <td><%= post.caption %></td>
+        <td><%= link_to 'Show', post_path(post) %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td>
+          <%= link_to 'Destroy', post_path(post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.author_name %></td>
+        <td><iframe width="560" height="315" src="https://www.youtube.com/embed/1FbCt_4vuak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+        <td><%= video.title %></td>
+        <td><%= video.caption %></td>
+        <td></td>
+        <td><%= link_to 'Show', video_path(video) %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td>
+          <%= link_to 'Destroy', video_path(video),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+	</tbody>
 </table>
 
 <br/>
 
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post With Video', new_video_path %>

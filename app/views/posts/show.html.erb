@@ -1,0 +1,18 @@
+<div>
+	<h1>
+	  <%= @post.title.capitalize %>
+	</h1>
+</div>
+
+<p>
+  <strong>Posted by:</strong>
+  <%= @post.author_name %>
+</p>
+
+<div>
+	<img src=<%=@post.photo_url%> size=50x50 alt=<%=@post.title%> >
+
+	<p>
+		<%=@post.caption %>
+	</p>
+</div>

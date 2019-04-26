@@ -1,0 +1,33 @@
+<h1>Postagram</h1>
+
+<p><%= link_to 'New Post', new_post_path %></p>
+
+
+<div class="main-container">
+
+	<% @posts.each do |post| %>
+		<div class="post-container">
+			<div class="img-container">
+				<img src=<%= post.photo_url %>>
+			</div>
+
+			<div class="title-container">
+				<h2><%= link_to post.title, post_path(post) %></h2>
+			</div>
+
+			<div class="caption-container">
+				<h2><%= post.caption %></h2>
+			</div>
+
+			<div class="author-container">
+				<h4><%= post.author_name %></h4>
+			</div>
+
+			<div class="delete-container">
+				<%= link_to '❌', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+	<% end %>
+</div>

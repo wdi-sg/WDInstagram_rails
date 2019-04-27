@@ -11,7 +11,7 @@
     <th>Author</th>
     <th>Title</th>
     <th>Caption</th>
-    <th>Media</th>
+    <th>Body</th>
     <th>Created At</th>
     <th></th>
     <th></th>
@@ -38,6 +38,8 @@
         				<%= image_tag(result.photo_url) %>
         		<% elsif result.class.name == "Video" %>
         				<iframe width="450" height="250" src=<%= result.video_url%> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        		<% elsif result.class.name == "Text" %>
+        			  <%= result.description %>
         		<% end %>
         </td>
 
@@ -61,6 +63,14 @@
              			method: :delete,
              			data: { confirm: 'Are you sure video post?' } %>
          		</td>
+        <% elsif result.class.name == "Text" %>
+        		<td><%= link_to 'Show', text_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_text_path(result) %></td>
+        		<td>
+           			<%= link_to 'Destroy', text_path(result),
+             			method: :delete,
+             			data: { confirm: 'Are you sure text post?' } %>
+         		</td>
         <% end %>
       </tr>
     <% end %>
@@ -69,5 +79,6 @@
 
 <br/>
 
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'New Post With Video', new_video_path %>
+<%= link_to 'New Photo Post', new_post_path %>
+<%= link_to 'New Video Post', new_video_path %>
+<%= link_to 'New Text Post', new_text_path %>

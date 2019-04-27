@@ -14,6 +14,10 @@ class PostsController < ApplicationController
       @results.push(post)
     end
 
+    Text.all.each do |text|
+      @results.push(text)
+    end
+
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
       @results = @results.sort_by { |result| result[:created_at] }.reverse
     else
@@ -31,9 +35,9 @@ class PostsController < ApplicationController
       api_key = "IZZ1hxiEr4OSORVd7eQEfpb2SczKlS26" # String | Giphy API Key.
 
       opts = {
-        tag: "Attack on Titan", # String | Filters results by specified tag.
-        rating: "g", # String | Filters results by specified rating.
-        fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+        tag: "Attack on Titan",
+        rating: "g",
+        fmt: "json"
       }
 
       # @result = api_instance.gifs_random_get(api_key, opts)
@@ -71,7 +75,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:author_name, :photo_url, :title, :caption, :created_at)
+    params.require(:post).permit(:author_name, :photo_url, :title, :caption)
   end
 
 end

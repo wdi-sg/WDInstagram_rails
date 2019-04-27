@@ -1,15 +1,14 @@
-<h1>Edit photo post</h1>
+<h1>New text post</h1>
 
-<%= form_with scope: :post, model: @post, local: true do |form| %>
-
+<%= form_with scope: :text, url: texts_path, local: true do |form| %>
   <p>
     <%= form.label :author_name, 'Author Name' %><br>
     <%= form.text_field :author_name %>
   </p>
 
   <p>
-    <%= form.label :photo_url, 'Photo' %><br>
-    <%= form.text_field :photo_url %>
+    <%= form.label :description, 'Description' %><br>
+    <%= form.text_field :description %>
   </p>
 
   <p>
@@ -25,8 +24,9 @@
   <p>
     <%= form.submit %>
   </p>
-
 <% end %>
 
 
+
+<br/>
 <%= link_to 'Back', root_path %>

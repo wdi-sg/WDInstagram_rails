@@ -12,8 +12,16 @@
   </p>
 
   <p>
-    <%= form.label :photo_url %><br>
-    <%= form.text_field :photo_url %>
+    <%= form.label :photo_url, 'Photo' %><br>
+
+  	<%= form.text_field :photo_url, :value => @test %>
+    <br>
+
+    <%= image_tag "#{@test}" %>
+
+
+
+
   </p>
 
   <p>

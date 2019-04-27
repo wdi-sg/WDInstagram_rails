@@ -1,0 +1,21 @@
+<!-- This will be the index page that lists all posts -->
+<!-- Root route '/' -->
+<h1>"Instagram"</h1>
+<!-- This is a '<a>' to create new post route.. -->
+<%= link_to 'New Post', new_post_path %>
+<table>
+  <!-- <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr> -->
+
+  <% @posts.each do |post| %>
+
+      <h1><%= post.author_name %></h1>
+      <img src = <%= post.photo_url %> width="200" height="100"><br>
+      <%= post.title %>
+      <%= link_to 'Show', post_path(post) %>
+
+  <% end %>
+</table>

@@ -1,0 +1,24 @@
+<!-- God What is all these Syntax?! -->
+<!-- scope: :post is how we will grab the obj later -->
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <!-- This is the first <input> with a label? -->
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name, :required => true %>
+  </p>
+  <!-- This is the second <input> with a label? -->
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url, :required => true %>
+  </p>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, :required => true %>
+  </p>
+  <!-- This is the button? -->
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<!-- This is just a back <a> back to index -->
+<%= link_to 'Back', root_path %>

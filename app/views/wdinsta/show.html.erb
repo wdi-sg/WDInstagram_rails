@@ -1,3 +1,5 @@
+<%= link_to 'Edit', edit_post_path(@post) %>
+
 <p>
   <strong>Title:</strong>
   <%= @post.author_name %>
@@ -6,12 +8,17 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @post.photo_url %>
 </p>
+<image src="<%= @post.photo_url %>">
 
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
 </p>
 
 

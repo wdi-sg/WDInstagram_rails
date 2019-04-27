@@ -1,13 +1,12 @@
-<h1>WDInsta</h1>
+<h1>WDInsta2</h1>
 
 <%= link_to 'New post', new_post_path %>
-<%= link_to 'View oldest first', "#{root_path}?sort=date&order=asc" %>
-<%= link_to 'View latest first', "#{root_path}?sort=date&order=desc" %>
+<%= link_to 'Sort by latest', sort_latest_path %>
 
-<% @post.each do |post| %>
+<% @posts.each do |post| %>
   
   <h5><%= post.author_name %></h5>
-  <image src="<%= post.photo_url %>" width="250px" >
+  <image src="<%= post.photo_url %>">
   <h5><%= post.title %></h5>
   <p><%= post.caption %></p>
   <p><%= post.created_at.localtime.strftime('%d %b %Y, %l:%M %p') %></p>

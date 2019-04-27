@@ -10,10 +10,14 @@
 <div>
   <% @posts.each do |post| %>
     <div>
+    	<h4><%= post.author_name %></h4>
       <div><img src=<%= post.photo_url %> width=300 height=300></div>
       <h4><%= post.title %></h4>
       <div><%= post.caption %></div>
-      <%= link_to 'View Post', post_path(post) %>
+      <div class="navButtons">
+				<%= link_to 'View Post', post_path(post) %>
+				<%= link_to 'Edit', edit_post_path(post) %>
+			</div>
     </div>
   <% end %>
 </div>

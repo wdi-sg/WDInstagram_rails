@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
-  # get 'posts/new' => 'posts#new', as: 'new_post'
+  get 'posts' => 'posts#index', as: 'posts'
 
-  # post 'posts' => 'posts#create'
+  post 'posts' => 'posts#create'
 
-  # get 'posts/:id' => 'posts#show', as: 'show_post'
+  get 'posts/new' => 'posts#new', as: 'new_post'
 
-  # get 'posts' => 'posts#index'
+  get 'posts/:id/edit' => 'posts#edit', as: 'edit_post'
 
-  resources :posts
+  get 'posts/:id' => 'posts#show', as: 'post'
+
+  patch 'posts/:id' => 'posts#update'
+
+  delete 'posts/:id' => 'posts#destroy'
 
   root 'posts#index'
 

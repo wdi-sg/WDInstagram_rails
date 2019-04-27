@@ -1,6 +1,11 @@
-<h1>New Post</h1>
+<div>
+	<h1>
+	  Edit <%= @post.title.capitalize %>
+	</h1>
+</div>
 
-<%= form_with scope: :post, :class => 'new_form', url: posts_path, local: true do |form| %>
+<%= form_with(model: @post, local: true) do |form| %>
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -24,6 +29,7 @@
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>
 
 <div class="navButtons">

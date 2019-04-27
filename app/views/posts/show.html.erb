@@ -20,4 +20,7 @@
 <div class="navButtons">
 	<%= link_to 'Back', posts_path %>
 	<%= link_to 'Edit', edit_post_path %>
+	<%= link_to 'Delete', @post,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 </div>

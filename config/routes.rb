@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get '/articles/:id' => 'articles#show' , as: 'article'
 
   get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
-
-  patch '/articles/:id' => 'articles#update'
   # UPDATING BECOMES PATCH INSTEAD OF PUT
+  patch '/articles/:id' => 'articles#update'
 
   delete '/articles/:id' => 'articles#destroy'
+
+  get '/sort' => 'articles#sort'
 
 end

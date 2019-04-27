@@ -1,11 +1,25 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+      @results = [];
+
+      Article.all.each do |post|
+        @results.push(post)
+      end
+
+    if params[:order] === nil || params[:order] =="des"
+      puts "hello #{params}"
+      puts @results
+      @results = @results.sort_by {|result| result[:created_at]}.reverse
+    elsif params[:sort] == "date" && params[:order] =="asc"
+      @results
+    end
+
   end
 
   def show
     @article = Article.find(params[:id])
+
   end
 
   def new
@@ -39,9 +53,14 @@ class ArticlesController < ApplicationController
 
     redirect_to root_path
   end
+
+  def sort
+    puts "hello"
+  end
+
   # RAILS SECURITY FEATURE?
   private
   def article_params
-    params.require(:article).permit(:author_name, :text, :photo_url)
+    params.require(:article).permit(:author_name, :title, :photo_url, :caption)
   end
 end

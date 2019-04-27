@@ -1,10 +1,16 @@
-<h1>WDInstagram</h1>
-<p>For all your FOMO needs</p>
+<div class="header">
+	<h1>WDInstagram</h1>
+	<p>For all your FOMO needs</p>
+</div>
+
+<div class="nav">
+	<%= link_to 'New post', new_post_path %>
+</div>
 
 <div>
   <% @posts.each do |post| %>
     <div>
-      <div><img src=<%= post.photo_url %> size=50x50></div>
+      <div><img src=<%= post.photo_url %> width=300 height=300></div>
       <h4><%= post.title %></h4>
       <div><%= post.caption %></div>
       <%= link_to 'View Post', show_post_path(post) %>

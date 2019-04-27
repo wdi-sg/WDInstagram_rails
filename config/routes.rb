@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   delete '/posts/:id' => 'posts#destroy'
 
 
+
+
   ################################################
 
   get '/videos' => 'videos#videos'

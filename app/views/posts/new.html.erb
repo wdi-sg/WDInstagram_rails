@@ -5,8 +5,15 @@
   </p>
 
   <p>
-    <%= form.label :photo_url %><br>
-    <%= form.text_field :photo_url %>
+  	<label>Type</label><br>
+  	<%= form.radio_button :type_of, 'photo' %> Photo<br />
+  	<%= form.radio_button :type_of, 'video' %> Video<br />
+  	<%= form.radio_button :type_of, 'text' %> Text<br />
+  </p>
+
+  <p>
+    <%= form.label :media %><br>
+    <%= form.text_field :media %>
   </p>
 
   <p>

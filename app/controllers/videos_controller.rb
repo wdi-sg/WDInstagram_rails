@@ -1,6 +1,8 @@
 class VideosController < ApplicationController
   def videos
     @videos = Video.all
+    p @videos
+
   end
 
   def show
@@ -38,7 +40,7 @@ class VideosController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author_name, :video_url, :title, :caption)
+    params.require(:video).permit(:author_name, :media, :title, :caption)
   end
 
 

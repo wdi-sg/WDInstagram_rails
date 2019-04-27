@@ -1,0 +1,21 @@
+<p>
+  <strong>Author Name:</strong>
+  <%= @video.author_name %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @video.media %>
+</p>
+
+<p>
+	<strong>Title:</strong>
+	<%= @video.title %>
+</p>
+
+<p>
+	<strong>Caption:</strong>
+	<%= @video.caption %>
+</p>
+<%= link_to 'Edit', edit_video_path(@video) %>
+<%= link_to 'Back', root_path %>

@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    # @videos = Video.all
+
+    if request.query_parameters[:order] === "desc"
+      @posts = Post.order(created_at: :desc)
+    else
+      @posts = Post.all
+    end
+
   end
 
   def show
@@ -38,7 +46,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author_name, :photo_url, :title, :caption)
+    params.require(:post).permit(:author_name, :media, :title, :caption, :type_of)
   end
 
 

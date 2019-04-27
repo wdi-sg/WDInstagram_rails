@@ -26,11 +26,7 @@
 	<% @posts.each do |post| %>
 		<div class="post-container">
 			<div class="media-container">
-				<% if post.type_of == "photo" %>
-					<img src=<%= post.media %>>
-				<% elsif post.type_of == "video" %>
-					<iframe width="400" height="400" src="<%= post.media %>" frameborder="0" allowfullscreen></iframe>
-				<%end%>
+				<img src=<%= post.photo_url %>>
 			</div>
 
 			<div class="title-container">
@@ -50,6 +46,29 @@
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
 			</div>
+		</div>
+	<% end %>
+
+	<% p @videos %>
+
+	<% @videos.each do |video| %>
+		<div class="post-container">
+			<div class="media-container">
+				<iframe width="400" height="400" src="<%= video.video_url %>" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div class="title-container">
+				<h2><%= link_to video.title, video_path(video) %></h2>
+			</div>
+
+			<div class="caption-container">
+				<h2><%= video.caption %></h2>
+			</div>
+
+			<div class="author-container">
+				<h4><%= video.author_name %></h4>
+			</div>
+
 		</div>
 	<% end %>
 </div>

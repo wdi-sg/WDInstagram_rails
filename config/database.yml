@@ -83,3 +83,7 @@ production:
   database: WDInstagram_rails_production
   username: WDInstagram_rails
   password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>
+
+host: localhost
+user: postgres
+password: s9015675f

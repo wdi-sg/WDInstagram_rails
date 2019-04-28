@@ -1,0 +1,17 @@
+<%= form_with scope: @user, url: registers_path, local: true do |form| %>
+
+	<p>
+		<%= form.label :user_name %><br>
+		<%= form.text_field :user_name %>
+	</p>
+
+	<p>
+		<%= form.label :password %><br>
+		<%= form.text_area :password %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+<% end %>

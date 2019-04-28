@@ -8,13 +8,28 @@ Rails.application.routes.draw do
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#destroy'
 
+  # videos
+  get '/videos/new' => 'videos#new', as: 'new_video'
+  post '/videos' => 'videos#create'
+  get '/videos/:id' => 'videos#show' , as: 'video'
+  get '/videos/:id/edit' => 'videos#edit', as: 'edit_video'
+  patch '/videos/:id' => 'videos#update'
+  delete '/videos/:id' => 'videos#destroy'
 
-  get '/posts/:id/comments' => 'comments#index'
-  get '/posts/:id/comments/new' => 'comments#new', as: 'new_comment'
-  post '/posts/:id/comments/new' => 'comments#create'
+  #text
 
-  get '/posts/:id/comments/:id' => 'comment#show'
-  get '/posts/:id/comments/:id' => 'comment#edit'
-  patch '/posts/:id/comments/:id' => 'comment#update'
-  delete '/posts/:id/comments/:id' => 'comment#delete'
+
+
+  # get '/comments' => 'comments#index', as: 'comments'
+  # get '/comments/new' => 'comments#new', as: 'new_comment'
+  # post '/comments' => 'comments#create'
+  # get '/comments/:id' => 'comments#show', as: 'comment'
+  # get '/comments/:id/edit' => 'comments#edit', as: 'edit_comment'
+  # patch '/comments/:id' => 'comments#update'
+  # delete '/comments/:id' => 'comments#delete'
+
+  # get '/posts/:post_id/comments' => 'comments#index', as: 'post_comments'
+  # get '/posts/:post_id/comments/new' => 'comments#create', as: 'new_post_comment'
+  # post '/posts/:post_id/comments' => 'comments#create'
+
 end

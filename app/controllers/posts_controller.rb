@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all
     @posts = Post.order(created_at: :desc)
+    @videos = Video.all
+    @videos = Video.order(created_at: :desc)
   end
 
   def show
+    @comment = Comment.new
     @post = Post.find(params[:id])
+    # @comments = Post.joins(:comments).where(author_name = Post.find(author_name = :author_name))
   end
 
   def new

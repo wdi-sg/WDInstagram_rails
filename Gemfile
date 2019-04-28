@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-
+gem 'yt', '~> 0.13.7'
+gem 'bootstrap-sass', '~> 3.3.0.1'
+gem 'autoprefixer-rails'
 # Use GiphyClient API
 gem 'GiphyClient'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

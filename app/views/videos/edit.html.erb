@@ -1,6 +1,6 @@
-<h1>Edit article</h1>
+<h1>Edit video</h1>
 
-<%= form_with scope: :article, model: @article, local: true do |form| %>
+<%= form_with scope: :video, model: @video, local: true do |form| %>
 
   <p>
     <%= form.label :title %><br>
@@ -13,9 +13,9 @@
   </p>
 
   <p>
-    <%= form.label :photo_url %><br>
-    <%= form.text_area :photo_url, :cols => 60, :rows => 1 %><br>
-    <%= image_tag "#{@article.photo_url}" %>
+    <%= form.label :video_url %><br>
+    <%= form.text_area :video_url, :cols => 60, :rows => 1 %><br>
+    <%= image_tag "#{@video.video_url}" %>
   </p>
 
   <p>

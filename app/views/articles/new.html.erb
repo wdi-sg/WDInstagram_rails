@@ -12,11 +12,10 @@
   </p>
 
   <p>
-    <%= form.label :photo_url, 'Photo' %><br>
-
-  	<%= form.text_field :photo_url, :value => @test %>
+  	<h4>Add a photo URL or refresh the page for a random GIFSSSS</h4>
+    <%= form.label :photo_url, 'Photo or GIF URL' %><br>
+  	<%= form.text_area :photo_url, :value => @test, :cols => 60, :rows => 1%>
     <br>
-
     <%= image_tag "#{@test}" %>
 
 
@@ -26,7 +25,7 @@
 
   <p>
     <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
+    <%= form.text_area :caption, :cols => 70, :rows => 10%>
   </p>
 
   <p>

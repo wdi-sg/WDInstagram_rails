@@ -4,15 +4,20 @@ require 'json'
 class ArticlesController < ApplicationController
 
   def index
+
       @results = [];
 
       Article.all.each do |post|
         @results.push(post)
       end
+      Video.all.each do |video|
+        @results.push(video)
+      end
+
 
     if params[:order] === nil || params[:sort] == "date" && params[:order] =="des"
-      puts "hello #{params}"
-      puts @results
+      # puts "hello #{params}"
+      # puts @results
       @results = @results.sort_by {|result| result[:created_at]}.reverse
     elsif params[:sort] == "date" && params[:order] =="asc"
       @results

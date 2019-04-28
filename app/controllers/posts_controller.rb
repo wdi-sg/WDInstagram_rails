@@ -42,8 +42,8 @@ class PostsController < ApplicationController
         fmt: "json"
       }
 
-      # @result = api_instance.gifs_random_get(api_key, opts)
-      @result = "https://media2.giphy.com/media/uiMTiXW94z280/giphy.gif"
+      @result = api_instance.gifs_random_get(api_key, opts)
+      # @result = "https://media2.giphy.com/media/uiMTiXW94z280/giphy.gif"
 
     rescue GiphyClient::ApiError => e
       puts "Exception when calling DefaultApi->gifs_random_get: #{e}"

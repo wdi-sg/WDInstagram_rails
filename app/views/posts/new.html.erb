@@ -1,4 +1,4 @@
-<h1>New photo post</h1>
+<h1>New gif post</h1>
 
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
   <p>
@@ -8,9 +8,9 @@
 
   <p>
     <%= form.label :photo_url, 'Photo' %><br>
-    <%= form.hidden_field :photo_url, :value => @result %>
-    <%= image_tag(@result) %>
-    <!--@result.data.image_url-->
+    <%= form.hidden_field :photo_url, :value => @result.data.image_url %>
+    <%= image_tag(@result.data.image_url) %>
+    <!--@result-->
   </p>
 
   <p>

@@ -35,3 +35,14 @@ table.home {
 	width: 100%;
 	height: auto;
 }
+
+.show-post-img{
+	max-width: 800px;
+	max-height: 600px;
+}
+
+.show-post-img > img{
+	display: block;
+	width: 100%;
+	height: auto;
+}

@@ -1,3 +1,9 @@
+<%= link_to 'Back', root_path %>
+ <%= link_to 'Edit', edit_post_path(@post) %>
+ <%= link_to 'Delete', post_path(@post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }%>
+
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -5,7 +11,9 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @post.photo_url %>
+    <div class = "show-post-img"> 
+    <img src = "<%= @post.photo_url %>" alt = "picture"/>    
+    </div>
 </p>
 
 <p>
@@ -18,8 +26,4 @@
   <%= @post.caption %>
 </p>
 
- <%= link_to 'Back', root_path %>
- <%= link_to 'Edit', edit_post_path(@post) %>
- <%= link_to 'Delete', post_path(@post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' }%>
+ 

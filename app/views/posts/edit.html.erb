@@ -1,0 +1,22 @@
+<h1> Eedit Post	</h1>
+
+<%= form_with scope: :post, model: @posts, local: true do |form| %>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name, value: @posts.author_name %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, value: @posts.title   %>
+  </p>
+
+    <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url, value: @posts.photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

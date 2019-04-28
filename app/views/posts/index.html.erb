@@ -1,0 +1,11 @@
+<h1> INSTA RAILS </h1>
+
+<% @posts.each do |post| %>
+	<h1> <%= post.author_name %></h1>
+	<h3> <%= post.title %></h3>
+<!-- 	<h5> <%= post.id %></h5> -->
+	<img src="<%= post.photo_url %>"/>
+	<br>
+<button class="page-button"> <%= link_to 'Page', "/posts/#{post.id}" %>  </button>
+
+<% end %>

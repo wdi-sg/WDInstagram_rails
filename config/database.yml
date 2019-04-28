@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: WDInstagram_rails_production
-  username: WDInstagram_rails
+  username: siangeeeo
   password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>

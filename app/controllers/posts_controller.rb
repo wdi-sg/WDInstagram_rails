@@ -25,14 +25,16 @@ class PostsController < ApplicationController
     end
   end
 
+
   def show
     @post = Post.find(params[:id])
   end
 
+
   def new
     begin
       api_instance = GiphyClient::DefaultApi.new
-      api_key = "IZZ1hxiEr4OSORVd7eQEfpb2SczKlS26" # String | Giphy API Key.
+      api_key = ENV['GIPHYCLIENT_API_KEY']
 
       opts = {
         tag: "Attack on Titan",
@@ -48,6 +50,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def create
     @post = Post.new(post_params)
 
@@ -55,9 +58,11 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
+
   def edit
     @post = Post.find(params[:id])
   end
+
 
   def update
     @post = Post.find(params[:id])
@@ -66,12 +71,14 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
+
   def destroy
     @post = Post.find(params[:id])
 
     @post.destroy
     redirect_to root_path
   end
+
 
 private
   def post_params

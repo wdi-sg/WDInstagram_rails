@@ -1,7 +1,7 @@
 <h1>Listing posts</h1>
 
-<%= link_to 'Sort By Date (Ascending)', "#{root_path}?sort=date&order=asc" %>
-<%= link_to 'Sort By Date (Descending)', "#{root_path}?sort=date&order=desc" %>
+<%= link_to 'Sort By Date (Ascending)', "#{root_path}?sort=date&order=asc", class: 'btn btn-success'  %>
+<%= link_to 'Sort By Date (Descending)', "#{root_path}?sort=date&order=desc", class: 'btn btn-success'  %>
 
 <br/>
 <br/>
@@ -81,6 +81,6 @@
 
 <br/>
 
-<%= link_to 'New Photo Post', new_post_path %>
-<%= link_to 'New Video Post', new_video_path %>
-<%= link_to 'New Text Post', new_text_path %>
+<%= link_to 'New Photo Post', new_post_path, class: 'btn btn-primary' %>
+<%= link_to 'New Video Post', new_video_path, class: 'btn btn-success' %>
+<%= link_to 'New Text Post', new_text_path, class: 'btn btn-secondary' %>

@@ -3,10 +3,12 @@
 
 <table>
   <tr>
-    <th><%= link_to "Title", :sort => "title" %></th>
-    <th><%= link_to "Photo", :sort => "photo_url" %></th>
-    <th><%= link_to "Author", :sort => "author_name" %></th>
-    <th><%= link_to "Caption", :sort => "caption" %></th>
+    <th><%= sortable "title", "Title" %></th>
+    <th><%= sortable "photo_url", "Photo" %></th>
+    <th><%= sortable "author_name", "Author" %></th>
+    <th><%= sortable "caption", "Caption" %></th>
+    <th><%= sortable "created_at", "Date" %></th>
+
     <th></th>
   </tr>
 
@@ -16,6 +18,7 @@
       <td><%= post.photo_url %></td>
       <td><%= post.author_name %></td>
       <td><%= post.caption %></td>
+      <td><%= post.created_at %></td>
 
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>

@@ -1,0 +1,63 @@
+<h1>Another-Photo-Viewing-App</h1>
+
+<%= link_to 'Home', root_path %>
+
+<%= link_to 'New Post', new_article_path %>
+
+<%= link_to 'New Video', new_video_path %>
+
+
+
+<h1>All Articles</h1>
+<div>
+	<h4>View Post:</h4>
+	<%= link_to 'Most Recent', '?sort=date&order=des' %><br>
+	<%= link_to 'Oldest', '?sort=date&order=asc' %>
+</div>
+
+
+
+  <% @results.each do |result| %>
+  <div>
+    <div>
+
+      <h4>Posted by: <%= result.author_name%><br><%= result.created_at.to_s[0..10]%></h4>
+
+    </div>
+    <div>
+      <h2><%= result.title %></h2>
+    </div>
+    <% if result.class.name == "Article" %>
+    	<div class="photo-box">
+      	<%= image_tag "#{result.photo_url}" %>
+    	</div>
+    <% elsif result.class.name == "Video" %>
+
+    		<iframe width="600" height="400" src=<%= result.video_url%> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <% end %>
+
+    <div>
+    	<%= result.caption %>
+    </div>
+
+    <% if result.class.name == "Article" %>
+	    <div>
+	    	<%= link_to 'Edit', edit_article_path(result) %>
+	    	<%= link_to 'Show', article_path(result) %>
+	    	<%= link_to 'Destroy', article_path(result),
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %>
+	    </div>
+     <% elsif result.class.name == "Video" %>
+     	<div>
+	    	<%= link_to 'Edit', edit_video_path(result) %>
+	    	<%= link_to 'Show', video_path(result) %>
+	    	<%= link_to 'Destroy', video_path(result),
+	        method: :delete,
+	        data: { confirm: 'Are you sure?' } %>
+	    </div>
+	    <% end %>
+    </div>
+
+  <% end %>

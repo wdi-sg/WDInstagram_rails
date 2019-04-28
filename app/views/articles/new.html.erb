@@ -1,0 +1,40 @@
+<h1>Add a new Post</h1>
+
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+   <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+  	<h4>Add a photo URL or refresh the page for a random GIFSSSS</h4>
+    <%= form.label :photo_url, 'Photo or GIF URL' %><br>
+  	<%= form.text_area :photo_url, :value => @test, :cols => 60, :rows => 1%>
+    <br>
+    <%= image_tag "#{@test}" %>
+
+
+
+
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption, :cols => 70, :rows => 10%>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  ...
+<% end %>
+
+<%= link_to 'Back', root_path %>

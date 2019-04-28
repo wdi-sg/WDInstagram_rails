@@ -1,0 +1,23 @@
+<p>
+  <strong>Posted By:</strong>
+  <%= @video.author_name %><br><%= @video.created_at.to_s[0..10]%>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+
+
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @video.caption %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %>
+<%= link_to 'Back', root_path %>

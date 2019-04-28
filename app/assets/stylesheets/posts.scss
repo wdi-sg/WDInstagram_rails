@@ -1,3 +1,26 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.home {
+	border-collapse: collapse;
+}
+
+.home td, .home th {
+	padding: 4px 10px;
+	border: solid 1px #AAA;
+}
+
+.home th .current {
+	padding-right: 12px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.home th .asc {
+	background-image: url(/images/up_arrow.gif);
+}
+
+.home th .desc {
+	background-image: url(/images/down_arrow.gif);
+}

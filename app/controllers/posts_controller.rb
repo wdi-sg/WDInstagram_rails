@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     end
 
     def edit
-
+        @post = Post.find(params[:id])
     end
 
     def update
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
      private
         def post_params
-            params.require(:post).permit(:title, :text)
+            params.require(:post).permit(:title, :photo_url, :author_name, :caption)
         end
     
 end

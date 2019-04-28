@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     end
 
     def create
-
+          render plain: params[:post].inspect
     end
 
     def edit

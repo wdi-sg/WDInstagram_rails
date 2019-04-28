@@ -1,0 +1,35 @@
+<h1>New gif post</h1>
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :author_name, 'Author Name' %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url, 'Photo' %><br>
+    <%= form.hidden_field :photo_url, :value => @result.data.image_url %>
+    <%= image_tag(@result.data.image_url) %>
+    <!--@result-->
+  </p>
+
+  <p>
+    <%= form.label :title, 'Title' %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :caption, 'Caption' %><br>
+    <%= form.text_field :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+<br/>
+
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

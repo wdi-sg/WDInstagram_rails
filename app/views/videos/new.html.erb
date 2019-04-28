@@ -1,0 +1,33 @@
+<h1>New Youtube video post</h1>
+
+<%= form_with scope: :video, url: videos_path, local: true do |form| %>
+  <p>
+    <%= form.label :author_name, 'Author Name' %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :video_url, 'Video' %><br>
+    <%= form.text_field :video_url, :value => "https://www.youtube.com/embed/#{@video_id}"  %>
+    <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+
+  <p>
+    <%= form.label :title, 'Title' %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :caption, 'Caption' %><br>
+    <%= form.text_field :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<br/>
+
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

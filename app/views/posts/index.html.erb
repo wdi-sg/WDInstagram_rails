@@ -1,0 +1,86 @@
+<h1>Listing posts</h1>
+
+<%= link_to 'Sort By Date (Ascending)', "#{root_path}?sort=date&order=asc", class: 'btn btn-success'  %>
+<%= link_to 'Sort By Date (Descending)', "#{root_path}?sort=date&order=desc", class: 'btn btn-success'  %>
+
+<br/>
+<br/>
+
+<table class="table">
+	<thead>
+	  <tr>
+	    <th scope="col">Author</th>
+	    <th scope="col">Title</th>
+	    <th scope="col">Caption</th>
+	    <th scope="col">Body</th>
+	    <th scope="col">Created At</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+	  </tr>
+	</thead>
+
+	<tbody class="table-striped">
+    <% @results.each do |result| %>
+      <tr>
+        <td>
+        	<%= result.author_name %>
+        </td>
+
+        <td>
+        	<%= result.title %>
+        </td>
+
+        <td>
+        	<%= result.caption %>
+        </td>
+
+        <td>
+        		<% if result.class.name == "Post" %>
+        				<%= image_tag(result.photo_url) %>
+        		<% elsif result.class.name == "Video" %>
+        				<iframe width="450" height="250" src=<%= result.video_url%> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        		<% elsif result.class.name == "Text" %>
+        			  <%= result.description %>
+        		<% end %>
+        </td>
+
+        <td>
+        	<%= result.created_at %>
+        </td>
+
+        <% if result.class.name == "Post" %>
+        		<td><%= link_to 'Show', post_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_post_path(result) %></td>
+        		<td>
+          			<%= link_to 'Destroy', post_path(result),
+            			method: :delete,
+            			data: { confirm: 'Are you sure photo post?' } %>
+        		</td>
+        <% elsif result.class.name == "Video" %>
+        		<td><%= link_to 'Show', video_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_video_path(result) %></td>
+        		<td>
+           			<%= link_to 'Destroy', video_path(result),
+             			method: :delete,
+             			data: { confirm: 'Are you sure video post?' } %>
+         		</td>
+        <% elsif result.class.name == "Text" %>
+        		<td><%= link_to 'Show', text_path(result) %></td>
+        		<td><%= link_to 'Edit', edit_text_path(result) %></td>
+        		<td>
+           			<%= link_to 'Destroy', text_path(result),
+             			method: :delete,
+             			data: { confirm: 'Are you sure text post?' } %>
+         		</td>
+        <% end %>
+      </tr>
+    <% end %>
+	</tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Photo Post', new_post_path, class: 'btn btn-primary' %>
+<%= link_to 'New Video Post', new_video_path, class: 'btn btn-success' %>
+<%= link_to 'New Text Post', new_text_path, class: 'btn btn-secondary' %>

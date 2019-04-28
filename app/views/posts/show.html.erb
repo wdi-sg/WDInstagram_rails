@@ -1,0 +1,25 @@
+<h1>Show gif post</h1>
+
+<p>
+  <strong>Author Name:</strong>
+  <%= @post.author_name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <br>
+  <%= image_tag(@post.photo_url) %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

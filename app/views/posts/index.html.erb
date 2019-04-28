@@ -1,1 +1,22 @@
-<h1>Hello, welcome to view Chris' mockup instagram :D </h1>
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Photo</th>
+    <th>Author</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.photo_url %></td>
+      <td><%= post.author_name %></td>
+      <td><%= post.caption %></td>
+
+      <td><%= link_to 'Show', post_path(post) %></td>
+    </tr>
+  <% end %>
+</table>

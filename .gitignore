@@ -13,4 +13,4 @@
 /tmp
 
 # Ignore environment config
-/env.config
+/config.env

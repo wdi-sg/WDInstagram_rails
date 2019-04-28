@@ -17,6 +17,26 @@
 	<%= @post.author_name %>
 </p>
 
+<%= form_with scope: :comment, url: new_comment_path, local: true do |form| %>
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_field :content %>
+  </p>
+  <p>
+  	<%= form.label :Username %><br>
+    <%= form.text_field :author_name %>
+  <p>
+  	<%= form.label :ID %><br>
+    <%= form.text_field :post_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
 <%= link_to 'Edit', edit_post_path(@post) %>
 
 

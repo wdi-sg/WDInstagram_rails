@@ -1,21 +1,27 @@
 <h1>Listing posts</h1>
+<h5><%= link_to 'Upload img', new_post_path %></h5>
 
-<%= link_to 'Upload img', new_post_path %>
+<div class="pagewrapper">
 
 
-  <% @posts.each do |post| %>
-  	<div class="box">
-	  	<img src=<%= post.photo_url %>>
-	    <p>
-	     <%= post.title %>
-	     <%= post.caption %> <br>
-	     <%= Time.new %>
-	     ⏱ <% post.created_at %>
-	     <%= link_to 'Show', post_path(post) %>
-	     <%= link_to 'Edit', edit_post_path(post) %>
-	     <%= link_to 'Delete', post_path(post),
-	        method: :delete,
-	        data: { confirm: 'Are you sure you want to delete this masterpiece?' } %>
-	    </p>
-	  </div>
+
+
+	  <% @posts.each do |post| %>
+	  	<div class="box">
+		  	<img class="image" src=<%= post.photo_url %>>
+			    <p>
+			     <%= post.title %>
+			     <%= post.caption %> <br>
+			     ⏱ <%= post.created_at.in_time_zone('Singapore').strftime('%d %B %Y %I:%M %p') %>
+			     <%= link_to 'Show', post_path(post) %>
+			     <%= link_to 'Edit', edit_post_path(post) %>
+			     <%= link_to 'Delete', post_path(post),
+			        method: :delete,
+			        data: { confirm: 'Are you sure you want to delete this masterpiece?' } %>
+			    </p>
+		  </div>
+
+
+
   <% end %>
+  </div>

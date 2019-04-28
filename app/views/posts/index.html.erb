@@ -2,13 +2,20 @@
   <span class="navbar-brand mb-0 h1 ">InstaRails</span>
 </nav>
 
-<h1> INSTA RAILS </h1>
+<h1> INSTARAILS </h1>
 
 <% @posts.each do |post| %>
 	<!-- 	<h5> <%= post.id %></h5> -->
 		<div class="row">
 		<div class="col-md-8">
 		<img src="<%= post.photo_url %>"/>
+
+		<%if post.video_url? %>
+		<% post.video_url["https://www.youtube.com/watch?v="] = "https://www.youtube.com/embed/" %>
+<!-- 			<h3> <%= post.video_url %></h3> -->
+			<iframe width="600" height="315" src="<%= post.video_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<% end %>
+
 		</div>
 		<div class="col-md-4 align-self-center">
 			<h1> <%= post.author_name %></h1>

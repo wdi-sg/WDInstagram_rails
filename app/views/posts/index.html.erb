@@ -16,6 +16,10 @@
 			<iframe width="600" height="315" src="<%= post.video_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		<% end %>
 
+		<%if post.tweet? %>
+			<h1> <%= post.tweet %> </h1>
+		<% end %>
+
 		</div>
 		<div class="col-md-4 align-self-center">
 			<h1> <%= post.author_name %></h1>

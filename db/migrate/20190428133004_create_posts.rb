@@ -6,6 +6,7 @@
       t.string :video_url
       t.string :title
       t.text :caption
+      t.string :tweet
       t.timestamps
     end
   end

@@ -26,6 +26,11 @@
     <%= form.text_area :caption, value: @posts.caption %>
   </p>
 
+   <p>
+    <%= form.label :tweet %><br>
+    <%= form.text_field :tweet, value: @posts.tweet %>
+  </p>
+
   <p>
     <%= form.submit %>
   </p>

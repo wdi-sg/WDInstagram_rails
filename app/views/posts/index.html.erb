@@ -5,7 +5,7 @@
 <table>
   <tr>
     <th>Author</th>
-    <th>Photo URL</th>
+    <th>Photo</th>
     <th>Title</th>
     <th></th>
   </tr>
@@ -13,14 +13,15 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.author_name %></td>
-      <td><%= image_tag(post.photo_url) %></td>
+      <td><%= image_tag(post.photo_url, height: '200', width: '200') %></td>
       <td><%= post.title %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-
-      <td><%= link_to 'Destroy', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
     </tr>
-  <% end %>
 </table>
+<div>
+	<span><%= link_to 'Show', post_path(post) %></span>
+	<span><%= link_to 'Edit', edit_post_path(post) %></span>
+	<span><%= link_to 'Delete', post_path(post),
+	  method: :delete,
+	  data: { confirm: 'Are you sure?' } %></span>
+</div>
+  <% end %>

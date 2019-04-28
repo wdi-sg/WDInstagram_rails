@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # index (displays all entries)
   root 'posts#index'
+  get '/posts' => 'posts#index'
 
   # new (displays a form to create a new post)
   get '/posts/new' => 'posts#new', as: 'new_post'

@@ -11,12 +11,12 @@
   Post.create([{
     author_name: "Teo",
     photo_url: "https://images.unsplash.com/photo-1556197176-a238f685fd49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-    title: "PHOTO ONE"
+    title: "Water Splashing"
   },
   {
     author_name: "Chang",
     photo_url: "https://images.unsplash.com/photo-1556194718-61e9ab571c2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80",
-    title: "PHOTO Two"
+    title: "I LIKE STUFF"
   },
 
   {

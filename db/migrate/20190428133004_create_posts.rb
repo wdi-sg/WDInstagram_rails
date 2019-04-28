@@ -4,6 +4,7 @@
       t.string :author_name
       t.string :photo_url
       t.string :title
+      t.text :caption
       t.timestamps
     end
   end

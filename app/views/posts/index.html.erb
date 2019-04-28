@@ -1,11 +1,29 @@
+<nav class="navbar navbar-light bg-light fixed-top justify-content-center">
+  <span class="navbar-brand mb-0 h1 ">InstaRails</span>
+</nav>
+
 <h1> INSTA RAILS </h1>
 
 <% @posts.each do |post| %>
-	<h1> <%= post.author_name %></h1>
-	<h3> <%= post.title %></h3>
-<!-- 	<h5> <%= post.id %></h5> -->
-	<img src="<%= post.photo_url %>"/>
-	<br>
-<button class="page-button"> <%= link_to 'Page', "/posts/#{post.id}" %>  </button>
+
+
+		<h1> <%= post.author_name %></h1>
+		<h3> <%= post.title %></h3>
+	<!-- 	<h5> <%= post.id %></h5> -->
+		<div class="row">
+		<div class="col-md-8">
+		<img src="<%= post.photo_url %>"/>
+		</div>
+		<div class="col-md-4 align-self-center">
+			<h3> <%= post.caption %></h3>
+			<button type="button" class="btn btn-outline-primary btn-block"> <%= link_to 'Edit Post', "/posts/#{post.id}" %>  </button>
+		</div>
+	</div>
 
 <% end %>
+
+<br><br><br>
+
+<div class="footer">
+  <button type="button" class="btn btn-outline-primary btn-block "> <%= link_to 'Create New Post', "/posts/new" %>  </button>
+</div>

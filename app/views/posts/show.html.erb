@@ -3,10 +3,10 @@
 	<h1> <%= @posts.author_name %></h1>
 		<h3> <%= @posts.title %></h3>
 	<img src="<%= @posts.photo_url %>"/>
+			<h3> <%= @posts.caption %></h3>
 
 
 
-	<br>	<br>
 	<button> <%= link_to "Home", root_path %> </button>
 	<button> <%= link_to 'Destroy', post_path(@posts),
         method: :delete,

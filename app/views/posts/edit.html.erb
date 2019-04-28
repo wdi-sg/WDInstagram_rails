@@ -16,6 +16,11 @@
     <%= form.text_field :photo_url, value: @posts.photo_url %>
   </p>
 
+    <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption, value: @posts.caption %>
+  </p>
+
   <p>
     <%= form.submit %>
   </p>

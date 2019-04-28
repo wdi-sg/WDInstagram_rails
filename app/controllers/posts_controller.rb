@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+    helper_method :sort_column, :sort_direction
+    
     def index
-        @posts = Post.order(created_at: :asc).all
+        @posts = Post.all #.order(sort_column + " " + sort_direction).
     end
 
     def show
@@ -34,8 +36,15 @@ class PostsController < ApplicationController
 end
 
      private
+
         def post_params
             params.require(:post).permit(:title, :photo_url, :author_name, :caption)
         end
+
+        def 
+            Post.sort_column
+            
+        end
+        
     
 end

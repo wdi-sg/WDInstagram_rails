@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'giphy'
 gem 'GiphyClient'
+gem 'dotenv-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

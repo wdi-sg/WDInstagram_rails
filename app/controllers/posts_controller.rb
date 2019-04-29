@@ -3,7 +3,7 @@ require 'byebug'
 
 class PostsController < ApplicationController
     helper_method :sort_column, :sort_direction
-    
+
     def index
         @posts = Post.order(sort_column + " " + sort_direction)
     end
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
         q = "cheeseburgers" # String | Search query term or prhase.
 
-        opts = { 
+        opts = {
         limit: 25, # Integer | The maximum number of records to return.
         offset: 0, # Integer | An optional results offset. Defaults to 0.
         rating: "g", # String | Filters results by specified rating.
@@ -69,6 +69,6 @@ end
 
         def sort_direction
             %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-        end 
-    
+        end
+
 end

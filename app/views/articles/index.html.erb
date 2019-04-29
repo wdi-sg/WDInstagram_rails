@@ -1,1 +1,21 @@
-<h1>hello world</h1>
+<h1>Insta-clone</h1>
+
+<%= link_to 'New post', new_article_path %>
+
+<br/>
+
+  <% @articles.each do |article| %>
+  <br/>
+    <div><%= article.author_name %></div>
+    <div> <img src="<%= article.photo_url %>"/> </div>
+    <div><%= article.title %></div>
+    <div><%= link_to 'Show', article_path(article) %><div>
+    <div><%= link_to 'Edit', edit_article_path(article) %></div>
+    <div><%= link_to 'Destroy', article_path(article),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></div>
+
+  <br/>
+
+  <% end %>
+</table>

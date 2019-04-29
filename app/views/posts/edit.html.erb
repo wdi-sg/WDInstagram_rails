@@ -1,0 +1,37 @@
+<div>
+	<h1>
+	  Edit <%= @post.title.capitalize %>
+	</h1>
+</div>
+
+<%= form_with(model: @post, local: true) do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<div class="navButtons">
+	<%= link_to 'Cancel', posts_path %>
+</div>

@@ -1,0 +1,26 @@
+<div>
+	<h1>
+	  <%= @post.title.capitalize %>
+	</h1>
+</div>
+
+<p>
+  <strong>Posted by:</strong>
+  <%= @post.author_name %>
+</p>
+
+<div>
+	<img src=<%=@post.photo_url%> width=500 height=500 alt=<%=@post.title%> >
+
+	<p>
+		<%=@post.caption %>
+	</p>
+</div>
+
+<div class="navButtons">
+	<%= link_to 'Back', posts_path %>
+	<%= link_to 'Edit', edit_post_path %>
+	<%= link_to 'Delete', @post,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+</div>

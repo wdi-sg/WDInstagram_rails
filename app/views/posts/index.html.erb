@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lobster|Roboto", media: "all" %>
+	</head>
+
+	<body>
+		<%= render "shared/header" %>
+
+		<div class="pageWrapper">
+			<div class="posts">
+			  <% @posts.each do |post| %>
+			    <div class="postBox">
+			    	<h4><%= post.author_name %></h4>
+			      <div class="image"><img src=<%= post.photo_url %> width=300 height=300></div>
+			      <h4><%= post.title %></h4>
+			      <p><%= post.caption %></p>
+			      <p>Created at <%= post.created_at.localtime.strftime("%l:%M %p, %d %b %Y") %></p>
+			      <div class="navButtons">
+							<%= link_to 'View Post', post_path(post) %>
+							<%= link_to 'Edit', edit_post_path(post) %>
+							<%= link_to 'Delete', post_path(post),
+			              method: :delete,
+			              data: { confirm: 'Are you sure?' } %>
+						</div>
+			    </div>
+			  <% end %>
+			</div>
+		</div>
+	</body>
+</html>

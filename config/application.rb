@@ -1,6 +1,7 @@
 require_relative 'boot'
-
 require 'rails/all'
+
+require '../../../env.config'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -10,7 +11,7 @@ module WDInstagramRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    
+
     # configure time zone for server
     config.time_zone = 'Singapore'
 
@@ -32,4 +33,3 @@ module WDInstagramRails
   end
 end
 
-  

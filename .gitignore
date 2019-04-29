@@ -17,3 +17,4 @@ secrets.yml
 
 # Ignore env file
 env.config
+env-config

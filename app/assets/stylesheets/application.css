@@ -14,15 +14,22 @@
  *= require_self
  */
 
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 50px;
+	text-align: center;
+}
+
 h2, h4 {
 	text-align: center;
 }
 
 .main-container {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	border: 2px solid red;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	/*border: 2px solid red;*/
 }
 
 .post-container {
@@ -30,9 +37,13 @@ h2, h4 {
 	width: 400px;
 	height: 500px;
 	padding: 10px;
-	margin: 10px;
+	margin: 10px auto;
+	/*margin: 10px;*/
 }
 
+.media-container {
+	margin-top:50px;
+}
 
 .media-container img {
 	width: 400px;
@@ -55,4 +66,15 @@ h2, h4 {
   bottom: 8px;
   right: 16px;
   font-size: 20px;
+}
+
+.title-container {
+  position: absolute;
+  top: -8px;
+  left: 16px;
+}
+
+
+.title-container h2 {
+	font-family: 'Satisfy', cursive;
 }

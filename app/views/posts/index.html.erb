@@ -27,7 +27,8 @@
 		<div class="post-container">
 			<div class="media-container">
 				<% if post.type_of == "photo" %>
-					<img src=<%= post.media %>>
+					<!-- <img src=<%= post.media %>> -->
+					<%= image_tag post.media %>
 				<% elsif post.type_of == "video" %>
 					<iframe width="400" height="400" src="<%= post.media %>" frameborder="0" allowfullscreen></iframe>
 				<%end%>

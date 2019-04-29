@@ -1,27 +1,12 @@
 <html>
 	<head>
-
 		<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lobster|Roboto", media: "all" %>
 	</head>
 
 	<body>
-		<div class="header">
-			<div class="brand">
-				<div>
-					<%= image_tag "logo.png", class: "logo"%>
-					<div class="separator"></div>
-					<h1>WDInstagram</h1>
-				</div>
-				<p>For all your FOMO needs</p>
-			</div>
-			<div class="nav">
-				<%= link_to 'New Post', new_post_path, class: "newPost" %>
-			</div>
-		</div>
+		<%= render "shared/header" %>
 
 		<div class="pageWrapper">
-
-
 			<div class="posts">
 			  <% @posts.each do |post| %>
 			    <div class="postBox">

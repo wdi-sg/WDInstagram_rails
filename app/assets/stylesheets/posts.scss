@@ -11,6 +11,10 @@ body {
 	background-color: #FAFAFA;
 }
 
+a {
+	text-decoration: none;
+}
+
 .header {
 	background-color: #FFFFFF;
 	padding: 20px 30px;
@@ -43,6 +47,7 @@ body {
 	margin-right: 20px;
 	font-size: 38px;
 	font-family: 'Lobster', cursive;
+	color: #000000;
 }
 
 .brand>p {

@@ -1,31 +1,44 @@
-<h1>New Post</h1>
+<html>
+	<head>
 
-<%= form_with scope: :post, :class => 'new_form', url: posts_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+		<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lobster|Roboto", media: "all" %>
+	</head>
 
-  <p>
-    <%= form.label :author_name %><br>
-    <%= form.text_field :author_name %>
-  </p>
+	<body>
+		<%= render "shared/header" %>
 
-  <p>
-    <%= form.label :photo_url %><br>
-    <%= form.text_field :photo_url %>
-  </p>
+		<div class="pageWrapper">
+		<h1>New Post</h1>
 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p>
+		<%= form_with scope: :post, :class => 'new_form', url: posts_path, local: true do |form| %>
+		  <p>
+		    <%= form.label :title %><br>
+		    <%= form.text_field :title %>
+		  </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+		  <p>
+		    <%= form.label :author_name %><br>
+		    <%= form.text_field :author_name %>
+		  </p>
 
-<div class="navButtons">
-	<%= link_to 'Cancel', posts_path %>
-</div>
+		  <p>
+		    <%= form.label :photo_url %><br>
+		    <%= form.text_field :photo_url %>
+		  </p>
+
+		  <p>
+		    <%= form.label :caption %><br>
+		    <%= form.text_area :caption %>
+		  </p>
+
+		  <p>
+		    <%= form.submit %>
+		  </p>
+		<% end %>
+
+		<div class="navButtons">
+			<%= link_to 'Cancel', posts_path %>
+		</div>
+		</div>
+	</body>
+</html>

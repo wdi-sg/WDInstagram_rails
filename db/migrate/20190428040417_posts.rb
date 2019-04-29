@@ -5,6 +5,7 @@ class Posts < ActiveRecord::Migration[5.2]
       t.string :author_name
       t.text :photo_url
       t.string :title
+      t.string :caption
       t.timestamps
     end
 

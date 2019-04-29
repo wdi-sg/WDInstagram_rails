@@ -1,4 +1,4 @@
-# WDInstagram
+# WDInstagram!!
 
 In this repository, there is a brand new rails application. It has no code in it except for the things that are generated with `rails new`.
 
@@ -47,7 +47,7 @@ The thing you store in the DB will be an embedded youtube link. [https://www.w3s
 Create the CRUD routes for this kind of post.
 
 #### Further
-Add all of the videos to the root route index page. 
+Add all of the videos to the root route index page.
 
 #### Further
 Intermix them with the photos, sorted by date.

@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
-img{
-  width: 300px;
-  height: auto;
-}
+
+
+require_1reset
+require_2common
+require_3index

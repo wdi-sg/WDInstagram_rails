@@ -1,4 +1,9 @@
-<h1>Edit post</h1>
+<nav>
+  <%=link_to(image_tag("instagram.png"), posts_path, class: "logo")%>
+  <h1 class="logogram">fakefriendsgram</h1>
+  <p><%= link_to 'New post', new_post_path %></p>
+  </nav>
+<div>
 
 <%= form_with scope: :post, model: @post, local: true do |form| %>
 
@@ -7,6 +12,14 @@
     <%= form.text_field :author_name %>
   </p>
 
+  <p>
+    <%= form.label :avatar_url %><br>
+    <%= form.text_field :avatar_url %>
+  </p>
+  <p>
+    <%= form.label :likes %><br>
+    <%= form.text_field :likes %>
+  </p>
   <p>
     <%= form.label :photo_url %><br>
     <%= form.text_field :photo_url %>

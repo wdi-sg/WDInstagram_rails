@@ -1,3 +1,12 @@
+<nav>
+  <%=link_to(image_tag("instagram.png"), posts_path, class: "logo")%>
+  <h1 class="logogram">fakefriendsgram</h1>
+  <p><%= link_to 'New post', new_post_path %></p>
+  </nav>
+<div>
+
+
+
 <%= link_to 'Back', root_path %>
 
 
@@ -5,10 +14,10 @@
 
   <%= @post.author_name %>
 </p>
-
+  <img class="avatar" src=<%= @post.avatar_url %>></img>
 
   <img src=<%= @post.photo_url %>></img>
-
+<h3><%= @post.likes %></h3>
 <p>
 
   <%= @post.title %>

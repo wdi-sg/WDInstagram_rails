@@ -1,0 +1,19 @@
+
+<div>
+
+  <% @posts.each do |post| %>
+    <div>
+      <h2><%= post.author_name %></h2>
+      <img src=<%= post.photo_url %>></img>
+      <h3><%= post.title %></h3>
+      <p><%= post.caption %></p>
+      <p><%= link_to 'Show', post_path(post) %></p>
+      <p><%= link_to 'Edit', edit_post_path(post) %></p>
+      <p><%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p>
+    </div>
+  <% end %>
+
+</div>
+<p><%= link_to 'New post', new_post_path %></p>

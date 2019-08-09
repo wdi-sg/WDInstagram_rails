@@ -1,12 +1,13 @@
 <h2>Homepage</h2>
 
-<%= link_to 'Create new post', new_post_path() %>
+<%= link_to 'Create new post', new_post_path()%>
 <p>All Posts</p>
+<%= link_to 'Latest posts', "#{root_path}?sort=date&order=desc"%>
+<%= link_to 'Earliest posts', "#{root_path}?sort=date&order=asc"%>
 <ul>
   <% @posts.each do |post| %>
-    <% post_link = post.author + ' — ' + post.title %>
     <li>
-      <p><%= link_to post_link, post_path(post) %></p>
+      <p><%= link_to "#{post.author} – #{post.title}", post_path(post) %>, <%= post.created_at %></p>
     </li>
   <% end %>
 </ul>

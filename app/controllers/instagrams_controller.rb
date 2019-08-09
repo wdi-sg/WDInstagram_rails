@@ -1,10 +1,11 @@
 class InstagramsController < ApplicationController
 
     def index
+        @instagram_all = Instagram.all
     end
 
     def show
-        @instagram = Instagram.find(params[:id])
+        @instagram_indiv = Instagram.find(params[:id])
     end
 
     def new

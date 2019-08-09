@@ -1,1 +1,15 @@
 <h1>!Instagram!</h1>
+
+<%= link_to 'New post', new_instagram_path %>
+
+<ul>
+		<% @instagram_all.each do |post| %>
+				<li>
+						<h3><%= post.name %></h3>
+				    <%= image_tag(post.photo_url, size: "250x250")%>
+				    <p><%= post.title %></p>
+				    <p><%= post.caption %></p>
+				    <%= link_to 'Show', instagram_path(post) %>
+				 </li>
+		<% end %>
+</ul>

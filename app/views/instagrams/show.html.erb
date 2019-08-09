@@ -1,15 +1,15 @@
-<h1>Show <%=@instagram.name %></h1>
+<h1>Show <%=@instagram_indiv.name %></h1>
 
 <p>
   <strong>Title:</strong>
-  <%= @instagram.title %>
+  <%= @instagram_indiv.title %>
 </p>
 
-	<%= image_tag(@instagram.photo_url)%>
+	<%= image_tag(@instagram_indiv.photo_url, size: "300x300")%>
 
 <p>
   <strong>Caption:</strong>
-  <%= @instagram.caption %>
+  <%= @instagram_indiv.caption %>
 </p>
 
 <p><%= link_to 'Back', root_path %></p>

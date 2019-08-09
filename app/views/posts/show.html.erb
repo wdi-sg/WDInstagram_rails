@@ -9,6 +9,9 @@
 			<h3><%= @post.title %></h3>
 			<h3><%= @post.author_name %></h3>
 			<img src=<%= @post.img_url %> width="300">
+			<%= link_to "DELETE", post_path(@post),
+											method: :delete,
+											:class => 'btn btn-danger'%>
 
 
 		</div>

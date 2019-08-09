@@ -1,21 +1,25 @@
 
 
 
-<div class="col-md-8 text-center">
+<div class="col-md-9 text-center">
 
 	<div class="card bg-light rounded align-items-stretch text-dark">
 		<div class="card-header"><h2 class="mb-0">Main</h2></div>
 		<div class="card-body">
-			<div class="card-deck">
+			<div class="card-deck flex-wrap justify-content-between">
 
 				<% @posts.each do |post| %>
 
-					<div class="card" style="width: 18rem;">
-						<img src=<%= post.img_url %> class="card-img-top" alt="...">
-						<div class="card-body">
-							<p class="card-text"><%= post.title %></p>
+						<div class="col-md-3 bg-dark rounded mx-1 mb-2" style="width: 15rem;">
+							<div class="my-1">
+								<img src=<%= post.img_url %> class="card-img-top">
+							</div>
+							<div class="">
+								<p class="text-light"><%= post.title %></p>
+								<%= link_to "show", post_path(post) %>
+							</div>
 						</div>
-					</div>
+
 
 				 <% end %>
 

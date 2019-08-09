@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    #@article=Article.find(params[:id])
+    @post=Post.find(params[:id])
   end
 
   def create
@@ -26,15 +26,18 @@ class PostsController < ApplicationController
   end
 
   def update
-    #@article = Article.find(params[:id])
+    @post = Post.find(params[:id])
 
-    #@article.update(article_params)
-    #redirect_to @article
+    @post.update(post_params)
+    redirect_to @post
   end
 
 
   def destroy
+    @post = Post.find(params[:id])
 
+    @post.destroy()
+    redirect_to posts_path
   end
 
   private

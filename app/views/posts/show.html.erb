@@ -2,6 +2,7 @@
 
 <div class="post-img">
   <img src="<%= @post.photo_url %>"/>
+  <p><%= @post.caption %></p>
 </div>
 
 <%= link_to 'Edit Post', edit_post_path() %>

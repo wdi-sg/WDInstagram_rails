@@ -1,0 +1,16 @@
+	<div class ='well'>
+
+		<p><%= @post.title %></p>
+	  	<h2>how are you</h2>
+
+		<p><%= @post.author_name %></p>
+		<p><%= @post.photo_url %></p>
+		  
+	  
+		<%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+		<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-default' %>
+		<%= link_to 'Delete', post_path(post),
+								        method: :delete,
+								        data: { confirm: 'Are you sure?' } 
+								        :class => 'btn btn-default' %>
+	</div>

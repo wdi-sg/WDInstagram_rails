@@ -5,11 +5,13 @@
   <%= @instagram_indiv.title %>
 </p>
 
-	<%= image_tag(@instagram_indiv.photo_url, size: "300x300")%>
+	<%= image_tag(@instagram_indiv.photo_url, size: "250x250")%>
 
 <p>
   <strong>Caption:</strong>
   <%= @instagram_indiv.caption %>
 </p>
+
+<p><%= link_to 'Edit', edit_instagram_path(@instagram_indiv) %> || <%= link_to 'Destroy', instagram_path(@instagram_indiv), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p>
 
 <p><%= link_to 'Back', root_path %></p>

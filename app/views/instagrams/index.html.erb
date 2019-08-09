@@ -4,12 +4,12 @@
 
 <ul>
 		<% @instagram_all.each do |post| %>
-				<li>
-						<h3><%= post.name %></h3>
-				    <%= image_tag(post.photo_url, size: "250x250")%>
-				    <p><%= post.title %></p>
-				    <p><%= post.caption %></p>
-				    <%= link_to 'Show', instagram_path(post) %>
-				 </li>
+			    <%= image_tag(post.photo_url, size: "250x250")%>
+			    <p><%= post.title %></p>
+			    <p>
+			    	<strong><%= post.name %>: </strong>
+			    	<%= post.caption %>
+			    </p>
+			    <p><%= link_to 'Show', instagram_path(post) %> || <%= link_to 'Edit', edit_instagram_path(post) %> || <%= link_to 'Destroy', instagram_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 		<% end %>
 </ul>

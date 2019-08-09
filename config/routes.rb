@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/instagrams/new' => 'instagrams#new', as: 'new_instagram'
   post '/instagrams' => 'instagrams#create'
   get '/instagrams/:id' => 'instagrams#show' , as: 'instagram'
+  get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagram'
+  patch '/instagrams/:id' => 'instagrams#update'
+  delete '/instagrams/:id' => 'instagrams#destroy'
 
 
 end

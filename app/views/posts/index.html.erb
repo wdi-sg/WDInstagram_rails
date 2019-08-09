@@ -1,2 +1,25 @@
 
-<h1>WELCOME</h1>
+
+
+<div class="col-md-8 text-center">
+
+	<div class="card bg-light rounded align-items-stretch text-dark">
+		<div class="card-header"><h2 class="mb-0">Main</h2></div>
+		<div class="card-body">
+			<div class="card-deck">
+
+				<% @posts.each do |post| %>
+
+					<div class="card" style="width: 18rem;">
+						<img src=<%= post.img_url %> class="card-img-top" alt="...">
+						<div class="card-body">
+							<p class="card-text"><%= post.title %></p>
+						</div>
+					</div>
+
+				 <% end %>
+
+			</div>
+		</div>
+	</div>
+</div>

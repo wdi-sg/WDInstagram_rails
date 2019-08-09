@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    #@posts = Article.all
+    @posts = Post.all
   end
 
   def show
-     #@article = Article.find(params[:id])
+     @post = Post.find(params[:id])
   end
 
   def new
@@ -17,12 +17,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    #render plain: params[:article].inspect
+    #render plain: params[:post].inspect
+    @post = Post.new(post_params)
 
-    #@article = Article.new(article_params)
-
-    #@article.save
-    #redirect_to @article
+    @post.save
+    redirect_to @post
 
   end
 
@@ -36,6 +35,11 @@ class PostsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :author_name, :img_url)
   end
 
 end

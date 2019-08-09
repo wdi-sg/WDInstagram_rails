@@ -1,0 +1,10 @@
+<h2><%= @video.author %> — <%= @video.title %></h2>
+
+<div class="post-img">
+  <iframe src='https://www.youtube.com/embed/<%= @youtube_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' width='720' height='480' allowfullscreen></iframe>
+  <p><%= @video.caption %></p>
+</div>
+
+<%= link_to 'Edit Video', edit_video_path() %>
+<%= link_to 'Delete Video', destroy_video_path(), method: :delete, data:{confirm: 'Are you sure?'} %>
+<%= link_to 'Back to Home', root_path %>

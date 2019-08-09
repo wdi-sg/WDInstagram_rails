@@ -2,12 +2,19 @@ require 'GiphyClient'
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.all().order("created_at DESC")
-    p request.query_parameters[:sort]
+    @results = [];
+
+    Video.all.each do |video|
+      @results.push(video)
+    end
+
+    Post.all.each do |post|
+      @results.push(post)
+    end
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "asc"
-      @posts = Post.all().order("created_at ASC")
+      @results = @results.sort_by { |result| result[:created_at] }
     elsif request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
-      @posts = Post.all().order("created_at DESC")
+      @results = @results.sort_by { |result| result[:created_at] }.reverse
     end
   end
 
@@ -58,7 +65,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   private

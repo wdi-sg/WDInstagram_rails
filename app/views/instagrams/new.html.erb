@@ -1,0 +1,27 @@
+<h1>Add new post page</h1>
+
+<%= form_with scope: :instagram, url: instagrams_path, local: true do |form| %>
+	  <p>
+	    <%= form.label :name %><br>
+	    <%= form.text_field :name %>
+	  </p>
+
+	  <p>
+	    <%= form.label :photo_url %><br>
+	    <%= form.text_field :photo_url %>
+	  </p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title %>
+	  </p>
+
+	  <p>
+	    <%= form.label :caption %><br>
+	    <%= form.text_area :caption %>
+	  </p>
+
+	  <p>
+	    <%= form.submit :post %>
+	  </p>
+<% end %>

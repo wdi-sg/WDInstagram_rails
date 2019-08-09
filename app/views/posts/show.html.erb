@@ -1,0 +1,9 @@
+<h2><%= @post.author %> — <%= @post.title %></h2>
+
+<div class="post-img">
+  <img src="<%= @post.photo_url %>"/>
+</div>
+
+<%= link_to 'Edit Post', edit_post_path() %>
+<%= link_to 'Delete Post', destroy_post_path(), method: :delete, data:{confirm: 'Are you sure?'} %>
+<%= link_to 'Back to Home', root_path %>

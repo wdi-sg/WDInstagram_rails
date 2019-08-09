@@ -1,0 +1,25 @@
+<h2>Create new Post</h2>
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+    <!-- <input name="title"/> -->
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to Home', root_path %>

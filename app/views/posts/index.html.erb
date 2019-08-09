@@ -1,0 +1,12 @@
+<h2>Homepage</h2>
+
+<%= link_to 'Create new post', new_post_path() %>
+<p>All Posts</p>
+<ul>
+  <% @posts.each do |post| %>
+    <% post_link = post.author + ' — ' + post.title %>
+    <li>
+      <p><%= link_to post_link, post_path(post) %></p>
+    </li>
+  <% end %>
+</ul>

@@ -11,6 +11,10 @@
     <%= form.label :photo_url %><br>
     <%= form.text_field :photo_url %>
   </p>
+  <p>
+    <%= form.label :"Use random gif instead" %><br>
+    <%= form.check_box :random %>
+  </p>
 
   <p>
     <%= form.label :title %><br>
@@ -21,7 +25,6 @@
     <%= form.label :caption %><br>
     <%= form.text_area :caption %>
   </p>
-
   <p>
     <%= form.submit %>
   </p>

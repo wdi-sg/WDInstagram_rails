@@ -1,3 +1,5 @@
+require 'GiphyClient'
+
 class PostsController < ApplicationController
   def index
     @posts = Post.all().order("created_at DESC")
@@ -14,12 +16,31 @@ class PostsController < ApplicationController
   end
 
   def new
+
+
   end
 
   def create
-    # p post_params
-    @post = Post.new(post_params)
-    p to_param
+    @input = post_params
+    if @input.delete("random") == "1"
+      api_instance = GiphyClient::DefaultApi.new
+
+      api_key = "dc6zaTOxFJmzC"
+
+      opts = {
+        tag: "pokemon",
+        rating: "g",
+        fmt: "json"
+      }
+
+      begin
+        result = api_instance.gifs_random_get(api_key, opts)
+      rescue GiphyClient::ApiError => e
+        puts "Exception when calling DefaultApi->gifs_search_get: #{e}"
+      end
+      @input[:photo_url] = result.data.image_url
+    end
+    @post = Post.new(@input)
     @post.save
     redirect_to @post
   end
@@ -42,7 +63,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author, :photo_url, :title, :caption)
+    params.require(:post).permit(:author, :photo_url, :random, :title, :caption)
   end
 
 end

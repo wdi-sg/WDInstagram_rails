@@ -1,0 +1,27 @@
+<h2>Welcome to Index Page</h2>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <tr>
+    <th>Author Name</th>
+    <th>Photo URL</th>
+    <th>Title</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.author_name %></td>
+      <td><img src=<%= post.photo_url %> width="400"/></td>
+      <td><%= post.title %></td>
+      <td><%= link_to 'Show', post_path(post) %> </td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New post', new_post_path %>

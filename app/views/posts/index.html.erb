@@ -4,14 +4,22 @@
 <%= link_to 'New Post', new_post_path,class:"btn btn-light" %>
 <br/>
 <br/>
+<%= form_tag(posts_path, method: "get") do %>
+    <%= select_tag(:sort_type, options_for_select(["Select a sort type",['Date Asc','date_asc'],['Date Desc','date_desc']]), :onchange=>'this.form.submit();',class:"form-control" ) %>
+<%end%>
+<br/>
+<br/>
 
-<% @posts.each do |post| %>
+<% @posts.each_with_index do |post,index| %>
 
     <div class="card card-modifier" >
-        <div class="card-header">
+
+        <div class="card-header card-header-modifier">
             <%= post.author_name %>
+            <div class="time-ago"><%= @converted_time[index]%></div>
         </div>
         <%= image_tag(post.photo_url, class: "card-img-top card-img-modifier") %>
+
         <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
               <footer class="blockquote-footer"><%= post.caption %></footer>

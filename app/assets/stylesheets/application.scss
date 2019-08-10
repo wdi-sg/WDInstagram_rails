@@ -37,6 +37,7 @@ body{
 
 .card-modifier{
     margin-bottom:10px;
+    position:relative;
 }
 
 .headbar{
@@ -56,4 +57,15 @@ body{
 .headbar a:hover{
     text-decoration:none;
     color:blue;
+}
+
+.time-ago{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform: translateY(-50%)
+}
+
+.card-header-modifier{
+    position:relative;
 }

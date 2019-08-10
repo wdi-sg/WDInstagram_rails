@@ -3,32 +3,31 @@ require 'GiphyClient'
 class PostsController < ApplicationController
 layout "headbar"
   def index
+
+    @posts = Post.all
+    @videos = Video.all
+    @combines = (@posts + @videos)
     if params[:sort_type] == "date_asc"
-        @posts=Post.all.order("created_at ASC")
+        @combines.sort!{|a,b| b.created_at <=> a.created_at}
     elsif params[:sort_type] == "date_desc"
-        @posts=Post.all.order("created_at DESC")
+        @combines.sort!{|a,b| a.created_at <=> b.created_at}
     else
-        @posts=Post.all
+        @combines.sort!{|a,b| b.created_at <=> a.created_at}
     end
     @converted_time = []
-    @posts.each do |x|
+    @combines.each do |x|
         @converted_time.push(timeConverted(x.created_at))
 
     end
 
 
+
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+
 
   def new
     @post = Post.new
-  end
-
-  def edit
-    @post = Post.find(params[:id])
   end
 
   def create
@@ -46,6 +45,17 @@ layout "headbar"
     end
 
   end
+
+  def show
+    @post = Post.find(params[:id])
+    @time = timeConverted(@post.created_at)
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+
 
   def update
     @post = Post.find(params[:id])

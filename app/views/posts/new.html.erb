@@ -1,7 +1,7 @@
 
 <div class="col-md-6 text-center">
 
-	<div class="card bg-secondary rounded align-items-stretch text-light">
+	<div class="card rounded align-items-stretch">
 		<div class="card-header"><h3 class="mb-0">ADD POST</h3></div>
 		<div class="card-body">
 
@@ -22,12 +22,12 @@
 				</p>
 
 				<p>
-					<%= f.label :captions %>
-					<%= f.text_area(:captions, {:class => 'form-control'}) %>
+					<%= f.label :caption %>
+					<%= f.text_area(:caption, {:class => 'form-control'}) %>
 				</p>
 
 				<p>
-					<%= f.submit({:class => 'btn btn-primary'}) %>
+					<%= f.submit({:class => 'btn btn-outline-success'}) %>
 				</p>
 			<% end %>
 

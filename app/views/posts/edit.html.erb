@@ -1,7 +1,7 @@
 
 <div class="col-md-6 text-center">
 
-	<div class="card bg-secondary rounded align-items-stretch text-light">
+	<div class="card rounded align-items-stretch">
 		<div class="card-header"><h3 class="mb-0">EDIT POST</h3></div>
 		<div class="card-body">
 
@@ -21,9 +21,13 @@
 					<%= f.url_field(:img_url, {:class => 'form-control'}) %>
 				</p>
 
+				<p>
+					<%= f.label :caption %>
+					<%= f.text_area(:caption, {:class => 'form-control'}) %>
+				</p>
 
 				<p>
-					<%= f.submit({:class => 'btn btn-primary'}) %>
+					<%= f.submit({:class => 'btn btn-outline-success'}) %>
 				</p>
 			<% end %>
 

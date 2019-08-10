@@ -1,31 +1,33 @@
-<nav>
-  <%=link_to(image_tag("instagram.png"), posts_path, class: "logo")%>
-  <h1 class="logogram">fakefriendsgram</h1>
-  <p><%= link_to 'New post', new_post_path %></p>
-  </nav>
-<div>
+
+<div class="all-posts">
 
 
 
-<%= link_to 'Back', root_path %>
+<%# <%= link_to 'Back', root_path %>
+<!-- %> -->
 
+<div class="post-container">
+  <div class="post-header">
+    <div class="avatar">
+      <img src=<%= @post.avatar_url %>></img>
+    </div>
+    <p><%= @post.author_name %></p>
+  </div>
+  <div class="post-image">
+    <img src=<%= @post.photo_url %>></img>
+  </div>
+  <div class="post-content">
+    <p class="likes"><%= @post.likes %> Likes</p>
+    <h3><%= @post.title %></h3>
 
-<p>
+    <p><%= @post.caption %></p>
 
-  <%= @post.author_name %>
-</p>
-  <img class="avatar" src=<%= @post.avatar_url %>></img>
+    <div class="links">
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= link_to 'Delete', post_path(@post),
+        method: :delete,
+        data: { confirm: 'Are you sure you want to delete this post?' } %>
+    </div>
 
-  <img src=<%= @post.photo_url %>></img>
-<h3><%= @post.likes %></h3>
-<p>
-
-  <%= @post.title %>
-</p>
-<p>
-
-  <%= @post.caption %>
-</p>
-<p>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-</p>
+  </div>
+  </div>

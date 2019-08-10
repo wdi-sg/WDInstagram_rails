@@ -10,6 +10,50 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
+ @import "bootstrap";
+
+.main-page-container{
+    width:500px;
+
+    margin:0 auto;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+.post-media{
+    width:100%;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+.card-img-modifier{
+    border:1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-modifier{
+    margin-bottom:10px;
+}
+
+.headbar{
+    text-align: center;
+    height:59px;
+    line-height: 57px;
+    background-color: white;
+    font-family: 'Pacifico';
+    font-size:25px;
+
+}
+
+.headbar a{
+    color:black;
+}
+
+.headbar a:hover{
+    text-decoration:none;
+    color:blue;
+}

@@ -1,6 +1,10 @@
+
+
 class PostsController < ApplicationController
+layout "headbar"
   def index
     @posts = Post.all
+
   end
 
   def show
@@ -12,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -26,13 +31,24 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+        redirect_to @post
+    else
+        render 'edit'
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to posts_path
   end
 end
 
 private
   def post_params
-    params.require(:post).permit(:author_name, :photo_url,:title)
+    params.require(:post).permit(:author_name, :photo_url,:title,:caption)
   end

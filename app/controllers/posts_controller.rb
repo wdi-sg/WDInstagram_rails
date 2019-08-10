@@ -12,17 +12,15 @@ class PostsController < ApplicationController
 
   end
 
-  def edit
-    @post=Post.find(params[:id])
-  end
-
   def create
-    #render plain: params[:post].inspect
     @post = Post.new(post_params)
 
     @post.save
     redirect_to @post
+  end
 
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def update
@@ -40,9 +38,10 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+
   private
   def post_params
-    params.require(:post).permit(:title, :author_name, :img_url)
+    params.require(:post).permit(:title, :author_name, :img_url, :caption)
   end
 
 end

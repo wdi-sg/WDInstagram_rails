@@ -2,10 +2,10 @@
 <div class="col-md-6 text-center">
 
 	<div class="card bg-secondary rounded align-items-stretch text-light">
-		<div class="card-header"><h3 class="mb-0">ADD POST</h3></div>
+		<div class="card-header"><h3 class="mb-0">EDIT POST</h3></div>
 		<div class="card-body">
 
-			<%= form_for :post, url: posts_path do |f| %>
+			<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
 				<p>
 					<%= f.label :title %>
 					<%= f.text_field(:title, {:class => 'form-control'}) %>
@@ -21,10 +21,6 @@
 					<%= f.url_field(:img_url, {:class => 'form-control'}) %>
 				</p>
 
-				<p>
-					<%= f.label :captions %>
-					<%= f.text_area(:captions, {:class => 'form-control'}) %>
-				</p>
 
 				<p>
 					<%= f.submit({:class => 'btn btn-primary'}) %>

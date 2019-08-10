@@ -1,20 +1,42 @@
 
 
-<div class="col-md-6 text-center">
 
-	<div class="card bg-dark rounded align-items-stretch text-light">
-		<div class="card-header"><h3 class="mb-0">SHOW POST</h3></div>
+
+	<div class="card align-items-center w-50">
+
+		<div class="card-header w-100">
+				<h3><%= @post.title %></h3>
+		</div>
+
+		<img src="<%= @post.img_url %>" class="card-img-top w-75" >
+
 		<div class="card-body">
 
-			<h3><%= @post.title %></h3>
-			<h3><%= @post.author_name %></h3>
-			<img src=<%= @post.img_url %> width="300">
+			<div class="row">
+				<h3 class="card-title">
+					<%= @post.author_name %>
+				</h3>
+				<p class="card-text">
+					some caption here
+				</p>
+				<p class="card-text">
+					some caption here
+				</p>
+				<p class="card-text">
+					<small class="text-muted">
+						Last updated <%= @post.updated_at %>
+					</small>
+				</p>
+
+			</div>
+
+			<div class="row">
 			<%= link_to "DELETE", post_path(@post),
 											method: :delete,
 											:class => 'btn btn-danger'%>
+			<%= link_to "EDIT", edit_post_path(@post), :class => 'btn btn-success'%>
 
+			</div>
 
 		</div>
 	</div>
-
-</div>

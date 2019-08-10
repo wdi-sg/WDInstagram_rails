@@ -11,20 +11,20 @@
 
   <body>
 
-  	<nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
-  		<a class="navbar-brand">
-  			<%= link_to "WDinstagram", home_path %>
-  		</a>
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+
+  		<%= link_to "WDinstagram", home_path, :class => 'navbar-brand' %>
+
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
   			<span class="navbar-toggler-icon"></span>
   		</button>
 
   		<div class="collapse navbar-collapse" id="navbarColor03">
-  			<ul class="navbar-nav mr-auto">
-  				<li class="nav-item active">
-  					<%= link_to "New", new_post_path %>
-
+  			<ul class="nav navbar-nav mr-auto">
+  				<li class="nav-item">
+  					<%= link_to "New", new_post_path, :class => 'nav-link' %>
   				</li>
+
   			</ul>
   		</div>
   	</nav>

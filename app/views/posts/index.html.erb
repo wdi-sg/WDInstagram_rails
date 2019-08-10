@@ -3,27 +3,50 @@
 
 <div class="col-md-9 text-center">
 
-	<div class="card bg-light rounded align-items-stretch text-dark">
-		<div class="card-header"><h2 class="mb-0">Main</h2></div>
+	<div class="card text-center">
+	  <div class="card-header ">
+	    <ul class="nav nav-tabs card-header-tabs justify-content-between">
+	      <li class="nav-item">
+	        <a class="nav-link active" href="#">Active</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link active" href="#">Active</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link active" href="#">Active</a>
+	      </li>
+	    </ul>
+	  </div>
+
 		<div class="card-body">
-			<div class="card-deck flex-wrap justify-content-between">
+			<div class="card-columns flex-wrap justify-content-between">
 
 				<% @posts.each do |post| %>
 
-						<div class="col-md-3 bg-dark rounded mx-1 mb-2" style="width: 15rem;">
-							<div class="my-1">
-								<img src=<%= post.img_url %> class="card-img-top">
+						<div class="card rounded" >
+							<h4 class="card-header"><%= post.title %></h4>
+							<a href="/posts/<%= post.id %>">
+								<img src="<%= post.img_url %>" class="card-img-top rounded mt-3 px-1">
+							</a>
+
+							<div class="card-body">
+								<h5><%= post.id %></h5>
 							</div>
-							<div class="">
-								<p class="text-light"><%= post.title %></p>
-								<%= link_to "show", post_path(post) %>
+							<div class="card-footer">
+								<p class="card-text">
+									<small class="text-muted">
+										Posted <%= post.created_at %>
+									</small>
+								</p>
+
 							</div>
 						</div>
-
 
 				 <% end %>
 
 			</div>
+
 		</div>
+
 	</div>
 </div>

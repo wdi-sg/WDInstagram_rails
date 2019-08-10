@@ -1,0 +1,30 @@
+<h1>Edit article</h1>
+
+<%= form_with scope: :post, model: @post, local: true do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+
+  <img src = <%= @post.photo_url %>>
+    <p><%= form.label :"Photo link" %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+
+  <p>
+    <button type = "submit" >Update</button>
+  </p>
+
+<% end %>
+<p><%= link_to 'Delete Post', post_path(@post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p>
+
+<p><%= link_to 'Back', root_path %></p>

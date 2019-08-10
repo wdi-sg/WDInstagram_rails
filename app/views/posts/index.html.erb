@@ -1,0 +1,16 @@
+<h1>Vibeygrammmm</h1>
+
+<p><%= link_to 'New Post', new_post_path %></p>
+
+<ul>
+<% @posts.each do |post| %>
+	<li>
+		<img src = <%= post.photo_url %>>
+		<p><%= post.title %></p>
+	  <p><%= post.author_name %></p>
+		<p><%= link_to 'View', post_path(post) %></p>
+
+
+	</li>
+<% end %>
+</ul>

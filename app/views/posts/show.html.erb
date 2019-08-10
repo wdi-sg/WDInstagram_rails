@@ -1,0 +1,10 @@
+<h2>SHOWING SINGLE GRAM </h2>
+
+<img src = <%= @post.photo_url %>>
+<p><%= @post.title %></p>
+<p><%= @post.author_name %></p>
+
+
+<p><%= link_to 'Edit Post', edit_post_path(@post) %></p>
+
+<p><%= link_to 'Home', root_path %></p>

@@ -161,3 +161,25 @@ a{
   font-weight: bold;
   color: #3897f0;
 }
+
+
+p{
+  input,textarea{
+    width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+  }
+
+  input[type="submit"]{
+    padding: 10px 20px;
+    background: #3897f0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+  }
+}

@@ -1,14 +1,9 @@
-<h1>Show <%=@instagram_indiv.name %></h1>
+<h3><%=@instagram_indiv.name %></h3>
+
+	<%= image_tag(@instagram_indiv.image_url, size: "250x250")%>
 
 <p>
-  <strong>Title:</strong>
-  <%= @instagram_indiv.title %>
-</p>
-
-	<%= image_tag(@instagram_indiv.photo_url, size: "250x250")%>
-
-<p>
-  <strong>Caption:</strong>
+  <strong><%=@instagram_indiv.name %></strong>
   <%= @instagram_indiv.caption %>
 </p>
 

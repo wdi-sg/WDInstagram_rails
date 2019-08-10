@@ -1,6 +1,6 @@
 <h1>Edit Instagram Post</h1>
 
-<%= form_with scope: :instagram, model: @instagram_edit, local: true do |form| %>
+<%= form_with scope: :instagram_videos, model: @instagram_edit, local: true do |form| %>
 
   	<p>
 	    <%= form.label :name %><br>
@@ -8,8 +8,8 @@
 	  </p>
 
 	  <p>
-	    <%= form.label :photo_url %><br>
-	    <%= form.text_field :photo_url %>
+	    <%= form.label :image_url %><br>
+	    <%= form.text_field :image_url %>
 	  </p>
 
 	  <p>

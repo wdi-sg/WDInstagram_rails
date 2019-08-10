@@ -1,0 +1,10 @@
+<h3><%= @instagram_indiv_video.title %></h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @instagram_indiv_video.video_key %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+  <strong><%=@instagram_indiv_video.name %></strong>
+  <%= @instagram_indiv_video.caption %>
+</p>
+
+<p><%= link_to 'Back', root_path %></p>

@@ -1,15 +1,26 @@
+
 <h1>!Instagram!</h1>
 
-<%= link_to 'New post', new_instagram_path %>
+<p><%= link_to 'New post', new_instagram_path %> || <%= link_to 'New Video Post', new_instagram_videos_path %>
 
-<ul>
-		<% @instagram_all.each do |post| %>
-			    <%= image_tag(post.photo_url, size: "250x250")%>
-			    <p><%= post.title %></p>
-			    <p>
-			    	<strong><%= post.name %>: </strong>
-			    	<%= post.caption %>
-			    </p>
-			    <p><%= link_to 'Show', instagram_path(post) %> || <%= link_to 'Edit', edit_instagram_path(post) %> || <%= link_to 'Destroy', instagram_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-		<% end %>
-</ul>
+<br></br>
+
+
+<% @instagram_all.each do |post| %>
+    <%= image_tag(post.image_url, size: "250x250")%>
+    <p>
+    	<strong><%= post.name %>: </strong>
+    	<%= post.caption %>
+    </p>
+    <p><%= link_to 'Show', instagram_path(post) %> || <%= link_to 'Edit', edit_instagram_path(post) %> || <%= link_to 'Destroy', instagram_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>
+
+<% @instagram_video_all.each do |video| %>
+		<h3><%= video.title %></h3>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.video_key %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<p>
+		  <strong><%=video.name %></strong>
+		  <%= video.caption %>
+		</p>
+		<p><%= link_to 'Show', instagram_video_path(video) %></p>
+<% end %>

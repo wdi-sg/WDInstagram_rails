@@ -7,14 +7,18 @@
     <th>Author Name</th>
     <th>Photo URL</th>
     <th>Title</th>
+    <th>Caption</th>
+    <th>Time Stamp</th>
     <th></th>
   </tr>
 
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.author_name %></td>
-      <td><img src=<%= post.photo_url %> width="400"/></td>
+      <td><img src=<%= post.photo_url %> width="300"/></td>
       <td><%= post.title %></td>
+      <td><%= post.caption %></td>
+      <td><%= post.created_at %></td>
       <td><%= link_to 'Show', post_path(post) %> </td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to 'Delete', post_path(post),

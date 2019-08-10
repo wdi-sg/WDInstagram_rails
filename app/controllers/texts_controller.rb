@@ -5,7 +5,7 @@ class TextsController < ApplicationController
     end
 
     def create
-        @text = Text.new(video_params)
+        @text = Text.new(text_params)
 
         if @text.save
             redirect_to @text

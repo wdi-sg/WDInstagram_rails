@@ -17,6 +17,8 @@
         <%= render 'post', post: combine, time_ago:@converted_time[index]%>
     <% elsif combine.class.name == "Video" %>
         <%= render 'video', video: combine, time_ago:@converted_time[index]%>
+    <% elsif combine.class.name == "Text" %>
+        <%= render 'text', text: combine, time_ago:@converted_time[index]%>
     <% end %>
 
 

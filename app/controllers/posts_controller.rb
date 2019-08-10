@@ -6,7 +6,8 @@ layout "headbar"
 
     @posts = Post.all
     @videos = Video.all
-    @combines = (@posts + @videos)
+    @texts = Text.all
+    @combines = (@posts + @videos + @texts)
     if params[:sort_type] == "date_asc"
         @combines.sort!{|a,b| b.created_at <=> a.created_at}
     elsif params[:sort_type] == "date_desc"

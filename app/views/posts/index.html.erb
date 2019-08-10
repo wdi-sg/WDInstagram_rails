@@ -1,0 +1,32 @@
+<%= link_to 'New post', new_post_path %>
+<h1>Listing posts</h1>
+My API key is:
+<h2><%= ENV['GIPHYCLIENT_API_KEY']%></h2>
+
+<table class = "home">
+  <tr>
+    <th><%= sortable "title", "Title" %></th>
+    <th><%= sortable "photo_url", "Photo" %></th>
+    <th><%= sortable "author_name", "Author" %></th>
+    <th><%= sortable "caption", "Caption" %></th>
+    <th><%= sortable "created_at", "Date" %></th>
+
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td class = "home-post-img"><img src = <%= post.photo_url %> alt = "picture"></img></td>
+      <td><%= post.author_name %></td>
+      <td><%= post.caption %></td>
+      <td><%= post.created_at %></td>
+
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

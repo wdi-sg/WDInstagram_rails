@@ -11,3 +11,11 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore secrets.yml file
+secrets.yml
+
+# Ignore env file
+env.config
+env-config
+.env

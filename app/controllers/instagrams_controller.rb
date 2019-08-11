@@ -11,7 +11,9 @@ class InstagramsController < ApplicationController
     end
 
     def show_video
+
       @instagram_indiv_video = InstagramVideo.find(params[:id])
+
     end
 
     def new
@@ -23,6 +25,12 @@ class InstagramsController < ApplicationController
     def edit
 
         @instagram_edit = Instagram.find(params[:id])
+
+    end
+
+    def edit_video
+
+        @instagram_edit_video = InstagramVideo.find(params[:id])
 
     end
 
@@ -44,30 +52,53 @@ class InstagramsController < ApplicationController
         # puts @instagram_video_create
         @instagram_video_create.save
         redirect_to @instagram_video_create
+
     end
 
     def update
+
         @instagram_update = Instagram.find(params[:id])
 
         @instagram_update.update(instagram_params)
         redirect_to @instagram_update
+
+    end
+
+    def update_video
+
+        @instagram_update_video= InstagramVideo.find(params[:id])
+
+        @instagram_update_video.update(instagram_video_params)
+        redirect_to @instagram_update_video
+
     end
 
     def destroy
+
         @instagram_delete = Instagram.find(params[:id])
         @instagram_delete.destroy
 
         redirect_to root_path
+
+    end
+
+    def destroy_video
+
+        @instagram_video_delete = InstagramVideo.find(params[:id])
+        @instagram_video_delete.destroy
+
+        redirect_to root_path
+
     end
 
 
     private
       def instagram_params
-        params.require(:instagram).permit(:name, :image_url, :caption)
+        params.require(:instagrams).permit(:name, :image_url, :caption)
       end
 
       def instagram_video_params
-        params.require(:instagram_video).permit(:name, :video_key, :title, :caption)
+        params.require(:instagram_videos).permit(:name, :video_key, :title, :caption)
       end
 
 

@@ -1,0 +1,32 @@
+<h1>Edit Instagram Post</h1>
+
+<%= form_with scope: :instagram_videos, model: @instagram_edit_video, local: true do |form| %>
+
+  	<p>
+	    <%= form.label :name %><br>
+	    <%= form.text_field :name %>
+	  </p>
+
+	  <p>
+	    <%= form.label :video_key %><br>
+	    <%= form.text_field :video_key %>
+	  </p>
+	  <p>For e.g, the video key will be: https://www.youtube.com/embed/<strong>rc2jsjnt-HY</strong></p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title %>
+	  </p>
+
+	  <p>
+	    <%= form.label :caption %><br>
+	    <%= form.text_area :caption %>
+	  </p>
+
+  <p>
+    <%= form.submit :'edit video' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

@@ -1,4 +1,12 @@
+require 'net/http'
+require 'json'
+
+
+
+
 class PostsController < ApplicationController
+
+
     def index
         @posts = Post.all
         puts "######################################"
@@ -26,6 +34,14 @@ class PostsController < ApplicationController
     end
 
     def new
+        url="https://api.giphy.com/v1/gifs/random?api_key=AFpKj063czmiLWvEefQ5q8y30jryiewB&tag=&rating=PG"
+        resp = Net::HTTP.get_response(URI.parse(url))
+        buffer = resp.body
+        result = JSON.parse(buffer)
+        puts result["data"]["image_url"]
+        @image_url = result["data"]["image_url"]
+        @title = result["data"]["title"]
+        render :new
     end
 
     def edit

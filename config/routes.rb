@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     get '/posts/:id' => 'posts#show' , as: 'post'
     patch '/posts/:id' => 'posts#update'
     delete '/posts/:id' => 'posts#destroy'
-
+    get '/gifs/new' => 'gifs#new', as: 'gif'
 end

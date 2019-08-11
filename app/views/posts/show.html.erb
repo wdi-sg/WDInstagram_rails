@@ -16,5 +16,4 @@
   <%= @post.caption %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Back', root_path %>
+<h2><%= link_to '🔙', root_path %><%= link_to '✏️', edit_post_path(@post) %></h2>

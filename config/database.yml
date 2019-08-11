@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: WDInstagram_rails_development
+  username: 'apooshoo'
+  password: 'neilgaiman1'
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,5 +83,5 @@ test:
 production:
   <<: *default
   database: WDInstagram_rails_production
-  username: WDInstagram_rails
-  password: <%= ENV['WDINSTAGRAM_RAILS_DATABASE_PASSWORD'] %>
+  username: apooshoo
+  password: <%= ENV['neilgaiman1'] %>

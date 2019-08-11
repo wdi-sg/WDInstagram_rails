@@ -13,8 +13,9 @@
 		<div class = "column ml-5">
 			<h2 class = "text-capitalize"><%= @post.title %></h2>
 			<p class = "text-capitalize font-italic"><%= @post.author_name %></p>
-			<p class = "my-5"><%= @post.caption %></p>
-			<p class = "pt-5"><%= link_to 'Edit Post', edit_post_path(@post) %></p>
+			<p class = "my-5 pb-5"><%= @post.caption %></p>
+			<small><%= @post.updated_at%></small>
+			<p><%= link_to 'Edit Post', edit_post_path(@post) %></p>
 		</div>
 
 	</div>

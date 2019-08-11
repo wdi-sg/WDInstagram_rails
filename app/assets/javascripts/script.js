@@ -1,19 +1,39 @@
-window.onload = function() {
-    let photoInput = document.getElementById("photo-input")
-    let checkBox = document.getElementById("gifCheck")
-    console.log(checkBox)
-    let clickHappened = function() {
-        if (checkBox.checked) {
-            photoInput.style.backgroundColor = "#e0e0e0";
-            photoInput.readOnly = true
-            photoInput.value="##########"
-        }else{
-            photoInput.style.backgroundColor = "white";
-            photoInput.readOnly = false
-            photoInput.value=""
+//= require rails-ujs
+//= require jquery
+
+$(document).ready(function() {
+    console.log("ready!");
+    const key = $('.temp_information').data('temp')
+    $('#gif-randomizer').hide()
+    $('#random-button').hide()
+    $("#gifCheck").click(function() {
+        if ($("#gifCheck").prop('checked')) {
+            $('#photo-input').val("#").hide();
+            $('.gif-randomizer').show();
+            $('#random-button').show()
+
+
+        } else {
+            $('#photo-input').val("").show();
+            $('#gif-randomizer').hide();
+            $('#random-button').hide()
+
         }
-    }
+    });
+    $('#random-button').click(function() {
+        $.ajax({
+            url: `http://api.giphy.com/v1/gifs/random?api_key=${key}`,
+            type: 'GET',
+            dataType: 'json',
 
-    checkBox.addEventListener("click", clickHappened);
+            success: function(data, textStatus, xhr) {
+                $('.gif-randomizer').attr('src',data.data.image_url)
+                $('#photo-input').val(data.data.image_url)
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log('Error in Database');
+            }
+        })
+    })
 
-}
+});

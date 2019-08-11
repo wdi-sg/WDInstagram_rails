@@ -1,4 +1,6 @@
-
+<%= javascript_include_tag "script" %>
+<%= content_tag :div, class: "temp_information", data: {temp: @temp} do %>
+<% end %>
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
     <% if @post.errors.any? %>
         <div class="alert alert-success" role="alert">
@@ -27,6 +29,9 @@
         <input type="checkBox" name="gifCheck" value="true"class="form-check-input" id="gifCheck">
         <label class="form-check-label" for="gifCheck">Generate Random GIF</label>
     </div>
+    <img src="" class="card-img-top card-img-modifier gif-randomizer" id="gif-randomizer" >
+
+    <div class="btn btn-light" id="random-button">Random Gif</div>
 
     <div class="form-group">
         <%= form.label :title %><br>
@@ -40,4 +45,3 @@
     <%= form.submit class:"btn btn-light"%>
 
 <% end %>
-<script src="/assets/javascripts/script.js"></script>

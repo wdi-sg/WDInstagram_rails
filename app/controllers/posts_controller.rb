@@ -30,15 +30,11 @@ layout "headbar"
 
   def new
     @post = Post.new
+    @temp = Walaoeh.key
   end
 
   def create
     @post = Post.new(post_params)
-
-    if(params[:gifCheck] == "true")
-        gifImageUrl = getGif()
-        @post.photo_url = gifImageUrl.data.image_url
-    end
 
     if @post.save
         redirect_to @post
@@ -109,21 +105,4 @@ private
     end
 
 
-def getGif
-    api_instance = GiphyClient::DefaultApi.new
-
-    api_key = Walaoeh.key
-
-    opts = {
-      fmt: "json" # String | Used to indicate the expected response format. Default is Json.
-    }
-
-    begin
-      #Random Endpoint
-      result = api_instance.gifs_random_get(api_key, opts)
-
-    rescue GiphyClient::ApiError => e
-      puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
-    end
-end
 

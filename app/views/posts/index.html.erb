@@ -5,28 +5,30 @@
 
 	<div class="card text-center">
 	  <div class="card-header ">
-	    <ul class="nav nav-tabs card-header-tabs justify-content-between">
+	    <ul class="nav nav-tabs card-header-tabs justify-content-center">
 	      <li class="nav-item">
-	        <a class="nav-link active" href="#">Active</a>
+					<%= link_to "Latest", posts_path(sort: "latest"), :class => 'nav-link active' %>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link active" href="#">Active</a>
-	      </li>
+					<%= link_to "Title", posts_path(sort: "title"), :class => 'nav-link active' %>
+				</li>
 	      <li class="nav-item">
-	        <a class="nav-link active" href="#">Active</a>
+					<%= link_to "Oldest", posts_path(sort: "oldest"), :class => 'nav-link active' %>
 	      </li>
 	    </ul>
+
+
 	  </div>
 
-		<div class="card-body">
-			<div class="card-columns flex-wrap justify-content-between overflow">
+		<div class="card-body bg-dark">
+
 
 				<% @posts.each do |post| %>
 
-						<div class="card rounded" >
+						<div class="card rounded w-75 my-3 mx-auto" >
 							<h4 class="card-header"><%= post.title %></h4>
 							<a href="/posts/<%= post.id %>">
-								<img src="<%= post.img_url %>" class="card-img-top rounded mt-3 px-1">
+								<img src="<%= post.img_url %>" class="card-img rounded mt-3 px-1">
 							</a>
 
 							<div class="card-body">
@@ -44,7 +46,6 @@
 
 				 <% end %>
 
-			</div>
 
 		</div>
 

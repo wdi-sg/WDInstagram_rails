@@ -1,18 +1,18 @@
 
-<h1> New Post </h1>
-<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+<h1> New Video </h1>
+<%= form_with scope: :video, url: videos_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field(:title, {:class =>'form-control'}) %>
   </p>
 
   <p>
-    <%= form.label :author_name %><br>
+    <%= form.label :author_name, 'Author' %><br>
     <%= form.text_area(:author_name, {:class =>'form-control'} )%>
   </p>
   <p>
-    <%= form.label :photo_url %><br>
-   <%= form.text_area(:photo_url, {:class =>'form-control'}) %> 
+    <%= form.label :video_url, 'Video link' %><br>
+   <%= form.text_area(:video_url, {:class =>'form-control'}) %> 
   </p>
    <p>
     <%= form.label :caption %><br>

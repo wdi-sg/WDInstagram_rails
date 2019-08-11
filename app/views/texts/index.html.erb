@@ -1,0 +1,22 @@
+<div class ='container'>
+	<h1>All Texts</h1>
+    <%= link_to 'New Texts', new_text_path,  :class => 'btn btn-default' %>
+
+  	<% @texts.each do |text| %>
+    	<h4> <%= text.title %></h4>
+     
+   	  <p><%= text.author_name %></p>
+
+      <p><%=text.body %></p>
+    
+    
+    <%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+    <%= link_to 'Edit', edit_text_path(@text), :class => 'btn btn-default' %>
+
+    <%= link_to 'Delete', text_path(text),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, 
+                        :class => 'btn btn-default' %>
+
+  	<% end %>
+</div>

@@ -3,9 +3,11 @@ class InstagramsController < ApplicationController
     def index
         @instagram_all = Instagram.all
         @instagram_video_all = InstagramVideo.all
+        @instagram_text_all = InstagramText.all
     end
 
     def show
+
         @instagram_indiv = Instagram.find(params[:id])
 
     end
@@ -16,10 +18,19 @@ class InstagramsController < ApplicationController
 
     end
 
+    def show_text
+
+      @instagram_indiv_text = InstagramText.find(params[:id])
+
+    end
+
     def new
     end
 
     def new_videos
+    end
+
+    def new_texts
     end
 
     def edit
@@ -32,6 +43,10 @@ class InstagramsController < ApplicationController
 
         @instagram_edit_video = InstagramVideo.find(params[:id])
 
+    end
+
+    def edit_text
+        @instagram_edit_text = InstagramText.find(params[:id])
     end
 
     def create
@@ -55,6 +70,15 @@ class InstagramsController < ApplicationController
 
     end
 
+    def create_text
+
+        @instagram_text_create = InstagramText.new(instagram_text_params)
+        puts @instagram_text_create
+        @instagram_text_create.save
+        redirect_to @instagram_text_create
+
+    end
+
     def update
 
         @instagram_update = Instagram.find(params[:id])
@@ -66,11 +90,18 @@ class InstagramsController < ApplicationController
 
     def update_video
 
-        @instagram_update_video= InstagramVideo.find(params[:id])
+        @instagram_update_video = InstagramVideo.find(params[:id])
 
         @instagram_update_video.update(instagram_video_params)
         redirect_to @instagram_update_video
 
+    end
+
+    def update_text
+        @instagram_update_text = InstagramText.find(params[:id])
+
+        @instagram_update_text.update(instagram_text_params)
+        redirect_to @instagram_update_text
     end
 
     def destroy
@@ -91,6 +122,13 @@ class InstagramsController < ApplicationController
 
     end
 
+    def destroy_text
+        @instagram_text_delete = InstagramText.find(params[:id])
+        @instagram_text_delete.destroy
+
+        redirect_to root_path
+    end
+
 
     private
       def instagram_params
@@ -99,6 +137,10 @@ class InstagramsController < ApplicationController
 
       def instagram_video_params
         params.require(:instagram_videos).permit(:name, :video_key, :title, :caption)
+      end
+
+      def instagram_text_params
+        params.require(:instagram_texts).permit(:name, :title, :text)
       end
 
 

@@ -1,6 +1,6 @@
 <h1>Add new videos page</h1>
 
-<%= form_with scope: :instagram_video, url: instagrams_videos_path, local: true do |form| %>
+<%= form_with scope: :instagram_videos, url: instagrams_videos_path, local: true do |form| %>
 	  <p>
 	    <strong><%= form.label :name %></strong><br>
 	    <%= form.text_field :name %>
@@ -11,7 +11,7 @@
 	    <strong><%= form.label :video_key %></strong><br>
 	    <%= form.text_field :video_key %>
 	  </p>
-	  <p>For e.g, the video key will be: https://www.youtube.com/embed/<strong>rc2jsjnt-HY</strong></p>
+	  <p>For e.g, the video key will be: https://www.youtube.com/watch?v=<strong>hw_HpTI_Wkw</strong></p>
 
 	  <p>
 	    <strong><%= form.label :title %></strong><br>
@@ -24,7 +24,7 @@
 	  </p>
 
 	  <p>
-	    <%= form.submit :postvideo%>
+	    <%= form.submit :'post video'%>
 	  </p>
 <% end %>
 

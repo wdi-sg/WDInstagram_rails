@@ -7,4 +7,6 @@
   <%= @instagram_indiv_video.caption %>
 </p>
 
-<p><%= link_to 'Back', root_path %> || <%= link_to 'Edit', edit_video_instagram_path(@instagram_indiv_video) %></p>
+<p><%= link_to 'Edit', edit_video_instagram_path(@instagram_indiv_video) %> || <%= link_to 'Destroy', instagram_video_path(@instagram_indiv_video), method: :delete, data: { confirm: 'Are you sure you want to delete this video?' } %></p>
+
+<p><%= link_to 'Back', root_path %></p>

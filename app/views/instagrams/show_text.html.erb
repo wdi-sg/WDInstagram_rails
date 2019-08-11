@@ -1,0 +1,10 @@
+<h3><%= @instagram_indiv_text.title %></h3>
+
+<p>
+  <strong><%=@instagram_indiv_text.name %></strong>
+  <%= @instagram_indiv_text.text %>
+</p>
+
+<p><%= link_to 'Edit', edit_text_instagram_path(@instagram_indiv_text) %> || <%= link_to 'Destroy', instagram_text_path(@instagram_indiv_text), method: :delete, data: { confirm: 'Are you sure you want to delete this text?' } %></p>
+
+<p><%= link_to 'Back', root_path %></p>

@@ -1,0 +1,26 @@
+<h1>Edit Instagram Text</h1>
+
+<%= form_with scope: :instagram_texts, model: @instagram_edit_text, local: true do |form| %>
+
+  	<p>
+	    <%= form.label :name %><br>
+	    <%= form.text_field :name %>
+	  </p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title %>
+	  </p>
+
+	  <p>
+	    <%= form.label :text %><br>
+	    <%= form.text_area :text %>
+	  </p>
+
+  <p>
+    <%= form.submit :'edit text' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

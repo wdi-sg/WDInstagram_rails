@@ -2,6 +2,15 @@
 <html>
   <head>
     <title>WDInstagramRails</title>
+    <style>
+        a {
+            color: black;
+        }
+        a:link {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +19,7 @@
   </head>
 
   <body>
-      <h1><u>WDInstagram_rails</u></h1>
+      <h1>WDInstagram_rails</h1>
     <%= yield %>
   </body>
 </html>

@@ -2,13 +2,21 @@
 
 <h1>Listing Posts</h1>
 
+<%= puts '******************Listing Posts******************' %>
+<%= puts 'params' %>
+<%= puts '******************Listing Posts******************' %>
+<%= puts '******************Listing Posts******************' %>
+<%= puts '******************Listing Posts******************' %>
+<%= puts @cond %>
+<%= puts @order %>
+
 <table>
   <tr>
-    <th>Author Name</th>
+    <th>Author Name<a href="/posts/sort/author_name/asc">▲<a><a href="/posts/sort/author_name/desc">▼<a></th>
     <th>Photo URL</th>
-    <th>Title</th>
+    <th>Title<a href="/posts/sort/title/asc">▲<a><a href="/posts/sort/title/desc">▼<a></th>
     <th>Caption</th>
-    <th>Time Stamp</th>
+    <th>Time Stamp<a href="/posts/sort/created_at/asc">▲<a><a href="/posts/sort/created_at/desc">▼<a></th>
     <th></th>
   </tr>
 

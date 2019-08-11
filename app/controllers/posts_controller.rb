@@ -1,4 +1,5 @@
 require 'GiphyClient'
+require 'giphy_api.rb'
 
 class PostsController < ApplicationController
 layout "headbar"
@@ -107,22 +108,22 @@ private
         end
     end
 
-private
-    def getGif
-        api_instance = GiphyClient::DefaultApi.new
 
-        api_key = "SE6bH15pfx2qjEgSYIs6GPhgxNT6Il8S" # String | Giphy API Key.
+def getGif
+    api_instance = GiphyClient::DefaultApi.new
 
-        opts = {
-          fmt: "json" # String | Used to indicate the expected response format. Default is Json.
-        }
+    api_key = Walaoeh.key
 
-        begin
-          #Random Endpoint
-          result = api_instance.gifs_random_get(api_key, opts)
+    opts = {
+      fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+    }
 
-        rescue GiphyClient::ApiError => e
-          puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
-        end
+    begin
+      #Random Endpoint
+      result = api_instance.gifs_random_get(api_key, opts)
+
+    rescue GiphyClient::ApiError => e
+      puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
     end
+end
 

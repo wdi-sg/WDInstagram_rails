@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+#ignore giphy api key
+/app/controllers/giphy_api.rb

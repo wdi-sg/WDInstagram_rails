@@ -1,4 +1,10 @@
-<h2> New Post </h2>
+<div class = "header-bar row align-items-center">
+	<h1 class = "my-3 mx-auto"><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p class = "position-absolute ml-5"><%= link_to 'New Post', new_post_path %></p>
+</div>
+
+ <div class = "  d-flex flex-column text-center my-5">
+<h2 class = "mb-4"> New Post </h2>
 
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
 
@@ -23,8 +29,8 @@
   </p>
 
   <p>
-	<button type = "submit" >Post</button>
+	<button type = "submit" class="btn btn-primary" >Post</button>
   </p>
 <% end %>
 
-<%= link_to 'Home', root_path %>
+</div>

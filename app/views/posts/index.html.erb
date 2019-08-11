@@ -1,16 +1,22 @@
-<h1>Vibeygrammmm</h1>
 
-<p><%= link_to 'New Post', new_post_path %></p>
+<div class = "header-bar row align-items-center">
+	<h1 class = "my-3 mx-auto"><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p class = "position-absolute ml-5"><%= link_to 'New Post', new_post_path %></p>
+</div>
 
-<ul>
-<% @posts.each do |post| %>
-	<li>
-		<img src = <%= post.photo_url %>>
-		<p><%= post.title %></p>
-	  <p><%= post.author_name %></p>
-		<p><%= link_to 'View', post_path(post) %></p>
+<div class = "card-group mt-2 mx-5">
 
+	<% @posts.each do |post| %>
+		<div class="card">
+			<a href = <%= post_path(post) %>>
+				<img class ="index-thumbnail m-1" src = <%= post.photo_url %>>
+			<div class = "d-flex flex-column text-center">
+				<p class = "font-weight-bold text-uppercase m-0"><%= post.title %><br></p>
+			  <span class = "text-capitalize font-italic"><%= post.author_name %></span>
+				</a>
+			</div>
+		</div>
+	<% end %>
+</div>
 
-	</li>
-<% end %>
-</ul>
+</div>

@@ -1,10 +1,22 @@
-<h2>SHOWING SINGLE GRAM </h2>
 
-<img src = <%= @post.photo_url %>>
-<p><%= @post.title %></p>
-<p><%= @post.author_name %></p>
+<div class = "header-bar row align-items-center">
+	<h1 class = "my-3 mx-auto"><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p class = "position-absolute ml-5"><%= link_to 'New Post', new_post_path %></p>
+</div>
 
+<div class = "container justify-content-center my-5">
 
-<p><%= link_to 'Edit Post', edit_post_path(@post) %></p>
+	<div class = "row justify-content-center">
+		<div class = "column">
+			<img class = "single-thumbnail" src = <%= @post.photo_url %>>
+		</div>
+		<div class = "column ml-5">
+			<h2 class = "text-capitalize"><%= @post.title %></h2>
+			<p class = "text-capitalize font-italic"><%= @post.author_name %></p>
+			<p class = "my-5"><%= @post.caption %></p>
+			<p class = "pt-5"><%= link_to 'Edit Post', edit_post_path(@post) %></p>
+		</div>
 
-<p><%= link_to 'Home', root_path %></p>
+	</div>
+
+</div>

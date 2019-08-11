@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.index-thumbnail{
+	max-height: 400px;
+	object-fit: cover;
+	width: 100%;
+}
+
+.single-thumbnail {
+	max-width: 450px;
+	max-height: 550px;
+}
+
+.card a, h1 a{
+  color: black !important;
+}

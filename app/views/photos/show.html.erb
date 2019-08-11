@@ -1,0 +1,29 @@
+<p>
+  <strong>Title:</strong>
+  <%= @photo.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @photo.author %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@photo.pic) %>
+
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @photo.caption %>
+</p>
+
+<p>
+  <strong>Posted on:</strong>
+  <%= @photo.created_at %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %>
+
+<%= link_to 'Back', root_path %>

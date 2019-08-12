@@ -2,8 +2,11 @@ class InstagramsController < ApplicationController
 
     def index
         @instagram_all = InstagramPost.all
+        @instagram_all = @instagram_all.reverse
         @instagram_video_all = InstagramVideo.all
+        @instagram_video_all = @instagram_video_all.reverse
         @instagram_text_all = InstagramText.all
+        @instagram_text_all = @instagram_text_all.reverse
     end
 
     def show_post

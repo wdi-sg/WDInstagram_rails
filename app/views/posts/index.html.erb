@@ -1,56 +1,101 @@
-<head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<% if params[:sort] == "date" && params[:order]== "old" %>
+	<% @posts = @posts.order(:created_at) %>
+<% elsif params[:sort] == "date" && params[:order]== "new" %>
+	<% @posts = @posts.order(created_at: :desc) %>
+<% elsif params[:sort] == "media" && params[:order]== "old" %>
+	<% @posts = @posts.order(:mediatype, :created_at) %>
+<% elsif params[:sort] == "media" && params[:order]== "new" %>
+	<% @posts = @posts.order(:mediatype, created_at: :desc) %>
+<% elsif params[:sort] == "author" && params[:order]== "old" %>
+	<% @posts = @posts.order(:author_name, :created_at) %>
+<% elsif params[:sort] == "author" && params[:order]== "new" %>
+	<% @posts = @posts.order(:author_name, created_at: :desc) %>
+<% else %>
+	<% @posts = @posts.order(created_at: :desc) %>
+<% end %>
+
+
 
 <div class="jumbotron jumbotron-fluid">
 	<div class="container text-center">
  		<h1 class="display-4">(WD)Instagram</h1>
-
   	<p class="lead">My First Ruby On Rails App</p>
-
-  	<a class="btn" href=<%= new_post_path %>><i class="fa fa-plus mybutton"></i></a>
 	</div>
 </div>
 
 <div class="container">
+
 	<div class="row">
+
+		<div class="col-9">
+			<form method="GET" action="/">
+				<label>Sort By</label>
+				<select name="sort">
+				  <option value="date">Date</option>
+				  <option value="media">Media</option>
+				  <option value="author">Author</option>
+				</select>
+
+				<label>Show</label>
+				<select name="order">
+					<option value="new">Newest Posts First</option>
+					<option value="old">Oldest Posts First</option>
+				</select>
+
+				<button type="submit">Go</button>
+			</form>
+		</div>
+
+		<div class="col-3">
+			<a class="float-right" href=<%= new_post_path %>><img class="mybutton" src=<%= image_path('new-post-icon.png') %> /></a>
+		</div>
+	</div>
+
+
+	<div class="row">
+
 		<% @posts.each do |post| %>
 		<div class="col-4">
 			<div class="card mb-3">
-		  <h3 class="card-header"><%= post.title %></h3>
-		  <div class="card-body">
-		    <h5 class="card-title"><%= post.author_name %></h5>
-		    <h6 class="card-subtitle text-muted"><%= post.mediatype %></h6>
-		  </div>
-
-		  <% if post.mediatype == "photo" %>
-		  	<a href=<%= post_path(post) %>><img class="card-img" src="<%= image_path(post.photo_url) %>" alt="Card image"/></a>
-
-		  <% elsif post.mediatype == "video" %>
-		  	<iframe width="100%" height="200" src="<%= post.photo_url %>" frameborder="0" allowfullscreen></iframe>
-
-		  <% elsif post.mediatype == "text" %>
-		  	<div class="card-text2 text-center">
-		  		<%= post.photo_url =%>
+		  	<h3 class="card-header"><%= post.title %></h3>
+		  	<div class="card-body">
+			    <h5 class="card-title"><%= post.author_name %></h5>
+			    <h6 class="card-subtitle text-muted"><%= post.mediatype %></h6>
 		  	</div>
 
-		  <%end%>
+		  	<% if post.mediatype == "photo" %>
+		  		<a href=<%= post_path(post) %>><img class="card-img" src="<%= image_path(post.photo_url) %>" alt="Card image"/></a>
 
-		  <div class="card-body">
-		    <p class="card-text"><%= post.caption %></p>
-		  </div>
+		  	<% elsif post.mediatype == "video" %>
+		  		<iframe width="100%" height="200" src="<%= post.photo_url %>" frameborder="0" allowfullscreen></iframe>
 
-		  <div class="card-body">
-		    <a href=<%= edit_post_path(post) %> class="card-link">Edit</a>
-		    <a><%= link_to 'Delete', post_path(post),
-		        method: :delete,
-		        data: { confirm: 'Are you sure?' } %></a>
-		  </div>
-		  <div class="card-footer text-muted">
-		    <%= post.created_at %>
-		  </div>
+		 	 	<% elsif post.mediatype == "text" %>
+		 	 		<a href=<%= post_path(post) %>>
+		  		<div class="card-text2 text-center">
+		  			<%= post.photo_url =%>
+		  		</div>
+		  		</a>
+
+		  	<%end%>
+
+			  <div class="card-body">
+			    <p class="card-text"><%= post.caption %></p>
+			  </div>
+
+			  <div class="card-body">
+			    <a href="<%= edit_post_path(post) %>"" class="card-link">Edit</a>
+			    <a><%= link_to 'Delete', post_path(post),
+			        method: :delete,
+			        data: { confirm: 'Are you sure?' } %></a>
+			  </div>
+
+			  <div class="card-footer text-muted">
+			    <%= post.created_at %>
+			  </div>
+
 			</div>
 		</div>
 		<% end %>
+
 	</div>
 </div>

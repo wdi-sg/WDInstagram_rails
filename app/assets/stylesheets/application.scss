@@ -12,22 +12,23 @@
  *
  */
 
-h1 {
-	font-family: 'Cookie', cursive;
-}
-
-
 @import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
 
-
-
-// Then bootstrap itself
+// Bootstrap
 @import "bootstrap";
 
 
 /*body {
 	background-color: black
 }*/
+
+h1 {
+	font-family: 'Cookie', cursive;
+}
+
+a{
+	text-decoration: none;
+}
 
 .card-img {
 	height: 200px;
@@ -46,14 +47,9 @@ h1 {
 }
 
 .mybutton {
-	border: 3px solid black;
-	color: black;
-	border-radius: 50%;
-	padding: 15px;
-}
-
-i.fa.fa-plus.mybutton {
-	font-size: 44px;
+	margin: 10px;
+	height: 50px;
+	width: 50px;
 }
 
 .post-img {

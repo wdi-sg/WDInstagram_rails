@@ -1,0 +1,11 @@
+<h2>Title: <%=  @banana.title %></h2>
+
+<p>Author Name: <%= @banana.author_name %></p>
+
+<img src="<%= image_path(@banana.photo_url) %>" />
+
+<p>Type: <%= @banana.type %></p>
+
+<p>Caption: <%= @banana.caption %></p>
+
+<%= link_to 'home', root_path %>

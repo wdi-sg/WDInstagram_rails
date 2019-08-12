@@ -1,0 +1,33 @@
+<h1>hello world WDInstagram</h1>
+
+<h1>Post count: <%= @posts.length %></h1>
+
+
+<ul>
+<% @posts.each do |post| %>
+	<li>
+	  <p><%= post.title %></p>
+	  <p><%= post.author_name %></p>
+	  <img src="<%= image_path(post.photo_url) %>" />
+	  <p>Type: <%= post.type %></p>
+		<p>Caption: <%= post.caption %></p>
+
+		<p><%= link_to 'Show', post_path(post) %></p>
+		<p><%= link_to 'Edit', edit_post_path(post) %></p>
+		<p><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p>
+<!--
+<form method="POST" action="/article/1?_method=DELETE">
+	<input type="submit"/>
+</form>
+
+-->
+<!-- <a href="/articles/{ article.id }">....</a> -->
+
+	</li>
+<% end %>
+</ul>
+<p>
+<%= link_to 'New Post', new_post_path %>
+</p>

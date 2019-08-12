@@ -5,7 +5,7 @@ require 'GiphyClient'
 class PostsController < ApplicationController
 
     def index
-        @posts = Post.all + Video.all
+        @posts = Post.all + Video.all + Text.all
         @posts = @posts.sort_by {|a| a.created_at}.reverse
     end
 
@@ -14,15 +14,13 @@ class PostsController < ApplicationController
     end
 
     def sort
-        @posts = Post.all + Video.all
+        @posts = Post.all + Video.all + Text.all
         conds = params[:conds]
         order = params[:order]
         if order == "asc"
             @posts = @posts.sort_by {|a| a[conds]}
-            puts "asc sort"
         else
             @posts = @posts.sort_by {|a| a[conds]}.reverse
-            puts "desc sort"
         end
         render :index
     end
@@ -42,9 +40,7 @@ class PostsController < ApplicationController
     end
 
     def create
-         # render plain: params[:post].inspect
          @post = Post.new(post_params)
-
          @post.save
          redirect_to @post
     end

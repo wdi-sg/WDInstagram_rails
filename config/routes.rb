@@ -18,4 +18,13 @@ Rails.application.routes.draw do
     patch '/videos/:id' => 'videos#update'
     delete '/videos/:id' => 'videos#destroy'
 
+    get '/texts' => 'texts#all', as: 'all_texts'
+    get '/texts/sort/:conds/:order' => 'texts#sort', as: 'sort_text'
+    get '/texts/new' => 'texts#new', as: 'new_text'
+    post '/texts' => 'texts#create'
+    get '/texts/:id/edit' => 'texts#edit', as: 'edit_text'
+    get '/texts/:id' => 'texts#show' , as: 'text'
+    patch '/texts/:id' => 'texts#update'
+    delete '/texts/:id' => 'texts#destroy'
+
 end

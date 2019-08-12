@@ -7,7 +7,6 @@ class VideosController < ApplicationController
 
     def show
         @video = Video.find(params[:id])
-        puts "$$$$$$$$$$$$$$$$$$$$$$$$$"
     end
 
     def sort
@@ -32,16 +31,14 @@ class VideosController < ApplicationController
     end
 
     def create
-        puts "@@@@@@ creating new record @@@@@@"
-        @video = Video.new(post_params)
-
+        @video = Video.new(video_params)
         @video.save
         redirect_to @video
     end
 
     def update
         @video = Video.find(params[:id])
-        @video.update(post_params)
+        @video.update(video_params)
         redirect_to @video
     end
 
@@ -53,7 +50,7 @@ class VideosController < ApplicationController
     end
 
     private
-        def post_params
+        def video_params
             params.require(:video).permit(:author_name, :video_url, :title, :caption)
         end
 

@@ -1,8 +1,13 @@
-<h2><%= link_to 'NEW IMG POST', new_post_path %> | <%= link_to 'NEW VIDEO POST', new_video_path %></h2>
-
-<h2></h2>
+<div class="middle_container"><h2><%= link_to 'NEW IMG POST', new_post_path %> | <%= link_to 'NEW VIDEO POST', new_video_path %> | <%= link_to 'NEW TEXT POST', new_text_path %></h2></div>
 
 <table>
+    <colgroup>
+        <col class="w1">
+        <col class="w2">
+        <col>
+        <col>
+        <col>
+    </colgroup>
     <tr>
         <th>Author Name<a href="/posts/sort/author_name/asc">🔺</a><a href="/posts/sort/author_name/desc">🔻</a></th>
         <th>Content</th>
@@ -17,11 +22,15 @@
         <td><%= post.author_name %></td>
         <% if post.class.name == "Post" %>
 
-            <td><img src= <%= post.photo_url %> width="300" /></td>
+            <td><img src= <%= post.photo_url %> width="400" /></td>
+
+        <% elsif post.class.name == "Video" %>
+
+            <td><iframe width="400" height="300" src=<%= post.video_url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 
         <% else %>
 
-            <td><iframe width="300" height="200" src=<%= post.video_url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+            <td><mark> <%= post.text_msg %></mark></td>
 
         <% end %>
 
@@ -37,13 +46,21 @@
             method: :delete,
             data: { confirm: 'DELETE IMAGE: Are you sure?' } %></td>
 
-        <% else %>
+        <% elsif post.class.name == "Video" %>
 
             <td><%= link_to 'SHOW', video_path(post) %> </td>
             <td><%= link_to 'EDIT', edit_video_path(post) %></td>
             <td><%= link_to 'DELETE', video_path(post),
             method: :delete,
             data: { confirm: 'DELETE VIDEO: Are you sure?' } %></td>
+
+        <% else %>
+
+            <td><%= link_to 'SHOW', text_path(post) %> </td>
+            <td><%= link_to 'EDIT', edit_text_path(post) %></td>
+            <td><%= link_to 'DELETE', text_path(post),
+            method: :delete,
+            data: { confirm: 'DELETE TEXT MESSAGE: Are you sure?' } %></td>
 
         <% end %>
 

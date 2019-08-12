@@ -40,7 +40,6 @@ class InstagramsController < ApplicationController
 
     def edit
         @instagram_edit = Instagram.find(params[:id])
-        # render plain: @instagram_edit_posts.inspect
     end
 
     def edit_video
@@ -136,15 +135,15 @@ class InstagramsController < ApplicationController
 
     private
       def instagram_post_params
-        params.require(:instagram_posts).permit(:name, :category, :image_url, :title, :caption)
+        params.require(:instagram_post).permit(:name, :category, :image_url, :title, :caption)
       end
 
       def instagram_video_params
-        params.require(:instagram_videos).permit(:name, :category, :video_key, :title, :caption)
+        params.require(:instagram_video).permit(:name, :category, :video_key, :title, :caption)
       end
 
       def instagram_text_params
-        params.require(:instagram_texts).permit(:name, :category, :title, :caption)
+        params.require(:instagram_text).permit(:name, :category, :title, :caption)
       end
 
 

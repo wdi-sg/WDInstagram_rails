@@ -11,10 +11,14 @@ class PostsController < ApplicationController
       @posts.push(post)
     end
 
+    Video.all.each do |video|
+      @posts.push(video)
+    end
+
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "asc"
-      @posts = @posts.sort_by { |result| result[:updated_at] }
+      @posts = @posts.sort_by { |post| post[:updated_at] }
     elsif request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
-      @posts = @posts.sort_by { |result| result[:updated_at] }.reverse
+      @posts = @posts.sort_by { |post| post[:updated_at] }.reverse
     end
 
 

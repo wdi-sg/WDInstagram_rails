@@ -14,6 +14,11 @@
  *= require_self
  */
 
+body{
+	background-image: url(http://getwallpapers.com/wallpaper/full/7/c/8/112863.jpg) !important;
+}
+
+
 .index-thumbnail{
 	max-height: 400px;
 	object-fit: cover;
@@ -25,6 +30,11 @@
 	max-height: 550px;
 }
 
-.card a, h1 a{
+.card a, h1 a, .index-video a{
   color: black !important;
+}
+
+.card{
+	max-width: 15rem;
+  min-width: 15rem !important;
 }

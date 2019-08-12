@@ -10,4 +10,13 @@ Rails.application.routes.draw do
   delete '/posts/:id' => 'posts#destroy'
 
 
+  get '/videos/' => 'videos#index', as: 'videos'
+  get '/videos/new' => 'videos#new', as: "new_video"
+  post '/videos' => 'videos#create'
+  get '/videos/:id' => 'videos#show' , as: 'video'
+  get '/videos/:id/edit' => 'videos#edit', as: 'edit_video'
+  patch '/videos/:id' => 'videos#update'
+  delete '/videos/:id' => 'videos#destroy'
+
+
 end

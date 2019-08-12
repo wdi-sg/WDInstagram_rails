@@ -1,14 +1,14 @@
 class InstagramsController < ApplicationController
 
     def index
-        @instagram_all = Instagram.all
+        @instagram_all = InstagramPost.all
         @instagram_video_all = InstagramVideo.all
         @instagram_text_all = InstagramText.all
     end
 
-    def show
+    def show_post
 
-        @instagram_indiv = Instagram.find(params[:id])
+        @instagram_indiv = InstagramPost.find(params[:id])
 
     end
 
@@ -24,7 +24,7 @@ class InstagramsController < ApplicationController
 
     end
 
-    def new
+    def new_posts
     end
 
     def new_videos
@@ -35,7 +35,7 @@ class InstagramsController < ApplicationController
 
     def edit
 
-        @instagram_edit = Instagram.find(params[:id])
+        @instagram_edit = InstagramPost.find(params[:id])
 
     end
 
@@ -49,9 +49,9 @@ class InstagramsController < ApplicationController
         @instagram_edit_text = InstagramText.find(params[:id])
     end
 
-    def create
+    def create_posts
 
-        @instagram_create = Instagram.new(instagram_params)
+        @instagram_create = InstagramPost.new(instagram_params)
 
         @instagram_create.save
         redirect_to @instagram_create
@@ -70,7 +70,7 @@ class InstagramsController < ApplicationController
 
     end
 
-    def create_text
+    def create_texts
 
         @instagram_text_create = InstagramText.new(instagram_text_params)
         puts @instagram_text_create
@@ -81,7 +81,7 @@ class InstagramsController < ApplicationController
 
     def update
 
-        @instagram_update = Instagram.find(params[:id])
+        @instagram_update = InstagramPost.find(params[:id])
 
         @instagram_update.update(instagram_params)
         redirect_to @instagram_update
@@ -106,7 +106,7 @@ class InstagramsController < ApplicationController
 
     def destroy
 
-        @instagram_delete = Instagram.find(params[:id])
+        @instagram_delete = InstagramPost.find(params[:id])
         @instagram_delete.destroy
 
         redirect_to root_path

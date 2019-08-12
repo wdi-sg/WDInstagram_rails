@@ -9,6 +9,24 @@ class PostsController < ApplicationController
   end
 
   def sortIndex
+    # render plain: params.inspect
+    @sort_column = params[:sort_column]
+    @sort_order = params[:sort_order]
+    case @sort_column
+    when "Updated"
+      @sort_column = "updated_at"
+    when "Created"
+      @sort_column = "created_at"
+    when "Captions"
+      @sort_column = "captions"
+    when "Title"
+      @sort_column = "title"
+    when "Author Name"
+      @sort_column = "author_name"
+    end
+    # @posts = Post.order(updated_at: :desc)
+
+    @posts = Post.order(@sort_column+" "+@sort_order)
 
   end
 
@@ -37,6 +55,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to root_path
   end
+
 end
 
 private

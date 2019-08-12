@@ -1,4 +1,7 @@
-<h1>Index for posts</h1>
+<h1>sortindex inputs</h1>
+<%= @sort_column %>
+<%= @sort_order %>
+
 
 <table>
 
@@ -22,14 +25,4 @@
 	<% end %>
 
 </table>
-
-<%= form_tag("/posts/sort", method: "get") do %>
-	<%= select_tag "sort_column", options_for_select(["Author Name", "Title", "Captions", "Created", "Updated"], "Updated") %>
-	<%= select_tag "sort_order", options_for_select(["ASC", "DESC"], "DESC") %>
-	<%= submit_tag "Sort" %>
-
-
-<% end %>
-
-
-<%= link_to "New post", new_post_path %>
+<%= link_to 'Back', root_path %>

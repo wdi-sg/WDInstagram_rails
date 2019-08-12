@@ -1,3 +1,6 @@
+require 'GiphyClient'
+
+
 class PostsController < ApplicationController
   def index
 

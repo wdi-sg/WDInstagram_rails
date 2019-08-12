@@ -16,18 +16,37 @@
     <tr>
         <td><%= post.author_name %></td>
         <% if post.class.name == "Post" %>
+
             <td><img src= <%= post.photo_url %> width="300" /></td>
+
         <% else %>
+
             <td><iframe width="300" height="200" src=<%= post.video_url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+
         <% end %>
+
         <td><%= post.title %></td>
         <td><%= post.caption %></td>
         <td><%= post.created_at %></td>
-        <td><%= link_to 'SHOW', post_path(post) %> </td>
-        <td><%= link_to 'EDIT', edit_post_path(post) %></td>
-        <td><%= link_to 'DELETE', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
+
+        <% if post.class.name == "Post" %>
+
+            <td><%= link_to 'SHOW', post_path(post) %> </td>
+            <td><%= link_to 'EDIT', edit_post_path(post) %></td>
+            <td><%= link_to 'DELETE', post_path(post),
+            method: :delete,
+            data: { confirm: 'DELETE IMAGE: Are you sure?' } %></td>
+
+        <% else %>
+
+            <td><%= link_to 'SHOW', video_path(post) %> </td>
+            <td><%= link_to 'EDIT', edit_video_path(post) %></td>
+            <td><%= link_to 'DELETE', video_path(post),
+            method: :delete,
+            data: { confirm: 'DELETE VIDEO: Are you sure?' } %></td>
+
+        <% end %>
+
     </tr>
     <% end %>
 </table>

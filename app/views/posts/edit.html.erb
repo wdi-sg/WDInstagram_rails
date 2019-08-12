@@ -1,0 +1,37 @@
+
+<div class="col-md-6 text-center">
+
+	<div class="card rounded align-items-stretch">
+		<div class="card-header"><h3 class="mb-0">EDIT POST</h3></div>
+		<div class="card-body">
+
+			<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
+				<p>
+					<%= f.label :title %>
+					<%= f.text_field(:title, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :author_name %>
+					<%= f.text_field(:author_name, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :img_url %>
+					<%= f.url_field(:img_url, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :caption %>
+					<%= f.text_area(:caption, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.submit({:class => 'btn btn-outline-success'}) %>
+				</p>
+			<% end %>
+
+
+		</div>
+	</div>
+</div>

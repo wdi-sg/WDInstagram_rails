@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WDInstagramRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+	<title>WDInstagramRails</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+	<%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
 
-  <body>
-    <%= yield %>
-  </body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+		<%= link_to "WDinstagram", home_path, :class => 'navbar-brand' %>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="nav navbar-nav mr-auto">
+				<li class="nav-item">
+					<%= link_to "New", new_post_path, :class => 'nav-link' %>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="container-fluid my-3">
+		<div class="row h-100 justify-content-center">
+			<%= yield %>
+		</div>
+	</div>
+
+	<footer class="navbar mt-auto">
+
+		<div class="footer-copyright py -2">
+			© 2019 Copyright
+		</div>
+
+	</footer>
+
+</body>
 </html>

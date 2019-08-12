@@ -1,0 +1,48 @@
+
+
+
+		<div class="card w-75" >
+			<div class="row">
+
+				<div class="col-md-4">
+					<img src="<%= @post.img_url %>" class="card-img rounded p-2" >
+				</div>
+
+				<div class="col-md-8 ">
+
+					<div class="card-body h-100">
+
+						<div class="row h-25">
+							<h3 class="card-title">
+								<%= @post.title %>
+							</h3>
+						</div>
+
+						<div class="row h-50">
+							<h4 class="card-text">
+								<%= @post.caption %>
+							</h4>
+						</div>
+
+
+
+						<div class="row">
+							<%= link_to "EDIT", edit_post_path(@post), :class => 'btn btn-outline-success ml-auto'%>
+							<%= link_to "DELETE", post_path(@post),
+							method: :delete,
+							:class => 'btn btn-outline-danger mx-3 '%>
+						</div>
+
+						<div class="row h-15">
+							<h5 class="card-text">
+								<small class="text-muted">
+									Last updated <%= @post.updated_at %>
+								</small>
+							</h5>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>

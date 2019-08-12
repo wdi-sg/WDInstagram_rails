@@ -32,6 +32,11 @@ body {
  	color: black;
  	border-bottom: 1px solid black;
  	padding-bottom: 5px;
+ 	margin: 15px;
+ }
+
+ .post-container p {
+ 	font-size: 10px;
  }
 
  .main-container {

@@ -12,6 +12,7 @@
 			  	<%= image_tag post.photo_url %>
 			  </div>
 			  <h2>posted by: <%= post.author_name %></h2>
+			  <p><%= link_to 'View Post', post_path(post) %></p>
 		</div>
 	<% end %>
 

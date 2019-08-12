@@ -16,12 +16,16 @@
 					<%= link_to "Oldest", posts_path(sort: "oldest"), :class => 'nav-link active' %>
 	      </li>
 	    </ul>
-
-
 	  </div>
 
-		<div class="card-body bg-dark">
+	  		<%= form_tag posts_path, :method => 'get' do %>
+			<p>
+		  	<%= text_field_tag :search, params[:search]  %>
+				<%= submit_tag "Search", :name => 'nil' %>
+			</p>
+		<% end %>
 
+		<div class="card-body bg-dark">
 
 				<% @posts.each do |post| %>
 

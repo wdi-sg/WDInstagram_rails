@@ -1,9 +1,13 @@
 
+
+
 <div class="col-md-6 text-center">
 
 	<div class="card rounded align-items-stretch">
 		<div class="card-header"><h3 class="mb-0">ADD POST</h3></div>
 		<div class="card-body">
+  <div class="form-group">
+
 
 			<%= form_for :post, url: posts_path do |f| %>
 				<p>
@@ -15,6 +19,8 @@
 					<%= f.label :author_name %>
 					<%= f.text_field(:author_name, {:class => 'form-control'}) %>
 				</p>
+
+
 
 				<p>
 					<%= f.label :img_url %>
@@ -30,6 +36,8 @@
 					<%= f.submit({:class => 'btn btn-outline-success'}) %>
 				</p>
 			<% end %>
+
+			<button class="btn btn-outline-danger text-upper" id="btn-test">test button</button>
 
 
 		</div>

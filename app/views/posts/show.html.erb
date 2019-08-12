@@ -2,8 +2,13 @@
 <div class = "justify-content-around row align-items-end">
 
 	<p><%= link_to 'New Photo', new_post_path %></p>
-	<h1><a href = <%=root_path %>>Vibeygrammmm</a></h1>
 	<p><%= link_to 'New Video', new_video_path %></p>
+	<p><%= link_to 'New Text', new_text_path %></p>
+	<h1><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p><%= link_to 'Home', root_path%></p>
+	<p><%= link_to 'Latest', "#{root_path}?sort=date&order=desc"%></p>
+	<p><%= link_to 'Earliest', "#{root_path}?sort=date&order=asc"%></p>
+
 </div>
 
 <div class = "container justify-content-center my-5">

@@ -19,4 +19,13 @@ Rails.application.routes.draw do
   delete '/videos/:id' => 'videos#destroy'
 
 
+  get '/texts/' => 'texts#index', as: 'texts'
+  get '/texts/new' => 'texts#new', as: "new_text"
+  post '/texts' => 'texts#create'
+  get '/texts/:id' => 'texts#show' , as: 'text'
+  get '/texts/:id/edit' => 'texts#edit', as: 'edit_text'
+  patch '/texts/:id' => 'texts#update'
+  delete '/texts/:id' => 'texts#destroy'
+
+
 end

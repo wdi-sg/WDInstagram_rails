@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
   def index
 
-    # @posts = Post.all
-    # @posts = Post.order(updated_at: :asc)
-
-
     @posts = [];
 
     Post.all.each do |post|
@@ -15,12 +11,15 @@ class PostsController < ApplicationController
       @posts.push(video)
     end
 
+    Text.all.each do |text|
+      @posts.push(text)
+    end
+
     if request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "asc"
       @posts = @posts.sort_by { |post| post[:updated_at] }
     elsif request.query_parameters[:sort] == "date" && request.query_parameters[:order] == "desc"
       @posts = @posts.sort_by { |post| post[:updated_at] }.reverse
     end
-
 
 
   end

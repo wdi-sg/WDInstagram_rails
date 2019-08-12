@@ -7,13 +7,17 @@
 	<p><%= link_to 'New Text', new_text_path %></p>
 </div>
 
- <div class = "  d-flex flex-column text-center my-5">
-<h2 class = "mb-4"> New Video Post </h2>
+ <div class = "row justify-content-center my-5">
+	<div class = "column">
+			<h1 class = "single-thumbnail"><%= @text.caption %>
+		</h1>
+		</div>
+  <div class = "column ml-5">
 
-<%= form_with scope: :video, url: videos_path, local: true do |form| %>
+<%= form_with scope: :text, model: @text, local: true do |form| %>
 
-  <p>
-	<%= form.label :Username %><br>
+	<p>
+	<%= form.label :Author%><br>
 	<%= form.text_field :author_name %>
   </p>
 
@@ -23,18 +27,18 @@
   </p>
 
   <p>
-	<%= form.label :"Video link" %><br>
-	<%= form.text_field :video_url %>
-  </p>
-
-  <p>
 	<%= form.label :caption %><br>
 	<%= form.text_area :caption %>
   </p>
 
   <p>
-	<button type = "submit" class="btn btn-primary" >Post</button>
+	<button type = "submit" class="btn btn-primary" >Update</button>
   </p>
+
 <% end %>
+<p><%= link_to 'Delete text', text_path(@text),
+		method: :delete,
+		data: { confirm: 'Are you sure?' } %></p>
+   </div>
 
 </div>

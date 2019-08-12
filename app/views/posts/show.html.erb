@@ -1,11 +1,23 @@
-<h2>Title: <%=  @banana.title %></h2>
+<div class="container text-center">
+	<h2>Title: <%=  @banana.title %></h2>
 
-<p>Author Name: <%= @banana.author_name %></p>
+	<p>Author Name: <%= @banana.author_name %></p>
 
-<img src="<%= image_path(@banana.photo_url) %>" />
+	<% if @banana.mediatype == "photo" %>
+		<img class="post-img" src="<%= image_path(@banana.photo_url) %>" />
+	<% elsif @banana.mediatype == "video" %>
+		<iframe width="400" height="400" src="<%= @banana.photo_url %>" frameborder="0" allowfullscreen></iframe>
+	<% elsif @banana.mediatype == "text" %>
+		<div class="card-text2">
+			<p><%= @banana.photo_url =%></p>
+		</div>
+	<%end%>
 
-<p>Type: <%= @banana.type %></p>
 
-<p>Caption: <%= @banana.caption %></p>
+	<p>Type: <%= @banana.mediatype %></p>
 
-<%= link_to 'home', root_path %>
+	<p>Caption: <%= @banana.caption %></p>
+
+	<%= link_to 'home', root_path %>
+
+</div>

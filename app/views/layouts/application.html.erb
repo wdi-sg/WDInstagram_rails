@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WDInstagramRails</title>
-    <style>
-        body{
-            font-family: Monospace, Sans-serif;
-            padding: 15px;
-        }
-        a {
-            color: black;
-        }
-        a:link {
-            text-decoration: none;
-            color: black;
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-    </style>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+	<head>
+		<title>WDInstagramRails</title>
+		<style>
+			body,
+			html {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Monospace, Sans-serif;
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+			}
+			.header >a > h2  {
+				background-color: black;
+				color: white;
+				margin: 0;
+				padding: 20px;
+				width: 100%;
+			}
 
-  <body>
-      <h1>WDInstagram_rails</h1>
-    <%= yield %>
-  </body>
+            a:hover {
+				background-color: #e0e0e0;
+            }
+			th>a {
+				color: black;
+			}
+			th>a:link {
+				text-decoration: none;
+				color: black;
+			}
+			td,
+			th {
+                font_size: 1.2em;
+				padding: 15px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+            }
+			.maincontainer {
+                margin: 0;
+				padding: 20px;
+			}
+			a:link, a:visited{
+				text-decoration: none;
+				color: darkblue;
+			}
+		</style>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+
+	<body>
+		<div class="header">
+			<a href="/"><h2>WDInstagram Rails</h2></a>
+		</div>
+		<div class="maincontainer">
+			<%= yield %>
+		</div>
+	</body>
 </html>

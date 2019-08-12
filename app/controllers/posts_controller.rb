@@ -1,18 +1,12 @@
 require 'net/http'
 require 'json'
-
-
-
+require 'GiphyClient'
 
 class PostsController < ApplicationController
 
-
     def index
-        @posts = Post.all
-        puts "######################################"
-        puts @conds
-        puts @order
-
+        @posts = Post.all + Video.all
+        @posts = @posts.sort_by {|a| a.created_at}.reverse
     end
 
     def show
@@ -20,15 +14,15 @@ class PostsController < ApplicationController
     end
 
     def sort
-        @posts = Post.all
-        @conds = params[:conds]
-        @order = params[:order]
-        puts @conds
-        puts @order
-        if @order == "asc"
-            @posts = @posts.sort_by {|a| a[@conds]}
+        @posts = Post.all + Video.all
+        conds = params[:conds]
+        order = params[:order]
+        if order == "asc"
+            @posts = @posts.sort_by {|a| a[conds]}
+            puts "asc sort"
         else
-            @posts = @posts.sort_by {|a| a[@conds]}.reverse
+            @posts = @posts.sort_by {|a| a[conds]}.reverse
+            puts "desc sort"
         end
         render :index
     end
@@ -38,7 +32,6 @@ class PostsController < ApplicationController
         resp = Net::HTTP.get_response(URI.parse(url))
         buffer = resp.body
         result = JSON.parse(buffer)
-        puts result["data"]["image_url"]
         @image_url = result["data"]["image_url"]
         @title = result["data"]["title"]
         render :new
@@ -73,6 +66,5 @@ class PostsController < ApplicationController
         def post_params
             params.require(:post).permit(:author_name, :photo_url, :title, :caption)
         end
-
 
 end

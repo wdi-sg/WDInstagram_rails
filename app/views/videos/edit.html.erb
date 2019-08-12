@@ -1,0 +1,31 @@
+<h1>Edit post</h1>
+
+<%= form_with scope: :video, model: @video, local: true do |form| %>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name, size: "60"  %>
+  </p>
+
+  <p>
+    <%= form.label :video_url %><br>
+    <%= form.text_area :video_url, size: "60x12" %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, size: "60"  %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption, size: "60x12" %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<h2><%= link_to 'BACK TO MAIN', all_videos_path %></h2>

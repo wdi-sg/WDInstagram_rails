@@ -6,6 +6,10 @@
 	    <%= form.text_field :name %>
 	  </p>
 
+		<p>
+	    <%= form.label :category%><br>
+	    <%= form.text_field :category, :value => 'video', :readonly => true%>
+	  </p>
 
 	  <p>
 	    <strong><%= form.label :video_key %></strong><br>

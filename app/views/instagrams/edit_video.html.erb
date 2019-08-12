@@ -1,26 +1,26 @@
-<h1>Edit Instagram Post</h1>
+<h1>Edit Instagram Video</h1>
 
-<%= form_with scope: :instagram_videos, model: @instagram_edit_video, local: true do |form| %>
+<%= form_with scope: :instagram_video, model: @instagram_edit_video, local: true do |form| %>
 
   	<p>
 	    <%= form.label :name %><br>
-	    <%= form.text_field :name %>
+	    <%= form.text_field :name, :value => @instagram_edit_videos.name%>
 	  </p>
 
 	  <p>
 	    <%= form.label :video_key %><br>
-	    <%= form.text_field :video_key %>
+	    <%= form.text_field :video_key, :value => @instagram_edit_videos.video_key%>
 	  </p>
 	  <p>For e.g, the video key will be: https://www.youtube.com/embed/<strong>rc2jsjnt-HY</strong></p>
 
 	  <p>
 	    <%= form.label :title %><br>
-	    <%= form.text_field :title %>
+	    <%= form.text_field :title, :value => @instagram_edit_videos.title%>
 	  </p>
 
 	  <p>
 	    <%= form.label :caption %><br>
-	    <%= form.text_area :caption %>
+	    <%= form.text_area :caption, :value => @instagram_edit_videos.caption%>
 	  </p>
 
   <p>

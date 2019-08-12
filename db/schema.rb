@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_115716) do
+ActiveRecord::Schema.define(version: 2019_08_12_081647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 2019_08_11_115716) do
     t.text "name"
     t.text "video_key"
     t.text "title"
+    t.text "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instagrams", force: :cascade do |t|
+    t.text "name"
+    t.text "category"
+    t.text "title"
+    t.text "image_url"
+    t.text "video_key"
     t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

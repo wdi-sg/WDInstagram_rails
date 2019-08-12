@@ -2,7 +2,7 @@
 
 <p>
   <strong><%=@instagram_indiv_text.name %></strong>
-  <%= @instagram_indiv_text.text %>
+  <%= @instagram_indiv_text.caption %>
 </p>
 
 <p><%= link_to 'Edit', edit_text_instagram_path(@instagram_indiv_text) %> || <%= link_to 'Destroy', instagram_text_path(@instagram_indiv_text), method: :delete, data: { confirm: 'Are you sure you want to delete this text?' } %></p>

@@ -1,29 +1,31 @@
 class InstagramsController < ApplicationController
 
     def index
-        @instagram_all = InstagramPost.all
-        @instagram_all = @instagram_all.reverse
-        @instagram_video_all = InstagramVideo.all
-        @instagram_video_all = @instagram_video_all.reverse
-        @instagram_text_all = InstagramText.all
-        @instagram_text_all = @instagram_text_all.reverse
+        # @instagram_all = InstagramPost.all
+        # @instagram_all = @instagram_all.reverse
+        # @instagram_video_all = InstagramVideo.all
+        # @instagram_video_all = @instagram_video_all.reverse
+        # @instagram_text_all = InstagramText.all
+        # @instagram_text_all = @instagram_text_all.reverse
+        @instagram = Instagram.all
+        @instagram = @instagram.reverse
     end
 
     def show_post
 
-        @instagram_indiv = InstagramPost.find(params[:id])
+        @instagram_indiv = Instagram.find(params[:id])
 
     end
 
     def show_video
 
-      @instagram_indiv_video = InstagramVideo.find(params[:id])
+      @instagram_indiv_video = Instagram.find(params[:id])
 
     end
 
     def show_text
 
-      @instagram_indiv_text = InstagramText.find(params[:id])
+      @instagram_indiv_text = Instagram.find(params[:id])
 
     end
 
@@ -37,28 +39,27 @@ class InstagramsController < ApplicationController
     end
 
     def edit
-
-        @instagram_edit = InstagramPost.find(params[:id])
-
+        @instagram_edit = Instagram.find(params[:id])
+        # render plain: @instagram_edit_posts.inspect
     end
 
     def edit_video
 
-        @instagram_edit_video = InstagramVideo.find(params[:id])
+        @instagram_edit_video = Instagram.find(params[:id])
 
     end
 
     def edit_text
-        @instagram_edit_text = InstagramText.find(params[:id])
+        @instagram_edit_text = Instagram.find(params[:id])
     end
 
     def create_posts
 
-        @instagram_create = InstagramPost.new(instagram_params)
+        # render plain: params[:instagram_posts].inspect
+        @instagram_create = Instagram.new(instagram_post_params)
 
         @instagram_create.save
-        redirect_to @instagram_create
-        # render plain: params[:instagram].inspect
+        redirect_to '/instagrams/posts/'+ @instagram_create[:id].to_s
 
     end
 
@@ -66,25 +67,25 @@ class InstagramsController < ApplicationController
 
         # render plain: params[:instagram_video].inspect
 
-        @instagram_video_create = InstagramVideo.new(instagram_video_params)
+        @instagram_video_create = Instagram.new(instagram_video_params)
         # puts @instagram_video_create
         @instagram_video_create.save
-        redirect_to @instagram_video_create
+        redirect_to '/instagrams/videos/'+ @instagram_video_create[:id].to_s
 
     end
 
     def create_texts
 
-        @instagram_text_create = InstagramText.new(instagram_text_params)
+        @instagram_text_create = Instagram.new(instagram_text_params)
         puts @instagram_text_create
         @instagram_text_create.save
-        redirect_to @instagram_text_create
+        redirect_to '/instagrams/texts/'+ @instagram_text_create[:id].to_s
 
     end
 
     def update
 
-        @instagram_update = InstagramPost.find(params[:id])
+        @instagram_update = Instagram.find(params[:id])
 
         @instagram_update.update(instagram_params)
         redirect_to @instagram_update
@@ -93,7 +94,7 @@ class InstagramsController < ApplicationController
 
     def update_video
 
-        @instagram_update_video = InstagramVideo.find(params[:id])
+        @instagram_update_video = Instagram.find(params[:id])
 
         @instagram_update_video.update(instagram_video_params)
         redirect_to @instagram_update_video
@@ -101,7 +102,7 @@ class InstagramsController < ApplicationController
     end
 
     def update_text
-        @instagram_update_text = InstagramText.find(params[:id])
+        @instagram_update_text = Instagram.find(params[:id])
 
         @instagram_update_text.update(instagram_text_params)
         redirect_to @instagram_update_text
@@ -109,7 +110,7 @@ class InstagramsController < ApplicationController
 
     def destroy
 
-        @instagram_delete = InstagramPost.find(params[:id])
+        @instagram_delete = Instagram.find(params[:id])
         @instagram_delete.destroy
 
         redirect_to root_path
@@ -118,7 +119,7 @@ class InstagramsController < ApplicationController
 
     def destroy_video
 
-        @instagram_video_delete = InstagramVideo.find(params[:id])
+        @instagram_video_delete = Instagram.find(params[:id])
         @instagram_video_delete.destroy
 
         redirect_to root_path
@@ -126,7 +127,7 @@ class InstagramsController < ApplicationController
     end
 
     def destroy_text
-        @instagram_text_delete = InstagramText.find(params[:id])
+        @instagram_text_delete = Instagram.find(params[:id])
         @instagram_text_delete.destroy
 
         redirect_to root_path
@@ -134,16 +135,16 @@ class InstagramsController < ApplicationController
 
 
     private
-      def instagram_params
-        params.require(:instagrams).permit(:name, :image_url, :caption)
+      def instagram_post_params
+        params.require(:instagram_posts).permit(:name, :category, :image_url, :title, :caption)
       end
 
       def instagram_video_params
-        params.require(:instagram_videos).permit(:name, :video_key, :title, :caption)
+        params.require(:instagram_videos).permit(:name, :category, :video_key, :title, :caption)
       end
 
       def instagram_text_params
-        params.require(:instagram_texts).permit(:name, :title, :text)
+        params.require(:instagram_texts).permit(:name, :category, :title, :caption)
       end
 
 

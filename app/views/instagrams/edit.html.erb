@@ -1,20 +1,25 @@
 <h1>Edit Instagram Post</h1>
 
-<%= form_with scope: :instagrams, model: @instagram_edit, local: true do |form| %>
+<%= form_with scope: :instagram_post, model: @instagram_edit, local: true do |form| %>
 
   	<p>
 	    <%= form.label :name %><br>
-	    <%= form.text_field :name %>
+	    <%= form.text_field :name%>
+	  </p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title%>
 	  </p>
 
 	  <p>
 	    <%= form.label :image_url %><br>
-	    <%= form.text_field :image_url %>
+	    <%= form.text_field :image_urll%>
 	  </p>
 
 	  <p>
 	    <%= form.label :caption %><br>
-	    <%= form.text_area :caption %>
+	    <%= form.text_area :caption%>
 	  </p>
 
   <p>

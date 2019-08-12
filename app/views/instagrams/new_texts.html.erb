@@ -7,13 +7,18 @@
 	  </p>
 
 	  <p>
+	    <%= form.label :category %><br>
+	    <%= form.text_field :category, :value => 'text', :readonly => true%>
+	  </p>
+
+	  <p>
 	    <strong><%= form.label :title %></strong><br>
 	    <%= form.text_field :title %>
 	  </p>
 
 	  <p>
 	    <strong><%= form.label :text %></strong><br>
-	    <%= form.text_area :text %>
+	    <%= form.text_area :caption %>
 	  </p>
 
 	  <p>

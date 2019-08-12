@@ -1,14 +1,24 @@
 <h1>Add new post page</h1>
 
-<%= form_with scope: :instagrams, url: instagrams_posts_path, local: true do |form| %>
+<%= form_with scope: :instagram_posts, url: instagrams_posts_path, local: true do |form| %>
 	  <p>
 	    <%= form.label :name %><br>
 	    <%= form.text_field :name %>
 	  </p>
 
 	  <p>
+	    <%= form.label :category %><br>
+	    <%= form.text_field :category, :value => 'post', :readonly => true%>
+	  </p>
+
+	  <p>
 	    <%= form.label :image_url %><br>
 	    <%= form.text_field :image_url %>
+	  </p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title %>
 	  </p>
 
 	  <p>

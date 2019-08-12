@@ -1,8 +1,7 @@
 
-<h1>THIS IS A FORM</h1>
+<h1>Edit article</h1>
 
-
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<%= form_with scope: :article, model: @article, local: true do |form| %>
 
 	<p>
 		<%= form.label :author_name %><br>

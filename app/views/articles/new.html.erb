@@ -1,0 +1,22 @@
+<%= form_with scope: :article, url: article_path, local: true do |form| %>
+ 	<p>
+ 		<%= form.label :author %><br>
+ 		<%= form.text_field :author %>
+ 	</p>
+
+ 	<p>
+ 		<%= form.label :photo_url %><br>
+ 		<%= form.text_area :photo_url %>
+ 	</p>
+
+ 	<p>
+ 		<%= form.label :title %><br>
+ 		<%= form.text_area :title %>
+ 	</p>
+
+ 	<p>
+ 		<%= form.submit 'submit post' %>
+ 	</p>
+ <% end %>
+
+ <%= link_to 'Home', article_path %>

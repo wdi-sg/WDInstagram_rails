@@ -1,6 +1,6 @@
 <h1>Edit Instagram Text</h1>
 
-<%= form_with scope: :instagram_text, model: @instagram_edit_text, local: true do |form| %>
+<%= form_with scope: :instagram_texts, model: @instagram_edit_text, url: update_text_instagram_path, local: true do |form| %>
 
   	<p>
 	    <%= form.label :name %><br>
@@ -14,7 +14,7 @@
 
 	  <p>
 	    <%= form.label :text %><br>
-	    <%= form.text_area :text %>
+	    <%= form.text_area :caption %>
 	  </p>
 
   <p>

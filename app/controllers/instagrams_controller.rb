@@ -39,7 +39,8 @@ class InstagramsController < ApplicationController
     end
 
     def edit
-        @instagram_edit = Instagram.find(params[:id])
+      # p "entered edit"
+        @instagram_edit_post = Instagram.find(params[:id])
     end
 
     def edit_video
@@ -86,8 +87,8 @@ class InstagramsController < ApplicationController
 
         @instagram_update = Instagram.find(params[:id])
 
-        @instagram_update.update(instagram_params)
-        redirect_to @instagram_update
+        @instagram_update.update(instagram_post_params)
+        redirect_to "/instagrams/posts/#{@instagram_update.id}"
 
     end
 
@@ -96,7 +97,7 @@ class InstagramsController < ApplicationController
         @instagram_update_video = Instagram.find(params[:id])
 
         @instagram_update_video.update(instagram_video_params)
-        redirect_to @instagram_update_video
+        redirect_to "/instagrams/videos/#{@instagram_update_video.id}"
 
     end
 
@@ -104,7 +105,7 @@ class InstagramsController < ApplicationController
         @instagram_update_text = Instagram.find(params[:id])
 
         @instagram_update_text.update(instagram_text_params)
-        redirect_to @instagram_update_text
+        redirect_to "/instagrams/texts/#{@instagram_update_text.id}"
     end
 
     def destroy
@@ -135,15 +136,15 @@ class InstagramsController < ApplicationController
 
     private
       def instagram_post_params
-        params.require(:instagram_post).permit(:name, :category, :image_url, :title, :caption)
+        params.require(:instagram_posts).permit(:name, :category, :image_url, :title, :caption)
       end
 
       def instagram_video_params
-        params.require(:instagram_video).permit(:name, :category, :video_key, :title, :caption)
+        params.require(:instagram_videos).permit(:name, :category, :video_key, :title, :caption)
       end
 
       def instagram_text_params
-        params.require(:instagram_text).permit(:name, :category, :title, :caption)
+        params.require(:instagram_texts).permit(:name, :category, :title, :caption)
       end
 
 

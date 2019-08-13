@@ -1,7 +1,6 @@
 <h1>Edit Instagram Post</h1>
 
-<%= form_with scope: :instagram_post, model: @instagram_edit, local: true do |form| %>
-
+<%= form_with scope: :instagram_posts, model: @instagram_edit_post, url: update_instagram_path, local: true do |form| %>
   	<p>
 	    <%= form.label :name %><br>
 	    <%= form.text_field :name%>

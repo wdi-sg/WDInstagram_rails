@@ -1,0 +1,43 @@
+ <h1>Listing All videos & images</h1>
+<%= link_to 'New post', new_post_path %>
+<%= link_to 'New video', new_video_path %>
+<table border="1">
+  <tr>
+    <td>Author Name</td>
+    <td>Photo URL</td>
+    <td>Title</td>
+    <td>Caption</td>
+    <td>Show</td>
+    <td>Update</td>
+    <td>Delete</td>
+  </tr>
+
+  <% @posts.each do |post| %>
+  <tr>  
+    <td><%= post.author_name %></td>
+    
+    <td><%= post.title %></td>
+    <td><%= post.caption %></td>
+
+    <% if post.class.name == "Post" %>
+      <td><%= post.photo_url %></td>
+      <td><%= link_to 'SHOW', post_path(post) %></td>
+      <td><%= link_to 'UPDATE', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+
+    <% if post.class.name == "Video" %>
+      <td><%= post.video_url %></td>
+      <td><%= link_to 'SHOW', video_path(post) %></td>
+      <td><%= link_to 'UPDATE', edit_video_path(post) %></td>
+      <td><%= link_to 'Destroy', video_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+
+  </tr>
+  <% end %>
+</table>
+

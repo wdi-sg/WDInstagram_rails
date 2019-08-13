@@ -5,6 +5,7 @@
   <% @posts.each do |post| %>
 
     <div class="post-container">
+      <a href=<%=post_path(post)%>>
       <div class="post-header">
         <div class="avatar">
           <img src=<%= post.avatar_url %>></img>
@@ -29,6 +30,7 @@
         </div>
 
       </div>
+      </a>
       </div>
   <% end %>
 

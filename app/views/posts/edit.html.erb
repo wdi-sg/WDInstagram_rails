@@ -1,10 +1,10 @@
 <h1>Edit Post</h1>
 
- <%= form_with scope: :article, model: @article, local: true do |form| %>
+ <%= form_with scope: :post, model: @post, local: true do |form| %>
 
  	<p>
- 		<%= form.label :author %><br>
- 		<%= form.text_field :author %>
+ 		<%= form.label :author_name %><br>
+ 		<%= form.text_field :author_name %>
  	</p>
 
  	<p>
@@ -18,8 +18,8 @@
  	</p>
 
  	<p>
- 		<%= form.submit 'submit photo' %>
+ 		<%= form.submit 'submit post' %>
  	</p>
  <% end %>
 
- <%= link_to 'Back', article_path %>
+ <%= link_to 'Back', root_path %>

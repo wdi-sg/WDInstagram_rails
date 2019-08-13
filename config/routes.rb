@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  root 'posts#index'
+  get '/posts/new' => 'posts#new', as: 'new_post'
+  get '/posts/:id' => 'posts#show', as: 'post'
+  get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
+
+  post '/posts' => 'posts#create'
+  patch '/posts/:id' => 'posts#update'
+  delete '/posts/:id' => 'posts#destroy', as: 'destroy_post'
+
 end
-
-  root 'articles#index'
-  get '/articles' => 'articles#index', as: 'articles'
-  get '/articles/new' => 'articles#new', as: 'new_post'
-  get '/articles/:id' => 'articles#show', as: 'post'
-  get '/articles/:id/edit' => 'articles#edit', as: 'edit_post'
-
-  post '/articles' => 'articles#create'
-  delete '/articles/:id' => 'articles#destroy', as: 'destroy_post'

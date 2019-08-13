@@ -1,7 +1,7 @@
-<%= form_with scope: :article, url: article_path, local: true do |form| %>
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
  	<p>
- 		<%= form.label :author %><br>
- 		<%= form.text_field :author %>
+ 		<%= form.label :author_name %><br>
+ 		<%= form.text_field :author_name %>
  	</p>
 
  	<p>
@@ -19,4 +19,4 @@
  	</p>
  <% end %>
 
- <%= link_to 'Home', article_path %>
+ <%= link_to 'Home', root_path %>

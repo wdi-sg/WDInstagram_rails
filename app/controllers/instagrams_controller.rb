@@ -57,7 +57,6 @@ class InstagramsController < ApplicationController
 
         # render plain: params[:instagram_posts].inspect
         @instagram_create = Instagram.new(instagram_post_params)
-
         @instagram_create.save
         redirect_to '/instagrams/posts/'+ @instagram_create[:id].to_s
 
@@ -69,6 +68,11 @@ class InstagramsController < ApplicationController
 
         @instagram_video_create = Instagram.new(instagram_video_params)
         # puts @instagram_video_create
+        text = @instagram_video_create.video_key
+        # p text
+        hello = text.partition('v=').last
+        @instagram_video_create.video_key = hello
+        # p @instagram_video_create.video_key
         @instagram_video_create.save
         redirect_to '/instagrams/videos/'+ @instagram_video_create[:id].to_s
 

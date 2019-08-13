@@ -1,0 +1,17 @@
+<p>
+	Title:
+	<%= @post.title %>
+</p>
+
+<p>
+	Author:
+	<%= @post.author_name %>
+</p>
+
+<p>
+	<%= image_tag(@post.photo_url, width: "250px", height: "200px") %>
+</p>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_post_path %>
+<%= link_to 'Delete', post_path, method: :delete, data: {confirm: 'Confirm delete?'} %>

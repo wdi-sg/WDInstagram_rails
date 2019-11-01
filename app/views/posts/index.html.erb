@@ -1,1 +1,17 @@
 <h1>Posts Index Page</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Photo URL</th>
+        <th>Author Name</th>
+    </tr>
+
+    <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.title %></td>
+            <td><%= post.photo_url %></td>
+            <td><%= post.author_name %></td>
+        </tr>
+    <% end %>
+</table>

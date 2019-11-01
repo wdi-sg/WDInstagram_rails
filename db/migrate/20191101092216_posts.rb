@@ -7,5 +7,7 @@ class Posts < ActiveRecord::Migration[5.2]
         t.string :author_name
     end
 
+    add_timestamps :posts
+
   end
 end

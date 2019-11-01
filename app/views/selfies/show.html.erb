@@ -1,0 +1,17 @@
+<p>
+	 <strong>Author:</strong>
+  <%= @selfy.author_name %>
+	</p>
+
+  <strong>Title:</strong>
+  <%= @selfy.title %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @selfy.url %>
+</p>
+
+<%= link_to 'Edit', edit_selfy_path(selfy) %>
+
+<%= link_to 'Back', root_path %>

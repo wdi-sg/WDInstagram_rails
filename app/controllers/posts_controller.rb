@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     end
 
     def create
-        # render plain: params[:post].inspect
         @post = Post.new(post_params)
 
         @post.save
@@ -25,6 +24,14 @@ class PostsController < ApplicationController
     end
 
     def update
+        # Get post by ID
+        @post = Post.find(params[:id])
+
+        # Update the post to DB
+        @post.update(post_params)
+
+        # Redirect user to view the updated post
+        redirect_to @post
     end
 
     def destroy

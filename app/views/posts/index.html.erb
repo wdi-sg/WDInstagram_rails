@@ -1,0 +1,23 @@
+<h1>All Posts</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @post.each do |x| %>
+    <tr>
+      <td><%= x.author_name %></td>
+      <td><%= x.title %></td>
+      <td><%= x.caption %></td>
+      <td><%= link_to 'Show', post_path(x) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<%= link_to 'New article', new_post_path %>

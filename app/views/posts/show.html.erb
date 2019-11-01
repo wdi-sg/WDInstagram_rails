@@ -1,0 +1,16 @@
+<h1>@<%= @post.author_name %></h1>
+
+<img src=<%= @post.photo_url %>>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+
+<%= link_to 'Back', root_path %>

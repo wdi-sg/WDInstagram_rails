@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
     def index
+        @posts = Post.all
     end
 
     def show
@@ -8,6 +9,7 @@ class PostsController < ApplicationController
     end
 
     def new
+        # This will render the view page with 'new' as the file name.
     end
 
     def edit

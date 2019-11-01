@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     end
 
     def create
+        # render plain: params.inspect
         @post = Post.new(post_params)
 
         @post.save
@@ -44,5 +45,5 @@ end
 
 private
     def post_params
-        params.require(:post).permit(:title, :photo_url, :author_name)
+        params.require(:post).permit(:title, :photo_url, :caption, :author_name)
     end

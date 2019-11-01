@@ -5,6 +5,7 @@
         <th>Title</th>
         <th>Photo URL</th>
         <th>Author Name</th>
+        <th></th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -12,6 +13,7 @@
             <td><%= post.title %></td>
             <td><%= post.photo_url %></td>
             <td><%= post.author_name %></td>
+            <td><%= link_to 'Show', post_path(post) %></td>
         </tr>
     <% end %>
 </table>

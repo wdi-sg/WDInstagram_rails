@@ -13,11 +13,11 @@ class PostsController < ApplicationController
     end
 
     def edit
+        @post = Post.find(params[:id])
     end
 
     def create
         # render plain: params[:post].inspect
-
         @post = Post.new(post_params)
 
         @post.save

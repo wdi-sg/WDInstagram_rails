@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_083511) do
     t.string "author_name"
     t.text "photo_url"
     t.text "title"
+    t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

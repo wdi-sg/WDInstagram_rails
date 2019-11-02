@@ -1,25 +1,33 @@
 <h1>INSTAGRAM</h1>
 
 
-<%= link_to 'New Post', new_post_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Photo</th>
-  </tr>
+<button class="btn btn-primary"><%= link_to 'Add Photo', new_post_path, :style=>'color:#FFFFFF' %></button>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort By
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/posts/sort/desc">Latest - Earliest</a>
+    <a class="dropdown-item" href="/posts/sort/asc">Earliest - Latest</a>
+    
+  </div>
+</div>
+
 
   <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.author_name %></td>
-      <td><%= post.photo_url %></td>
-       <td><%= link_to 'Show', post_path(post) %></td>
-       <td><%= link_to 'Edit', edit_post_path(post) %></td>
-       <td><%= link_to 'Delete', post_path(post),
+  <div class="container mt-3 p-3 border">
+     <h3><%=  post.title %></h3> 
+ <img src= <%= post.photo_url %> width="500px" height="500px"  class="img-fluid">
+ <p>User: <%= post.author_name %></p> 
+  <p>Created at: <%= post.created_at.strftime("%I:%M%p") %>, <%= post.created_at.to_date%></p> 
+  <div class="container">
+  <%= link_to 'Show', post_path(post), :class =>'btn btn-primary' %> 
+  <%= link_to 'Edit', edit_post_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', post_path(post),
         method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+  </div>
+ 
+  </div>
 
+ 
+ <% end %>

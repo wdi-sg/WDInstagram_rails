@@ -1,0 +1,34 @@
+<h1>Welcome to WDInstagram</h1>
+
+
+
+
+<table>
+  <tr>
+    <th>Author Name</th>
+    <th>Title</th>
+    <th>Photo URL</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+    	<td><%= post.author_name %></td>
+      <td><%= post.title %></td>
+      <td><img src= <%= post.photo_url %> /></td>
+      <td><%= post.caption %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+
+    </tr>
+  <% end %>
+
+
+</table>
+
+<%= link_to 'New post', new_post_path %>

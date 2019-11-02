@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+ 
   root 'posts#index'
   get '/posts/new' => 'posts#new', as: 'new_post'
   post '/posts/new' => 'posts#create'
@@ -7,4 +9,7 @@ Rails.application.routes.draw do
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#destroy'
   get '/posts/sort/:order' => 'posts#sort', as: 'sort_post'
+
+
+
 end

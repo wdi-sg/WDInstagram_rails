@@ -1,17 +1,15 @@
-<p>
-  <strong>Author Name:</strong>
-  <%= @post.author_name %>
-</p>
-
-<p>
-  <strong>Photo Url:</strong>
-  <%= @post.photo_url %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="card bg-light mb-3" style="width: 18rem;">
+  <img src=<%= @post.photo_url %> class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p><%= @post.author_name %></p>
+    <p><%= @post.caption %></p>
+    <p>
+      <%= link_to '', edit_post_path(@post), :class => "bx bxs-edit" %>
+      <%= link_to '', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash" %>
+    </p>
+  </div>
+</div>
 
 <%= link_to 'Back', root_path %>
-<%= link_to 'Edit', edit_post_path(@post) %>
+<% link_to 'Edit', edit_post_path(@post), :class => 'btn btn-default' %>

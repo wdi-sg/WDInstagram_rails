@@ -4,21 +4,26 @@
 
   <p>
     <%= form.label :author_name %><br>
-    <%= form.text_field :author_name %>
+    <%= form.text_field(:author_name, {:class => 'form-control'}) %>
   </p>
 
   <p>
     <%= form.label :photo_url %><br>
-    <%= form.text_field :photo_url %>
+    <%= form.text_field(:photo_url, {:class => 'form-control'}) %>
   </p>
 
   <p>
     <%= form.label :title %><br>
-    <%= form.text_area :title %>
+    <%= form.text_field(:title, {:class => 'form-control'}) %>
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.label :caption %><br>
+    <%= form.text_area(:caption, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.submit(:class => 'btn btn-primary') %>
   </p>
 
 <% end %>

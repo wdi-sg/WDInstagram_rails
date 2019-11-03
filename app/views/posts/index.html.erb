@@ -8,7 +8,16 @@
     <th>Author</th>
     <th></th>
   </tr>
+
+<form action="/">
+	<select name="sort_by" id="sort_by">
+    <option value="desc">Latest Posts</option>
+    <option value="asc">Oldest Posts</option>
+  </select>
+  <button type="submit">Sort By</button>
+</form>&nbsp&nbsp
 <%= link_to 'New post', new_post_path %>
+
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>

@@ -1,0 +1,42 @@
+<h1>Hello Ruby</h1>
+
+<h1>Listing posts</h1>
+
+<%= link_to 'New post', new_post_path %>
+
+<table>
+  <tr>
+    <th>Title
+    
+<%= link_to '&uarr;'.html_safe, posts_path(:sort_param => "title", :sort_order => "ASC") %>
+<%= link_to '&darr;'.html_safe, posts_path(:sort_param => "title", :sort_order => "DESC") %>
+    </th>
+    <th>Author name
+    
+<%= link_to '&uarr;'.html_safe, posts_path(:sort_param => "author_name", :sort_order => "ASC") %>
+<%= link_to '&darr;'.html_safe, posts_path(:sort_param => "author_name", :sort_order => "DESC") %>
+    </th>
+    <th>Photo URL</th>
+    <th>Captions
+    
+<%= link_to '&uarr;'.html_safe, posts_path(:sort_param => "captions", :sort_order => "ASC") %>
+<%= link_to '&darr;'.html_safe, posts_path(:sort_param => "captions", :sort_order => "DESC") %>
+    </th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+  <td><%= post.title %></td>
+      <td><%= post.author_name %></td>
+      <td><%= post.photo_url %></td>
+      <td><%= post.captions %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>

@@ -1,10 +1,20 @@
-<% @posts.each do |post| %>
-  <div class="card" style="width: 18rem; display: inline-block;">
-    <img class="card-img-top" width="300" src=<%= post.photo_url %> alt=<%= post.title %>>
-    <div class="card-body">
-      <h3 class="card-title"><%= post.title %></h3>
-      <p class="card-text"><%= post.author_name%></p>
-      <%= link_to "Read More", post_path(post), :class => "btn btn-primary" %>
+<div class="card-columns d-inline-block">
+  <% @posts.each do |post| %>
+    <div class="card text-center">
+      <img class="card-img-top" src=<%= post.photo_url %> alt=<%= post.title %>>
+      <div class="card-body">
+        <h3 class="card-title"><%= post.title %></h3>
+        <p class="card-text" style="color: black;"><%= post.caption %></p>
+        <%= link_to "Read More", post_path(post), :class => "btn btn-primary" %>
+      </div>
+      <div class="card-footer">
+        <div>
+          <small class="text-muted">Posted by: <%= post.author_name%></small>
+        </div>
+        <div>
+          <small class="text-muted">Last updated on <%= post.updated_at.to_s(:db) %></small>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order("updated_at DESC").all
   end
 
   def show
@@ -43,6 +43,6 @@ class PostsController < ApplicationController
   end
 
   private def post_params
-    params.require(:post).permit(:author_name, :photo_url, :title)
+    params.require(:post).permit(:author_name, :photo_url, :title, :caption)
   end
 end

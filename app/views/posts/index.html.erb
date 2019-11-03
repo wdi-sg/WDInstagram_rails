@@ -8,6 +8,8 @@
         <th>Photo URL</th>
         <th>Caption</th>
         <th>Author Name</th>
+        <th>Created At</th>
+        <th>Updated At</th>
         <th></th>
     </tr>
 
@@ -17,6 +19,8 @@
             <td><%= post.photo_url %></td>
             <td><%= post.caption %></td>
             <td><%= post.author_name %></td>
+            <td><%= post.created_at %></td>
+            <td><%= post.updated_at %></td>
             <td><%= link_to 'Show', post_path(post) %></td>
             <td><%= link_to 'Edit', edit_post_path(post) %></td>
             <td><%= link_to 'Destroy', post_path(post),

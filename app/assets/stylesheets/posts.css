@@ -1,0 +1,110 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+a:hover {
+  text-decoration: none;
+}
+
+a:hover .thumbnail img {
+  opacity: 0.5;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+.header {
+  background-color: #000;
+}
+
+.logo {
+  width: 60px;
+  margin: 15px 0;
+}
+
+
+/* Main */
+html, body {
+  height: 100%;
+}
+
+.main {
+  padding-top: 40px;
+  background-color: #1c1c1e;
+
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 0;
+  vertical-align: bottom;
+}
+
+
+
+
+/* Thumbnail */
+.thumbnail {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  height: 350px;
+}
+
+.title,
+.post-author_name{
+  color: #fff;
+  text-align: center;
+}
+
+.title,
+.post-author_name {
+  margin: 5px 0 3px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+
+/* Track */
+.show {
+  margin: 20px 0;
+}
+
+
+.post-title,
+.post-author_name
+ {
+  color: #fff;
+}
+
+.post-title {
+  font-size: 30px;
+}
+
+
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 0 35px 0;
+}
+
+.footer h3 {
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer a {
+  color: #aaa;
+  font-size: 13px;
+  display: inline-block;
+  padding: 5px 0;
+}

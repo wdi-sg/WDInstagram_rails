@@ -8,8 +8,35 @@
       <%= link_to '', edit_post_path(@post), :class => "bx bxs-edit" %>
       <%= link_to '', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash" %>
     </p>
+    <small class="text-muted">updated: <%= @post.updated_at.to_s(:db) %></small>
   </div>
 </div>
+<hr>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+  <p><strong><%= comment.username%></strong>: <%= comment.body%></p>
+<% end %>
+
+<hr>
+<h3>Add Comment</h3>
+<%= form_for([@post, @post.comments.build]) do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field(:username, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field(:body, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.submit(:class => 'btn btn-primary') %>
+  </p>
+<% end %>
+
+
 
 <%= link_to 'Back', root_path %>
 <% link_to 'Edit', edit_post_path(@post), :class => 'btn btn-default' %>

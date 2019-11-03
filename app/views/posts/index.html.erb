@@ -1,7 +1,7 @@
 <h1>Listing Posts</h1>
-  <div class="card-deck">
+  <div class="card-columns  d-inline-block">
     <% @posts.each do |post| %>
-      <div class="card bg-light mb-3" style="width: 18rem;">
+      <div class="card bg-light mb-3">
         <img src=<%= post.photo_url %> class="card-img-top">
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
@@ -12,6 +12,7 @@
             <%= link_to '', edit_post_path(post), :class => "bx bxs-edit" %>
             <%= link_to '', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash" %>
           </p>
+          <small class="text-muted">updated: <%= post.updated_at.to_s(:db) %></small>
         </div>
      </div>
     <% end %>

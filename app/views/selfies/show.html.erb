@@ -16,6 +16,11 @@
   <strong>Caption:</strong>
   <%= @selfy.caption %>
 </p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @selfy.created_at %>
+</p>
 <%= link_to 'Edit', edit_selfy_path(@selfy) %>
 
 <%= link_to 'Back', root_path %>

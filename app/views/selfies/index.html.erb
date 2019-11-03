@@ -8,6 +8,7 @@
     <th>Title</th>
     <th>URL</th>
     <th>Caption</th>
+    <th>Created at</th>
     <th></th>
   </tr>
 
@@ -17,6 +18,7 @@
       <td><%= selfy.title %></td>
       <td><%= selfy.url %></td>
        <td><%= selfy.caption %></td>
+       <td><%= selfy.created_at %></td>
       <td><%= link_to 'Show', selfy_path(selfy) %></td>
        <td><%= link_to 'Edit', edit_selfy_path(selfy) %></td>
         <td><%= link_to 'DESTROY', selfy_path(selfy), method: :delete, data:{confirm: 'Delete selfie FOREVER?'} %></td>

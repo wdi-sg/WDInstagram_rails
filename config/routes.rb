@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "/posts/:id/edit" => "posts#edit", as: "edit_post"
 
   patch "/posts/:id" => "posts#update"
+
+  delete "/posts/:id" => "posts#destroy"
 end

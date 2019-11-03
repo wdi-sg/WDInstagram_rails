@@ -2,17 +2,13 @@
   <strong>Posted by:</strong>
   <%= @post.username %>
 </p>
-
 <p>
   <strong>Photo:</strong>
   <%= @post.photo_url %>
 </p>
-
 <p>
   <strong>Caption:</strong>
   <%= @post.title %>
 </p>
-
-
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Back', root_path %>

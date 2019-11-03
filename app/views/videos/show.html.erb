@@ -1,0 +1,23 @@
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Author: </strong>
+  <%= @video.author_name %>
+</p>
+<p>
+  <strong>Video: </strong>
+<iframe src='https://www.youtube.com/embed/<%= @video.video_url.slice(32, @video.video_url.length) %>?rel=0 || 0 %>' frameborder='0' allowfullscreen width="500" height="500"></iframe>
+
+   
+</p>
+<p>
+  <strong>Caption: </strong>
+  <%= @video.caption %>
+</p>
+
+<%# <%= link_to 'Edit', edit_video_path(@video) %> %>
+
+<%= link_to 'Back', root_path %>

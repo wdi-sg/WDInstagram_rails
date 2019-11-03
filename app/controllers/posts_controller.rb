@@ -5,8 +5,11 @@ require 'GiphyClient'
 
 class PostsController < ApplicationController
     def index
-      @posts = Post.all
-    
+      @posts = Post.all + Video.all
+      puts "posts isisisisis", @posts[0]
+      @posts = @posts.sort_by {|a| a.created_at}.reverse
+
+      
     end
   
     def show
@@ -68,12 +71,15 @@ class PostsController < ApplicationController
     end
 
     def sort
-      @posts = Post.all
+      @posts = Post.all + Video.all
+ 
       order = params[:order]
       if order == "desc"
         @posts = @posts.sort_by {|post| post.created_at}.reverse
+       
       else
         @posts = @posts.sort_by {|post| post.created_at}
+       
       end
 
       render :index

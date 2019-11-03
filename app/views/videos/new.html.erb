@@ -1,0 +1,29 @@
+<h1>Add A Video</h1>
+
+<%= form_with scope: :video, url: new_video_path, local: true do |form| %>
+<p>
+    <%= form.label :Title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :Video_URL %><br>
+    <%= form.text_field :video_url %>
+  </p>
+   
+  <p>
+    <%= form.label :Caption %><br>
+    <%= form.text_field :caption %>
+  </p>
+  
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Back', root_path %>
+<% end %>

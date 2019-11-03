@@ -7,5 +7,5 @@ class Posts < ActiveRecord::Migration[5.2]
       t.text :caption
       t.timestamps
     end
-  end
+  
 end

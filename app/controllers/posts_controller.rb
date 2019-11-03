@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("updated_at DESC").all
+    @type = "updated_at"
+    @posts = Post.all.order("#{@type} #{params[:order]}").all
   end
 
   def show

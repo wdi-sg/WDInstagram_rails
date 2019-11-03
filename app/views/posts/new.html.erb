@@ -1,22 +1,17 @@
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
   <p>
     <%= form.label :username %><br>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, :class => 'form-control' %>
   </p>
-
   <p>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :class => 'form-control' %>
   </p>
-
   <p>
     <%= form.label :photo %><br>
-    <%= form.text_field :photo_url %>
+    <%= form.text_field :photo_url, :class => 'form-control' %>
   </p>
-
   <p>
-    <%= form.submit %>
+    <%= form.submit :class => 'btn-primary' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', root_path %>

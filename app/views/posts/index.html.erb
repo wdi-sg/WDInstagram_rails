@@ -1,6 +1,5 @@
 <h1>All Posts</h1>
 
-
 <table>
     <tr>
         <th>Author</th>
@@ -14,6 +13,7 @@
         <td><%= post.photo_url%></td>
         <td><%= post.title%></td>
         <td><%= link_to 'new', new_post_path %></td>
+        <td><%= link_to 'edit', edit_post_path(post) %></td>
     </tr>
 <% end %>
 

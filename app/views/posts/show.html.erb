@@ -1,4 +1,9 @@
 <p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
   <strong>Author:</strong>
   <%= @post.author_name %>
 </p>
@@ -8,7 +13,4 @@
   <%= @post.photo_url %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<%= link_to 'back to home', root_path %>

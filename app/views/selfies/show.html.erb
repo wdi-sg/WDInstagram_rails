@@ -12,6 +12,10 @@
   <%= @selfy.url %>
 </p>
 
-<%= link_to 'Edit', edit_selfy_path(selfy) %>
+<p>
+  <strong>Caption:</strong>
+  <%= @selfy.caption %>
+</p>
+<%= link_to 'Edit', edit_selfy_path(@selfy) %>
 
 <%= link_to 'Back', root_path %>

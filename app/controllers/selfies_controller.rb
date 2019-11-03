@@ -38,6 +38,6 @@ class SelfiesController < ApplicationController
 
   private
   def selfy_params
-    params.require(:selfie).permit(:title, :author_name, :url)
+    params.require(:selfies).permit(:title, :author_name, :url, :caption)
   end
 end

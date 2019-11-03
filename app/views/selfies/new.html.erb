@@ -1,4 +1,4 @@
-<%= form_with scope: :selfie, url: selfies_path, local: true do |form| %>
+<%= form_with scope: :selfies, url: selfies_path, local: true do |form| %>
 
 	<p>
     <%= form.label :author_name %><br>
@@ -12,6 +12,11 @@
   <p>
     <%= form.label :url %><br>
     <%= form.text_area :url %>
+  </p>
+
+   <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
   </p>
 
   <p>

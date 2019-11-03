@@ -7,6 +7,7 @@
   	<th>Author</th>
     <th>Title</th>
     <th>URL</th>
+    <th>Caption</th>
     <th></th>
   </tr>
 
@@ -15,6 +16,7 @@
     	<td><%= selfy.author_name %></td>
       <td><%= selfy.title %></td>
       <td><%= selfy.url %></td>
+       <td><%= selfy.caption %></td>
       <td><%= link_to 'Show', selfy_path(selfy) %></td>
        <td><%= link_to 'Edit', edit_selfy_path(selfy) %></td>
         <td><%= link_to 'DESTROY', selfy_path(selfy), method: :delete, data:{confirm: 'Delete selfie FOREVER?'} %></td>

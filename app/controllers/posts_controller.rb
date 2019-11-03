@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
 
     def index
-        @posts = Post.all
+
+        if params[:order] == 'asc'
+            @posts = Post.all.order('DATE(created_at) asc')
+        elsif params[:order] == 'desc'
+            @posts = Post.all.order('DATE(created_at) desc')
+        end
     end
 
     def show

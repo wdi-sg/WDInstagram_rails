@@ -11,7 +11,7 @@
 
 
 
-  <% @post.each do |x| %>
+  <% @post.order({ created_at: :desc }).each do |x| %>
 		<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
 		  <img class="card-img-top" alt="image post" src=<%= x.photo_url %> >
 		  <div class="card-body">

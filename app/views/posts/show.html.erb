@@ -1,16 +1,21 @@
-<h1>@<%= @post.author_name %></h1>
+<div class="container">
 
-<img src=<%= @post.photo_url %>>
+	<div class="row justify-content-center mt-5">
+		<figure class="figure">
+		  <img class="figure-img img-fluid rounded" alt="..." src=<%= @post.photo_url %> />
+		  <figcaption class="figure-caption"><%= @post.title %></figcaption>
+		</figure>
+	</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Caption:</strong>
-  <%= @post.caption %>
-</p>
+	<blockquote class="blockquote text-center">
+	  <p class="mb-0"><%= @post.caption %></p>
+	  <footer class="blockquote-footer">@<%= @post.author_name %> on <cite title="Source Title"><%= @post.updated_at.to_date %></cite></footer>
+	</blockquote>
 
 
-<%= link_to 'Back', root_path %>
+	<div class="col mb-5">
+		<%= link_to 'Edit', edit_post_path(@post) %> |
+		<%= link_to 'Back', root_path %>
+	</div>
+
+</div>

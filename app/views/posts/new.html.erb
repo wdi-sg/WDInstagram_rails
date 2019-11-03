@@ -1,37 +1,37 @@
-<h1>Let's post a photo!</h1>
+<div class="container">
 
-<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+	<h1 class="display-4">Let's post a photo!</h1>
 
-  <p>
-    <%= form.label :author_name %><br>
-    <%= form.text_field :author_name %>
-  </p>
+	<%= form_with scope: :post, url: posts_path, local: true do |form| %>
 
-  <p>
-    <%= form.label :photo_url %><br>
-    <%= form.url_field :photo_url %>
-  </p>
+	  <p>
+	    <%= form.label :author_name %><br>
+	    <%= form.text_field :author_name %>
+	  </p>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+	  <p>
+	    <%= form.label :photo_url %><br>
+	    <%= form.url_field :photo_url %>
+	  </p>
 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p>
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title %>
+	  </p>
 
+	  <p>
+	    <%= form.label :caption %><br>
+	    <%= form.text_area :caption %>
+	  </p>
 
-
-
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+	  <p>
+	    <%= form.submit %>
+	  </p>
+	<% end %>
 
 
 
 
-<%= link_to 'Back', root_path %>
+	<%= link_to 'Back', root_path %>
+
+</div>

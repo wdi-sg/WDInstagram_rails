@@ -22,28 +22,34 @@
      <% if post.class.name == "Post"%>
 
  <img src= <%= post.photo_url %> width="500px" height="500px"  class="img-fluid">
-
+ <div class="container mt-3">
+  <%= link_to 'Show', post_path(post), :class =>'btn btn-primary' %> 
+  <%= link_to 'Edit', edit_post_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+ </div>
+ 
  <% elsif post.class.name == "Video" %>
- <iframe src='https://www.youtube.com/embed/<%= post.video_url.slice(32, post.video_url.length) %>?rel=0 || 0 %>' frameborder='0' allowfullscreen width="500" height="500"></iframe> 
+ <iframe  width="500px" height="500px"  src='https://www.youtube.com/embed/<%= post.video_url.slice(32, post.video_url.length) %>?rel=0 || 0 %>' frameborder='0' allowfullscreen ></iframe> 
+ <div class="container mt-3">
+  <%= link_to 'Show', video_path(post), :class =>'btn btn-primary' %> 
+        <%= link_to 'Edit', edit_video_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', video_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+ </div>
+ 
  <% end %>
 
  <p>User: <%= post.author_name %></p> 
   <p>Created at: <%= post.created_at.strftime("%I:%M%p") %>, <%= post.created_at.to_date%></p> 
   <div class="container">
-  <%if post.class.name == "POST"%>
-  <%= link_to 'Show', post_path(post), :class =>'btn btn-primary' %> 
-  <%= link_to 'Edit', edit_post_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+ 
+ 
 
-  <% elsif post.class.name == "Video"%>
-        <%= link_to 'Show', video_path(post), :class =>'btn btn-primary' %> 
-        <%= link_to 'Edit', edit_video_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', video_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+       
 
 
-   <% end %>     
+  
   </div>
  
   </div>

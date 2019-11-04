@@ -27,9 +27,6 @@ class PostsController < ApplicationController
     end
   
     def create
-     
-     
-
       @input = post_params
       if params[:insertGif] == "true"
         api_instance = GiphyClient::DefaultApi.new

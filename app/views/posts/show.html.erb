@@ -1,17 +1,8 @@
-<p>
-  <strong>Author:</strong>
-  <%= @post.author_name %>
-</p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @post.photo_url %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<%= link_to 'Back', root_path %>
-<%= link_to 'Edit', edit_post_path(@post) %>
+<body align="center">
+    <h3><%= @post.title %></h3>
+    <img src=<%= @post.photo_url %> height="500px" width="500px">
+    <h4>posted by:<%= @post.author_name %></h4>
+    <%= link_to 'Back', root_path %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+</body>

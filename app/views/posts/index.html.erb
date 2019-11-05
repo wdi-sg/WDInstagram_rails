@@ -1,23 +1,26 @@
 <h1>Listing Posts</h1>
 
-<%= link_to 'New Post', new_post_path %>
-<table>
-  <tr>
-    <th width="120px">Author</th>
-    <th width="120px">Photo</th>
-    <th width="400px" style="text-align:left">Title</th>
-  </tr>
+<%= link_to 'Create New Post', new_post_path %>
+<hr>
+<body align="center">
+    <% @posts.each do |post| %>
+        <div align="center">
+            <br>
+            <h3><%= post.title %></h3>
+            <img src=<%= post.photo_url %> height="500px" width="500px">
+            <h4>posted by:<%= post.author_name %></h4>
+            <%= link_to 'Show', post_path(post) %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post_path(post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+            <br>
+            <hr>
+        </div>
+    <% end %>
+</body>
 
-  <% @posts.each do |post| %>
-    <tr>
-      <td style="text-align:center"><%= post.author_name %></td>
-      <td style="text-align:center"><a href="<%= post.photo_url %>">Link</a></td>
-      <td><%= post.title %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+
+
+
+

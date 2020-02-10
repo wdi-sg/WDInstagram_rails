@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   patch "/photos/:id" => "photos#update"
   get "/photos/:id/delete" => "photos#delete"
   delete "/photos/:id" => "photos#destroy"
+
+  get "/videos/new" => "videos#new", as: "new_video"
+  post "/videos" => "videos#create"
 end

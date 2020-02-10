@@ -1,0 +1,9 @@
+<%= form_with scope: :video, url: videos_path, local: true do |form| %>
+  <p>
+    <%= form.label :video_url %><br>
+    <%= form.text_field :video_url %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

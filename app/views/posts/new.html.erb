@@ -1,0 +1,60 @@
+<% # load the gem
+# load the gem
+require 'GiphyClient'
+
+api_instance = GiphyClient::DefaultApi.new
+
+api_key = "Djaj7AnxgwI6593MlOkPLeBsycB4FgU4" # String | Giphy API Key.
+
+opts = { 
+  tag: "banana", # String | Filters results by specified tag.
+  rating: "g", # String | Filters results by specified rating.
+  fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+}
+
+begin
+  #Random Endpoint
+  @result = api_instance.gifs_random_get(api_key, opts)
+  p @result
+rescue GiphyClient::ApiError => e
+  puts "Exception when calling DefaultApi->gifs_random_get: #{e}"
+end %>
+
+
+
+<img style="float: right;" src="<%= @result.data.image_url %>">
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_field :caption %>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_area :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <img >
+  
+<% end %>
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  ...
+<% end %>
+
+<%= link_to 'Back', root_path %>

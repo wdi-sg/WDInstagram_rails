@@ -8,8 +8,15 @@
 </p>
 
 <p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
+
+
 <%= link_to 'Back', root_path %>
 <%= link_to 'Edit', edit_post_path(@post) %>

@@ -4,6 +4,7 @@
   <tr>
     <th>Author</th>
     <th>Photo</th>
+    <th>Caption</th>
     <th>Title</th>
   </tr>
 
@@ -11,7 +12,9 @@
     <tr>
       <td><%= post.author %></td>
       <td><img src= "<%= post.photo %>" height = "500px" width = "500px" /></td>
+      <td><%= post.caption %></td>
       <td><%= post.title %></td>
+
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
     </tr>

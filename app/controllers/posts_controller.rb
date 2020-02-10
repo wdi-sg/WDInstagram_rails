@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
-    def
+    def index
 
-        @posts = Posts.all
+        @posts = Post.all
 
     end
 

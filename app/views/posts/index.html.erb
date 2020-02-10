@@ -11,13 +11,15 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>
-      <td><%= post.photo_url %></td>
+      <td><img src=<%= post.photo_url %>></td>
       <td><%= post.author %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
+      <td><%= link_to 'Show', posts_path(post) %></td>
+      <td><%= link_to 'Edit', edit_posts_path(post) %></td>
+      <td><%= link_to 'Destroy', posts_path(post),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+
+<a href="/posts/new">Create New Post</a>

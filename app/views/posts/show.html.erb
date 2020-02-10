@@ -3,6 +3,7 @@
 <p>
   <strong>Author name:</strong>
   <%= @post.author_name %>
+  <strong>Posted On:</strong> <%= @post.created_at.strftime("%d/%m/%Y") %>
 </p>
 
   <%= image_tag @post.photo_url %>

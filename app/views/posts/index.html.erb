@@ -1,0 +1,19 @@
+<%= link_to "New post", new_post_path %>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Photo URL</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.author_name %></td>
+      <td><%= post.photo_url %></td>
+    </tr>
+  <% end %>
+</table>

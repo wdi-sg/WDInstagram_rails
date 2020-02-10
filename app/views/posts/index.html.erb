@@ -8,6 +8,8 @@
     <th>Photo</th>
     <th>Title</th>
     <th>Caption</th>
+    <th>Date created on</th>
+    <th>Date updated on</th>
   </tr>
 
   <% @posts.each do |post| %>
@@ -16,6 +18,8 @@
       <td><%= post.photo_url %></td>
       <td><%= post.title %></td>
       <td><%= post.caption %></td>
+      <td><%= post.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %></td>
+      <td><%= post.updated_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to 'Destroy', post_path(post),

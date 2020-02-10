@@ -1,1 +1,9 @@
-SHOW SMTH
+<h1>Instagram</h1>
+<p>
+  <%= link_to 'Add new photo', (new_photo_path) %>
+</p>
+<div class="d-flex justify-content-around">
+  <% @photos.each do |photo| %>
+    <a href="/photos/<%= photo.id %>"><img src=<%= photo.photo_url %>></a>
+  <% end %>
+  <div>

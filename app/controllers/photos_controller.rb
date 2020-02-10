@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   def index
+    @photos = Photo.all
+   
   end
 
   def show
@@ -17,7 +19,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
 
     @photo.save
-    redirect_to @photo
+    redirect_to @root_path
   end
 
   def update

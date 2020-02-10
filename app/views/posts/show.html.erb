@@ -5,12 +5,12 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @post.photo_url %>
+  <img src=<%= @post.photo_url %>>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @post.Author %>
+  <%= @post.author %>
 </p>
 
 <%= link_to 'Edit', edit_posts_path(@post) %>

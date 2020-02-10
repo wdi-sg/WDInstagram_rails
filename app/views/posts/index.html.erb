@@ -1,5 +1,8 @@
 <h1>Listing posts</h1>
 
+<button><a href="/?sort=date&order=dec">Sort by Date - Newest first</a></button>
+<button><a href="/?sort=title&order=dec">Sort by Title</a></button>
+
 <table>
   <tr>
     <th>Title</th>
@@ -22,5 +25,7 @@
     </tr>
   <% end %>
 </table>
+
+
 
 <%= link_to 'New post', new_post_path %>

@@ -3,8 +3,12 @@
   <%= @post.title %>
 </p>
 <p>
-  <strong>Photo_url:</strong>
-  <%= @post.photo_url %>
+  <strong>Photo:</strong>
+  <%= image_tag("#{@post.photo_url}", :style => "height:100px; width:100px" ) %>
+</p>
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
 </p>
 <p>
   <strong>Author:</strong>

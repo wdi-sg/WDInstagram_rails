@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root 'instagrams#index'
   # show (displays a specific post)
   # get '/instagrams/:id' => 'instagrams#show' , as: 'instagram'
-  # # new (displays a form to create a new post)
-  # get '/instagrams/new' => 'instagrams#new', as: 'new_instagram'
-  # # create (saves a new post it to the database)
-  # post '/instagrams' => 'instagrams#create'
+  # new (displays a form to create a new post)
+  get '/instagrams/new' => 'instagrams#new', as: 'new_instagram'
+  # create (saves a new post it to the database)
+  post '/instagrams' => 'instagrams#create'
   # # edit (displays a form for editing a particular post)
   # get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagram'
   # # update (takes input from the edit form and updates the post in the db appropriately)

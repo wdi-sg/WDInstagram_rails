@@ -1,0 +1,19 @@
+<%= form_with scope: :instagram, url: instagrams_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :text%><br>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :text %><br>
+  </p>
+  <p>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :text %><br>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

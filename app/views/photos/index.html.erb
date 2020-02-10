@@ -2,8 +2,14 @@
 <p>
   <%= link_to 'Add new photo', (new_photo_path) %>
 </p>
-<div class="d-flex justify-content-around">
-  <div class="row">
+<p>
+  <%= link_to 'Sort by order ascending', (root_path + "?sort=date&order=asc") %>
+</p>
+<p>
+  <%= link_to 'Sort by order descending', (root_path + "?sort=date&order=desc") %>
+</p>
+<div class="d-flex">
+  <div class="row justify-content-around">
     <% @photos.each do |photo| %>
       <a class="mx-2 my-2" href="/photos/<%= photo.id %>"><img src=<%= photo.photo_url %>></a>
     <% end %>

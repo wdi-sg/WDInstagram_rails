@@ -9,6 +9,16 @@
 </p>
 
 <p>
+  <strong>Created At:</strong>
+  <%= @post.created_at.to_formatted_s(:long_ordinal) %>
+</p>
+
+<p>
+  <strong>Updated At:</strong>
+  <%= @post.updated_at.to_formatted_s(:long_ordinal) %>
+</p>
+
+<p>
   <strong>Photo URL:</strong>
   <%= @post.photo_url %>
 </p>

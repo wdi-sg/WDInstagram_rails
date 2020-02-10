@@ -5,6 +5,20 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    vars = request.query_parameters
+    sort = vars['sort']
+    order = vars['order']
+    case sort
+    when "date"
+      @posts = @posts.order(:created_at)
+      if order == "asc"
+        @posts = @posts.reverse
+      end
+    end
+    # sort = date
+    # order = asc \\ dec
+    p sort
+    p order
   end
 
   # GET /posts/1

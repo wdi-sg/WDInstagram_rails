@@ -27,4 +27,13 @@
   </div>
 <% end %>
 
+<h5>Fluff</h5>
+<p>
+  <%= link_to 'Sort by date submitted ascending', posts_path(sort: "date", order: "asc") %> -
+  <%= link_to 'Sort by date submitted descending', posts_path(sort: "date", order: "dec") %>
+</p>
+<p>
+  <%= link_to 'Sort by author name ascending', posts_path(sort: "author_name", order: "asc") %> - 
+  <%= link_to 'Sort by author name descending', posts_path(sort: "author_name", order: "dec") %>
+</p>
 <%= link_to 'New Post', new_post_path, class: "btn" %>

@@ -1,0 +1,41 @@
+<h1>Welcome to WDInstagram</h1>
+
+
+<div>
+
+<table>
+  <tr>
+    <th>Author Name</th>
+    <th>Title</th>
+    <th>Photo URL</th>
+    <th>Caption</th>
+    <th>Created at: </th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+    	<td><%= post.author_name %></td>
+      <td><%= post.title %></td>
+      <td><%= image_tag post.photo_url,:size => "300x300" %>
+      <td><%= post.caption %></td>
+      <td><%= post.created_at %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+
+    </tr>
+  <% end %>
+
+
+</table>
+
+<%= link_to 'Latest posts', "#{root_path}?sort=date&order=desc"%>
+<%= link_to 'Earliest posts', "#{root_path}?sort=date&order=asc"%>
+
+<%= link_to 'New post', new_post_path %>
+
+</div>

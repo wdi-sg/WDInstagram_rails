@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "/photos/:id" => "photos#show", as: "photo"
   get "/photos/:id/edit" => "photos#edit"
   patch "/photos/:id" => "photos#update"
+  get "/photos/:id/delete" => "photos#delete"
+  delete "/photos/:id" => "photos#destroy"
 end

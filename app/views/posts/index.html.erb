@@ -10,7 +10,7 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.author %></td>
-      <td><%= post.photo %></td>
+      <td><img src= "<%= post.photo %>" height = "500px" width = "500px" /></td>
       <td><%= post.title %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>

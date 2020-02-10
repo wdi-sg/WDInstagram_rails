@@ -14,7 +14,8 @@
  *= require_self
  */
 
-img {
-  width: 300px;
-  max-height: 200px;
+img, iframe {
+  width: 300px!important;
+  height: 200px!important;
+  border: 0;
 }

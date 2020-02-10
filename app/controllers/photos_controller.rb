@@ -6,10 +6,13 @@ class PhotosController < ApplicationController
     order = params[:order]
     if order == "desc"
       @photos = Photo.all.order("updated_at desc")
+      @videos = Video.all.order("updated_at desc")
     elsif order == "asc"
       @photos = Photo.all.order("updated_at asc")
+      @videos = Video.all.order("updated_at asc")
     else
       @photos = Photo.all
+      @videos = Video.all
     end
   end
 
@@ -34,8 +37,6 @@ class PhotosController < ApplicationController
       require "GiphyClient"
 
       api_instance = GiphyClient::DefaultApi.new
-
-      api_key = "4YVy8t1tpXxCo5s9UrZ2LmGBosuFe55t" # String | Giphy API Key.
 
       q = photo_params[:photo_url] # String | Search query term or prhase.
 

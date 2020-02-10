@@ -7,6 +7,7 @@
     <th>Author Name</th>
     <th>Photo</th>
     <th>Title</th>
+    <th>Caption</th>
   </tr>
 
   <% @posts.each do |post| %>
@@ -14,6 +15,7 @@
       <td><%= post.author_name %></td>
       <td><%= post.photo_url %></td>
       <td><%= post.title %></td>
+      <td><%= post.caption %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to 'Destroy', post_path(post),

@@ -1,0 +1,29 @@
+<h1>Listing articles</h1>
+
+<%= link_to 'Add New Photo', new_picture_path %>
+<%= link_to 'Order by descending', "?order=dec" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Photo Url</th>
+    <th>Captions</th>
+    <th>Time Created</th>
+  </tr>
+
+  <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= picture.title %></td>
+      <td><%= picture.author_name %></td>
+      <td><%= picture.photo_url %></td>
+      <td><%= picture.captions %></td>
+      <td><%= picture.created_at %></td>
+      <td><%= link_to 'Show', picture_path(picture) %></td>
+      <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+      <td><%= link_to 'Destroy', picture_path(picture),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

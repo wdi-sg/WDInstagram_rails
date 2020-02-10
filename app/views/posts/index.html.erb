@@ -2,30 +2,15 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Author name</th>
-      <th>Photo url</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.author_name %></td>
-        <td><%= post.photo_url %></td>
-        <td><%= post.title %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% @posts.each do |post| %>
+  <p><strong>Author: </strong><%= post.author_name %></p>
+  <%= image_tag post.photo_url %>
+  <p><strong><%= post.title %></strong></p>
+  <p><i><%= post.caption %></p></i>
+  <p><%= link_to 'Show', post %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <hr/>
+  <% end %>
 
 <%= link_to 'New Post', new_post_path %>

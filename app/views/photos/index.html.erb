@@ -1,9 +1,11 @@
-<h1>Instagram</h1>
+<h1>WDInstagram</h1>
 <p>
   <%= link_to 'Add new photo', (new_photo_path) %>
 </p>
 <div class="d-flex justify-content-around">
-  <% @photos.each do |photo| %>
-    <a href="/photos/<%= photo.id %>"><img src=<%= photo.photo_url %>></a>
-  <% end %>
-  <div>
+  <div class="row">
+    <% @photos.each do |photo| %>
+      <a class="mx-2 my-2" href="/photos/<%= photo.id %>"><img src=<%= photo.photo_url %>></a>
+    <% end %>
+    <div>
+      <div>

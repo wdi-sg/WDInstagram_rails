@@ -44,5 +44,5 @@ end
 private
 
 def photo_params
-  params.require(:photo).permit(:author_name, :photo_url, :title)
+  params.require(:photo).permit(:author_name, :photo_url, :title, :caption)
 end

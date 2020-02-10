@@ -1,15 +1,32 @@
+require "net/http"
+require "json"
+
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    puts params
+    sort = params[:sort]
+    order = params[:order]
+    if sort == "date" && order == "desc"
+      @posts = Post.all.order("updated_at desc")
+    elsif sort == "date" && order == "asc"
+      @posts = Post.all.order("updated_at asc")
+    else
+      @posts = Post.all
+    end
     # render plain: "Hello"
   end
 
   def show
     @post = Post.find(params[:id])
-    puts "INSPECT HERE"
   end
 
   def new
+    url = "http://api.giphy.com/v1/gifs/search?q=wwe&api_key=dc6zaTOxFJmzC&limit=1"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    buffer = resp.body
+    result = JSON.parse(buffer)
+    puts "Hello"
+    puts result[1]
   end
 
   def edit

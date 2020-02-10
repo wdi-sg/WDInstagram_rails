@@ -15,7 +15,7 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.author_name %></td>
-      <td><%= post.photo_url %></td>
+      <td><%= image_tag post.photo_url %></td>
       <td><%= post.title %></td>
       <td><%= post.caption %></td>
       <td><%= post.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %></td>

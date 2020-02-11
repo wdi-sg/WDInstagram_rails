@@ -1,0 +1,33 @@
+<p>
+  <strong>Author Name:</strong>
+  <%= @post.author_name %>
+</p>
+
+<p>
+  <strong>Photo :</strong>
+  <%= image_tag @post.photo_url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+<p>
+  <strong>Created on:</strong>
+  <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
+</p>
+
+<p>
+  <strong>Updated on:</strong>
+  <%= @post.updated_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
+</p>
+
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_post_path(@post) %>

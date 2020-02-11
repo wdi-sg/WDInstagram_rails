@@ -15,8 +15,8 @@ class PostsController < ApplicationController
         @posts = @posts.reverse
       end
     when "author_name"
-      @posts = @posts.order(:author_name).reverse
-      if order == "asc"
+      @posts = @posts.order(:author_name)
+      if order == "dec"
         @posts = @posts.reverse
       end
     end

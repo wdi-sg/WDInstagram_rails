@@ -1,0 +1,58 @@
+<h1>Listing articles</h1>
+
+<% 
+require 'GiphyClient'
+
+api_instance = GiphyClient::DefaultApi.new
+
+api_key = "wXX8xAAMz9z0s6UyjXTfH2vqVrNhR1ty" # String | Giphy API Key.
+
+q = @pictures[0].title # String | Search query term or prhase.
+
+opts = { 
+  limit: 2, # Integer | The maximum number of records to return.
+  offset: 0, # Integer | An optional results offset. Defaults to 0.
+  rating: "g", # String | Filters results by specified rating.
+  lang: "en", # String | Specify default country for regional content; use a 2-letter ISO 639-1 country code. See list of supported languages <a href = \"../language-support\">here</a>.
+  fmt: "json" # String | Used to indicate the expected response format. Default is Json.
+}
+
+begin
+  #Search Endpoint
+  @result = api_instance.gifs_search_get(api_key, q, opts)
+  puts @result.data[0].images.downsized_large.url
+rescue GiphyClient::ApiError => e
+  puts "Exception when calling DefaultApi->gifs_search_get: #{e}"
+end
+
+%>
+
+<%= link_to 'Add New Photo', new_picture_path %>
+<%= link_to 'Order by descending', "?order=dec" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Photo Url</th>
+    <th>Captions</th>
+    <th>Time Created</th>
+    <th>Gif</th>
+  </tr>
+
+  <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= picture.title %></td>
+      <td><%= picture.author_name %></td>
+      <td><%= picture.photo_url %></td>
+      <td><%= picture.captions %></td>
+      <td><%= picture.created_at %></td>
+      <td><img src="<%=@result.data[0].images.downsized_large.url%>"></td>
+      <td><%= link_to 'Show', picture_path(picture) %></td>
+      <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+      <td><%= link_to 'Destroy', picture_path(picture),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

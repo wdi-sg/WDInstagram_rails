@@ -1,0 +1,23 @@
+<p>
+  <strong>Title:</strong>
+  <%= @picture.title %>
+</p>
+
+<p>
+  <strong>Author Name:</strong>
+  <%= @picture.author_name %>
+</p>
+
+<p>
+  <strong>Photo Url:</strong>
+  <%= @picture.photo_url %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @picture.captions %>
+</p>
+
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_picture_path(@picture) %>

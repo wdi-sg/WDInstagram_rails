@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
     root 'posts#index'
 
-    get '/posts/new' => 'posts#new', as: 'new_posts'
+    get '/posts/new' => 'posts#new', as: 'new_post'
 
-    get '/posts/:id/edit' => 'posts#edit', as: 'edit_posts'
+    get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
 
-    get '/posts/:id' => 'posts#show' , as: 'posts'
+    get '/posts/:id' => 'posts#show' , as: 'post'
 
-    post '/posts' => 'posts#create' , as: 'create_posts'
+    post '/posts' => 'posts#create'
 
     patch '/posts/:id' => 'posts#update'
 

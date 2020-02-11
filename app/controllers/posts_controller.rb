@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
         @post = Post.new(post_params)
         @post.save
-        redirect_to @posts
+        redirect_to @post
 
     end
 
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
         @post = Post.find(params[:id])
         @post.update(post_params)
-        redirect_to @posts
+        redirect_to @post
 
     end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     private
         def post_params
-        params.require(:post).permit(:title, :photo_url, :author, :id)
+        params.require(:post).permit(:title, :photo_url, :author)
         end
 
 end

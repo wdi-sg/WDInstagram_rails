@@ -1,0 +1,35 @@
+<h1>Index for posts</h1>
+
+<table>
+
+	<tr>
+		<th>Author name</th>
+		<th>Photo URL</th>
+		<th>Title</th>
+		<th>Captions</th>
+	</tr>
+
+	<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.author_name %></td>
+			<td><%= post.photo_url %></td>
+			<td><%= post.title %></td>
+			<td><%= post.captions %></td>
+			<td><%= link_to 'Show', post_path(post) %></td>
+			<td><%= link_to 'Edit', edit_post_path(post) %></td>
+			<td><%= link_to 'Destroy', post_path(post), method: :delete, data: {confirm: 'Yasure?'} %></td>
+		</tr>
+	<% end %>
+
+</table>
+
+<%= form_tag("/posts/sort", method: "get") do %>
+	<%= select_tag "sort_column", options_for_select(["Author Name", "Title", "Captions", "Created", "Updated"], "Updated") %>
+	<%= select_tag "sort_order", options_for_select(["ASC", "DESC"], "DESC") %>
+	<%= submit_tag "Sort" %>
+
+
+<% end %>
+
+
+<%= link_to "New post", new_post_path %>

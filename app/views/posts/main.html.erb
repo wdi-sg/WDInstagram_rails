@@ -1,0 +1,58 @@
+<div class ='container'>
+	<h1>All Posts</h1>
+
+  	<% @posts.each do |post| %>
+    	<h4> <%= post.title %></h4>
+     
+   	  <p><%= post.author_name %></p>
+   	  <p><%= image_tag(post.photo_url, size:"386x259") %></p>
+   	  <p><%= post.caption %></p>
+      <%= link_to 'Show', post_path(post) %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post),
+								        method: :delete,
+								        data: { confirm: 'Are you sure?' },
+								        :class => 'btn btn-default' %>
+    
+  	<% end %>
+
+
+
+    <% @videos.each do |video| %>
+      <h4> <%= video.title %></h4>
+     
+      <p><%= video.author_name %></p>
+     <iframe width="560" height="315" src="<%= video.video_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p><%=video.caption %></p>
+    
+    
+    <%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+    <%= link_to 'Delete', video_path(video),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, 
+                        :class => 'btn btn-default' %>
+
+    <% end %>
+
+
+
+    <% @texts.each do |text| %>
+      <h4> <%= text.title %></h4>
+     
+      <p><%= text.author_name %></p>
+
+      <p><%=text.body %></p>
+    
+    
+    <%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+    <%= link_to 'Edit', edit_text_path(text), :class => 'btn btn-default' %>
+
+    <%= link_to 'Delete', text_path(text),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, 
+                        :class => 'btn btn-default' %>
+
+
+    <% end %>
+</div>

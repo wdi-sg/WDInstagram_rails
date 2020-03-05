@@ -1,0 +1,16 @@
+	<div class ='well'>
+
+		<h2><%= @post.title %></h2>
+	  	
+		<p><%= @post.author_name %></p>
+		<p><%= image_tag(@post.photo_url, size:"386x259") %></p>
+		<p><%= @post.caption %></p>
+		
+	  
+		<%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+		<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-default' %>
+		<%= link_to 'Delete', post_path(@post),
+								        method: :delete,
+								        data: { confirm: 'Are you sure?' }, 
+								        :class => 'btn btn-default' %>
+	</div>

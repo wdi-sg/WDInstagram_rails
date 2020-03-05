@@ -1,0 +1,21 @@
+<div class ='container'>
+	<h1>All Videos</h1>
+    <%= link_to 'New Video', new_video_path,  :class => 'btn btn-default' %>
+
+  	<% @videos.each do |video| %>
+    	<h4> <%= video.title %></h4>
+     
+   	  <p><%= video.author_name %></p>
+   	 <iframe width="560" height="315" src="<%= video.video_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p><%=video.caption %></p>
+    
+    
+    <%= link_to 'Back', home_path,  :class => 'btn btn-default' %>
+    <%= link_to 'Delete', video_path(video),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, 
+                        :class => 'btn btn-default' %>
+
+  	<% end %>
+</div>

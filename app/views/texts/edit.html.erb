@@ -1,0 +1,21 @@
+
+<h1> Edit Text </h1>
+<%= form_with scope: :text, model: @text, local: true do |form| %>
+  <p>
+    <%= form.label :title%><br>
+    <%= form.text_field(:title, {:class =>'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_area(:author_name, {:class =>'form-control'} )%>
+  </p>
+  
+   <p>
+    <%= form.label :body%><br>
+    <%= form.text_area(:body, {:class =>'form-control'}) %>
+  </p>
+  <p>
+    <%= form.submit :class => 'btn btn-primary' %>
+  </p>
+<% end %>

@@ -1,0 +1,25 @@
+
+<h1>All Posts</h1>
+
+
+  <% @post.each do |post| %>
+
+      <h1>Title: <%= post.title %></h1>
+      <a href="/posts/<%= post.id %>">
+			<img src="<%= post.img_url %>" class="card-img-top rounded mt-3 px-1">
+			</a>
+			<h2> Author: <%= post.author_name %></h2>
+			<p> <%= post.caption %></p>
+
+
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+  <% end %>
+
+  <p><%= link_to 'New Posts', new_post_path %></p>
+
+</table>

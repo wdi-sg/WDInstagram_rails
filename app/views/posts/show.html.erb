@@ -1,0 +1,15 @@
+
+<p>
+  <h1>Title: <%= @post.title %></h1>
+  <h2>Profile: <%= @post.author_name %></h2>
+</p>
+
+<p>
+  <img src="<%= @post.img_url %>">
+</p>
+
+<p> <%= @post.caption %> </p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to "DELETE", post_path(@post) %>

@@ -1,0 +1,30 @@
+
+<div class = "justify-content-around row align-items-end">
+
+	<p><%= link_to 'New Photo', new_post_path %></p>
+	<p><%= link_to 'New Video', new_video_path %></p>
+	<p><%= link_to 'New Text', new_text_path %></p>
+	<h1><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p><%= link_to 'Home', root_path%></p>
+	<p><%= link_to 'Latest', "#{root_path}?sort=date&order=desc"%></p>
+	<p><%= link_to 'Earliest', "#{root_path}?sort=date&order=asc"%></p>
+
+</div>
+
+<div class = "container justify-content-center my-5">
+
+	<div class = "row justify-content-center">
+		<div class = "column">
+			<img class = "single-thumbnail" src = <%= @post.photo_url %>>
+		</div>
+		<div class = "column ml-5">
+			<h2 class = "text-capitalize"><%= @post.title %></h2>
+			<p class = "text-capitalize font-italic"><%= @post.author_name %></p>
+			<p class = "my-5 pb-5"><%= @post.caption %></p>
+			<small><%= @post.updated_at%></small>
+			<p><%= link_to 'Edit Post', edit_post_path(@post) %></p>
+		</div>
+
+	</div>
+
+</div>

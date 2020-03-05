@@ -1,0 +1,44 @@
+
+<div class = "justify-content-around row align-items-end">
+
+	<p><%= link_to 'New Photo', new_post_path %></p>
+	<h1><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p><%= link_to 'New Video', new_video_path %></p>
+	<p><%= link_to 'New Text', new_text_path %></p>
+</div>
+
+ <div class = "row justify-content-center my-5">
+	<div class = "column">
+			<h1 class = "single-thumbnail"><%= @text.caption %>
+		</h1>
+		</div>
+  <div class = "column ml-5">
+
+<%= form_with scope: :text, model: @text, local: true do |form| %>
+
+	<p>
+	<%= form.label :Author%><br>
+	<%= form.text_field :author_name %>
+  </p>
+
+  <p>
+	<%= form.label :title %><br>
+	<%= form.text_field :title %>
+  </p>
+
+  <p>
+	<%= form.label :caption %><br>
+	<%= form.text_area :caption %>
+  </p>
+
+  <p>
+	<button type = "submit" class="btn btn-primary" >Update</button>
+  </p>
+
+<% end %>
+<p><%= link_to 'Delete text', text_path(@text),
+		method: :delete,
+		data: { confirm: 'Are you sure?' } %></p>
+   </div>
+
+</div>

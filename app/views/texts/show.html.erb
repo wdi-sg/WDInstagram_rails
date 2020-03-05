@@ -1,0 +1,29 @@
+
+<div class = "justify-content-around row align-items-end">
+
+	<p><%= link_to 'New Photo', new_post_path %></p>
+	<h1><a href = <%=root_path %>>Vibeygrammmm</a></h1>
+	<p><%= link_to 'New Video', new_video_path %></p>
+	<p><%= link_to 'New Text', new_text_path %></p>
+</div>
+
+<div class = "container justify-content-center my-5">
+
+	<div class = "row justify-content-center">
+		<div class = "col-5">
+		    <blockquote class="blockquote mb-0">
+		      <h1><%= @text.caption %></h1>
+		      <footer class="blockquote-footer"><%= @text.author_name %>
+		    </blockquote>
+		</h1>
+	</div>
+		<div class = "column ml-4">
+			<h2 class = "text-capitalize"><%= @text.title %></h2>
+			<p class = "text-capitalize font-italic"><%= @text.author_name %></p>
+			<small><%= @text.updated_at%></small>
+			<p><%= link_to 'Edit text', edit_text_path(@text) %></p>
+		</div>
+
+	</div>
+
+</div>

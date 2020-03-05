@@ -1,0 +1,18 @@
+<h2>Posts</h2>
+
+<%= link_to 'Create new post', new_post_path()%>
+<%= link_to 'Create new video', new_video_path()%>
+<p>All Posts</p>
+<%= link_to 'Latest', "#{root_path}?sort=date&order=desc"%>
+<%= link_to 'Earliest', "#{root_path}?sort=date&order=asc"%>
+<ul>
+  <% @results.each do |result| %>
+    <li>
+      <% if result.class.name == "Post" %>
+        <p><%= link_to "#{result.author} – #{result.title}", post_path(result) %>, <%= result.created_at %></p>
+      <% elsif result.class.name == "Video" %>
+        <p><%= link_to "#{result.author} – #{result.title}", video_path(result) %>, <%= result.created_at %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

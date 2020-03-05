@@ -1,0 +1,29 @@
+<h1>Edit Post</h1>
+
+<%= form_with scope: :post, model: @post, local: true do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_area :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :img_url %><br>
+    <%= form.text_field :img_url %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_field :caption%>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

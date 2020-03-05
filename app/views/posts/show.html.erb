@@ -1,0 +1,20 @@
+<div class="container text-center">
+	<h2><%=  @showpost.title %></h2>
+
+	<p>By: <%= @showpost.author_name %></p>
+
+	<% if @showpost.mediatype == "photo" %>
+		<img class="post-img" src="<%= image_path(@showpost.photo_url) %>" />
+	<% elsif @showpost.mediatype == "video" %>
+		<iframe width="400" height="400" src="<%= @showpost.photo_url %>" frameborder="0" allowfullscreen></iframe>
+	<% elsif @showpost.mediatype == "text" %>
+		<div class="card-text2">
+			<p><%= @showpost.photo_url =%></p>
+		</div>
+	<%end%>
+
+	<p><%= @showpost.caption %></p>
+
+	<%= link_to 'home', root_path %>
+
+</div>

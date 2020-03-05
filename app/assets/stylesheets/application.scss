@@ -10,6 +10,49 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
+
+// Bootstrap
+@import "bootstrap";
+
+
+/*body {
+	background-color: black
+}*/
+
+h1 {
+	font-family: 'Cookie', cursive;
+}
+
+a{
+	text-decoration: none;
+}
+
+.card-img {
+	height: 200px;
+	width: 100%;
+	display: block;
+}
+
+.card-text2 {
+	height: 200px;
+	width: 100%;
+	display: block;
+	background-color: black;
+	font-family: 'Cookie', cursive;
+	font-size: 44px;
+	color: white;
+}
+
+.mybutton {
+	margin: 10px;
+	height: 50px;
+	width: 50px;
+}
+
+.post-img {
+	width: 80%;
+	height: auto;
+}

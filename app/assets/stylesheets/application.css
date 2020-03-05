@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+ 	font-family: 'Quicksand', sans-serif;
+	text-align: center;
+ }
+
+ h1 {
+	font-size: 30px;
+ }
+
+  h2 {
+	font-size: 15px;
+ }
+
+ a {
+ 	text-decoration: none;
+ 	color: black;
+ 	border-bottom: 1px solid black;
+ 	padding-bottom: 5px;
+ 	margin: 15px;
+ }
+
+ .post-container p {
+ 	font-size: 10px;
+ }
+
+ .main-container {
+ 	display: flex;
+ 	flex-direction: row;
+ 	flex-wrap: wrap;
+ }
+
+.post-container {
+	margin: 10px auto;
+	/*border: 1px solid grey;*/
+	width: 200px;
+	height: 315px;
+	background: url('http://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture-600x400.jpg');
+	background-size: cover;
+	padding: 30px;
+}
+
+ .photo-container img {
+	width: 200px;
+	height: 200px;
+	/*border: 1px solid black;*/
+	object-fit: cover;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}

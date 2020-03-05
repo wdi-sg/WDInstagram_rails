@@ -1,0 +1,17 @@
+<h2>Author Name:</h2>
+<p><%= @post.author_name %></p>
+
+<h2>Image:</h2>
+<%= image_tag @post.photo_url %>
+<p><%= @post.photo_url %></p>
+
+<h2>Title:</h2>
+<p><%= @post.title %></p>
+
+<%= link_to 'Edit Post', edit_post_path(@post) %>
+
+<%= link_to 'Back to Main Page', root_path %>
+
+<%= link_to 'Delete Post', post_path(@post),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>

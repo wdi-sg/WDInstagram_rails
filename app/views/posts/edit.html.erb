@@ -1,0 +1,31 @@
+<h1>Edit Post</h1>
+
+<%= form_with scope: :post, model: @post, local: true do |form| %>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field(:author_name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field(:photo_url, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area(:caption, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.submit(:class => 'btn btn-primary') %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

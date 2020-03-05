@@ -1,0 +1,21 @@
+<div class="card bg-light mb-3" style="width: 18rem;">
+  <img src=<%= @post.photo_url %> class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p><%= @post.author_name %></p>
+    <p><%= @post.caption %></p>
+    <p>
+      <%= link_to '', edit_post_path(@post), :class => "bx bxs-edit" %>
+      <%= link_to '', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash" %>
+    </p>
+    <small class="text-muted">updated: <%= @post.updated_at.to_s(:db) %></small>
+  </div>
+</div>
+<hr>
+
+<%= render 'comments/comments' %>
+<hr>
+<%= render 'comments/form' %>
+
+
+<%= link_to 'Back', root_path %>

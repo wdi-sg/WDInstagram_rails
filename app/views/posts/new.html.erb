@@ -1,0 +1,33 @@
+<h1>Add Post</h1>
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end%>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field(:author_name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field(:photo_url, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_field(:caption, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.submit(:class => 'btn btn-primary') %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

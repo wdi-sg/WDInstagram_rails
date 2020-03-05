@@ -1,0 +1,17 @@
+<p>
+  <strong>Author Name:</strong>
+  <%= @article.author_name %>
+</p>
+
+<p>
+  <strong>Photo Url:</strong>
+  <%= @article.photo_url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>

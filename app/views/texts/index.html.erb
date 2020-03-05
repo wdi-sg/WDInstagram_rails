@@ -1,0 +1,29 @@
+<h2>Welcome to Text Page &nbsp <%= link_to 'NEW TEXT POST', new_text_path %></h2>
+
+<h2></h2>
+
+<table>
+    <tr>
+        <th>Author Name<a href="/texts/sort/author_name/asc">🔺</a><a href="/texts/sort/author_name/desc">🔻</a></th>
+        <th>Text Message</th>
+        <th>Title<a href="/texts/sort/title/asc">🔺</a><a href="/texts/sort/title/desc">🔻</a></th>
+        <th>Caption</th>
+        <th>Created<a href="/texts/sort/created_at/asc">🔺</a><a href="/texts/sort/created_at/desc">🔻</a></th>
+        <th></th>
+    </tr>
+
+    <% @texts.each do |text| %>
+    <tr>
+        <td><%= text.author_name %></td>
+        <td><%= text.text_msg %></td>
+        <td><%= text.title %></td>
+        <td><%= text.caption %></td>
+        <td><%= text.created_at %></td>
+        <td><p><%= link_to 'SHOW', text_path(text) %></p>
+        <p><%= link_to 'EDIT', edit_text_path(text) %></p>
+        <p><%= link_to 'DELETE', text_path(text),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p></td>
+    </tr>
+    <% end %>
+</table>

@@ -1,0 +1,18 @@
+<p>
+    <strong>Author Name:</strong>
+    <%= @video.author_name %>
+</p>
+
+<iframe width="640" height="480" src=<%= @video.video_url+"?autoplay=1" %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+    <strong>Title:</strong>
+    <%= @video.title %>
+</p>
+
+<p>
+    <strong>Caption:</strong>
+    <%= @video.caption %>
+</p>
+
+<h2><%= link_to 'BACK TO MAIN', all_videos_path %>&nbsp|&nbsp<%= link_to 'EDIT VIDEO POST', edit_video_path(@video) %></h2>

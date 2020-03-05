@@ -1,0 +1,29 @@
+<h2>Welcome to Video Page &nbsp <%= link_to 'NEW VIDEO POST', new_video_path %></h2>
+
+<h2></h2>
+
+<table>
+    <tr>
+        <th>Author Name<a href="/videos/sort/author_name/asc">🔺</a><a href="/videos/sort/author_name/desc">🔻</a></th>
+        <th>Video URL</th>
+        <th>Title<a href="/videos/sort/title/asc">🔺</a><a href="/videos/sort/title/desc">🔻</a></th>
+        <th>Caption</th>
+        <th>Created<a href="/videos/sort/created_at/asc">🔺</a><a href="/videos/sort/created_at/desc">🔻</a></th>
+        <th></th>
+    </tr>
+
+    <% @videos.each do |video| %>
+    <tr>
+        <td><%= video.author_name %></td>
+        <td><iframe width="300" height="200" src=<%= video.video_url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+        <td><%= video.title %></td>
+        <td><%= video.caption %></td>
+        <td><%= video.created_at %></td>
+        <td><p><%= link_to 'SHOW', video_path(video) %></p>
+        <p><%= link_to 'EDIT', edit_video_path(video) %></p>
+        <p><%= link_to 'DELETE', video_path(video),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p></td>
+    </tr>
+    <% end %>
+</table>

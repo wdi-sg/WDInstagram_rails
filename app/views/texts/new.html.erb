@@ -1,0 +1,31 @@
+<h1>New Text Post</h1>
+
+<%= form_with scope: :text, url: texts_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name, size: "60" %>
+  </p>
+
+  <p>
+    <%= form.label :text_msg %><br>
+    <%= form.text_area :text_msg, size: "60x12" %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, size: "60"   %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption, size: "60x12" %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<h2><%= link_to 'BACK TO MAIN', root_path %></h2>

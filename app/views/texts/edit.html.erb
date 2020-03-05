@@ -1,0 +1,33 @@
+
+
+<h3>Edit text</h3>
+<%= form_with(model: @text, local: true) do |form| %>
+    <% if @text.errors.any? %>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading"><%= pluralize(@text.errors.count, "error") %> prohibited
+                this text from being saved:</h4>
+            <hr/>
+            <ul>
+                <% @text.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+
+    <% end %>
+    <div class="form-group ">
+
+        <%= form.label :author_name %><br>
+        <%= form.text_field :author_name,class:"form-control",placeholder:"Enter name" %>
+    </div>
+
+
+    <div class="form-group">
+        <%= form.label :text %><br>
+        <%= form.text_area :text ,class:"form-control",placeholder:"Enter text" %>
+    </div>
+
+
+    <%= form.submit class:"btn btn-light"%>
+
+<% end %>

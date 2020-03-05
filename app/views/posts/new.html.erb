@@ -1,0 +1,47 @@
+<%= javascript_include_tag "script" %>
+<%= content_tag :div, class: "temp_information", data: {temp: @temp} do %>
+<% end %>
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+    <% if @post.errors.any? %>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading"><%= pluralize(@post.errors.count, "error") %> prohibited
+                this post from being saved:</h4>
+            <hr/>
+            <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+
+    <% end %>
+    <div class="form-group ">
+
+        <%= form.label :author_name %><br>
+        <%= form.text_field :author_name,class:"form-control",placeholder:"Enter name" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :photo_url %><br>
+        <%= form.text_area :photo_url ,class:"form-control",placeholder:"Enter photo url",id:"photo-input" %>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkBox" name="gifCheck" value="true"class="form-check-input" id="gifCheck">
+        <label class="form-check-label" for="gifCheck">Generate Random GIF</label>
+    </div>
+    <img src="" class="card-img-top card-img-modifier gif-randomizer" id="gif-randomizer" >
+
+    <div class="btn btn-light" id="random-button">Random Gif</div>
+
+    <div class="form-group">
+        <%= form.label :title %><br>
+        <%= form.text_area :title ,class:"form-control",placeholder:"Enter title" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :caption %><br>
+        <%= form.text_area :caption ,class:"form-control",placeholder:"Enter caption" %>
+    </div>
+    <%= form.submit class:"btn btn-light"%>
+
+<% end %>

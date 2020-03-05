@@ -1,0 +1,28 @@
+
+
+
+<%= link_to 'New Photo Post', new_post_path,class:"btn btn-light" %>
+<%= link_to 'New Video Post', new_video_path,class:"btn btn-light" %>
+<%= link_to 'New Text Post', new_text_path,class:"btn btn-light" %>
+<br/>
+<br/>
+<%= form_tag(posts_path, method: "get") do %>
+    <%= select_tag(:sort_type, options_for_select(["Select a sort type",['Date Asc','date_asc'],['Date Desc','date_desc']]), :onchange=>'this.form.submit();',class:"form-control" ) %>
+<%end%>
+<br/>
+<br/>
+
+<% @combines.each_with_index do |combine,index| %>
+    <% if combine.class.name == "Post"%>
+        <%= render 'post', post: combine, time_ago:@converted_time[index]%>
+    <% elsif combine.class.name == "Video" %>
+        <%= render 'video', video: combine, time_ago:@converted_time[index]%>
+    <% elsif combine.class.name == "Text" %>
+        <%= render 'text', text: combine, time_ago:@converted_time[index]%>
+    <% end %>
+
+
+
+<% end %>
+
+

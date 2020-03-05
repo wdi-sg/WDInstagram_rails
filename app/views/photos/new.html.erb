@@ -1,0 +1,29 @@
+<h1>new photos page</h1>
+
+<%= form_with scope: :photo, url: photos_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :pic %><br>
+    <%= form.text_area :pic %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

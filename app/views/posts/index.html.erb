@@ -1,0 +1,61 @@
+<h1>INSTAGRAM</h1>
+
+
+<button class="btn btn-primary"><%= link_to 'Add Photo', new_post_path, :style=>'color:#FFFFFF' %></button>
+<button class="btn btn-warning"><%= link_to 'Add Video', new_video_path %></button>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort By
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/posts/sort/desc">Latest - Earliest</a>
+    <a class="dropdown-item" href="/posts/sort/asc">Earliest - Latest</a>
+    
+  </div>
+</div>
+
+
+  <% @posts.each do |post| %>
+  <div class="container mt-3 p-3 border">
+     <h3><%=  post.title %></h3> 
+     <% if post.class.name == "Post"%>
+
+ <img src= <%= post.photo_url %> width="500px" height="500px"  class="img-fluid">
+ <div class="container mt-3">
+  <%= link_to 'Show', post_path(post), :class =>'btn btn-primary' %> 
+  <%= link_to 'Edit', edit_post_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+ </div>
+ 
+ <% elsif post.class.name == "Video" %>
+ <iframe  width="500px" height="500px"  src='https://www.youtube.com/embed/<%= post.video_url.slice(32, post.video_url.length) %>?rel=0 || 0 %>' frameborder='0' allowfullscreen ></iframe> 
+ <div class="container mt-3">
+  <%= link_to 'Show', video_path(post), :class =>'btn btn-primary' %> 
+        <%= link_to 'Edit', edit_video_path(post) , :class =>'btn btn-secondary' %> <%= link_to 'Delete', video_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } , :class =>'btn btn-danger'%>
+ </div>
+ 
+ <% end %>
+
+ <p>User: <%= post.author_name %></p> 
+  <p>Created at: <%= post.created_at.strftime("%I:%M%p") %>, <%= post.created_at.to_date%></p> 
+  <div class="container">
+ 
+ 
+
+       
+
+
+  
+  </div>
+ 
+  </div>
+
+ 
+ <% end %>
+
+  
+

@@ -1,0 +1,29 @@
+<%= form_with scope: :post, url: new_post_path, local: true do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :Photo_URL %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+   <div class="form-group form-check">
+        <input type="checkBox" name="insertGif" value="true" class="form-check-input" id="insertGif">
+        <label class="form-check-label" for="insertGif">Give me a random Gif</label>
+    </div>
+  <p>
+    <%= form.label :Caption %><br>
+    <%= form.text_field :caption %>
+  </p>
+  <p>
+    <%= form.label :Title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Back', root_path %>
+<% end %>

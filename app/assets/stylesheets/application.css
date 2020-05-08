@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+require_1reset
+require_2common
+require_3index

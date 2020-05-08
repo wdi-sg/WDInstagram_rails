@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+      body {
+       font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>New Post</h1>
+    <%= form_with scope: :post, url: posts_path, local: true do |form| %>
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </p>
+      <p>
+        <%= form.label :author_name, "Author Name" %><br>
+        <%= form.text_field :author_name %>
+      </p>
+      <p>
+        <%= form.label :post_content, "Post Content" %><br>
+        <%= form.text_area :post_content, placeholder: "Image URL/ Video URL/ Text", rows: "4" %>
+      </p>
+      <p>
+        <%= form.label :caption %><br>
+        <%= form.text_area :caption, rows: "4" %>
+      </p>
+      <p>
+        <%= form.submit "Submit Post" %>
+      </p>
+    <% end %>
+    <%= form_with scope: :post, url: posts_path, local: true do |form| %>
+      ...
+    <% end %>
+    <%= link_to 'Back', root_path %>
+  </body>
+</html>

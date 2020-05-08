@@ -1,0 +1,9 @@
+<%= form_with scope: :video, model: @video, local: true do |form| %>
+  <p>
+    <%= form.label :youtube_id %><br>
+    <%= form.text_field :youtube_id %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

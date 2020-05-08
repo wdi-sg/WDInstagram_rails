@@ -1,0 +1,24 @@
+<h1>New Photo</h1>
+<%= form_with scope: :photo, url: photos_path, local: true do |form| %>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url %>
+    <%= form.label :make_gif%>
+    <input id="accept" name="accept" type="checkbox" value="1" />
+  </p>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_area :title %>
+  </p>
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

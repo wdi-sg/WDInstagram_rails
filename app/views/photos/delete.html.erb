@@ -1,0 +1,7 @@
+<h1> Really delete photo <%= @photo.id %>? </h1>
+<img src=<%= @photo.photo_url%>></img>
+<p>
+  <%= link_to 'Destroy', photo_path(@photo),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+</p>

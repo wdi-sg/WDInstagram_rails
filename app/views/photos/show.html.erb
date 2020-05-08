@@ -1,0 +1,8 @@
+<h1>Posted by: <%= @photo.author_name %></h1>
+<p>Title: <%= @photo.title %></p>
+<p>
+  <img src=<%= @photo.photo_url %>>
+</p>
+<p><small><%= @photo.caption %></small></p>
+<p><%= link_to 'Edit', edit_path %></p>
+<p><%= link_to 'Home', root_path %></p>

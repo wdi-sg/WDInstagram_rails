@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/profiles/:id' => 'profiles#show' , as: 'profile'
   get '/profiles/:id/edit' => 'profiles#edit', as: 'edit_profile'
   patch '/profiles/:id' => 'profiles#update'
+  delete '/profiles/:id' => 'profiles#destroy'
 end

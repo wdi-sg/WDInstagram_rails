@@ -1,0 +1,25 @@
+<% if notice %>
+  <div class="alert alert-secondary" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>
+  <%= @post.title %>
+</h1>
+
+<%= image_tag @post.photo_url %>
+
+<p>
+  <strong>Author name:</strong>
+  <%= @post.author_name %>
+  <strong>Posted On:</strong> <%= @post.created_at.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

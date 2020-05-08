@@ -1,0 +1,39 @@
+<% if notice %>
+  <div class="alert alert-secondary" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Posts</h1>
+
+<% @posts.each do |post| %>
+  <div class="card mb-4">
+    <img src=<%= post.photo_url %> class="card-img-top">
+    <div class="card-body">
+      <h3 class="card-title"><%= post.title %></h3>
+      <p class="card-text">
+        <b>Author:</b> <%= post.author_name %>
+        <b> Posted On:</b><%= post.created_at.strftime("%d/%m/%Y") %>
+      </p>
+      <p class="card-text">
+        <%= post.caption %>
+      </p>
+      <p>
+        <%= link_to 'Show', post, class: "btn" %>
+        <%= link_to 'Edit', edit_post_path(post), class: "btn" %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-inverse" %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<h5>Fluff</h5>
+<p>
+  <%= link_to 'Sort by date submitted ascending', posts_path(sort: "date", order: "asc") %> -
+  <%= link_to 'Sort by date submitted descending', posts_path(sort: "date", order: "dec") %>
+</p>
+<p>
+  <%= link_to 'Sort by author name ascending', posts_path(sort: "author_name", order: "asc") %> - 
+  <%= link_to 'Sort by author name descending', posts_path(sort: "author_name", order: "dec") %>
+</p>
+<%= link_to 'New Post', new_post_path, class: "btn" %>

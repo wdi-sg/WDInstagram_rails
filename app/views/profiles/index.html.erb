@@ -1,0 +1,97 @@
+<h1>Profile</h1>
+
+<table>
+	<tr>Gif Post</tr>
+  <tr>
+    <th>Title</th>
+
+    <th>By:  </th>
+    <th></th>
+  </tr>
+
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.title %></td>
+
+      <td><%= profile.author_name %></td>
+      <td><%= link_to 'Show', profile_path(profile) %></td>
+      <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+      <td><%= link_to 'Destroy', profile_path(profile),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+
+<table>
+	<tr>Video Post</tr>
+  <tr>
+    <th>Title</th>
+
+
+    <th></th>
+  </tr>
+
+  <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.title %></td>
+
+      <td><%= link_to 'Show', video_path(video) %></td>
+      <td><%= link_to 'Edit', edit_video_path(video) %></td>
+      <td><%= link_to 'Destroy', video_path(video),
+        method: :delete,
+        data: { confirm: 'Are you Very sure?' } %></td>
+
+    </tr>
+  <% end %>
+
+</table>
+
+
+<table>
+	<tr>Article Post</tr>
+  <tr>
+    <th>Title</th>
+
+
+    <th></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+
+
+    </tr>
+  <% end %>
+
+</table>
+
+
+
+
+<p>
+  <%= link_to 'New profile', new_profile_path %>
+</p>
+<p>
+  <%= link_to 'New video', new_video_path %>
+</p>
+<p>
+  <%= link_to 'New article', new_article_path %>
+</p>
+
+<p>
+   <%= link_to 'Sort By Date Ascending', root_path(type: "date", order: "asc") %>
+ </p>
+ <p>
+   <%= link_to 'Sort By Date Descending', root_path(type: "date", order: "desc") %>
+ </p>

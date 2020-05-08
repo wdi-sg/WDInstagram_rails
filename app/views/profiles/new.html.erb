@@ -1,0 +1,30 @@
+<%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+   <div class="form-group form-check">
+        <input type="checkBox" name="insertGif" value="true" class="form-check-input" id="insertGif">
+        <label class="form-check-label" for="insertGif">Give me a random Gif</label>
+    </div>
+    <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+
+   <p>
+    <%= form.label :title %><br>
+    <%= form.text_area :title %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

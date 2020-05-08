@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong>
+  <%= @profile.title %>
+</p>
+
+<p>
+  <strong>Photo Url:</strong>
+  <%= @profile.photo_url %>
+</p>
+<figure>
+	<%= image_tag @profile.photo_url %>
+	<figcaption> <%= @profile.caption %> </figcaption>
+</figure>
+<p>
+  <strong>By:</strong>
+  <%= @profile.author_name %>
+</p>
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+<%= link_to 'Back', root_path %>

@@ -1,0 +1,31 @@
+<h1>Edit post</h1>
+
+<%= form_with scope: :post, model: @post, local: true do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title%><br>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url %><br>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_field :caption %><br>
+  </p>
+
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %><br>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

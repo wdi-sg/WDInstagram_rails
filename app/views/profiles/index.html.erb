@@ -1,1 +1,20 @@
-<h1>hello world</h1>
+<h1>Profile</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Photo Url</th>
+    <th>By:  </th>
+    <th></th>
+  </tr>
+
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.title %></td>
+      <td><%= profile.photo_url %></td>
+      <td><%= profile.author_name %></td>
+      <td><%= link_to 'Show', profile_path(profile) %></td>
+    </tr>
+  <% end %>
+  <%= link_to 'New profile', new_profile_path %>
+</table>

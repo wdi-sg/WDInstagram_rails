@@ -7,9 +7,10 @@
   <strong>Photo Url:</strong>
   <%= @profile.photo_url %>
 </p>
-<p>
+<figure>
 	<%= image_tag @profile.photo_url %>
-</p>
+	<figcaption> <%= @profile.caption %> </figcaption>
+</figure>
 <p>
   <strong>By:</strong>
   <%= @profile.author_name %>

@@ -20,5 +20,14 @@
         data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
-  <%= link_to 'New profile', new_profile_path %>
+
 </table>
+<p>
+  <%= link_to 'New profile', new_profile_path %>
+</p>
+<p>
+   <%= link_to 'Sort By Date Ascending', root_path(type: "date", order: "asc") %>
+ </p>
+ <p>
+   <%= link_to 'Sort By Date Descending', root_path(type: "date", order: "desc") %>
+ </p>

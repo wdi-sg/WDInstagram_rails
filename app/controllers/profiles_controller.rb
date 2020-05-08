@@ -3,6 +3,8 @@ require 'GiphyClient'
 class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
+    @videos = Video.all
+    @articles=Article.all
     puts request.query_parameters
     order = request.query_parameters['order']
     type = request.query_parameters['type']
@@ -33,7 +35,7 @@ class ProfilesController < ApplicationController
 
 
         opts = {
-          tag: "chicken",
+          tag: "pokemon",
           rating: "g",
           fmt: "json"
         }

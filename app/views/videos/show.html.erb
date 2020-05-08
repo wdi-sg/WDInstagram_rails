@@ -1,0 +1,14 @@
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @video.url %>
+
+</p>
+<iframe src='https://www.youtube.com/embed/<%= @video.url %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+
+<%= link_to 'Edit', edit_video_path(@video) %>
+<%= link_to 'Back', root_path %>

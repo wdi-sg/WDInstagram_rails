@@ -1,3 +1,5 @@
+require 'GiphyClient'
+
 class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
@@ -23,8 +25,28 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    @input = profile_params
+    if params[:insertGif] == "true"
+        api_instance = GiphyClient::DefaultApi.new
 
+        api_key = "e3D4ND23ll9oYVvMUxmGsVdiKT1mEr0q"
+
+
+        opts = {
+          tag: "chicken",
+          rating: "g",
+          fmt: "json"
+        }
+
+        begin
+          result = api_instance.gifs_random_get(api_key, opts)
+          puts result.data
+        rescue GiphyClient::ApiError => e
+          puts "Exception when calling DefaultApi->gifs_search_get: #{e}"
+        end
+        @input[:photo_url] = result.data.image_url
+      end
+      @profile = Profile.new(@input)
     @profile.save
     redirect_to @profile
   end

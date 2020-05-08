@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/profiles/new' => 'profiles#new', as: 'new_profile'
   post '/profiles' => 'profiles#create'
   get '/profiles/:id' => 'profiles#show' , as: 'profile'
+  get '/profiles/:id/edit' => 'profiles#edit', as: 'edit_profile'
+  patch '/profiles/:id' => 'profiles#update'
 end

@@ -1,0 +1,31 @@
+<h1>All Posts</h1>
+<p>
+  <%= link_to 'New Post', new_post_path %>
+</p>
+
+<% @posts.each do |post| %>
+  <hr />
+  <h2>
+    <%= post.title %>
+  </h2>
+
+  <p>
+    <small> posted by: <%= post.author_name %>, <%= post.updated_at || "recently" %></small>
+  </p>
+
+  <%= image_tag(post.photo_url) %>
+
+  <p>
+    <%= post.caption %>
+  </p>
+
+  <table>
+    <tr>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </table>
+<% end %>

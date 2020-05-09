@@ -3,6 +3,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def desc
+    @posts = Post.order(:created_at).reverse_order
+    render "index"
+  end
+
+  def asc
+    @posts = Post.order(:created_at)
+    render "index"
+  end
+
   def show
     @post = Post.find(params[:id])
   end
@@ -37,7 +47,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :author_name, :post_content, :caption)
+    params.require(:post).permit(:title, :author_name, :post_content, :caption, :sort)
   end
-  
 end

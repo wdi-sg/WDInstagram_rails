@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  get '/asc' => 'posts#asc', as: 'posts_asc'
+
+  get '/desc' => 'posts#desc', as: 'posts_desc'
+
   get '/posts/new' => 'posts#new', as: 'new_post'
 
   post '/posts' => 'posts#create'

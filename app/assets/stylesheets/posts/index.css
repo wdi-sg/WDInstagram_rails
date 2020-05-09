@@ -1,8 +1,7 @@
-.index-card-div{
-	max-height: 50%;
-	max-width: 80%;
+.index-card-title{
+	color: black;
 }
 
-.index-card-img{
-
+.index-card-title:hover {
+	text-decoration: none;
 }

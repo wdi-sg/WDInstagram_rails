@@ -1,10 +1,22 @@
-<p>
-	<strong><%= @post.title %></strong>
-</p>
 
-<img src="<%= @post.photo_url %>" >
-</img>
-
-<p>
-	<%= @post.caption %>
-</p>
+<div class="container single-container">
+	<div class="row">
+		<div class="col-md">
+			<p class="title">
+				<strong><%= @post.title %></strong>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md single-img-div">
+			<img src="<%= @post.photo_url %>" class="single-img" ></img>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md">
+			<p class="single-caption">
+				<%= @post.caption %>
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,3 +1,16 @@
+body{
+	font-size: 5px;
+}
+
+.home-btn{
+	color: black;
+	font-size: 3rem;
+}
+
+.home-btn:hover{
+	text-decoration: none;
+}
+
 .index-card-title{
 	color: black;
 }

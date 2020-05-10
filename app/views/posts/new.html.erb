@@ -5,16 +5,17 @@
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :required => true %>
   </p>
 
   <p>
-    <%= label_tag(:photo_url, "Author Name") %><br>
-    <%= form.text_area :author_name %>
+    <%= label_tag(:author_name, "Author Name") %><br>
+    <%= form.text_area :author_name, :required => true%>
   </p>
     <p>
     <%= label_tag(:photo_url, "Your Image URL") %><br>
-    <%= form.text_area :photo_url %>
+    <%= url_field(:post, :photo_url) %>
+
   </p>
 
   <p>

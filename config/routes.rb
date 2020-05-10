@@ -7,6 +7,5 @@ Rails.application.routes.draw do
     delete 'posts/:id' => 'posts#destroy'
     post '/posts' => 'posts#create'
     
-
   root 'posts#index'
 end

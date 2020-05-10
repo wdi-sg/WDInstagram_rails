@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
   def index
-        @posts = Post.all
+    @posts = Post.all
+    @sort = params[:sort]
+        if @sort=='date_desc'
+          @posts = Post.order(created_at: :desc)
+        elsif @sort=='date_asc'
+          @posts = Post.order(created_at: :asc)      
+        elsif @sort=='author_asc'
+          @posts = Post.order(author_name: :asc)
+        elsif @sort=='author_desc'
+          @posts = Post.order(author_name: :desc)      
+        end
   end
 
   def show

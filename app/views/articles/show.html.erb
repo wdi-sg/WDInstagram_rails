@@ -1,9 +1,13 @@
-<%= link_to 'Back', root_path %>
-<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Home', root_path %>
 
-<p>
+<h3>
   <!-- <strong>Title:</strong> -->
   <%= @article.title %>
+</h3>
+
+<p>
+  <!-- <strong>Text:</strong> -->
+  <%= @article.created_at %>
 </p>
 
 <p style="width:300px; height:auto">
@@ -15,3 +19,8 @@
   <!-- <strong>Text:</strong> -->
   <%= @article.text %>
 </p>
+
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Destroy', article_path(@article),
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>

@@ -2,19 +2,34 @@
 
 <%= form_with scope: :post, model: @post, local: true do |form| %>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+   <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </p>
 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+    <p>
+      <%= form.label :author_name %><br>
+      <%= form.text_field :author_name %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+     <p>
+      <%= form.label :photo_url %><br>
+      <%= form.text_field :photo_url %>
+    </p>
+
+     <p>
+      <%= form.label :caption %><br>
+      <%= form.text_field :caption %>
+    </p>
+  
+    <p>
+      <%= form.label :text %><br>
+      <%= form.text_area :text %>
+    </p>
+  
+    <p>
+      <%= form.submit %>
+    </p>
 
 <% end %>
 

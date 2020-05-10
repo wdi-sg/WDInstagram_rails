@@ -1,5 +1,5 @@
 <h1>All Posts</h1>
-
+<h2>asdsd</h2>
 <table>
   <tr>
     <th>Author</th>
@@ -15,7 +15,7 @@
       <td><%= post.text %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Delete', post_path(post),
+      <td><%= button_to 'Destroy', post,
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
     </tr>

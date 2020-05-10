@@ -1,0 +1,15 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+<strong>By:</strong>
+<%= @post.author_name %>
+</p>
+
+<p>
+<%= image_tag(@post.photo_url) %>
+</p>
+
+<%= link_to 'Back to Home', root_path %>

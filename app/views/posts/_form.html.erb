@@ -1,0 +1,34 @@
+<%= form_with model: @post, local: true do |form| %>
+
+	<% if @post.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@post.errors.count, "error") %> occurred:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :Photo %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.submit :Submit%>
+  </p>
+<% end %>

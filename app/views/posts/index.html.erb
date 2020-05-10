@@ -1,0 +1,23 @@
+<h1>Listing Posts</h1>
+<%= link_to 'Home', root_path %>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Photo</th>
+    <th>Title</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.author_name %></td>
+      <td><%= image_tag("#{post.photo_url}") %></td>
+      <td><%= post.title %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

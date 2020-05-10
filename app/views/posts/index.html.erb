@@ -18,6 +18,9 @@
 			<td> <%= post.author_name %> </td>
                   <td> <%= link_to 'View Post', post_path(post) %>  </td>
                   <td><%= link_to 'Edit Post', edit_post_path(post) %></td>
+                  <td><%= link_to 'Delete Post', post_path(post),
+                  method: :delete,
+                  data: { confirm: 'Are you sure you want to delete this post?'} %></td>
 
 		</tr>
       <% end %>      

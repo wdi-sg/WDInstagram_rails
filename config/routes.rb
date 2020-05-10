@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   patch '/instagrams/:id' => 'instagrams#update'
 
-  delete '/instagrams/:id' => 'instagrams#destroy'
+  delete '/instagrams/:id' => 'instagrams#destroy', as: 'delete_instagram'
 end

@@ -13,9 +13,9 @@
       <td><%= instagram.title %></td>
       <td><%= instagram.author_name %></td>
       <td><%= instagram.photo_url %></td>
-      <td><%= link_to 'Show', instagrams_path(instagram) %></td>
-      <td><%= link_to 'Edit', edit_instagrams_path(instagram) %></td>
-      <td><%= link_to 'Destroy', instagrams_path(instagram),
+      <td><%= link_to 'Show', show_instagram_path(instagram) %></td>
+      <td><%= link_to 'Edit', edit_instagram_path(instagram) %></td>
+      <td><%= link_to 'Destroy', delete_instagram_path(instagram),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
     </tr>

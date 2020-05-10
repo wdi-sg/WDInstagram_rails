@@ -1,0 +1,17 @@
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>
+
+<p>
+  <!-- <strong>Title:</strong> -->
+  <%= @article.title %>
+</p>
+
+<p style="width:300px; height:auto">
+  <!-- <strong>Text:</strong> -->
+  <%= image_tag(@article.image, style:'width: 90%') %>
+</p>
+
+<p>
+  <!-- <strong>Text:</strong> -->
+  <%= @article.text %>
+</p>

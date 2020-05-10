@@ -12,7 +12,8 @@
     <tr>
       <td><%= instagram.title %></td>
       <td><%= instagram.author_name %></td>
-      <td><%= link_to 'Show', instagram_path(instagram) %></td>
+      <td><%= instagram.photo_url %></td>
+      <td><%= link_to 'Show', instagrams_path(instagram) %></td>
       <td><%= link_to 'Edit', edit_instagrams_path(instagram) %></td>
       <td><%= link_to 'Destroy', instagrams_path(instagram),
         method: :delete,

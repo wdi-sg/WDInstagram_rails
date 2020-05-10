@@ -12,6 +12,16 @@
   <body>
     <%= yield %>
     <h1>News Feed</h1>
+      <%= form_with(url: root_path, method: "get", scope: :sort,  local: true)  do |form| %>
+        <%=form.select "sort_by", raw("<option>Date</option>")  %>
+        <%=form.select "order", options_for_select({"Ascending" => "asc", "Descending" => "desc"}, @choice) %>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+
+
+
       <% @posts.each do |post| %>
         <div>
           <div><%= post.title %></div>

@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
     def index
-        @posts = Post.all
+        order = if params.has_key?("sort")
+                    params[:sort][:order].to_sym
+                else
+                    :asc
+                end
+        @choice = if params.has_key?("sort")
+                    params[:sort][:order]
+                  else
+                    "asc"
+                  end 
+        @posts = Post.order(updated_at: order)
     end
   
     def show

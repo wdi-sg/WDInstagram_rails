@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="jumbotron">
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, :required => true %>
+  </p>
+
+  <p>
+    <%= label_tag(:author_name, "Author Name") %><br>
+    <%= form.text_area :author_name, :required => true%>
+  </p>
+    <p>
+    <%= label_tag(:photo_url, "Your Image URL") %><br>
+    <%= url_field(:post, :photo_url) %>
+
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<br/><%= link_to 'Back to Home', root_path, :class => "btn btn-primary" %>
+</div>

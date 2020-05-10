@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="jumbotron">
+
+
+<p>
+<%= image_tag(@post.photo_url) %>
+</p>
+
+<%= form_with scope: :post, model: @post, html: {class:"form"}, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= label_tag(:photo_url, "Author Name") %><br>
+    <%= form.text_area :author_name %>
+  </p>
+    <p>
+    <%= label_tag(:photo_url, "Your Image URL") %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back to Post', post_path(@post), :class => "btn btn-dark mb-2"%>
+
+<br/><%= link_to 'Back to Home', root_path, :class => "btn btn-primary" %>
+
+</div>

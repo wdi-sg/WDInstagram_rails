@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="jumbotron">
+<h1>Welcome to Rubified Instagram</h1>
+
+<%= link_to 'New Post', new_post_path, :class => "btn btn-primary" %>
+
+
+<h2>All Posts</h2>
+
+<form action="/" method="get">
+
+      <button class="btn btn-sm btn-dark inline float-right mr-2">Go!</button>
+            <select class="float-right" name="sort">
+                  <%= options_for_select([["Author (A-Z)", "author_asc"], ["Author (Z-A)", "author_desc"], ["Date Posted (Oldest First)", "date_asc"], ["Date Posted (Newest First)", "date_desc"]]) %>
+            </select>
+      </form>
+
+<div class="inline float-right mr-2">Sort:</div>
+
+<table class="table">
+	<tr>
+		<th scope="col">Title</th>
+		<th scope="col"> Author</th>
+            		<th scope="col"> Date Added</th>
+                        <th scope="col">Edit</th>
+                                                <th scope="col">Delete</th>
+	</tr>
+	<% @posts.each do |post| %>
+		<tr>
+			<td> <%= link_to post.title, post_path(post) %> </td>
+			<td> <%= post.author_name %> </td>
+                                    <td> <%= post.created_at.to_time.strftime('%m/%d/%y') %> </td>
+                  <td><%= link_to 'Edit Post', edit_post_path(post) %></td>
+                  <td><%= link_to 'Delete Post', post_path(post),
+                  method: :delete,
+                  data: { confirm: 'Are you sure you want to delete this post?'} %></td>
+		</tr>
+      <% end %>      
+</table>
+
+</div>

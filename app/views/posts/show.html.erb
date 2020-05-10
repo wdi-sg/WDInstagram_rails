@@ -17,5 +17,11 @@
 </p>
 
 <p>
+  <%= link_to 'Destroy', post_path,
+   method: :delete,
+   data: { confirm: 'Are you sure?' } %>
+</p>
+
+<p>
   <%= link_to 'Back', root_path %>
 </p>

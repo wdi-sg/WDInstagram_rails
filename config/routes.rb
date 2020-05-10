@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/instagrams/:id' => 'instagrams#show' , as: 'show_instagram'
 
-  get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagrams'
+  get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagram'
 
   patch '/instagrams/:id' => 'instagrams#update'
 

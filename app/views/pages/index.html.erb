@@ -1,0 +1,15 @@
+<h1 style="text-decoration: underline; color:purple">Instagram</h1>
+
+<p style="font-size: 25px"><%= link_to 'New Post', new_page_path, style:"color: black" %></p><br><br><br><br>
+<% @pages.each do |page| %>
+
+<div style="border: 2px solid black; padding: 10px; width: 400px; margin: 50px; height: 550px; text-align: center">
+	<%= image_tag(page.photo_url, style:"height: 300px; width:380px; border-radius:25px; margin-bottom: 40px") %>
+
+	<p style="color: red; font-size: 23px">By: <%= page.author_name %></p>
+	<p style="color: blue; font-size: 23px">Title: <%= page.title %></p>
+	<p style="color: brown; font-size: 23px">Caption: <%= page.caption %></p>
+	<%= link_to 'Edit Post', edit_page_path(page), style:"color: grey; font-size: 20px" %>
+	<%= link_to 'Delete Post', page_path(page), method: :delete, style:"color: green; font-size: 20px" %>
+		<% end %>
+	<div>

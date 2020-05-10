@@ -16,6 +16,7 @@
       <tr>
         <th>Title</th>
         <th>Img</th>
+        <th>Caption</th>
         <th>Author</th>
         <th></th>
       </tr>
@@ -24,6 +25,7 @@
         <tr>
           <td><%= post.title %></td>
           <td><%= image_tag(post.photo_url, :alt => "photo!", height: 42, width: 42) %></td>
+          <td><%= post.caption %></td>
           <td><%= post.author_name %></td>
           <td><%= link_to 'Show', post_path(post) %></td>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>

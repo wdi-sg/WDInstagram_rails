@@ -1,26 +1,32 @@
 <%= link_to 'Home', root_path %>
 
-<h3>
-  <!-- <strong>Title:</strong> -->
-  <%= @article.title %>
-</h3>
+<div class="container">
 
-<p>
-  <!-- <strong>Text:</strong> -->
-  <%= @article.created_at %>
-</p>
+  <h3>
+    <!-- <strong>Title:</strong> -->
+    <%= @article.title %>
+  </h3>
 
-<p style="width:300px; height:auto">
-  <!-- <strong>Text:</strong> -->
-  <%= image_tag(@article.image, style:'width: 90%') %>
-</p>
+  <p>
+    <!-- <strong>Text:</strong> -->
+    <%= @article.created_at %>
+  </p>
 
-<p>
-  <!-- <strong>Text:</strong> -->
-  <%= @article.text %>
-</p>
+  <div class="image">
+    <!-- <strong>Text:</strong> -->
+    <%= image_tag(@article.image, style:'width: 100%') %>
+  </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %>
-<%= link_to 'Destroy', article_path(@article),
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %>
+  <p>
+    <!-- <strong>Text:</strong> -->
+    <%= @article.text %>
+  </p>
+
+  <%= link_to 'Edit', edit_article_path(@article) %>
+  <%= link_to 'Destroy', article_path(@article),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+
+</div>
+
+<br/>

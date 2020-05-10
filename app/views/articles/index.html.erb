@@ -1,25 +1,29 @@
-<h1>Instagram</h1>
-<div>
-  <%= link_to 'New article', new_article_path %>
+<div class="container">
+  <div>
+    <%= link_to 'New article', new_article_path %>
+  </div>
+
+  <% @articles.each do |article| %>
+
+    <div>
+      <h3><%= article.title %></h3>
+        <!-- <strong>Text:</strong> -->
+        <%= article.created_at %>
+      <div class="image">
+        <%= image_tag(article.image, style:'width: 100%') %>
+      </div>
+      <p><%= article.text %></p>
+      <div>
+        <%= link_to 'Show', article_path(article) %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article_path(article),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+      </div>
+      <br/>
+      <br/>
+    </div>
+  <% end %>
 </div>
 
-<% @articles.each do |article| %>
 
-  <div>
-    <h3><%= article.title %></h3>
-      <!-- <strong>Text:</strong> -->
-      <%= article.created_at %>
-    <p style="width:400px; height:400px"><%= image_tag(article.image, style:'height: 100%') %></p>
-    <p><%= article.text %></p>
-    <div>
-      <%= link_to 'Show', article_path(article) %>
-      <%= link_to 'Edit', edit_article_path(article) %>
-      <%= link_to 'Destroy', article_path(article),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div>
-<% end %>
-
-<br/>
-<br/>

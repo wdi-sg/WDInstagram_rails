@@ -7,9 +7,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      /* Email styles need to be inline */
+      .container {
+        text-align: center;
+        margin: 0px auto;
+      }
+
+      .image {
+        width: 350px;
+        height: auto;
+        display: block;
+        margin: 5px auto;
+      }
+
+    </style>
   </head>
 
   <body>
+    <h1>Instagram</h1>
     <%= yield %>
   </body>
 </html>

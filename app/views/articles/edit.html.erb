@@ -1,21 +1,21 @@
 <%= link_to 'Home', root_path %>
 
-<h1>Edit article</h1>
+<h1>Edit Post</h1>
 
 <%= form_with scope: :article, model: @article, local: true do |form| %>
 
   <p>
-    <%= form.label :title %><br>
+    <%= form.label :author %><br>
     <%= form.text_field :title %>
   </p>
 
   <p>
-    <%= form.label :image %><br>
+    <%= form.label :photo %><br>
     <%= form.file_field :image %>
   </p>
 
   <p>
-    <%= form.label :text %><br>
+    <%= form.label :caption %><br>
     <%= form.text_area :text %>
   </p>
 

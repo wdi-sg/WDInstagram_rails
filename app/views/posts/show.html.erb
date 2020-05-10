@@ -2,9 +2,10 @@
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
+<div>Date: <%= @post.updated_at %></div>
 
 <div>
-  <%= image_tag(@post.photo_url, :alt => "photo!", height: 42, width: 42) %>
+  <%= image_tag(@post.photo_url, :alt => "photo!", height: 500, width: 500) %>
 </div>
 
 <p>

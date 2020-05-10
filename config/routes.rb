@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'instagram#index'
+  root 'instagrams#index'
 
-  get '/instagram/new' => 'instagram#new', as: 'new_instagram'
+  get '/instagrams/new' => 'instagrams#new', as: 'new_instagrams'
 
-  post '/instagram' => 'instagram#create'
+  post '/instagrams' => 'instagrams#create'
 
+  get '/instagrams/:id' => 'instagrams#show' , as: 'show_instagram'
+
+  get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagrams'
+
+  patch '/instagrams/:id' => 'instagrams#update'
+
+  delete '/instagrams/:id' => 'instagrams#destroy'
 end

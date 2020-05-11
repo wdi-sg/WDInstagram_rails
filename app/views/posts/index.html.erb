@@ -1,0 +1,14 @@
+<div class="container d-flex flex-column">
+	<% @posts.each do |post| %>
+		<div class="row w-75 mx-auto">
+			<div class="card mb-3 col index-card-div">
+			  <img src="<%= post.photo_url %>" class="card-img-top index-card-img">
+			  <div class="card-body">
+			    <h5 class="card-title"><strong><%= link_to post.title, post , class: "index-card-title"%></strong></h5>
+			    <p class="card-text"><%= post.caption %></p>
+			    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			  </div>
+			</div>
+		</div>
+	<% end %>
+</div>

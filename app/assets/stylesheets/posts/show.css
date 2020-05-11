@@ -1,0 +1,13 @@
+.single-img-div{
+	/*border: 1px solid black;*/
+}
+
+.single-img{
+	max-height: 70%;
+	max-width: 70%;
+	border: 1px solid black;
+}
+
+.single-container{
+	text-align: center;
+}

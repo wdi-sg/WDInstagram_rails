@@ -1,0 +1,24 @@
+<%= form_with scope: :photo, url: photos_path, local: true do |f| %>
+
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</p>
+
+<p>
+	<%= f.label :photo_url %>
+	<%= f.text_field :photo_url %>
+</p>
+
+<p>
+	<%= f.label :author_name %>
+	<%= f.text_field :author_name %>
+</p>
+
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
+
+<%= link_to 'Homepage', root_path %>

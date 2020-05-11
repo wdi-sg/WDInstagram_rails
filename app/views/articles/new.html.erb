@@ -1,0 +1,34 @@
+<div class='container'>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :author_name %><br>
+    <%= form.text_field( :author_name, {:class => 'form-control'})%>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area( :photo_url, {:class => 'form-control'})%>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_area(:title, {:class => 'form-control'})%>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area(:caption, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= form.submit({:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  ...
+
+<% end %>
+
+<%= link_to 'Back', root_path, ({:class => 'btn btn-primary'})  %>
+</div>

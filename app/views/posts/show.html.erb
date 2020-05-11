@@ -1,0 +1,15 @@
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+<%=image_tag(@post.photo_url)%>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Back', root_path %> 

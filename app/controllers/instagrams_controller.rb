@@ -11,7 +11,7 @@ class InstagramsController < ApplicationController
   end
 
   def edit
-    @instagram = Instagram.find(params[:id])
+    @banana = Instagram.find(params[:id])
   end
 
   def create

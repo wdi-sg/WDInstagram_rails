@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   root 'instagrams#index'
 
-  get '/instagrams/new' => 'instagrams#new', as: 'new_instagrams'
+  get '/instagrams/new' => 'instagrams#new', as: 'new_instagram'
 
   post '/instagrams' => 'instagrams#create'
 
-  get '/instagrams/:id' => 'instagrams#show' , as: 'show_instagram'
+  get '/instagrams/:id' => 'instagrams#show' , as: 'apple'
 
   get '/instagrams/:id/edit' => 'instagrams#edit', as: 'edit_instagram'
 

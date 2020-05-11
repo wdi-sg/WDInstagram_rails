@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WDInstagramRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <h1>News Feed</h1>
+      <%= form_with(url: root_path, method: "get", scope: :sort,  local: true)  do |form| %>
+        <%=form.select "sort_by", raw("<option>Date</option>")  %>
+        <%=form.select "order", options_for_select({"Ascending" => "asc", "Descending" => "desc"}, @choice) %>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+
+
+
+      <% @posts.each do |post| %>
+        <div>
+          <div><%= post.title %></div>
+          <div><%= image_tag(post.photo_url, :alt => "photo!", height: 200, width: 200) %></div>
+          <div><%= post.caption %></div>
+          <div>Author: <%= post.author_name %></div>
+          <div>Date: <%= post.updated_at %></div>
+          <div><%= link_to 'Show', post_path(post) %></div>
+          <div><%= link_to 'Edit', edit_post_path(post) %></div>
+          <div><%= link_to 'Destroy', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+          <br>
+          
+        </div>
+      <% end %>
+    </table>
+
+    <%= link_to 'New Post', new_post_path %>
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<%= form_with scope: :instagram, url: instagrams_path, local: true do |form| %>
+	<h1>
+		Welcome to WDI instagram!!!
+	</h1>
+	<p>
+	  <%= form.label :author_name %><br>
+	  <%= form.text_field :author_name %>
+	</p>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

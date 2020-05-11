@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @instagram.title %>
+</p>
+
+<p>
+  <strong>Author Name:</strong>
+  <%= @instagram.author_name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src='<%= @instagram.photo_url %>'/>
+</p>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_instagram_path(@instagram) %>

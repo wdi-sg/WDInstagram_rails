@@ -1,0 +1,15 @@
+<h1>Showing video</h1>
+
+
+
+
+
+<p><%= @video.title %></p>
+<p><%= @video.author_name %></p>
+<iframe width="300" src=<%= @video.video_url %> alt=<%= @video.caption %>></iframe>
+<p><%= @video.caption %></p>
+
+
+<%= link_to 'Back', videos_path %>
+<%= link_to 'Edit', edit_video_path(@video) %>
+<%= link_to 'Delete', video_path(@video), method: :delete, data: { confirm: 'Are you sure?' } %>

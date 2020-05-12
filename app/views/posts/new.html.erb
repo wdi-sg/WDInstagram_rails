@@ -1,0 +1,32 @@
+<p id="target"></p>
+<%= button_tag :Generate_Random_Gif, :onclick => "sendGif()"  %>
+
+<%= render 'form' %>
+
+
+
+
+
+
+
+<script>
+  function sendGif(){
+    var node = document.querySelector("#target")
+    if (node.firstChild){
+      node.removeChild(node.firstChild)
+    }
+    Rails.ajax({
+      url: "/randomgif",
+      type: "post",
+      success: function(data){
+        console.log(data.data)
+        var img = document.createElement("img")
+        img.src = data.data.image_url
+        img.style.width = "300px"
+        img.id = "giphystuff"
+        document.querySelector("#post_photo_url").value = data.data.image_url
+        document.querySelector("#target").appendChild(img)
+      }
+    })
+  }
+</script>

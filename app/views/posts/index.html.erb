@@ -1,0 +1,122 @@
+<h1>Listing posts</h1>
+<%= link_to "Back to all", root_path %>
+<%= link_to "New Post", new_post_path %>
+
+<%= select_tag(:sorttag, options_for_select([['Sort By Date (ASC)', 1], ['Sort By Date (DESC)', 2]]), :onchange => "sortBy()" ) %>
+
+
+
+<table id="postcontainer">
+  <tr>
+    <th>Title</th>
+    <th>Photo</th>
+    <th>Author</th>
+    <th>Created At</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr class="target">
+      <td><%= post.title %></td>
+      <td><img width="100%" style="max-width:100px" src= <%= post.photo_url %> ></td>
+      <td><%= post.author_name %></td>
+      <td><%= post.created_at %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<script>
+  function sortBy(){
+    console.log(document.querySelector("#sorttag").value)
+    Rails.ajax({
+      url: "/sortpost",
+      type: "get",
+      data: document.querySelector("#sorttag").value,
+      success: function(data){
+        console.log(data)
+        console.log ("works!")
+        var removeList = document.querySelectorAll(".target")
+        removeList.forEach(function(item){
+          item.remove()
+        })
+        data.forEach ((obj)=>{
+          var tr = document.createElement("tr")
+          tr.className = "target"
+          var td1 = document.createElement("td")
+          var td2 = document.createElement("td")
+          var td3 = document.createElement("td")
+          var td4 = document.createElement("td")
+          var img = document.createElement("img")
+          td1.innerHTML = obj.title
+          td3.innerHTML = obj.author_name
+          img.src = obj.photo_url
+          img.style.width = 100%+""
+          img.style.maxWidth = 100+"px"
+          td4.innerHTML = obj.created_at
+
+          td2.appendChild(img)
+          tr.appendChild(td1)
+          tr.appendChild(td2)
+          tr.appendChild(td3)
+          tr.appendChild(td4)
+
+          var showLink = document.createElement('td')
+          var showHREF = document.createElement('a')
+          var editLink = document.createElement('td')
+          var editHREF = document.createElement('a')
+          var deleteLink = document.createElement('td')
+          var deleteHREF = document.createElement('a')
+
+          showHREF.href = "/posts/"+obj.id
+          showHREF.innerHTML = "Show"
+          editHREF.href = "/posts/"+obj.id+"/edit"
+          editHREF.innerHTML = "Edit"
+          deleteHREF.href = "/posts/"+obj.id
+          deleteHREF.innerHTML = "Delete"
+          deleteHREF.rel = "nofollow"
+          deleteHREF.setAttribute('data-method', "delete")
+          deleteHREF.setAttribute('data-confirm', "Are you sure?")
+          showLink.appendChild(showHREF)
+          editLink.appendChild(editHREF)
+          deleteLink.appendChild(deleteHREF)
+
+          tr.appendChild(showLink)
+          tr.appendChild(editLink)
+          tr.appendChild(deleteLink)
+
+
+          document.querySelector("#postcontainer").appendChild(tr)
+        })
+      }
+    })
+
+
+
+
+    //
+    // console.log(document.querySelector("#sorttag").value)
+    //
+    // var responseHandler = function() {
+    //   console.log("response text", this.responseText);
+    //   console.log("status text", this.statusText);
+    //   console.log("status code", this.status);
+    //
+    // };
+    // var request = new XMLHttpRequest();
+    // request.addEventListener("load", responseHandler);
+    //
+    // var url = "http://127.0.0.1:3000/sort";
+    // request.open("get", url, true);
+    //
+    // request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    // var dataSet = {
+    //   data:document.querySelector("#sorttag").value
+    // }
+    // var overallData = JSON.stringify(dataSet)
+    // request.send(`data=${overallData}`);
+
+  }
+</script>

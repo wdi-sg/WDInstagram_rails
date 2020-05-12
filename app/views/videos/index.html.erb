@@ -1,0 +1,99 @@
+<h1>Listing videos</h1>
+<%= link_to "Back to all", root_path %>
+<%= link_to "New Video", new_video_path %>
+
+<%= select_tag(:sorttag, options_for_select([['Sort By Date (ASC)', 1], ['Sort By Date (DESC)', 2]]), :onchange => "sortBy()" ) %>
+
+
+
+<table id="postcontainer">
+  <tr>
+    <th>Title</th>
+    <th>Video</th>
+    <th>Author</th>
+    <th>Created At</th>
+  </tr>
+
+  <% @videos.each do |video| %>
+    <tr class="target">
+      <td><%= video.title %></td>
+      <td><iframe width="100%" style="max-width:300px" src= <%= video.video_url %> ></iframe></td>
+      <td><%= video.author_name %></td>
+      <td><%= video.created_at %></td>
+      <td><%= link_to 'Show', video_path(video) %></td>
+      <td><%= link_to 'Edit', edit_video_path(video) %></td>
+      <td><%= link_to 'Delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<script>
+  function sortBy(){
+    console.log(document.querySelector("#sorttag").value)
+    Rails.ajax({
+      url: "/sortvideo",
+      type: "get",
+      data: document.querySelector("#sorttag").value,
+      success: function(data){
+
+        console.log(typeof data)
+
+        var removeList = document.querySelectorAll(".target")
+        removeList.forEach(function(item){
+          item.remove()
+        })
+
+        data.forEach ((obj)=>{
+
+          var tr = document.createElement("tr")
+          tr.className = "target"
+          var td1 = document.createElement("td")
+          var td2 = document.createElement("td")
+          var td3 = document.createElement("td")
+          var td4 = document.createElement("td")
+          var iframe = document.createElement("iframe")
+          var showLink = document.createElement('td')
+          var showHREF = document.createElement('a')
+          var editLink = document.createElement('td')
+          var editHREF = document.createElement('a')
+          var deleteLink = document.createElement('td')
+          var deleteHREF = document.createElement('a')
+
+          td1.innerHTML = obj.title
+          td3.innerHTML = obj.author_name
+          iframe.src = obj.video_url
+          iframe.style.width = 100%+""
+          iframe.style.maxWidth = 300+"px"
+          td4.innerHTML = obj.created_at
+
+          td2.appendChild(iframe)
+          tr.appendChild(td1)
+          tr.appendChild(td2)
+          tr.appendChild(td3)
+          tr.appendChild(td4)
+
+          showHREF.href = "/videos/"+obj.id
+          showHREF.innerHTML = "Show"
+          editHREF.href = "/videos/"+obj.id+"/edit"
+          editHREF.innerHTML = "Edit"
+          deleteHREF.href = "/videos/"+obj.id
+          deleteHREF.innerHTML = "Delete"
+          deleteHREF.rel = "nofollow"
+          deleteHREF.setAttribute('data-method', "delete")
+          deleteHREF.setAttribute('data-confirm', "Are you sure?")
+
+          showLink.appendChild(showHREF)
+          editLink.appendChild(editHREF)
+          deleteLink.appendChild(deleteHREF)
+
+          tr.appendChild(showLink)
+          tr.appendChild(editLink)
+          tr.appendChild(deleteLink)
+
+          document.querySelector("#postcontainer").appendChild(tr)
+        })
+      }
+    })
+  }
+</script>

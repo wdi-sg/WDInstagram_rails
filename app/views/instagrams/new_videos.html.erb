@@ -1,0 +1,35 @@
+<h1>Add new videos page</h1>
+
+<%= form_with scope: :instagram_videos, url: instagrams_videos_path, local: true do |form| %>
+	  <p>
+	    <strong><%= form.label :name %></strong><br>
+	    <%= form.text_field :name %>
+	  </p>
+
+		<p>
+	    <%= form.label :category%><br>
+	    <%= form.text_field :category, :value => 'video', :readonly => true%>
+	  </p>
+
+	  <p>
+	    <strong><%= form.label :video_key %></strong><br>
+	    <%= form.text_field :video_key %>
+	  </p>
+	  <p>For e.g, the video key will be: https://www.youtube.com/watch?v=<strong>hw_HpTI_Wkw</strong></p>
+
+	  <p>
+	    <strong><%= form.label :title %></strong><br>
+	    <%= form.text_field :title %>
+	  </p>
+
+	  <p>
+	    <strong><%= form.label :caption %></strong><br>
+	    <%= form.text_area :caption %>
+	  </p>
+
+	  <p>
+	    <%= form.submit :'post video'%>
+	  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

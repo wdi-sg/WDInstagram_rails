@@ -1,0 +1,30 @@
+<h1>Edit Instagram Post</h1>
+
+<%= form_with scope: :instagram_posts, model: @instagram_edit_post, url: update_instagram_path, local: true do |form| %>
+  	<p>
+	    <%= form.label :name %><br>
+	    <%= form.text_field :name%>
+	  </p>
+
+	  <p>
+	    <%= form.label :title %><br>
+	    <%= form.text_field :title%>
+	  </p>
+
+	  <p>
+	    <%= form.label :image_url %><br>
+	    <%= form.text_field :image_urll%>
+	  </p>
+
+	  <p>
+	    <%= form.label :caption %><br>
+	    <%= form.text_area :caption%>
+	  </p>
+
+  <p>
+    <%= form.submit :'edit post' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

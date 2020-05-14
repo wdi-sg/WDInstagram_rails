@@ -1,0 +1,12 @@
+<h3><%= @instagram_indiv_video.title %></h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @instagram_indiv_video.video_key %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+  <strong><%=@instagram_indiv_video.name %></strong>
+  <%= @instagram_indiv_video.caption %>
+</p>
+
+<p><%= link_to 'Edit', edit_video_instagram_path(@instagram_indiv_video) %> || <%= link_to 'Destroy', instagram_video_path(@instagram_indiv_video), method: :delete, data: { confirm: 'Are you sure you want to delete this video?' } %></p>
+
+<p><%= link_to 'Back', root_path %></p>

@@ -1,0 +1,27 @@
+<!-- ><h1>hello world</h1> -->
+
+<h1>Listing entries</h1>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Photo</th>
+		<!-- ><th></th> -->
+	</tr>
+	<tr>
+		<td><%= link_to 'New entry', new_entry_path %></td>
+		<td><%= link_to 'My Insta', controller: 'entries' %></td>
+	</tr>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.author %></td>
+      <td><%= entry.photo_url %></td>
+	  <td><%= entry.created_at %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+	  <td><%= link_to 'Edit', entry_path(entry) %></td>
+	  <td><%= link_to 'Destroy', entry_path(entry),
+	          method: :delete,
+	          data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

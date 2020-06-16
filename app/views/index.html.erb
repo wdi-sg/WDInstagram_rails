@@ -1,0 +1,47 @@
+<h1>WELCOME TO WDINSTAGRAM!</h1>
+
+<h1>Listing mains</h1>
+
+<form method="GET" action="/">
+	<select name="sortby" onchange='this.form.submit()'>
+		<option>Sort By</option>
+		<option value="title ASC">Title Asc</option>
+		<option value="title DESC">Title Desc</option>
+		<option value="author_name ASC">Author Name Asc</option>
+		<option value="author_name DESC">Author Name Desc</option>
+		<option value="created_at ASC">Created Asc</option>
+		<option value="created_at DESC">Created Desc</option>
+		<option value="updated_at ASC">Updated Asc</option>
+		<option value="updated_at DESC">Updated Desc</option>
+	</select>
+</form>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Photo Url</th>
+    <th>Author Name</th>
+    <th>Caption</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+
+#   <% @mains.each do |main| %>
+#     <tr>
+#     	<% puts @mains %>
+#       <td><%= post.title %></td>
+#       <td><%= image_tag post.photo_url %></td>
+#       <td><%= post.author_name %></td>
+#       <td><%= post.caption %></td>
+#       <td><%= post.created_at.strftime("%d %B %Y, %I:%M%p") %></td>
+#       <td><%= time_ago_in_words(post.updated_at) %> ago</td>
+#       <td><%= link_to 'Show', post_path(post) %></td>
+#       <td><%= link_to 'Edit', edit_post_path(post) %></td>
+#       <td><%= link_to 'Destroy', post_path(post),
+#         method: :delete,
+#         data: { confirm: 'Are you sure?' } %></td>
+#     </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New post', new_post_path %>

@@ -1,0 +1,34 @@
+
+
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :title, "Title" %><br/>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author_name, "Author's name" %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url, "Photo URL" %><br/>
+    <%= form.text_area :photo_url %>
+  </p>
+
+   <div class="form-group form-check">
+        <input type="checkBox" name="gifCheck" value="true" class="form-check-input" id="gifCheck">
+        <label class="form-check-label" for="gifCheck">Generate Random GIF</label>
+    </div>
+
+  <p>
+    <%= form.label :caption, "Caption" %><br/>
+    <%= form.text_area :caption %>
+  </p>
+
+
+  <p>
+    <%= form.submit "Submit"%>
+  </p>
+<% end %>

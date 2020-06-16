@@ -1,0 +1,19 @@
+
+<div class="post_wrapper">
+
+        <div class="top_wrapper d-flex align-items-center d-flex justify-content-between">
+
+            <span class="title"><div id="profile_pic"></div><%= @post.title %></span>
+            <span class="dots font-weight-bold h5">...</span>
+        </div>
+      <div id="photo"><%= image_tag(@post.photo_url) %></div>
+      <div class="title_wrapper">
+      <span id="title"><span class="author_name"><%= @post.author_name %></span><%= @post.caption %></span>
+        </div>
+      <div id="timestamp"><%= @post.updated_at.strftime('%d %B, %l:%M%P') %></div>
+        <div class="bottom_wrapper">
+            <div><%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+
+
+        </div>
+  </div>

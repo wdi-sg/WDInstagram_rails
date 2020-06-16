@@ -1,0 +1,37 @@
+<h1>Welcome to Instagram</h1>
+
+
+<ul>
+<% @instagrams.each do |instagram| %>
+<li>
+	<strong><%= instagram.username %></strong>
+	<p><%= image_tag instagram.image_url, style:'height: 300px;' 'width: auto;' %></p>
+
+	<p><%= instagram.caption %></p>
+	<%= instagram.comments.count %>
+
+
+	<p>
+		<%= link_to 'Show', instagram_path(instagram) %> <br>
+		<%= link_to 'Edit', edit_instagram_path(instagram) %><br>
+		<%= link_to 'Destroy', instagram_path(instagram),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+
+
+	</p>
+
+
+
+</li>
+
+<%end %>
+
+</ul>
+
+
+
+
+<o><%= link_to 'My Instagram', controller: 'instagrams' %></p>
+<p><%= link_to 'New Post', new_instagram_path %></p>
+<p><%= link_to 'All Posts', instagrams_path %></p>

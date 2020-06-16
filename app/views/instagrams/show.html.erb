@@ -1,0 +1,52 @@
+
+<h1>Instagram</h1>
+<p>
+  <strong>Username:</strong>
+  <%= @instagram.username %>
+</p>
+
+<p>
+  <strong></strong>
+  <%= image_tag @instagram.image_url, style:'height: 300px;' 'width: auto;' %>
+</p>
+
+<p>
+	<strong>Caption</strong>
+	<%= @instagram.caption %>
+</p>
+
+<p>
+	<strong>Date</strong>
+	<%= @instagram.date_taken %>
+</p>
+
+<strong>Tags</strong>
+ <% @tags.each do |tag| %>
+ 	<%= link_to tag.name, tag_instagrams_path(tag) %>
+ <% end %>
+
+
+
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+ 	<%= form.hidden_field :instagram_id, :value => @instagram.id %>
+ 	<p>
+ 		<%= form.label :text, "Add Comment" %></br>
+ 		<%= form.text_area :text %>
+ 	</p>
+
+ 	<p>
+ 		<%= form.submit %>
+ 	</p>
+ <% end %>
+
+ <% @comments.each do |comment| %>
+ <p><strong>Your Comment:</strong></p>
+ 	<li><%= comment.text %></li>
+ 	<%= link_to 'Edit', edit_comment_path(comment) %>
+ 	<%= link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'} %>
+ <% end %>
+
+
+
+<p><%= link_to 'Back', instagrams_path %></p>
+<o><%= link_to 'Edit', edit_instagram_path(@instagram) %></p>

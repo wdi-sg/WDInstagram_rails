@@ -1,0 +1,26 @@
+<h1 style="color:blue; font-size: 50px; text-align center;">Photos</h1>
+
+<table>
+    <tr>
+        <th>Author Name</th>
+        <th>Photos URL</th>
+        <th>Title</th>
+        <th>Caption</th>
+        <th>Created</th>
+        <th></th>
+    </tr>
+
+    <% @photos.each do |photo| %>
+    <tr style="text-align: center;">
+        <td><%= photo.author_name %></td>
+        <td><%= photo.title %></td>
+        <td><%= photo.caption %></td>
+        <td><%= photo.created_at %></td>
+        <td><p><%= link_to 'SHOW', photo_path(photo) %></p>
+        <p><%= link_to 'EDIT', edit_photo_path(photo) %></p>
+        <p><%= link_to 'DELETE', photo_path(photo),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></p></td>
+    </tr>
+    <% end %>
+</table>

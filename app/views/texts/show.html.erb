@@ -1,0 +1,17 @@
+<p>
+    <strong>Author Name:</strong>
+    <%= @text.author_name %>
+</p>
+
+
+<p>
+    <strong>Title:</strong>
+    <%= @text.title %>
+</p>
+
+<p>
+    <strong>Caption:</strong>
+    <%= @text.caption %>
+</p>
+
+<h3><%= link_to 'BACK TO MAIN',link_to 'EDIT POST', edit_post_path(@post) %></h3>

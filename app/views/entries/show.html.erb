@@ -1,0 +1,46 @@
+<p>
+	<strong>Author:</strong>
+	<%= @entry.author %>
+</p>
+
+<p>
+	<strong>Photo:</strong>
+	<%= image_tag(@entry.photo_url, width: "200") %>
+</p>
+
+<p>
+	<strong>Date Taken:</strong>
+	<%= @entry.date_taken %>
+</p>
+
+<strong>Comments:</strong>
+<ul>
+<% @entry.comments.each do |comment| %>
+<li><%= comment.user_comment %> | <%= link_to 'Edit', edit_comment_path(comment) %> | <%= link_to 'Destroy', comment_path(comment),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+<% end %>
+</ul>
+
+<strong>Hash Tag:</strong>
+<ul>
+<% @entry.tags.each do |tag| %>
+<li><%= tag.hash_tag %>
+<% end %>
+</ul>
+
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+<p>
+		<%= form.label :user_comment %><br>
+		<%= form.text_area :user_comment %>
+</p>
+<p>
+		<%= form.hidden_field :entry_id, :value => @entry.id %>
+</p>
+<p>
+		<%= form.submit %>
+</p>
+<% end %>
+
+<p><%= link_to 'Edit', edit_entry_path(@entry) %></p>
+<p><%= link_to 'Back', entries_path %></p>

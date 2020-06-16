@@ -1,0 +1,10 @@
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+<%= form.collection_select :entry_id, @entries, :id, :photo_url %>
+<p>
+		<%= form.label :user_comment %><br>
+		<%= form.text_area :user_comment %>
+</p>
+<p>
+		<%= form.submit %>
+</p>
+<% end %>

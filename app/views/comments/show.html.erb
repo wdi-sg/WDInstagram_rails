@@ -1,0 +1,12 @@
+<p>
+	<strong>Entry ID:</strong>
+	<%= @comment.entry_id %>
+</p>
+
+<p>
+	<strong>Comment:</strong>
+	<%= @comment.user_comment %>
+</p>
+
+<p><%= link_to 'Edit', edit_comment_path(@comment) %></p>
+<p><%= link_to 'Back', comments_path %></p>

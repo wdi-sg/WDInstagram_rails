@@ -1,0 +1,27 @@
+<h1>Comments</h1>
+
+<table>
+	<tr>
+		<th>Entry ID</th>
+		<th>Comment</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Remove</th>
+	</tr>
+
+	<% @comments.each do |comment| %>
+		<tr>
+			<td><%= comment.entry_id %></td>
+			<td><%= comment.user_comment %></td>
+			<td><%= link_to 'Show', comment_path(comment) %></td>
+			<td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+			<td><%= link_to 'Destroy', comment_path(comment),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to 'My Comments', controller: 'comments' %></p>
+
+<p><%= link_to 'New Comment', new_comment_path %></p>

@@ -1,0 +1,28 @@
+
+
+<iframe width="560" height="315" src=<%= @video.video_url %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+	<strong>Caption:</strong>
+	<%= @video.caption %>
+</p>
+
+<p>
+	<strong>Author:</strong>
+	<%= @video.author_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %>
+
+
+<%= link_to 'Back', root_path %>
+
+<%= link_to 'Delete', video_path(@video),
+			        method: :delete,
+			        data: { confirm: 'Are you sure you want to delete this masterpiece?' } %>

@@ -1,0 +1,26 @@
+body {
+	background: #fffdd0;
+}
+
+.pagewrapper {
+	margin: 20px auto;
+}
+
+
+.box {
+	width: 300px;
+	height: 350px;
+	border: 2px solid;
+	display: inline-block;
+	margin: 5px;
+}
+
+img {
+	width: 300px;
+	height: 200px;
+	object-fit: cover;
+}
+
+p {
+	padding: 5px;
+}

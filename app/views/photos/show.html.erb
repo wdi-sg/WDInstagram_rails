@@ -1,0 +1,17 @@
+<p>
+    <strong>Author Name:</strong>
+    <%= @photos.author_name %>
+</p>
+
+
+<p>
+    <strong>Title:</strong>
+    <%= @photos.title %>
+</p>
+
+<p>
+    <strong>Caption:</strong>
+    <%= @photos.caption %>
+</p>
+
+<h3><%= link_to 'BACK TO MAIN',link_to 'EDIT PHOTOS POST', edit_photos_path(@photos) %></h3>

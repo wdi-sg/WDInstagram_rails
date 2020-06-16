@@ -13,3 +13,68 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 50px;
+	text-align: center;
+}
+
+h2, h4 {
+	text-align: center;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	/*border: 2px solid red;*/
+}
+
+.post-container {
+	border: 2px solid grey;
+	width: 400px;
+	height: 500px;
+	padding: 10px;
+	margin: 10px auto;
+	/*margin: 10px;*/
+}
+
+.media-container {
+	margin-top:50px;
+}
+
+.media-container img {
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+}
+
+.post-container a {
+	text-decoration: none;
+	color: black;
+}
+
+.post-container {
+  position: relative;
+  text-align: center;
+}
+
+.delete-container {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 20px;
+}
+
+.title-container {
+  position: absolute;
+  top: -8px;
+  left: 16px;
+}
+
+
+.title-container h2 {
+	font-family: 'Satisfy', cursive;
+}

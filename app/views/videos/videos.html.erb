@@ -1,0 +1,26 @@
+<h1>Postagram</h1>
+
+
+<div class="main-container">
+
+	<% @videos.each do |video| %>
+		<div class="post-container">
+			<div class="media-container">
+				<iframe width="400" height="400" src="<%= video.video_url %>" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div class="title-container">
+				<h2><%= link_to video.title, video_path(video) %></h2>
+			</div>
+
+			<div class="caption-container">
+				<h2><%= video.caption %></h2>
+			</div>
+
+			<div class="author-container">
+				<h4><%= video.author_name %></h4>
+			</div>
+
+		</div>
+	<% end %>
+</div>

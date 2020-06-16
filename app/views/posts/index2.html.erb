@@ -1,0 +1,74 @@
+<h1>Postagram</h1>
+
+<p><%= link_to 'New Post', new_post_path %></p>
+
+<form method="GET" action="/">
+	<label>Sort By</label>
+	<select name="sort">
+	  <!-- <option value="">Sort By</option>
+	  <option value="id">Id</option>
+	  <option value="caption">Caption</option> -->
+	  <option value="date">Date</option>
+	</select>
+
+	<label>Order By</label>
+	<select name="order">
+		<option value="asc">Ascending</option>
+		<option value="desc">Descending</option>
+	</select>
+
+	<button type="submit">Sort</button>
+</form>
+
+
+<div class="main-container">
+
+	<% @posts.each do |post| %>
+		<div class="post-container">
+			<div class="media-container">
+				<img src=<%= post.photo_url %>>
+			</div>
+
+			<div class="title-container">
+				<h2><%= link_to post.title, post_path(post) %></h2>
+			</div>
+
+			<div class="caption-container">
+				<h2><%= post.caption %></h2>
+			</div>
+
+			<div class="author-container">
+				<h4><%= post.author_name %></h4>
+			</div>
+
+			<div class="delete-container">
+				<%= link_to '❌', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+	<% end %>
+
+	<% p @videos %>
+
+	<% @videos.each do |video| %>
+		<div class="post-container">
+			<div class="media-container">
+				<iframe width="400" height="400" src="<%= video.video_url %>" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div class="title-container">
+				<h2><%= link_to video.title, video_path(video) %></h2>
+			</div>
+
+			<div class="caption-container">
+				<h2><%= video.caption %></h2>
+			</div>
+
+			<div class="author-container">
+				<h4><%= video.author_name %></h4>
+			</div>
+
+		</div>
+	<% end %>
+</div>

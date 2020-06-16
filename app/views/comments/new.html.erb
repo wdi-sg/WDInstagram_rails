@@ -1,0 +1,33 @@
+<%= form_with scope: :comment, url: photo_comments_path, local: true do |form| %>
+
+<%= image_tag @photo.url, style:'height: 300px;' %>
+
+<p>
+  <Strong>Comments:</strong>
+  <% @comments.each do |comment|  %>
+  <h5><%=comment.comment %></h5>
+  <p>
+  <%= link_to 'Destroy', photo_comment_path(@photo, comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+  </p>
+  <% end %>
+</p>
+
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment%>
+  </p>
+
+  <%= form.hidden_field :photo_id, :value => @photo.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+
+
+
+  
+<% end %>

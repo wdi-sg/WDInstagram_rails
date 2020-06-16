@@ -1,0 +1,23 @@
+<h1>WDInstagram</h1>
+
+<%= link_to 'NEW', new_photo_path %>
+<table>
+  
+   
+  <% @photos.each do |photo| %>
+    <tr>
+      <td><%= link_to image_tag(photo.url, style: 'height: 40vh ; width: 40vw '), photo_path(photo) %></td>
+    </tr>
+    <tr>
+      <td>
+        <Strong>Comments:</strong>
+          <% photo.comment.each do |comment|  %>
+          <h4><%=comment.comment %></h4>
+          <%= link_to 'Delete Comment', photo_comment_path(photo, comment),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?'} %>
+        <% end %>
+       </td>
+    </tr>
+  <% end %>
+</table>

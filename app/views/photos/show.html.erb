@@ -1,0 +1,58 @@
+<%= image_tag @photo.url, style:'height: 300px;' %>
+
+<p>
+  <strong>Author:</strong>
+  <%= @photo.author %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @photo.date %>
+</p>
+
+<p>
+  <Strong>Comments:</strong>
+  <% @comments.each do |comment|  %>
+  <h4><%=comment.comment %></h4>
+  <%= link_to 'Delete Comment', photo_comment_path(@photo, comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+  <% end %>
+</p>
+
+
+<p>
+<%= link_to 'Back', photos_path %>
+</p>
+<p>
+<%= link_to 'Edit', edit_photo_path(@photo) %>
+</p>
+<p>
+<%= link_to 'Destroy', photo_path(@photo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+</p>
+
+
+
+<%= form_with scope: :comment, url: photo_comments_path(@photo), local: true do |form| %>
+
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment%>
+  </p>
+
+  <%= form.hidden_field :photo_id, :value => @photo.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <% end %>
+  
+
+
+
+
+
+
+

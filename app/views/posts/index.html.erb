@@ -1,0 +1,13 @@
+<h1>
+	Index Page!
+</h1>
+
+<% @posts.each do |post| %>
+	<div>
+		<div><%= post.title %></div>
+		<div><%= post.caption %></div>
+		<%= image_tag(post.photo_url)%>
+		<div><%= link_to 'Show', post_path(post) %></div>
+		<div><%= link_to 'Edit', edit_post_path(post) %></div>
+	</div>
+<% end %>

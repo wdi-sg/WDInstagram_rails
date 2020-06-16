@@ -1,0 +1,21 @@
+
+<div class="show row">
+	<div class="cover col-md-4">  </div>
+
+	<div class="col-sm-8">
+		<img class="thumbnail" src="<%= @post.photo_url %>"/>
+		<h3 class="post-title"> <%= @post.title %> </h3>
+		<p class="post-author_name"> <%= @post.author_name %> </p>
+
+		<!--
+		TODO: Loop through each post and display each one with this HTML
+
+		<div class="post row">
+			<div class="author_name col-md-8">  </div>
+			<div class="timestamp col-md-4">  min</div>
+		</div>
+		-->
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<%= link_to 'New post', new_post_path %>
+<div class="row">
+
+
+  <% @posts.each do |post| %>
+    <div class="thumbnail">
+    	<img src="<%= post.photo_url %>"/>
+    	<div class="caption">
+    		<h3><%= post.author_name %></h3>
+      <p><%= post.title %></p>
+      <p><%= post.timestamps %></p>
+
+    </div>
+      <button><%= link_to 'Show', post_path(post) %></button>
+      <button><%= link_to 'Edit', edit_post_path(post) %></button>
+      <button><%= link_to 'Destroy', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></button>
+    </div>
+  <% end %>
+
+
+
+
+
+
+</div>

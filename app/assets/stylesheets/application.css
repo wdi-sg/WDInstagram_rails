@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+h2, h4 {
+	text-align: center;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 2px solid red;
+}
+
+.post-container {
+	border: 2px solid grey;
+	width: 400px;
+	height: 500px;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+.img-container img {
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+}
+
+.post-container a {
+	text-decoration: none;
+	color: black;
+}
+
+.post-container {
+  position: relative;
+  text-align: center;
+}
+
+.delete-container {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 20px;
+}

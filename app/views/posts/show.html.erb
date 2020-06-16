@@ -1,0 +1,21 @@
+<h1> TEST</h1>
+
+	<h1> <%= @posts.author_name %></h1>
+		<h3> <%= @posts.title %></h3>
+	<img src="<%= @posts.photo_url %>"/>
+			<h3> <%= @posts.caption %></h3>
+			<h3><%= @posts.tweet %> </h3>
+
+<!-- 		<iframe width="600" height="315" src="<%= @posts.video_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ -->
+
+
+	<button> <%= link_to "Home", root_path %> </button>
+	<button> <%= link_to 'Destroy', post_path(@posts),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %> </button>
+
+	<button> <%= link_to 'Edit', "/posts/#{@posts.id}/edit" %>  </button>
+
+
+<!-- 	 "/posts/#{@posts.id}/edit" -->

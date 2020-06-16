@@ -1,0 +1,16 @@
+<%= form_with scope: :photo, model: @photo, url: photo_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  <%= link_to 'Back', photo_path %>
+<% end %>

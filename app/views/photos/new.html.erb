@@ -1,0 +1,15 @@
+<%= form_with scope: :photo, url: photos_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.text_area :photo_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

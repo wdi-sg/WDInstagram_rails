@@ -1,0 +1,37 @@
+<h1>show</h1>
+
+<h3><%= @photo.name %></H3>
+
+<%= image_tag @photo.photo_url %>
+
+<%= link_to 'Home', photos_path %>
+<%= link_to 'Edit', edit_photo_path %>
+
+<h3>Comments</h3>
+
+<% @comment.each do |comment|%>
+	<li><%= comment.name %>:
+			<%= comment.comment %>
+	</li>
+<%end%>
+
+<h3>Add comment</h3>
+<%= form_with scope: :comment, url: photo_comments_path(@photo), local: true do |form| %>
+
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+
+    <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+
+  <%= form.hidden_field :photo_id, :value => @photo.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

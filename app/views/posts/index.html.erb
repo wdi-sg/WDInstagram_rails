@@ -1,0 +1,26 @@
+<h1>hello world</h1>
+
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Photo_url</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |posts| %>
+    <tr>
+      <td><%= posts.author %></td>
+      <td><%= posts.photo_url %></td>
+      <td><%= posts.caption %></td>
+      <td><%= link_to 'Show', post_path(posts) %></td>
+      <td><%= link_to 'Edit', edit_post_path(posts) %></td>
+      <td><%= link_to 'Destroy', post_path(posts),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New post', new_post_path %>

@@ -1,0 +1,26 @@
+<h1>Listing Posts</h1>
+
+<%= link_to 'Create New Post', new_post_path %>
+<hr>
+<body align="center">
+    <% @posts.each do |post| %>
+        <div align="center">
+            <br>
+            <h3><%= post.title %></h3>
+            <img src=<%= post.photo_url %> height="500px" width="500px">
+            <h4>posted by:<%= post.author_name %></h4>
+            <%= link_to 'Show', post_path(post) %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post_path(post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+            <br>
+            <hr>
+        </div>
+    <% end %>
+</body>
+
+
+
+
+

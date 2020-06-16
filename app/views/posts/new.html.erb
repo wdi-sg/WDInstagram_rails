@@ -1,0 +1,22 @@
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <label>Author Name</label><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <label>Photo URL</label><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+ 		<label>Caption</label><br>
+ 		<%= form.text_area :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

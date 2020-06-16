@@ -1,0 +1,27 @@
+<h1> WDInstagram </h1>
+
+<%= link_to 'Add New Photo', new_post_path %>
+
+<% @posts.each do |post| %>
+<div>
+	<div>
+		<h4>@<%= post.author_name %></h4>
+	</div>
+
+	<div>
+		<img src= <%= post.photo_url %> alt="photo" height="200" width="200">
+	</div>
+
+	<div>
+		<div> <%= post.caption %> </div>
+	</div>
+
+	<div>
+		<%= link_to 'Show', post_path(post) %>
+		<%= link_to 'Edit', edit_post_path(post) %>
+		<%= link_to 'Delete', post_path(post),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+	</div>
+</div>
+<% end %>

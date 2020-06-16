@@ -1,0 +1,39 @@
+<!-- <h1>hello world</h1> -->
+
+<%= link_to 'New instagram', new_instagram_path %>
+
+<h1>Listing Photo Feeds </h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>PhotoURL</th>
+    <th>DateTaken</th>
+    <th></th>
+  </tr>
+
+  <% @instagram.each do |instagram| %>
+    <tr>
+      <td><%= instagram.author %></td>
+      <td> <img src="<%= instagram.photo_url %>" width="200" height="100"> </td>
+       <td><%= instagram.date_taken %></td>
+      <td><%= link_to 'Show', instagram_path(instagram) %></td>
+      <td><%= link_to 'Edit', edit_instagram_path(instagram) %></td>
+      <td><%= link_to 'Destroy', instagram_path(instagram),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'My Blog', controller: 'instagrams' %>
+
+<%= form_with scope: :instagram, url: instagrams_path, local: true do |form| %>
+  ...
+<% end %>
+
+
+
+
+
+

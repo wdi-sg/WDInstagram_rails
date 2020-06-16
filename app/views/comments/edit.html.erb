@@ -1,0 +1,17 @@
+<%= form_with scope: :comment, model: @comment, local: true do |form| %>
+
+<h1>Edit comment</h1>
+
+  <p>
+  	
+    <%= form.label :Comment %><br>
+    <%= form.text_field :comment %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', comments_path %>

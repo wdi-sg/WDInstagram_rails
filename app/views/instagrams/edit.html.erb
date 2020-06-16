@@ -1,0 +1,28 @@
+<%= form_with scope: :instagram, model: @instagram, local: true do |form| %>
+
+<h1>Edit instagram</h1>
+
+  <p>
+    <%= form.label :Author %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :PhotoLink %><br>
+    <%= form.text_field :photo_url %>
+  </p>
+
+  <p>
+    <%= form.label :DateTaken %><br>
+    <%= form.text_field :date_taken %>
+  </p>
+
+  <p>
+
+    <%= form.submit %>
+
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', instagrams_path %>

@@ -1,0 +1,40 @@
+<p>
+  <strong>Author:</strong>
+  <%= @instagram.author %>
+</p>
+
+<p>
+  <strong>Photo URL:</strong>
+  <img src="<%=@instagram.photo_url %>" width="200" height="100"> 
+</p>
+
+<p>
+  <strong>Date Taken:</strong>
+  <%= @instagram.date_taken %>
+</p>
+
+<%= link_to 'Back', instagrams_path %>
+<%= link_to 'Edit', edit_instagram_path(@instagram) %>
+
+
+<%= form_with scope: :comment, url: comments_path, local: true do |form| %>
+	<%= form.hidden_field :photo_id, :value => @instagram.id %>
+	<p>
+		<%= form.label :text %>
+		<%= form.text_area :text %>
+	</p>
+ 	<p>
+		<%= form.submit %>
+	</p>
+<% end %>
+ <% @comment.each do |comment| %>
+	<p><%= comment.text %></p>
+<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+<% end %>
+
+
+
+
+
+

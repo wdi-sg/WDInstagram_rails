@@ -1,0 +1,22 @@
+<h1>WDInstagram</h1>
+<%= link_to 'My Blog', controller: 'photos' %>
+<%= link_to 'New photo', new_photo_path %>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Photo URL</th>
+    <th></th>
+  </tr>
+
+  <% @photos.each do |photo| %>
+    <tr>
+      <td><%= photo.author_name %></td>
+      <td><%= photo.photo_url %></td>
+      <td><%= link_to 'Show', photo_path(photo) %></td>
+      <td><%= link_to 'Destroy', photo_path(photo),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

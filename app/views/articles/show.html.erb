@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @article.author %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src=<%= @article.url %> width="385px">
+</p>
+<p>
+  <strong>Updated at:</strong>
+<%= @article.updated_at %>
+</p>
+
+<%= link_to 'Back', root_path %>
+
+<%= link_to 'Edit', edit_article_path(@article) %>

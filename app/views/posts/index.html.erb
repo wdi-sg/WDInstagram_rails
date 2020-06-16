@@ -1,0 +1,23 @@
+<!-- index.html.erb is a web template -->
+<h1>"Instagram"</h1>
+
+<%= link_to 'New Post', new_post_path %>
+
+<!-- <table> -->
+  <!-- <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr> -->
+
+  <!-- iterates through each post in @posts array -->
+  <!-- @posts was created in posts_controller.rb's index action -->
+  <% @posts.each do |post| %>
+
+      <h1><%= post.author_name %></h1>
+      <img src = <%= post.photo_url %> width="200" height="100"><br>
+      <%= post.title %>
+      <%= link_to 'Show', post_path(post) %>
+
+  <% end %>
+<!-- </table>

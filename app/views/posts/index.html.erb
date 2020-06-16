@@ -1,0 +1,43 @@
+<%# <div style="margin: 20px auto;"> %>
+<%#   <form action='/'> %>
+<%#     Sort by date: <select type="text" name="order"> %>
+<%#                     <option value="asc">Ascending</option> %>
+<%#                     <option value="desc">Descending</option> %>
+<%#                   </select> %>
+<%#     <button type='submit'>Sort</button> %>
+<%#   </form> %>
+<%# </div> %>
+<div class="container" style="margin: 20px auto;">
+  Sort by date:
+  <form action='/' style="display: inline-block;">
+    <input type="hidden" name="order" value="asc">
+    <button class='bx bx-up-arrow-alt' type="submit"></button>
+  </form>
+  <form action='/' style="display: inline-block;">
+  <input type="hidden" name="order" value="desc">
+    <button class='bx bx-down-arrow-alt' type="submit"></button>
+  </form>
+</div>
+
+
+
+<div class="card-columns d-inline-block">
+  <% @posts.each do |post| %>
+    <div class="card text-center">
+      <img class="card-img-top" src=<%= post.photo_url %> alt=<%= post.title %>>
+      <div class="card-body">
+        <h3 class="card-title"><%= post.title %></h3>
+        <p class="card-text" style="color: black;"><%= post.caption %></p>
+        <%= link_to "Read More", post_path(post), :class => "btn btn-primary" %>
+      </div>
+      <div class="card-footer">
+        <div>
+          <small class="text-muted">Posted by: <%= post.author_name%></small>
+        </div>
+        <div>
+          <small class="text-muted">Last updated on <%= post.updated_at.to_s(:db) %></small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

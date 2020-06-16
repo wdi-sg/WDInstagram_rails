@@ -1,0 +1,21 @@
+<p>
+  <strong>Post ID:</strong>
+  <%= @post.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.author_name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @post.photo_url, :height => '360px', :width => '360px' %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @post.caption %>
+</p>
+
+<%= link_to 'Back', root_path %>

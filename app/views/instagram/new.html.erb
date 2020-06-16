@@ -1,0 +1,22 @@
+<%= form_with scope: :post, url: instagram_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :author_name %>
+  </p>
+
+  <p>
+    <%= form.label :photo_url %><br>
+    <%= form.label :randomly_generated_by_Giphy %><br>
+    <%= form.text_area :photo_url, :value => @img, :readonly => true %>
+  </p>
+
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', root_path %>

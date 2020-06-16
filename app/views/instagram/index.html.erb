@@ -1,0 +1,44 @@
+<h1>Listing all instagram posts</h1>
+
+<h3>Random GIF for testing purposes</h3>
+<%= image_tag @img, :height => '180px', :width => '180px'%>
+
+<table>
+  <tr>
+    <th>Post ID</th>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Caption</th>
+    <th></th>
+  </tr>
+<br>
+<%= form_tag("/", method: "get") do %>
+	<%= select_tag(:post, options_for_select([['Name Ascending', 1], ['ID Ascending', 2], ['Most recent created date', 3],['Most recent updated date', 4]])) %>
+	<%= submit_tag("Sort") %>
+<% end %>
+<!--
+<form action="/" method="get">
+  <select name="post">
+		<option value="1">Name Ascending</option>
+		<option value="2">ID Ascending</option>
+		<option value="3">Date Created Ascending</option>
+		<option value="4">Date Updated Ascending</option>
+		<input type="submit" value="Sort" />
+	</select>
+</form> -->
+
+  <% @instagram.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.author_name %></td>
+      <td><%= image_tag post.photo_url, :height => '180px', :width => '180px' %></td>
+      <td><%= post.caption %></td>
+      <td><%= link_to 'Show', post_path(post) %>
+    	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+			<td><%= link_to 'Delete', post_path(post),
+        method: :delete,
+	      data: { confirm: 'Are you sure? Click OK to proceed with the deletion or cancel to abort and close the menu' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New post', new_post_path %>
